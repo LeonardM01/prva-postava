@@ -45,7 +45,7 @@ export default defineConfig([
     languageOptions: {
       globals: { ...globals.browser, ...globals.node },
       parserOptions: {
-        projectService: { allowDefaultProject: ['prettier.config.js'] },
+        projectService: { allowDefaultProject: ['*.js', '*.mjs'] },
         tsconfigRootDir: import.meta.dirname,
       },
     },
@@ -120,6 +120,14 @@ export default defineConfig([
           message: 'Use a union of string literals or an `as const` object instead of an enum.',
           selector: 'TSEnumDeclaration',
         },
+        {
+          message: 'Read environment variables through `env` from `#/env`.',
+          selector: "MemberExpression[object.type='MetaProperty'][property.name='env']",
+        },
+        {
+          message: 'Read environment variables through `env` from `#/env`.',
+          selector: "MemberExpression[object.name='process'][property.name='env']",
+        },
       ],
 
       // Unicorn: drop the rules that fight React / TypeScript idioms
@@ -181,6 +189,19 @@ export default defineConfig([
   {
     files: ['*.config.{ts,js}'],
     rules: { 'import-x/no-default-export': 'off' },
+  },
+
+  // These files run outside the app and are the ones allowed to read
+  // process.env / import.meta.env directly (env.ts defines the schema itself).
+  {
+    files: [
+      'src/env.ts',
+      '*.config.{ts,js}',
+      'playwright.config.ts',
+      'vitest.config.ts',
+      'vite.config.ts',
+    ],
+    rules: { 'no-restricted-syntax': 'off' },
   },
 
   // Unit tests

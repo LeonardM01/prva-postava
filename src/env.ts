@@ -9,5 +9,6 @@ export const env = createEnv({
   clientPrefix: 'VITE_',
   emptyStringAsUndefined: true,
   runtimeEnv: import.meta.env,
+  // Server-only variables cannot come from import.meta.env (Vite only exposes VITE_*). When the first one is needed, switch runtimeEnv to merge process.env.
   server: {},
 })
