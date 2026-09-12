@@ -1,55 +1,43 @@
-import {
-  HeadContent,
-  Scripts,
-  createRootRouteWithContext,
-} from '@tanstack/react-router'
-import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 import { TanStackDevtools } from '@tanstack/react-devtools'
-import Footer from '../components/Footer'
-import Header from '../components/Header'
+import { type QueryClient } from '@tanstack/react-query'
+import { createRootRouteWithContext, HeadContent, Scripts } from '@tanstack/react-router'
+import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
+import { type ReactNode } from 'react'
 
-import TanStackQueryDevtools from '../integrations/tanstack-query/devtools'
+import { Footer } from '#/components/footer'
+import { Header } from '#/components/header'
+import { PostHogProvider } from '#/integrations/posthog/provider'
+import { tanstackQueryDevtoolsPlugin } from '#/integrations/tanstack-query/devtools'
+import appCss from '#/styles.css?url'
 
-import PostHogProvider from '../integrations/posthog/provider'
-
-import appCss from '../styles.css?url'
-
-import type { QueryClient } from '@tanstack/react-query'
-
-interface MyRouterContext {
+interface RouterContext {
   queryClient: QueryClient
 }
 
+// Runs before hydration so the first paint already has the right theme class.
 const THEME_INIT_SCRIPT = `(function(){try{var stored=window.localStorage.getItem('theme');var mode=(stored==='light'||stored==='dark'||stored==='auto')?stored:'auto';var prefersDark=window.matchMedia('(prefers-color-scheme: dark)').matches;var resolved=mode==='auto'?(prefersDark?'dark':'light'):mode;var root=document.documentElement;root.classList.remove('light','dark');root.classList.add(resolved);if(mode==='auto'){root.removeAttribute('data-theme')}else{root.setAttribute('data-theme',mode)}root.style.colorScheme=resolved;}catch(e){}})();`
 
-export const Route = createRootRouteWithContext<MyRouterContext>()({
+export const Route = createRootRouteWithContext<RouterContext>()({
   head: () => ({
     meta: [
-      {
-        charSet: 'utf-8',
-      },
-      {
-        name: 'viewport',
-        content: 'width=device-width, initial-scale=1',
-      },
-      {
-        title: 'TanStack Start Starter',
-      },
+      { charSet: 'utf-8' },
+      { content: 'width=device-width, initial-scale=1', name: 'viewport' },
+      { title: 'Prva postava' },
     ],
-    links: [
-      {
-        rel: 'stylesheet',
-        href: appCss,
-      },
-    ],
+    links: [{ href: appCss, rel: 'stylesheet' }],
   }),
   shellComponent: RootDocument,
 })
 
-function RootDocument({ children }: { children: React.ReactNode }) {
+interface RootDocumentProps {
+  readonly children: ReactNode
+}
+
+function RootDocument({ children }: RootDocumentProps) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        {/* eslint-disable-next-line @eslint-react/dom-no-dangerously-set-innerhtml -- static, trusted theme bootstrap */}
         <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
         <HeadContent />
       </head>
@@ -59,15 +47,10 @@ function RootDocument({ children }: { children: React.ReactNode }) {
           {children}
           <Footer />
           <TanStackDevtools
-            config={{
-              position: 'bottom-right',
-            }}
+            config={{ position: 'bottom-right' }}
             plugins={[
-              {
-                name: 'Tanstack Router',
-                render: <TanStackRouterDevtoolsPanel />,
-              },
-              TanStackQueryDevtools,
+              { name: 'TanStack Router', render: <TanStackRouterDevtoolsPanel /> },
+              tanstackQueryDevtoolsPlugin,
             ]}
           />
         </PostHogProvider>
