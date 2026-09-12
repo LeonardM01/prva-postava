@@ -1,0 +1,16 @@
+pre-commit:
+  parallel: true
+  jobs:
+    - name: prettier
+      glob: '*.{ts,tsx,js,mjs,json,css,md,yml,yaml}'
+      run: bunx prettier --write {staged_files}
+      stage_fixed: true
+    - name: eslint
+      glob: '*.{ts,tsx,js,mjs}'
+      run: bunx eslint --fix --max-warnings=0 {staged_files}
+      stage_fixed: true
+
+pre-push:
+  jobs:
+    - name: typecheck
+      run: bun run typecheck
