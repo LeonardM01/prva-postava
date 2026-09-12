@@ -24,6 +24,7 @@ When a rule here and the linter disagree, the linter wins and this document must
 - Parse at the boundary. Anything from the network, URL, storage or env goes through a Zod schema before it becomes a typed value.
 - Use `??` not `||` for defaults. Use `===` always (`== null` is allowed).
 - Template literals may embed strings and numbers only.
+- Model variants as discriminated unions with a literal `kind`/`type` field and switch exhaustively on it.
 
 ## 3. React
 
@@ -37,12 +38,13 @@ When a rule here and the linter disagree, the linter wins and this document must
 - Lists use stable keys from data, never the array index.
 - No `dangerouslySetInnerHTML` except for static, code-owned strings, and then with an inline disable comment explaining why.
 - Prefer composition over configuration props. If a component takes more than ~7 props, split it.
+- Do not drill props more than two levels. Use composition, router context, or a small context provider instead.
 
 ## 4. TanStack Start
 
 - **Routing:** file-based routes in `src/routes`. Route files export `Route` only, plus the components they render. Keep route files thin; put real UI in `src/features/<feature>/`.
 - **Data loading:** use route `loader`s (with `context.queryClient.ensureQueryData`) for data a page needs on first render. Do not fetch in `useEffect`.
-- **Mutations and server-only code:** use `createServerFn`. Validate input with Zod via `.inputValidator`. Never import server-only modules (db, secrets) from client code; the Start ESLint plugin flags this.
+- **Mutations and server-only code:** use `createServerFn`. Validate input with Zod via `.inputValidator`. Never import server-only modules (db, secrets) from client code. Nothing enforces this yet; when `src/features/` exists, add an `import-x/no-restricted-paths` rule.
 - **Search params:** always declare `validateSearch` with a Zod schema. Read them with `Route.useSearch()`.
 - **Redirects and not-found:** `throw redirect(...)` and `throw notFound()` are the only allowed non-Error throws.
 - **TanStack Query:** query keys come from a key factory per feature (`userKeys.detail(id)`), never inline arrays. Query options live in `queryOptions()` helpers so loaders and components share them.
@@ -68,6 +70,7 @@ docs/                human and agent documentation
 - No barrel files (`index.ts` that re-exports). Import from the concrete file.
 - No circular imports (the linter checks).
 - Kebab-case file names everywhere except TanStack route conventions (`$id.tsx`, `_layout.tsx`, `__root.tsx`).
+- Named exports only. Default exports are allowed only in tool config files (`*.config.ts|js`); the linter enforces this.
 
 ## 6. Naming
 

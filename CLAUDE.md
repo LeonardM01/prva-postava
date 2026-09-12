@@ -6,7 +6,7 @@ Guide for AI agents working in this repository. Keep it short; details live in t
 
 1. Read `docs/CODING_STANDARDS.md`. The linter enforces most of it; the rest is on you.
 2. Look for an existing pattern in `src/` before inventing one.
-3. For library questions, use the Context7 MCP or `npx @tanstack/cli search-docs "<query>" --library start --framework react`. Do not rely on memory for TanStack, Vite or React APIs.
+3. For library questions, use the Context7 MCP or `bunx @tanstack/cli search-docs "<query>" --library start --framework react`. Do not rely on memory for TanStack, Vite or React APIs.
 
 ## Stack
 
@@ -26,7 +26,7 @@ TanStack Start (React 19, Vite 8, Nitro, file-based routing) on bun, deployed to
 | Everything except e2e  | `bun run check`                           |
 | Production build       | `bun run build`, then `bun run preview`   |
 | Add shadcn component   | `bunx shadcn@latest add <name>`           |
-| Add TanStack add-on    | `npx @tanstack/cli add <id>`              |
+| Add TanStack add-on    | `bunx @tanstack/cli add <id>`             |
 
 Run `bun run check` before you say a task is done. Run `bun run test:e2e` when you touched routing, layout, or anything user-visible.
 
