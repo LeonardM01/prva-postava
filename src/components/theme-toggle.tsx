@@ -45,15 +45,16 @@ function applyThemeMode(mode: ThemeMode) {
 
 const listeners = new Set<() => void>()
 
+function onMediaChange() {
+  if (readStoredMode() === 'auto') {
+    applyThemeMode('auto')
+  }
+}
+
 function subscribe(listener: () => void) {
   listeners.add(listener)
 
   const media = window.matchMedia(DARK_QUERY)
-  const onMediaChange = () => {
-    if (readStoredMode() === 'auto') {
-      applyThemeMode('auto')
-    }
-  }
   media.addEventListener('change', onMediaChange)
   window.addEventListener('storage', listener)
 
