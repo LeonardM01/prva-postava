@@ -14,8 +14,12 @@ function isThemeMode(value: unknown): value is ThemeMode {
 }
 
 function readStoredMode(): ThemeMode {
-  const stored = window.localStorage.getItem(STORAGE_KEY)
-  return isThemeMode(stored) ? stored : 'auto'
+  try {
+    const stored = window.localStorage.getItem(STORAGE_KEY)
+    return isThemeMode(stored) ? stored : 'auto'
+  } catch {
+    return 'auto'
+  }
 }
 
 function getServerMode(): ThemeMode {
@@ -56,17 +60,26 @@ function subscribe(listener: () => void) {
 
   const media = window.matchMedia(DARK_QUERY)
   media.addEventListener('change', onMediaChange)
-  window.addEventListener('storage', listener)
+
+  const onStorage = () => {
+    applyThemeMode(readStoredMode())
+    listener()
+  }
+  window.addEventListener('storage', onStorage)
 
   return () => {
     listeners.delete(listener)
     media.removeEventListener('change', onMediaChange)
-    window.removeEventListener('storage', listener)
+    window.removeEventListener('storage', onStorage)
   }
 }
 
 function setStoredMode(mode: ThemeMode) {
-  window.localStorage.setItem(STORAGE_KEY, mode)
+  try {
+    window.localStorage.setItem(STORAGE_KEY, mode)
+  } catch {
+    // Ignore storage write failures (e.g. private browsing quota); theme still applies for this tab.
+  }
   applyThemeMode(mode)
   for (const listener of listeners) {
     listener()
