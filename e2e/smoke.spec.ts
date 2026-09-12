@@ -14,5 +14,6 @@ test('home page renders its heading without console errors', async ({ page }) =>
   await page.goto('/')
 
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
+  await page.waitForLoadState('load')
   expect(errors).toEqual([])
 })

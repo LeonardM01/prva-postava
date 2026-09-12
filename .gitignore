@@ -13,7 +13,7 @@ dist-ssr
 __unconfig*
 
 # env (keep the example)
-.env
+.env*
 *.local
 !.env.example
 
