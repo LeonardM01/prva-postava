@@ -9,7 +9,7 @@ const isBrowser = typeof window !== 'undefined'
 if (isBrowser && env.VITE_POSTHOG_KEY !== undefined) {
   posthog.init(env.VITE_POSTHOG_KEY, {
     api_host: env.VITE_POSTHOG_HOST ?? 'https://us.i.posthog.com',
-    capture_pageview: false,
+    capture_pageview: 'history_change',
     defaults: '2025-11-30',
     person_profiles: 'identified_only',
   })
