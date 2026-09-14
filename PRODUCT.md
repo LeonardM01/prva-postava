@@ -22,7 +22,7 @@ Main revenue: club memberships. Secondary revenue: paid list placement for playe
 
 ## Positioning
 
-Reference point named by the founder: newskalo.hr (site was unreachable at the time of writing; nothing about it is recorded here as fact). Compared with sending recruiters to games, Prva postava lets a club filter the entire player pool by what it actually needs, for example excluding goalkeepers when none is wanted, and see statistics before any travel. Compared with generic social or CV platforms, the listing is structured around positions and statistics, and the ranking within a position is a product surface players can pay for.
+Reference point named by the founder: Njuškalo (njuskalo.hr), Croatia's largest classifieds marketplace; the founder describes Prva postava as "a marketplace like Njuškalo, except the listings are players". Sofascore is the founder's reference for a football product done well. Compared with sending recruiters to games, Prva postava lets a club filter the entire player pool by what it actually needs, for example excluding goalkeepers when none is wanted, and see statistics before any travel. Compared with generic social or CV platforms, the listing is structured around positions and statistics, and the ranking within a position is a product surface players can pay for.
 
 ## Operating Context
 
@@ -35,6 +35,8 @@ Reference point named by the founder: newskalo.hr (site was unreachable at the t
 
 Confirmed:
 
+- Sport: football only (confirmed 2026-09-14).
+- Languages: Croatian and English, both at launch, because many players in Croatia are not Croatian (confirmed 2026-09-14).
 - Player accounts with a profile and statistics.
 - Club accounts gated by paid membership.
 - Player list filterable by position (and statistics), with positions as a first-class concept.
@@ -44,9 +46,7 @@ Confirmed:
 
 Undecided (record, do not invent):
 
-- Sport. Position examples (goalkeeper, left wing) suggest football but this was not confirmed.
 - Which statistics a player can publish and how they are verified.
-- Target market and language(s). The name is Croatian and the reference site is a .hr domain, but no market or language was confirmed.
 - Membership pricing and tiers, and promotion pricing or duration.
 - How clubs contact players once found.
 - Payment provider.

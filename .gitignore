@@ -36,3 +36,6 @@ todos.json
 .impeccable/
 # impeccable engine binary (16 MB, per-platform; the launcher re-downloads it on first run)
 .claude/skills/impeccable/scripts/bin/
+
+# Playwright MCP scratch output
+.playwright-mcp/
