@@ -1,5 +1,7 @@
 # Prva postava
 
+[![CI](https://github.com/LeonardM01/prva-postava/actions/workflows/ci.yml/badge.svg)](https://github.com/LeonardM01/prva-postava/actions/workflows/ci.yml)
+
 TanStack Start application. See `CLAUDE.md` for the agent guide and `docs/CODING_STANDARDS.md` for conventions.
 
 ## Getting started
