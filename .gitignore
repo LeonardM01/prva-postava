@@ -31,3 +31,8 @@ coverage
 # misc
 .DS_Store
 todos.json
+
+# impeccable local state, never committed
+.impeccable/
+# impeccable engine binary (16 MB, per-platform; the launcher re-downloads it on first run)
+.claude/skills/impeccable/scripts/bin/

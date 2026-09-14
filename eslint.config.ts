@@ -35,6 +35,9 @@ export default defineConfig([
     'test-results/**',
     'coverage/**',
     '.docs/**',
+    // vendored agent skills (installed by `npx impeccable install`)
+    '.claude/skills/**',
+    '.claude/agents/**',
   ]),
 
   // Core + TypeScript (type-aware)
