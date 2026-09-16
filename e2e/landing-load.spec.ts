@@ -93,6 +93,9 @@ test('after the cascade the hero rests exactly where the page without animations
   // Optional fonts apply only when they beat first paint, which two loads under test load do
   // not agree on. Both loads use the fallback fonts, so only the motion can move the hero.
   await page.route('**/*.woff2', (route) => route.abort())
+  // The cascade plays with reduced motion too, but the position tour does not, so no chip is
+  // lifted or dimmed while the hero is measured.
+  await page.emulateMedia({ reducedMotion: 'reduce' })
   await recordLoadMotion(page)
   await page.goto('/')
   await waitForLoadMotionToSettle(page)

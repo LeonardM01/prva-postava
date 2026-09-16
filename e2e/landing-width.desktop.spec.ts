@@ -5,7 +5,8 @@ const DESIGN_WIDTH = 1440
 const GUTTER = 64
 const WIDE_SCREEN = { width: 2560, height: 1440 }
 
-test.use({ viewport: WIDE_SCREEN })
+// Reduced motion keeps the position tour from renaming the board while it is measured.
+test.use({ viewport: WIDE_SCREEN, reducedMotion: 'reduce' })
 
 async function measure(locator: Locator) {
   const box = await locator.boundingBox()
