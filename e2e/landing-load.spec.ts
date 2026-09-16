@@ -111,9 +111,7 @@ test('the cascade plays even when the visitor prefers reduced motion', async ({ 
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
 })
 
-test('the cascade causes no layout shift', async ({ page }) => {
-  // Web fonts swapping in shift the text on their own; without them any shift is the page's.
-  await page.route(/\.woff2$/, (route) => route.abort())
+test('neither the cascade nor the web fonts shift the layout', async ({ page }) => {
   await recordLoadMotion(page)
   await page.goto('/')
   await waitForLoadMotionToSettle(page)
