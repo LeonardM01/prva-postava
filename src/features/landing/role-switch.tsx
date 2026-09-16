@@ -43,13 +43,11 @@ const optionVariants = cva(
   },
 )
 
-export type RoleSwitchTone = 'band' | 'paper'
-
 interface RoleSwitchProps {
   /**
    * `paper` sits on the light page, `band` on the dark CTA band.
    */
-  readonly tone: RoleSwitchTone
+  readonly tone: 'band' | 'paper'
 }
 
 /**

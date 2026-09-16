@@ -67,7 +67,7 @@ test('switching role stops the tour', async ({ page }) => {
   await expect(getBoard(page, 'Goalkeepers')).toBeVisible()
 
   await page
-    .getByRole('region', { name: 'Get in the lineup.' })
+    .getByRole('region', { name: 'Find your next signing in one evening.' })
     .getByRole('button', { name: "I'm a player" })
     .click()
   await runForStops(page, TOUR_STOPS)

@@ -9,15 +9,16 @@ import { RoleSwitch } from './role-switch'
 import { type LandingStrings } from './strings'
 import { useLandingLanguage } from './use-landing-language'
 
+// An invalid address outranks a failed send: the visitor has to fix the address first.
 function pickMessage(
-  strings: LandingStrings,
+  copy: LandingStrings['cta'],
   isEmailInvalid: boolean,
   hasSubmitFailed: boolean,
 ): null | string {
   if (isEmailInvalid) {
-    return strings.cta.emailError
+    return copy.emailError
   }
-  return hasSubmitFailed ? strings.cta.submitFailed : null
+  return hasSubmitFailed ? copy.submitFailed : null
 }
 
 interface CtaFormProps {
@@ -69,7 +70,7 @@ export function CtaForm({ onJoined }: CtaFormProps) {
       <form.Field name="email" validators={{ onSubmit: signupEmailSchema }}>
         {(field) => {
           const isInvalid = field.state.meta.errors.length > 0
-          const message = pickMessage(strings, isInvalid, hasSubmitFailed)
+          const message = pickMessage(strings.cta, isInvalid, hasSubmitFailed)
           return (
             <div className="relative flex flex-col gap-1.5 lg:w-80">
               <label

@@ -70,9 +70,10 @@ test('a valid address is sent once and confirmed', async ({ page }) => {
   expect(signups.sent).toHaveLength(1)
 })
 
-test('the band follows the side picked in the hero', async ({ page }) => {
+test('the band and the hero switch sides together', async ({ page }) => {
   await page.goto('/')
   const band = getBand(page)
+  const hero = page.getByRole('region').filter({ has: page.getByRole('heading', { level: 1 }) })
 
   await band.getByRole('button', { name: "I'm a player" }).click()
 
@@ -80,6 +81,14 @@ test('the band follows the side picked in the hero', async ({ page }) => {
     "Get in front of every club that's searching.",
   )
   await expect(band.getByRole('button', { name: 'List yourself, free' })).toBeVisible()
+
+  await hero.getByRole('button', { name: 'I scout for a club' }).click()
+
+  await expect(band.getByRole('button', { name: 'I scout for a club' })).toHaveAttribute(
+    'aria-pressed',
+    'true',
+  )
+  await expect(band.getByRole('button', { name: 'Search players by position' })).toBeVisible()
 })
 
 test('the hero button lands on the band', async ({ page }) => {
