@@ -99,6 +99,11 @@
   }
 
   body {
-    @apply bg-background font-sans text-foreground tabular-nums antialiased;
+    @apply bg-background font-sans text-foreground tabular-nums antialiased caret-signal;
+  }
+
+  /* Designed focus ring. shadcn primitives set `outline-none` and draw their own ring. */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-signal;
   }
 }

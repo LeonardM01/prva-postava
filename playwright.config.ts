@@ -18,8 +18,17 @@ export default defineConfig({
     trace: 'on-first-retry',
   },
   projects: [
-    { name: 'chromium', use: { ...devices['Desktop Chrome'] } },
-    { name: 'mobile-chrome', use: { ...devices['Pixel 7'] } },
+    // `*.desktop.spec.ts` and `*.mobile.spec.ts` cover layouts that only exist at one width.
+    {
+      name: 'chromium',
+      testIgnore: /\.mobile\.spec\.ts$/,
+      use: { ...devices['Desktop Chrome'] },
+    },
+    {
+      name: 'mobile-chrome',
+      testIgnore: /\.desktop\.spec\.ts$/,
+      use: { ...devices['Pixel 7'] },
+    },
   ],
   webServer: {
     command: `bun run preview --port ${PORT} --strictPort`,
