@@ -1,15 +1,14 @@
 import { TanStackDevtools } from '@tanstack/react-devtools'
 import { type QueryClient } from '@tanstack/react-query'
-import { createRootRouteWithContext, HeadContent, Scripts } from '@tanstack/react-router'
+import { createRootRouteWithContext, HeadContent, Scripts, useSearch } from '@tanstack/react-router'
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 import { type ReactNode } from 'react'
 
-import { Footer } from '#/components/footer'
-import { Header } from '#/components/header'
 import { NotFound } from '#/components/not-found'
 import { RouteError } from '#/components/route-error'
 import { PostHogProvider } from '#/integrations/posthog/provider'
 import { tanstackQueryDevtoolsPlugin } from '#/integrations/tanstack-query/devtools'
+import { parseLanguage } from '#/lib/language'
 import appCss from '#/styles.css?url'
 
 interface RouterContext {
@@ -35,16 +34,17 @@ interface RootDocumentProps {
 }
 
 function RootDocument({ children }: RootDocumentProps) {
+  // Not every route declares `lang` (not-found does not), so read it loosely and parse it.
+  const language = useSearch({ strict: false, select: (search) => parseLanguage(search.lang) })
+
   return (
-    <html lang="en">
+    <html lang={language}>
       <head>
         <HeadContent />
       </head>
       <body className="[overflow-wrap:anywhere] selection:bg-tint selection:text-ink">
         <PostHogProvider>
-          <Header />
           {children}
-          <Footer />
           <TanStackDevtools
             config={{ position: 'bottom-right' }}
             plugins={[
