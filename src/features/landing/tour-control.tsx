@@ -18,16 +18,16 @@ const tourControlVariants = cva(
 )
 
 interface TourControlProps {
+  // Whether pressing the control resumes the tour rather than pausing it.
   readonly isPaused: boolean
-  readonly onPause: () => void
-  readonly onResume: () => void
+  readonly onPress: () => void
   readonly ref: Ref<HTMLButtonElement>
 }
 
 /**
  * Stops and restarts the position tour (WCAG 2.2.2). Its label says what pressing it does.
  */
-export function TourControl({ isPaused, onPause, onResume, ref }: TourControlProps) {
+export function TourControl({ isPaused, onPress, ref }: TourControlProps) {
   const { strings } = useLandingLanguage()
 
   return (
@@ -36,11 +36,7 @@ export function TourControl({ isPaused, onPause, onResume, ref }: TourControlPro
       type="button"
       className={tourControlVariants({ isPaused })}
       onClick={() => {
-        if (isPaused) {
-          onResume()
-        } else {
-          onPause()
-        }
+        onPress()
       }}
     >
       {isPaused ? <PlayIcon /> : <PauseIcon />}

@@ -1,7 +1,5 @@
 import { useLandingLanguage } from './use-landing-language'
-import { type TourStop } from './use-position-tour'
-
-const CAPTION_STOPS = ['all', 'GK', 'DEF', 'MID', 'FWD'] as const satisfies readonly TourStop[]
+import { TOUR_LOOP, type TourStop } from './use-position-tour'
 
 interface BoardCaptionProps {
   readonly highlight: TourStop
@@ -18,7 +16,7 @@ export function BoardCaption({ highlight, id }: BoardCaptionProps) {
 
   return (
     <span id={id} className="grid">
-      {CAPTION_STOPS.map((stop) => (
+      {TOUR_LOOP.map((stop) => (
         <span
           key={stop}
           aria-hidden={stop !== highlight}

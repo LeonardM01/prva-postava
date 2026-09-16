@@ -4,12 +4,13 @@ import { type PlayerLine } from './sample-players'
 
 export type TourStop = 'all' | PlayerLine
 
-export type TourStatus = 'finished' | 'off' | 'paused' | 'playing'
-
-const ONE_LOOP = ['GK', 'DEF', 'MID', 'FWD', 'all'] as const satisfies readonly TourStop[]
+export const TOUR_LOOP = ['GK', 'DEF', 'MID', 'FWD', 'all'] as const satisfies readonly TourStop[]
 
 // The board opens on every position, then runs the loop twice and rests on the last stop.
-const TOUR_STOPS: readonly TourStop[] = ['all', ...ONE_LOOP, ...ONE_LOOP]
+const TOUR_STOPS: readonly TourStop[] = ['all', ...TOUR_LOOP, ...TOUR_LOOP]
+const LAST_STOP_INDEX = TOUR_STOPS.length - 1
+// Going again skips the opening stop: the board already shows every position.
+const REPLAY_STOP_INDEX = 1
 
 // The load cascade ends when the promoted tag lands (600 ms delay plus 320 ms, see styles.css).
 const LOAD_CASCADE_MS = 920
@@ -47,18 +48,40 @@ function isPageInteraction(event: Event): boolean {
   return event.target.closest(selector) !== null
 }
 
-interface PositionTour {
+interface TourOff {
+  readonly highlight: 'all'
+  readonly status: 'off'
+}
+
+interface TourPlaying {
   readonly highlight: TourStop
   readonly pause: () => void
+  readonly status: 'playing'
+}
+
+// Paused mid-tour, or finished and resting on every position. Resuming a finished tour replays it.
+interface TourStopped {
+  readonly highlight: TourStop
   readonly resume: () => void
-  readonly status: TourStatus
+  readonly status: 'finished' | 'paused'
+}
+
+export type PositionTour = TourOff | TourPlaying | TourStopped
+
+function stopAt(index: number): TourStop {
+  const stop = TOUR_STOPS[index]
+  if (stop === undefined) {
+    throw new Error(`The position tour has no stop ${String(index)}`)
+  }
+  return stop
 }
 
 /**
  * The board's position tour. It waits for the load cascade, highlights one line after another
  * for two loops and rests on every position. Pausing is sticky: pointer-over the board, the
  * control, or any click or form focus elsewhere on the page stops it until it is resumed.
- * With reduced motion it is `off` and stays on every position. `controlRef` is the tour
+ * Resuming once it has finished plays it again. With reduced motion it is `off` and stays on
+ * every position. `controlRef` is the tour
  * control, whose own clicks do not count as interacting with the page.
  */
 export function usePositionTour(controlRef: RefObject<HTMLElement | null>): PositionTour {
@@ -67,6 +90,7 @@ export function usePositionTour(controlRef: RefObject<HTMLElement | null>): Posi
   const [isPaused, setIsPaused] = useState(false)
 
   const status = resolveStatus({ canTour, isPaused, stopIndex })
+  const highlight = stopAt(stopIndex)
 
   useEffect(() => {
     if (status !== 'playing') {
@@ -104,15 +128,32 @@ export function usePositionTour(controlRef: RefObject<HTMLElement | null>): Posi
     }
   }, [controlRef, status])
 
-  return {
-    highlight: canTour ? (TOUR_STOPS[stopIndex] ?? 'all') : 'all',
-    status,
-    pause: () => {
-      setIsPaused(true)
-    },
-    resume: () => {
-      setIsPaused(false)
-    },
+  switch (status) {
+    case 'off': {
+      return { status, highlight: 'all' }
+    }
+    case 'playing': {
+      return {
+        status,
+        highlight,
+        pause: () => {
+          setIsPaused(true)
+        },
+      }
+    }
+    case 'finished':
+    case 'paused': {
+      return {
+        status,
+        highlight,
+        resume: () => {
+          setIsPaused(false)
+          if (status === 'finished') {
+            setStopIndex(REPLAY_STOP_INDEX)
+          }
+        },
+      }
+    }
   }
 }
 
@@ -122,11 +163,11 @@ interface TourState {
   readonly stopIndex: number
 }
 
-function resolveStatus({ canTour, isPaused, stopIndex }: TourState): TourStatus {
+function resolveStatus({ canTour, isPaused, stopIndex }: TourState): PositionTour['status'] {
   if (!canTour) {
     return 'off'
   }
-  if (stopIndex >= TOUR_STOPS.length - 1) {
+  if (stopIndex === LAST_STOP_INDEX) {
     return 'finished'
   }
   return isPaused ? 'paused' : 'playing'

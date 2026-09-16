@@ -45,7 +45,7 @@ test('the board tours the lines until the visitor pauses it', async ({ page }) =
   await expect(getBoard(page, 'Midfielders')).toBeVisible()
 })
 
-test('the tour runs two loops and rests on every position', async ({ page }) => {
+test('the tour runs two loops, rests on every position and can go again', async ({ page }) => {
   await openLanding(page)
   await page.clock.runFor(FIRST_STOP_MS)
 
@@ -54,8 +54,11 @@ test('the tour runs two loops and rests on every position', async ({ page }) => 
     await page.clock.runFor(STOP_MS)
   }
 
+  await runForStops(page, TOUR_STOPS)
   await expect(getBoard(page, EVERY_POSITION)).toBeVisible()
-  await expect(page.getByRole('button', { name: /tour$/ })).toHaveCount(0)
+
+  await page.getByRole('button', { name: 'Resume tour' }).click()
+  await expect(getBoard(page, 'Goalkeepers')).toBeVisible()
 })
 
 test('pointing at the board pauses the tour', async ({ page }) => {

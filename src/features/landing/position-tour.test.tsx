@@ -4,11 +4,12 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { renderLandingPage } from './render-landing-page'
 
-// The load cascade takes about 0.9 s, then the board dwells 1.8 s on every position.
+// The load cascade takes about 0.9 s and the board holds "Every position" for 1.8 s more; each
+// later stop shows for 1.4 s.
 const FIRST_STOP_MS = 2720
 const STOP_MS = 1400
 
-const ONE_LOOP = [
+const ONE_LOOP_CAPTIONS = [
   'Goalkeepers',
   'Defenders',
   'Midfielders',
@@ -52,20 +53,24 @@ describe('position tour', () => {
     vi.restoreAllMocks()
   })
 
-  it('tours the lines twice, then rests on every position', async () => {
+  it('tours the lines twice, then rests on every position until asked to go again', async () => {
+    const user = setUpUser()
     await renderLandingPage()
     expect(getBoard('Every position on one board')).toBeVisible()
 
     advanceBy(FIRST_STOP_MS)
     expect(getBoard('Goalkeepers')).toBeVisible()
-    for (const caption of [...ONE_LOOP.slice(1), ...ONE_LOOP]) {
+    for (const caption of [...ONE_LOOP_CAPTIONS.slice(1), ...ONE_LOOP_CAPTIONS]) {
       advanceBy(STOP_MS)
       expect(getBoard(caption)).toBeVisible()
     }
 
     advanceBy(STOP_MS * 10)
     expect(getBoard('Every position on one board')).toBeVisible()
-    expect(screen.queryByRole('button', { name: /tour$/ })).not.toBeInTheDocument()
+
+    await user.click(screen.getByRole('button', { name: 'Resume tour' }))
+    expect(getBoard('Goalkeepers')).toBeVisible()
+    expect(screen.getByRole('button', { name: 'Pause tour' })).toBeVisible()
   })
 
   it('stops on the current line when paused and carries on when resumed', async () => {
@@ -94,6 +99,21 @@ describe('position tour', () => {
 
     expect(getBoard('Goalkeepers')).toBeVisible()
     expect(screen.getByRole('button', { name: 'Resume tour' })).toBeVisible()
+  })
+
+  it('keeps touring when a finger lands on the board', async () => {
+    const user = setUpUser()
+    await renderLandingPage()
+    advanceBy(FIRST_STOP_MS)
+
+    await user.pointer({
+      keys: '[TouchA>]',
+      target: within(getBoard('Goalkeepers')).getByRole('list'),
+    })
+    advanceBy(STOP_MS)
+
+    expect(getBoard('Defenders')).toBeVisible()
+    expect(screen.getByRole('button', { name: 'Pause tour' })).toBeVisible()
   })
 
   it('pauses when the visitor switches role', async () => {

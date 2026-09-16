@@ -39,21 +39,25 @@ export function TacticsBoard() {
     >
       <figcaption className="flex min-h-11.25 animate-copy-rise items-center gap-3 text-[15px] leading-[normal] font-semibold text-ink board:min-h-6.75">
         <BoardCaption id={captionId} highlight={tour.highlight} />
-        {tour.status === 'playing' || tour.status === 'paused' ? (
+        {tour.status === 'off' ? null : (
           <TourControl
             ref={tourControlRef}
-            isPaused={tour.status === 'paused'}
-            onPause={tour.pause}
-            onResume={tour.resume}
+            isPaused={tour.status !== 'playing'}
+            onPress={tour.status === 'playing' ? tour.pause : tour.resume}
           />
-        ) : null}
+        )}
       </figcaption>
       <p className="row-start-3 text-xs leading-[normal] text-muted board:col-start-2 board:row-start-1 board:self-center board:text-[13px]">
         {strings.board.sampleNote}
       </p>
       <div
         className="@container relative row-start-2 aspect-350/470 overflow-clip rounded-[16px] bg-signal-deep board:col-span-2 board:aspect-736/540 board:rounded-[20px]"
-        onPointerEnter={tour.pause}
+        onPointerEnter={(event) => {
+          // A finger landing on the board is usually the start of a scroll, not a look.
+          if (tour.status === 'playing' && event.pointerType !== 'touch') {
+            tour.pause()
+          }
+        }}
       >
         {/* The glow is a circle centred on the pitch: 420 px on the 350 px board, 620 px on the 736 px one. */}
         <div className="absolute top-1/2 left-1/2 aspect-square w-[120%] -translate-1/2 rounded-full bg-[radial-gradient(closest-side,var(--board-glow),transparent)] opacity-90 board:w-155" />
