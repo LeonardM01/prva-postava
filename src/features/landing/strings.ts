@@ -34,6 +34,29 @@ const en = {
       note: 'Publish your profile and statistics at no cost.',
     },
   },
+  board: {
+    caption: 'Every position on one board',
+    sampleNote: 'Sample players, not real listings',
+    promotedIn: 'Promoted in',
+    promoted: 'promoted',
+    age: 'age',
+    units: {
+      goals: 'goals',
+      assists: 'assists',
+      matches: 'matches',
+      cleanSheets: 'clean sheets',
+    },
+  },
+  positions: {
+    GK: { short: 'GK', name: 'Goalkeeper' },
+    LB: { short: 'LB', name: 'Left back' },
+    CB: { short: 'CB', name: 'Centre back' },
+    RB: { short: 'RB', name: 'Right back' },
+    CM: { short: 'CM', name: 'Central midfielder' },
+    LW: { short: 'LW', name: 'Left wing' },
+    ST: { short: 'ST', name: 'Striker' },
+    RW: { short: 'RW', name: 'Right wing' },
+  },
   footer: {
     label: 'Footer',
     privacy: 'Privacy',
@@ -79,6 +102,31 @@ const hr: LandingStrings = {
       cta: 'Oglasi se besplatno',
       note: 'Profil i statistiku objavljuješ bez naknade.',
     },
+  },
+  board: {
+    caption: 'Svaka pozicija na jednoj ploči',
+    sampleNote: 'Primjeri igrača, nisu pravi oglasi',
+    promotedIn: 'Promoviran u',
+    promoted: 'promoviran',
+    age: 'dob',
+    units: {
+      goals: 'golovi',
+      assists: 'asistencije',
+      matches: 'utakmice',
+      cleanSheets: 'čista mreža',
+    },
+  },
+  // Only LK (lijevo krilo) is in the Figma copy deck. The other abbreviations and the
+  // position names are translated in code for this build. Needs Leonard's review before launch.
+  positions: {
+    GK: { short: 'VR', name: 'Vratar' },
+    LB: { short: 'LB', name: 'Lijevi bek' },
+    CB: { short: 'SB', name: 'Središnji branič' },
+    RB: { short: 'DB', name: 'Desni bek' },
+    CM: { short: 'SV', name: 'Središnji vezni' },
+    LW: { short: 'LK', name: 'Lijevo krilo' },
+    ST: { short: 'NA', name: 'Napadač' },
+    RW: { short: 'DK', name: 'Desno krilo' },
   },
   footer: {
     label: 'Podnožje',
