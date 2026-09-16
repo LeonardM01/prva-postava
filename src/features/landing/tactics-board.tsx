@@ -32,7 +32,7 @@ export function TacticsBoard() {
     >
       <figcaption
         id={captionId}
-        className="flex min-h-11.25 items-center text-[15px] leading-[normal] font-semibold text-ink motion-safe:animate-copy-rise board:min-h-6.75"
+        className="flex min-h-11.25 animate-copy-rise items-center text-[15px] leading-[normal] font-semibold text-ink board:min-h-6.75"
       >
         {strings.board.caption}
       </figcaption>

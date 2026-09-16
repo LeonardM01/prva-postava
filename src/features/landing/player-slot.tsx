@@ -52,7 +52,7 @@ export function PlayerSlot({ cascadeIndex, player }: PlayerSlotProps) {
     <div
       data-line={LINE_BY_POSITION[player.position]}
       style={toSlotStyle(player, cascadeIndex)}
-      className="absolute top-(--compact-y) left-(--compact-x) -translate-x-1/2 [--travel-x:var(--compact-travel-x)] [--travel-y:var(--compact-travel-y)] motion-safe:animate-chip-travel board:top-(--full-y) board:left-(--full-x) board:[--travel-x:var(--full-travel-x)] board:[--travel-y:var(--full-travel-y)]"
+      className="absolute top-(--compact-y) left-(--compact-x) -translate-x-1/2 animate-chip-travel [--travel-x:var(--compact-travel-x)] [--travel-y:var(--compact-travel-y)] board:top-(--full-y) board:left-(--full-x) board:[--travel-x:var(--full-travel-x)] board:[--travel-y:var(--full-travel-y)]"
     >
       <div className={BOARD_LAYOUT_VISIBILITY.compact}>
         <CompactPlayerChip player={player} />
@@ -60,7 +60,7 @@ export function PlayerSlot({ cascadeIndex, player }: PlayerSlotProps) {
       <div className={cn('relative', BOARD_LAYOUT_VISIBILITY.full)}>
         <PlayerChip player={player} />
         {player.isPromoted ? (
-          <span className="absolute -top-2.75 right-px motion-safe:animate-tag-land">
+          <span className="absolute -top-2.75 right-px animate-tag-land">
             <PromotedTag
               label={`${strings.board.promotedIn} ${strings.positions[player.position].short}`}
             />

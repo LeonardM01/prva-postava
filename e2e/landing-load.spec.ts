@@ -87,7 +87,7 @@ test('the load cascade plays once and settles within about a second', async ({ p
   expect(Math.max(...ends) - Math.min(...starts)).toBeLessThan(1100)
 })
 
-test('after the cascade the hero rests exactly where the reduced-motion page puts it', async ({
+test('after the cascade the hero rests exactly where the page without animations puts it', async ({
   page,
 }) => {
   await recordLoadMotion(page)
@@ -95,25 +95,20 @@ test('after the cascade the hero rests exactly where the reduced-motion page put
   await waitForLoadMotionToSettle(page)
   const animated = await measureHero(page)
 
-  await page.emulateMedia({ reducedMotion: 'reduce' })
   await page.goto('/')
+  await page.addStyleTag({ content: '*, ::before, ::after { animation: none !important; }' })
   const resting = await measureHero(page)
 
   expect(animated).toEqual(resting)
 })
 
-test('with reduced motion the page renders at rest and runs no load animation', async ({
-  page,
-}) => {
+test('the cascade plays even when the visitor prefers reduced motion', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' })
   await recordLoadMotion(page)
   await page.goto('/')
 
+  await waitForLoadMotionToSettle(page)
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
-  const runningAnimations = await page.evaluate(() => document.getAnimations().length)
-  expect(runningAnimations).toBe(0)
-  const motion = await readLoadMotion(page)
-  expect(motion.starts).toEqual([])
 })
 
 test('the cascade causes no layout shift', async ({ page }) => {

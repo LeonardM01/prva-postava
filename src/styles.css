@@ -102,8 +102,8 @@
 
 /* Load cascade, one authored moment of about 0.9 s. Every animation fills backwards only,
    so the resting state is the element's own style: nothing waits on JavaScript, and a
-   browser without CSS animations shows the finished page. The `motion-safe:` variant
-   applies them, so reduced motion renders the resting state directly. */
+   browser without CSS animations shows the finished page. It plays under reduced motion
+   too: it runs once, lasts under a second and nothing moves after it (product decision). */
 @theme {
   --ease-settle: cubic-bezier(0.16, 1, 0.3, 1);
 

@@ -61,7 +61,7 @@ export function ChalkPitch({ layout }: ChalkPitchProps) {
       viewBox={`0 0 ${width} ${height}`}
       className={cn('absolute inset-0 size-full', BOARD_LAYOUT_VISIBILITY[layout])}
     >
-      <g className="fill-none stroke-white/30 motion-safe:animate-chalk-draw" strokeWidth={STROKE}>
+      <g className="animate-chalk-draw fill-none stroke-white/30" strokeWidth={STROKE}>
         <rect
           pathLength={1}
           x={pitch.inset + HALF_STROKE}
