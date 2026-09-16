@@ -12,23 +12,49 @@ const COLUMN_CLASS = {
   player: 'col-start-2',
 } as const satisfies Record<Role, string>
 
-const optionVariants = cva(
-  'relative row-start-1 rounded-md py-3.25 text-[15px] leading-5 transition-colors duration-150 md:px-4 md:py-2.25',
-  {
-    variants: {
-      isActive: {
-        true: 'font-semibold text-ink',
-        false: 'font-medium text-muted hover:text-ink',
-      },
+// The band keeps its switch full width until its form fits on one row.
+const groupVariants = cva('grid grid-cols-2 rounded-lg p-0.75', {
+  variants: {
+    tone: {
+      paper: 'bg-tint md:w-fit md:grid-cols-[auto_auto]',
+      band: 'bg-card/12 lg:w-fit lg:shrink-0 lg:grid-cols-[auto_auto]',
     },
   },
+})
+
+const optionVariants = cva(
+  'relative row-start-1 rounded-md text-[15px] leading-5 transition-colors duration-150',
+  {
+    variants: {
+      tone: {
+        paper: 'py-3.25 md:px-4 md:py-2.25',
+        // The band's signal-green focus ring would vanish on the dark ground.
+        band: 'py-3 focus-visible:outline-card lg:px-4 lg:py-2.75',
+      },
+      isActive: {
+        true: 'font-semibold text-ink',
+        false: 'font-medium',
+      },
+    },
+    compoundVariants: [
+      { tone: 'paper', isActive: false, className: 'text-muted hover:text-ink' },
+      { tone: 'band', isActive: false, className: 'text-card' },
+    ],
+  },
 )
+
+interface RoleSwitchProps {
+  /**
+   * `paper` sits on the light page, `band` on the dark CTA band.
+   */
+  readonly tone: 'band' | 'paper'
+}
 
 /**
  * Two toggle buttons over a white pill. The pill sits in the active option's grid cell, so
  * it is in place before JavaScript runs; its <ViewTransition> slides it when the side changes.
  */
-export function RoleSwitch() {
+export function RoleSwitch({ tone }: RoleSwitchProps) {
   const { role, selectRole } = useRole()
   const { strings } = useLandingLanguage()
 
@@ -36,7 +62,7 @@ export function RoleSwitch() {
     <div
       role="group"
       aria-label={strings.hero.roleSwitch.label}
-      className="grid grid-cols-2 rounded-lg bg-tint p-0.75 md:w-fit md:grid-cols-[auto_auto]"
+      className={groupVariants({ tone })}
     >
       <ViewTransition default="role-shape">
         <span
@@ -55,7 +81,7 @@ export function RoleSwitch() {
             <button
               type="button"
               aria-pressed={isActive}
-              className={cn(optionVariants({ isActive }), COLUMN_CLASS[option])}
+              className={cn(optionVariants({ tone, isActive }), COLUMN_CLASS[option])}
               onClick={() => {
                 if (!isActive) {
                   selectRole(option)

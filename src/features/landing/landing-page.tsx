@@ -1,4 +1,5 @@
 import { ClubsSection } from './clubs-section'
+import { CtaBand } from './cta-band'
 import { LandingFooter } from './landing-footer'
 import { LandingHero } from './landing-hero'
 import { LandingNav } from './landing-nav'
@@ -13,6 +14,7 @@ export function LandingPage() {
         <LandingHero />
         <ClubsSection />
         <PlayersSection />
+        <CtaBand />
       </main>
       <LandingFooter />
     </RoleProvider>

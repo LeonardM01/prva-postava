@@ -117,6 +117,25 @@ const en = {
     seenByClubs: 'Seen by clubs this week',
     promote: 'Promote me to the top of LW',
   },
+  cta: {
+    headline: 'Get in the lineup.',
+    body: 'Pick a side and leave an email. Players list for free; clubs get the pool once their membership is active.',
+    emailLabel: 'Email',
+    emailPlaceholder: 'name@club.hr',
+    emailError: 'Enter an email address like name@club.hr',
+    sending: 'Sending…',
+    // Not in the copy deck: shown when the server cannot be reached. Like the field error, it
+    // names the fix. Needs Leonard's review.
+    submitFailed: "Your email didn't reach us. Try again.",
+    successTitle: "You're on the list.",
+    // `{email}` is replaced with the address the visitor left. The player line is not in the
+    // copy deck. Needs Leonard's review before launch.
+    successBody: {
+      club: "We'll write to {email} to finish your club account.",
+      player:
+        "We'll write to {email} to finish the profile clubs see when they search your position.",
+    },
+  },
   footer: {
     label: 'Footer',
     privacy: 'Privacy',
@@ -248,6 +267,23 @@ const hr: LandingStrings = {
     },
     seenByClubs: 'Klubovi su pogledali ovaj tjedan',
     promote: 'Promoviraj me na vrh liste LK',
+  },
+  cta: {
+    headline: 'Uđi u prvu postavu.',
+    body: 'Odaberi stranu i ostavi e-mail. Igrači se oglašavaju besplatno; klubovi dobivaju bazu kad im članarina bude aktivna.',
+    emailLabel: 'E-mail',
+    emailPlaceholder: 'ime@klub.hr',
+    // Only the heading, body, label and placeholder are in the copy deck. The form states are
+    // translated in code for this build. Needs Leonard's review before launch.
+    emailError: 'Upiši e-mail adresu u obliku ime@klub.hr',
+    sending: 'Slanje…',
+    submitFailed: 'Tvoj e-mail nije stigao do nas. Pokušaj ponovno.',
+    successTitle: 'Na popisu si.',
+    successBody: {
+      club: 'Javit ćemo ti se na {email} da dovršiš račun kluba.',
+      player:
+        'Javit ćemo ti se na {email} da dovršiš profil koji klubovi vide kad traže tvoju poziciju.',
+    },
   },
   footer: {
     label: 'Podnožje',

@@ -24,8 +24,10 @@
   --amber-wash: #fff1cf;
   --red: #b9432a;
 
-  /* Tactics board. Fixed in the design, not part of the palette. */
+  /* Tactics board and CTA band. Fixed in the design, not part of the palette. */
   --board-glow: #29734f;
+  /* Error text on the dark CTA band, where `--red` would fail contrast. */
+  --band-error: #f2a59b;
 
   /* shadcn base tokens, remapped onto Turf so the ui primitives match the page.
      `--card` and `--muted` are Turf tokens above, and `muted` is secondary text, not
@@ -75,6 +77,7 @@
   --color-amber: var(--amber);
   --color-amber-wash: var(--amber-wash);
   --color-red: var(--red);
+  --color-band-error: var(--band-error);
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);

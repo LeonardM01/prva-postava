@@ -7,16 +7,23 @@ import { SECTION_IDS } from './section-ids'
 import { SectionLink } from './section-link'
 import { useLandingLanguage } from './use-landing-language'
 
-export function HeroCopy() {
+interface HeroCopyProps {
+  readonly headingId: string
+}
+
+export function HeroCopy({ headingId }: HeroCopyProps) {
   const { role } = useRole()
   const { strings } = useLandingLanguage()
   const copy = strings.hero[role]
 
   return (
     <div className="flex w-full animate-copy-rise flex-col gap-4 md:max-w-160 md:gap-6 xl:max-w-130 xl:min-w-0 xl:flex-1 xl:pt-7">
-      <RoleSwitch />
+      <RoleSwitch tone="paper" />
       <ViewTransition default="role-copy">
-        <h1 className="font-display text-[38px] leading-[1.02] font-extrabold tracking-[-0.025em] text-ink md:text-6xl md:leading-none">
+        <h1
+          id={headingId}
+          className="font-display text-[38px] leading-[1.02] font-extrabold tracking-[-0.025em] text-ink md:text-6xl md:leading-none"
+        >
           {copy.headline}
         </h1>
       </ViewTransition>

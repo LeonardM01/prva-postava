@@ -1,20 +1,28 @@
-import { screen } from '@testing-library/react'
+import { screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, expect, it } from 'vitest'
 
 import { renderLandingPage } from './render-landing-page'
 
+// The CTA band has a role switch of its own; these tests drive the one in the hero.
+function getHeroSwitch(label = 'Pick a side') {
+  const hero = screen.getByRole('region', {
+    name: screen.getByRole('heading', { level: 1 }).textContent,
+  })
+  return within(hero).getByRole('group', { name: label })
+}
+
 describe('landing hero', () => {
   it('opens on the club copy with the club side pressed', async () => {
     await renderLandingPage()
 
-    const roleSwitch = screen.getByRole('group', { name: 'Pick a side' })
+    const roleSwitch = getHeroSwitch()
     expect(roleSwitch).toBeVisible()
-    expect(screen.getByRole('button', { name: 'I scout for a club' })).toHaveAttribute(
+    expect(within(roleSwitch).getByRole('button', { name: 'I scout for a club' })).toHaveAttribute(
       'aria-pressed',
       'true',
     )
-    expect(screen.getByRole('button', { name: "I'm a player" })).toHaveAttribute(
+    expect(within(roleSwitch).getByRole('button', { name: "I'm a player" })).toHaveAttribute(
       'aria-pressed',
       'false',
     )
@@ -32,8 +40,9 @@ describe('landing hero', () => {
   it('swaps the copy to the player deck and back', async () => {
     const user = userEvent.setup()
     await renderLandingPage()
+    const roleSwitch = getHeroSwitch()
 
-    await user.click(screen.getByRole('button', { name: "I'm a player" }))
+    await user.click(within(roleSwitch).getByRole('button', { name: "I'm a player" }))
 
     expect(
       await screen.findByRole('heading', {
@@ -41,11 +50,11 @@ describe('landing hero', () => {
         name: "Get in front of every club that's searching.",
       }),
     ).toBeVisible()
-    expect(screen.getByRole('button', { name: "I'm a player" })).toHaveAttribute(
+    expect(within(roleSwitch).getByRole('button', { name: "I'm a player" })).toHaveAttribute(
       'aria-pressed',
       'true',
     )
-    expect(screen.getByRole('button', { name: 'I scout for a club' })).toHaveAttribute(
+    expect(within(roleSwitch).getByRole('button', { name: 'I scout for a club' })).toHaveAttribute(
       'aria-pressed',
       'false',
     )
@@ -57,7 +66,7 @@ describe('landing hero', () => {
     expect(screen.getByText('Publish your profile and statistics at no cost.')).toBeVisible()
     expect(screen.queryByText('Free for players. Clubs pay a membership.')).not.toBeInTheDocument()
 
-    await user.click(screen.getByRole('button', { name: 'I scout for a club' }))
+    await user.click(within(roleSwitch).getByRole('button', { name: 'I scout for a club' }))
 
     expect(
       await screen.findByRole('heading', {
@@ -72,8 +81,9 @@ describe('landing hero', () => {
   it('selects a side from the keyboard with Space and Enter', async () => {
     const user = userEvent.setup()
     await renderLandingPage()
-    const clubButton = screen.getByRole('button', { name: 'I scout for a club' })
-    const playerButton = screen.getByRole('button', { name: "I'm a player" })
+    const roleSwitch = getHeroSwitch()
+    const clubButton = within(roleSwitch).getByRole('button', { name: 'I scout for a club' })
+    const playerButton = within(roleSwitch).getByRole('button', { name: "I'm a player" })
 
     playerButton.focus()
     await user.keyboard(' ')
@@ -88,19 +98,20 @@ describe('landing hero', () => {
     const user = userEvent.setup()
     await renderLandingPage('/?lang=hr')
 
-    expect(screen.getByRole('group', { name: 'Odaberi stranu' })).toBeVisible()
+    const roleSwitch = getHeroSwitch('Odaberi stranu')
+    expect(roleSwitch).toBeVisible()
     expect(
       screen.getByRole('heading', { level: 1, name: 'Nađi sljedeće pojačanje u jednoj večeri.' }),
     ).toBeVisible()
     expect(screen.getByRole('link', { name: 'Pretraži igrače po poziciji' })).toBeVisible()
     expect(screen.getByText('Besplatno za igrače. Klubovi plaćaju članarinu.')).toBeVisible()
 
-    await user.click(screen.getByRole('button', { name: 'Ja sam igrač' }))
+    await user.click(within(roleSwitch).getByRole('button', { name: 'Ja sam igrač' }))
 
     expect(
       await screen.findByRole('heading', { level: 1, name: 'Pokaži se svakom klubu koji traži.' }),
     ).toBeVisible()
-    expect(screen.getByRole('button', { name: 'Ja sam igrač' })).toHaveAttribute(
+    expect(within(roleSwitch).getByRole('button', { name: 'Ja sam igrač' })).toHaveAttribute(
       'aria-pressed',
       'true',
     )
