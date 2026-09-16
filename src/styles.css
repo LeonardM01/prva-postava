@@ -107,3 +107,50 @@
     @apply outline-2 outline-offset-2 outline-signal;
   }
 }
+
+/* Role switch motion. React's <ViewTransition> names the elements; these rules time them.
+   The root is not captured, so the rest of the page stays live during the 280 ms. */
+:root {
+  view-transition-name: none;
+}
+
+::view-transition-group(.role-shape),
+::view-transition-group(.role-copy),
+::view-transition-new(.role-copy) {
+  animation-duration: 280ms;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* The outgoing copy clears early so the two decks never read as one muddle. */
+::view-transition-old(.role-copy) {
+  animation-duration: 120ms;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Copy snapshots keep their natural size while their box moves, so text never stretches. */
+::view-transition-old(.role-copy),
+::view-transition-new(.role-copy) {
+  width: auto;
+  height: 100%;
+  object-fit: none;
+  object-position: left top;
+}
+
+/* The pill and the hero button are plain shapes: they morph to the new box without fading. */
+::view-transition-old(.role-shape) {
+  display: none;
+}
+
+::view-transition-new(.role-shape) {
+  width: 100%;
+  height: 100%;
+  animation: none;
+}
+
+/* Reduced motion: nothing slides or resizes; the copy still cross-fades. */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(.role-shape),
+  ::view-transition-group(.role-copy) {
+    animation: none;
+  }
+}
