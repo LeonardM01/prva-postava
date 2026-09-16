@@ -7,10 +7,6 @@ interface ProfileStatsProps {
   readonly listing: SampleListing
 }
 
-/**
- * The fact sheet's season line: four figures side by side, each over its label, split by
- * short dividers.
- */
 export function ProfileStats({ listing }: ProfileStatsProps) {
   const { strings } = useLandingLanguage()
   const labels = strings.players.stats

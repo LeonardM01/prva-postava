@@ -20,7 +20,8 @@ interface SearchResultRowProps {
  */
 export function SearchResultRow({ listing }: SearchResultRowProps) {
   const { strings } = useLandingLanguage()
-  const table = strings.clubs.table
+  const tableCopy = strings.clubs.table
+  const { player } = listing
 
   return (
     // Rules sit on top of each row after the first, so the promoted wash, whose outer cells
@@ -28,14 +29,14 @@ export function SearchResultRow({ listing }: SearchResultRowProps) {
     <tr
       className={cn(
         'not-first:*:border-t last:*:border-b last:*:border-b-ink',
-        listing.isPromoted && '*:bg-amber-wash',
+        player.isPromoted && '*:bg-amber-wash',
       )}
     >
       <td
         className={cn(
           CELL_CLASS,
           'w-10.25 pr-1.25 pl-2 board:w-18 board:pr-1 board:pl-3',
-          listing.isPromoted && 'rounded-l-lg',
+          player.isPromoted && 'rounded-l-lg',
         )}
       >
         <span className="flex h-6 w-7 items-center justify-center rounded-[6px] bg-signal text-[11px] leading-[normal] font-semibold text-card board:h-6.5 board:w-7.5">
@@ -46,21 +47,21 @@ export function SearchResultRow({ listing }: SearchResultRowProps) {
         <span className="flex flex-col gap-px leading-[normal] whitespace-nowrap board:gap-0.5">
           <span className="flex items-center gap-1.5 board:gap-2">
             <span className="text-sm font-semibold text-ink">
-              {listing.firstName} {listing.lastName}
+              {player.firstName} {player.lastName}
             </span>{' '}
-            {listing.isPromoted && (
+            {player.isPromoted && (
               <span className="rounded-[4px] bg-amber px-1.25 py-0.5 text-[10px] font-semibold tracking-[0.06em] text-ink uppercase board:px-1.5">
-                {table.promoted}
+                {tableCopy.promoted}
               </span>
             )}
           </span>{' '}
           <span className="text-xs text-muted">
-            {listing.club} · <span className="board:hidden">{listing.age}</span>
+            {player.club} · <span className="board:hidden">{player.age}</span>
             <span className="max-board:hidden">{listing.league}</span>
           </span>
         </span>
       </th>
-      <td className={cn(NUMBER_CELL_CLASS, 'w-17')}>{listing.age}</td>
+      <td className={cn(NUMBER_CELL_CLASS, 'w-17')}>{player.age}</td>
       <td className={cn(NUMBER_CELL_CLASS, 'w-23')}>{listing.matches}</td>
       <td className={cn(NUMBER_CELL_CLASS, 'w-18')}>{listing.goals}</td>
       <td className={cn(NUMBER_CELL_CLASS, 'w-20')}>{listing.assists}</td>
@@ -69,11 +70,11 @@ export function SearchResultRow({ listing }: SearchResultRowProps) {
         className={cn(
           CELL_CLASS,
           'pr-2 pl-1.25 text-right text-[13px] leading-[normal] whitespace-nowrap text-ink board:hidden',
-          listing.isPromoted && 'rounded-r-lg',
+          player.isPromoted && 'rounded-r-lg',
         )}
       >
         <span aria-hidden="true">
-          {listing.goals} {table.goalsShort} · {listing.assists} {table.assistsShort}
+          {listing.goals} {tableCopy.goalsShort} · {listing.assists} {tableCopy.assistsShort}
         </span>
         <span className="sr-only">
           {listing.goals} {strings.board.units.goals}, {listing.assists}{' '}
@@ -84,11 +85,11 @@ export function SearchResultRow({ listing }: SearchResultRowProps) {
         className={cn(
           CELL_CLASS,
           'hidden w-28 pr-3 pl-1 board:table-cell',
-          listing.isPromoted && 'rounded-r-lg',
+          player.isPromoted && 'rounded-r-lg',
         )}
       >
         <span className="flex w-24 justify-center rounded-lg border border-signal py-1.75 text-[13px] leading-[normal] font-semibold text-signal">
-          {table.save}
+          {tableCopy.save}
         </span>
       </td>
     </tr>

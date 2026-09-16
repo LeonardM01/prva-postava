@@ -14,6 +14,7 @@ export function PlayerFactSheet() {
   const { strings } = useLandingLanguage()
   const captionId = useId()
   const { listing, seenByClubsThisWeek } = SAMPLE_PROFILE
+  const { player } = listing
   const copy = strings.players
 
   return (
@@ -27,15 +28,15 @@ export function PlayerFactSheet() {
           aria-hidden="true"
           className="flex size-13 shrink-0 items-center justify-center rounded-full bg-tint font-display text-lg font-bold text-signal board:size-16 board:text-[22px]"
         >
-          {listing.firstName.charAt(0)}
-          {listing.lastName.charAt(0)}
+          {player.firstName.charAt(0)}
+          {player.lastName.charAt(0)}
         </span>
         <div className="flex min-w-0 flex-col gap-0.5 board:gap-0.75">
           <p className="font-display text-[22px] font-extrabold tracking-[-0.02em] text-ink board:text-[28px]">
-            {listing.firstName} {listing.lastName}
+            {player.firstName} {player.lastName}
           </p>
           <p className="text-[13px] text-muted board:text-[15px]">
-            {strings.positions[listing.position].name} · {listing.age} · {listing.club}
+            {strings.positions[listing.position].name} · {player.age} · {player.club}
             <span className="max-board:hidden"> · {listing.league}</span>
           </p>
         </div>

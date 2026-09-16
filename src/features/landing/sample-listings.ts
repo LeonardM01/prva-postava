@@ -1,35 +1,34 @@
-import { type Position } from './sample-players'
+import { type Position, SAMPLE_PLAYERS, type SamplePlayer } from './sample-players'
 
 export interface SampleListing {
-  readonly age: number
   readonly assists: number
-  readonly club: string
-  readonly firstName: string
   readonly goals: number
-  readonly id: string
-  readonly isPromoted: boolean
-  readonly lastName: string
   readonly league: string
   readonly matches: number
   readonly minutes: number
+  readonly player: SamplePlayer
+  // The list the player is filed under in the search, which need not be his slot on the board.
   readonly position: Position
 }
 
-// Synthetic season lines, not listings. The design files all three under left wing, the
-// position the search filters by, even though two of them play elsewhere on the board.
+function findSamplePlayer(id: string): SamplePlayer {
+  const player = SAMPLE_PLAYERS.find((candidate) => candidate.id === id)
+  if (player === undefined) {
+    throw new Error(`No sample player with id "${id}"`)
+  }
+  return player
+}
+
+// Synthetic season lines for players on the board, not listings. The design files all three
+// under left wing, the position the search filters by.
 const IVAN_HORVAT: SampleListing = {
-  id: 'ivan-horvat',
-  firstName: 'Ivan',
-  lastName: 'Horvat',
-  club: 'NK Kustošija',
-  league: '3. NL Zagreb',
-  age: 22,
+  player: findSamplePlayer('ivan-horvat'),
   position: 'LW',
+  league: '3. NL Zagreb',
   matches: 24,
   goals: 9,
   assists: 6,
   minutes: 1980,
-  isPromoted: true,
 }
 
 /**
@@ -38,32 +37,22 @@ const IVAN_HORVAT: SampleListing = {
 export const SAMPLE_SEARCH_RESULTS: readonly SampleListing[] = [
   IVAN_HORVAT,
   {
-    id: 'marko-kovacevic',
-    firstName: 'Marko',
-    lastName: 'Kovačević',
-    club: 'NK Dubrava',
-    league: '3. NL Zagreb',
-    age: 20,
+    player: findSamplePlayer('marko-kovacevic'),
     position: 'LW',
+    league: '3. NL Zagreb',
     matches: 19,
     goals: 5,
     assists: 8,
     minutes: 1540,
-    isPromoted: false,
   },
   {
-    id: 'luka-babic',
-    firstName: 'Luka',
-    lastName: 'Babić',
-    club: 'NK Sesvete',
-    league: '2. NL',
-    age: 24,
+    player: findSamplePlayer('luka-babic'),
     position: 'LW',
+    league: '2. NL',
     matches: 26,
     goals: 11,
     assists: 4,
     minutes: 2210,
-    isPromoted: false,
   },
 ]
 

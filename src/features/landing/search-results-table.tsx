@@ -12,7 +12,7 @@ const NUMBER_HEADER_CLASS = cn(HEADER_CLASS, 'hidden text-right board:table-cell
 
 export function SearchResultsTable() {
   const { strings } = useLandingLanguage()
-  const table = strings.clubs.table
+  const tableCopy = strings.clubs.table
 
   return (
     // Separate borders let the promoted row round its corners.
@@ -20,37 +20,41 @@ export function SearchResultsTable() {
       <thead>
         <tr className="board:*:border-b board:*:border-ink">
           <th scope="col" className={cn(HEADER_CLASS, 'board:pl-3')}>
-            <span className="max-board:sr-only">{table.position}</span>
+            <abbr title={tableCopy.positionName} className="no-underline max-board:sr-only">
+              {tableCopy.position}
+            </abbr>
           </th>
           <th scope="col" className={HEADER_CLASS}>
-            <span className="max-board:sr-only">{table.player}</span>
+            <span className="max-board:sr-only">{tableCopy.player}</span>
           </th>
           <th scope="col" className={NUMBER_HEADER_CLASS}>
-            {table.age}
+            {tableCopy.age}
           </th>
           <th scope="col" className={NUMBER_HEADER_CLASS}>
-            {table.matches}
+            {tableCopy.matches}
           </th>
           <th scope="col" className={NUMBER_HEADER_CLASS}>
-            {table.goals}
+            {tableCopy.goals}
           </th>
           <th scope="col" className={NUMBER_HEADER_CLASS}>
-            {table.assists}
+            {tableCopy.assists}
           </th>
           <th scope="col" className={NUMBER_HEADER_CLASS}>
-            {table.minutes}
+            <abbr title={tableCopy.minutesName} className="no-underline">
+              {tableCopy.minutes}
+            </abbr>
           </th>
           <th scope="col" className={cn(HEADER_CLASS, 'board:hidden')}>
-            <span className="sr-only">{table.season}</span>
+            <span className="sr-only">{tableCopy.goalsAndAssists}</span>
           </th>
           <th scope="col" className={cn(HEADER_CLASS, 'hidden board:table-cell')}>
-            <span className="sr-only">{table.actions}</span>
+            <span className="sr-only">{tableCopy.actions}</span>
           </th>
         </tr>
       </thead>
       <tbody>
         {SAMPLE_SEARCH_RESULTS.map((listing) => (
-          <SearchResultRow key={listing.id} listing={listing} />
+          <SearchResultRow key={listing.player.id} listing={listing} />
         ))}
       </tbody>
     </table>

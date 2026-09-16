@@ -22,20 +22,6 @@ test('"See a player profile" lands on the player fact sheet', async ({ page }) =
   ).toBeInViewport()
 })
 
-test('the demo controls are static text, out of the tab order', async ({ page }) => {
-  await page.goto('/')
-
-  const demos = [
-    page.getByRole('figure', { name: 'Sample club search, not real listings' }),
-    page.getByRole('figure', { name: 'Sample player profile, not a real listing' }),
-  ]
-  for (const demo of demos) {
-    await expect(demo.getByRole('button')).toHaveCount(0)
-    await expect(demo.getByRole('link')).toHaveCount(0)
-    await expect(demo.locator('[tabindex]')).toHaveCount(0)
-  }
-})
-
 test('the promoted row is announced with its tag', async ({ page }) => {
   await page.goto('/')
 

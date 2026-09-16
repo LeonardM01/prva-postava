@@ -11,7 +11,7 @@ const filterVariants = cva(
         true: 'border-signal bg-tint text-signal',
         false: 'border-line bg-card text-ink',
       },
-      screens: {
+      shownOn: {
         all: '',
         wide: 'hidden board:block',
         narrow: 'board:hidden',
@@ -30,12 +30,12 @@ export function SearchFilters() {
 
   return (
     <ul aria-label={filters.label} className="flex gap-1.5 board:gap-2">
-      <li className={filterVariants({ isApplied: true, screens: 'all' })}>{filters.position}</li>
-      <li className={filterVariants({ isApplied: true, screens: 'all' })}>{filters.age}</li>
-      <li className={filterVariants({ isApplied: false, screens: 'wide' })}>{filters.matches}</li>
-      <li className={filterVariants({ isApplied: false, screens: 'wide' })}>{filters.league}</li>
-      <li className={filterVariants({ isApplied: false, screens: 'wide' })}>{filters.add}</li>
-      <li className={filterVariants({ isApplied: false, screens: 'narrow' })}>
+      <li className={filterVariants({ isApplied: true, shownOn: 'all' })}>{filters.position}</li>
+      <li className={filterVariants({ isApplied: true, shownOn: 'all' })}>{filters.age}</li>
+      <li className={filterVariants({ isApplied: false, shownOn: 'wide' })}>{filters.matches}</li>
+      <li className={filterVariants({ isApplied: false, shownOn: 'wide' })}>{filters.league}</li>
+      <li className={filterVariants({ isApplied: false, shownOn: 'wide' })}>{filters.add}</li>
+      <li className={filterVariants({ isApplied: false, shownOn: 'narrow' })}>
         {filters.addShort}
       </li>
     </ul>
