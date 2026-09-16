@@ -32,14 +32,14 @@ export function TacticsBoard() {
     >
       <figcaption
         id={captionId}
-        className="flex min-h-11.25 items-center text-[15px] leading-[normal] font-semibold text-ink board:min-h-6.75"
+        className="flex min-h-11.25 items-center text-[15px] leading-[normal] font-semibold text-ink motion-safe:animate-copy-rise board:min-h-6.75"
       >
         {strings.board.caption}
       </figcaption>
       <p className="row-start-3 text-xs leading-[normal] text-muted board:col-start-2 board:row-start-1 board:self-center board:text-[13px]">
         {strings.board.sampleNote}
       </p>
-      <div className="relative row-start-2 aspect-350/470 overflow-clip rounded-[16px] bg-signal-deep board:col-span-2 board:aspect-736/540 board:rounded-[20px]">
+      <div className="@container relative row-start-2 aspect-350/470 overflow-clip rounded-[16px] bg-signal-deep board:col-span-2 board:aspect-736/540 board:rounded-[20px]">
         {/* The glow is a circle centred on the pitch: 420 px on the 350 px board, 620 px on the 736 px one. */}
         <div className="absolute top-1/2 left-1/2 aspect-square w-[120%] -translate-1/2 rounded-full bg-[radial-gradient(closest-side,var(--board-glow),transparent)] opacity-90 board:w-155" />
         <ChalkPitch layout="compact" />
@@ -50,8 +50,8 @@ export function TacticsBoard() {
           ))}
         </ul>
         <div aria-hidden="true">
-          {SAMPLE_PLAYERS.map((player) => (
-            <PlayerSlot key={player.id} player={player} />
+          {SAMPLE_PLAYERS.map((player, cascadeIndex) => (
+            <PlayerSlot key={player.id} player={player} cascadeIndex={cascadeIndex} />
           ))}
         </div>
       </div>

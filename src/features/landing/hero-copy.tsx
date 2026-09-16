@@ -13,7 +13,7 @@ export function HeroCopy() {
   const copy = strings.hero[role]
 
   return (
-    <div className="flex w-full flex-col gap-4 md:max-w-160 md:gap-6 xl:max-w-130 xl:min-w-0 xl:flex-1 xl:pt-7">
+    <div className="flex w-full flex-col gap-4 motion-safe:animate-copy-rise md:max-w-160 md:gap-6 xl:max-w-130 xl:min-w-0 xl:flex-1 xl:pt-7">
       <RoleSwitch />
       <ViewTransition default="role-copy">
         <h1 className="font-display text-[38px] leading-[1.02] font-extrabold tracking-[-0.025em] text-ink md:text-6xl md:leading-none">
