@@ -1,34 +1,8 @@
-import {
-  createMemoryHistory,
-  createRootRoute,
-  createRoute,
-  createRouter,
-  RouterProvider,
-} from '@tanstack/react-router'
-import { render, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, expect, it } from 'vitest'
 
-import { languageSearchSchema } from '#/lib/language'
-
-import { LandingPage } from './landing-page'
-
-async function renderLandingPage(url = '/') {
-  const rootRoute = createRootRoute()
-  const indexRoute = createRoute({
-    getParentRoute: () => rootRoute,
-    path: '/',
-    validateSearch: languageSearchSchema,
-    component: LandingPage,
-  })
-  const router = createRouter({
-    routeTree: rootRoute.addChildren([indexRoute]),
-    history: createMemoryHistory({ initialEntries: [url] }),
-  })
-
-  render(<RouterProvider router={router} />)
-  await screen.findByRole('heading', { level: 1 })
-}
+import { renderLandingPage } from './render-landing-page'
 
 describe('landing hero', () => {
   it('opens on the club copy with the club side pressed', async () => {

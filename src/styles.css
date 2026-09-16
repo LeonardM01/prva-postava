@@ -25,6 +25,9 @@
   --amber-wash: #fff1cf;
   --red: #b9432a;
 
+  /* Tactics board. Fixed in the design, not part of the palette. */
+  --board-glow: #29734f;
+
   /* shadcn base tokens, remapped onto Turf so the ui primitives match the page.
      `--card` and `--muted` are Turf tokens above, and `muted` is secondary text, not
      shadcn's muted surface. Primitives added with the shadcn CLI that paint `bg-muted`
@@ -51,6 +54,12 @@
 @theme inline {
   --font-sans: 'IBM Plex Sans Variable', ui-sans-serif, system-ui, sans-serif;
   --font-display: 'Manrope Variable', ui-sans-serif, system-ui, sans-serif;
+
+  /* The full 736 px tactics board fits from here: the board, the 40 px tablet gutters and
+     room for a classic scrollbar. Below it the board switches to its compact chips. */
+  --breakpoint-board: 53rem;
+
+  --shadow-chip: 0 6px 16px -4px rgb(8 31 18 / 0.3);
 
   --color-signal: var(--signal);
   --color-signal-deep: var(--signal-deep);
