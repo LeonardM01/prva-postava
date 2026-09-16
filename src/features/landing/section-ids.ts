@@ -1,9 +1,12 @@
 /**
- * In-page anchors the nav and footer point at; the sections themselves adopt these ids.
+ * In-page anchors the nav, footer and section links point at; the sections and demos
+ * themselves adopt these ids.
  */
 export const SECTION_IDS = {
   clubs: 'for-clubs',
+  clubSearch: 'club-search',
   players: 'for-players',
+  playerProfile: 'player-profile',
   cta: 'get-in-the-lineup',
 } as const
 
