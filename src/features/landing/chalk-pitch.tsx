@@ -61,8 +61,9 @@ export function ChalkPitch({ layout }: ChalkPitchProps) {
       viewBox={`0 0 ${width} ${height}`}
       className={cn('absolute inset-0 size-full', BOARD_LAYOUT_VISIBILITY[layout])}
     >
-      <g className="fill-none stroke-white/30" strokeWidth={STROKE}>
+      <g className="animate-chalk-draw fill-none stroke-white/30" strokeWidth={STROKE}>
         <rect
+          pathLength={1}
           x={pitch.inset + HALF_STROKE}
           y={pitch.inset + HALF_STROKE}
           width={width - 2 * pitch.inset - STROKE}
@@ -70,15 +71,17 @@ export function ChalkPitch({ layout }: ChalkPitchProps) {
           rx={pitch.cornerRadius - HALF_STROKE}
         />
         <line
+          pathLength={1}
           x1={pitch.inset}
           y1={centreY - HALF_STROKE}
           x2={width - pitch.inset}
           y2={centreY - HALF_STROKE}
         />
-        <circle cx={centreX} cy={centreY} r={pitch.centreRadius - HALF_STROKE} />
+        <circle pathLength={1} cx={centreX} cy={centreY} r={pitch.centreRadius - HALF_STROKE} />
         {pitch.boxes.map((box) => (
           <rect
             key={`${box.y}-${box.width}`}
+            pathLength={1}
             x={centreX - box.width / 2 + HALF_STROKE}
             y={box.y + HALF_STROKE}
             width={box.width - STROKE}

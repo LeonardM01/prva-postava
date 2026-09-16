@@ -1,5 +1,4 @@
-@import '@fontsource-variable/ibm-plex-sans';
-@import '@fontsource-variable/manrope';
+@import './fonts.css';
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
 
@@ -61,6 +60,10 @@
 
   --shadow-chip: 0 6px 16px -4px rgb(8 31 18 / 0.3);
 
+  /* The frame the design is drawn in. Wider screens centre it rather than spreading the
+     content apart; full-bleed bands still paint edge to edge around it. */
+  --container-page: 90rem;
+
   --color-signal: var(--signal);
   --color-signal-deep: var(--signal-deep);
   --color-mist: var(--mist);
@@ -96,6 +99,57 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
+/* Load cascade, one authored moment of about 0.9 s. Every animation fills backwards only,
+   so the resting state is the element's own style: nothing waits on JavaScript, and a
+   browser without CSS animations shows the finished page. It plays under reduced motion
+   too: it runs once, lasts under a second and nothing moves after it (product decision). */
+@theme {
+  --ease-settle: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --animate-chalk-draw: chalk-draw 420ms var(--ease-settle) backwards;
+  /* Chips leave 40 ms apart in board order, goalkeeper first. The designed cap keeps the last
+     departure within 480 ms should the board ever hold more players. */
+  --animate-chip-travel: chip-travel 480ms var(--ease-settle)
+    min(calc(var(--cascade-index, 0) * 40ms), 480ms) backwards;
+  --animate-tag-land: tag-land 320ms var(--ease-settle) 600ms backwards;
+  --animate-copy-rise: copy-rise 320ms var(--ease-settle) 120ms backwards;
+
+  /* Chalk shapes carry `pathLength="1"`; the dash only exists while the line draws. */
+  @keyframes chalk-draw {
+    from {
+      stroke-dasharray: 1;
+      stroke-dashoffset: 1;
+    }
+    to {
+      stroke-dasharray: 1;
+      stroke-dashoffset: 0;
+    }
+  }
+
+  /* Starts with the chip centred on the centre spot; `--travel-x` and `--travel-y` are the
+     distance from its slot back to the spot. */
+  @keyframes chip-travel {
+    from {
+      opacity: 0;
+      transform: translate(var(--travel-x), calc(var(--travel-y) - 50%));
+    }
+  }
+
+  @keyframes tag-land {
+    from {
+      opacity: 0;
+      transform: translateY(-6px);
+    }
+  }
+
+  @keyframes copy-rise {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+  }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -127,13 +181,13 @@
 ::view-transition-group(.role-copy),
 ::view-transition-new(.role-copy) {
   animation-duration: 280ms;
-  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  animation-timing-function: var(--ease-settle);
 }
 
 /* The outgoing copy clears early so the two decks never read as one muddle. */
 ::view-transition-old(.role-copy) {
   animation-duration: 120ms;
-  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  animation-timing-function: var(--ease-settle);
 }
 
 /* Copy snapshots keep their natural size while their box moves, so text never stretches. */
