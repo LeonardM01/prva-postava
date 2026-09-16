@@ -150,6 +150,26 @@
   }
 }
 
+/* Position tour. The board's `data-highlight` names the line on show and each chip's slot
+   carries its `data-line`: that line lifts, the others dim. On `all` nothing changes. */
+@custom-variant tour-lifted {
+  [data-highlight='GK'] &[data-line='GK'],
+  [data-highlight='DEF'] &[data-line='DEF'],
+  [data-highlight='MID'] &[data-line='MID'],
+  [data-highlight='FWD'] &[data-line='FWD'] {
+    @slot;
+  }
+}
+
+@custom-variant tour-dimmed {
+  [data-highlight='GK'] &:not([data-line='GK']),
+  [data-highlight='DEF'] &:not([data-line='DEF']),
+  [data-highlight='MID'] &:not([data-line='MID']),
+  [data-highlight='FWD'] &:not([data-line='FWD']) {
+    @slot;
+  }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
