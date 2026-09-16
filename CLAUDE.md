@@ -55,5 +55,6 @@ Run `bun run check` before you say a task is done. Run `bun run test:e2e` when y
 - `posthog`: query analytics, flags, errors and session replays.
 - `loops`: transactional email and contact management.
 - `context7`: current library documentation.
+- `linear`: issue tracker. Tickets live in the "Prva postava" project; new tickets go to the Todo state.
 
 Remote servers authenticate via browser OAuth on first use (`/mcp` in Claude Code). No tokens are stored in this repo.
