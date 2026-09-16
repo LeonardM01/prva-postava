@@ -151,7 +151,7 @@ describe('CTA band', () => {
     await user.click(within(band).getByRole('button', { name: 'Search players by position' }))
 
     expect(await within(band).findByRole('alert')).toHaveTextContent(
-      "That didn't go through. Try again in a moment.",
+      "Your email didn't reach us. Try again.",
     )
     expect(within(band).getByRole('button', { name: 'Search players by position' })).toBeEnabled()
     expect(within(band).getByRole('textbox', { name: 'Email' })).toHaveValue('ivan@nk-kustosija.hr')
@@ -198,7 +198,9 @@ describe('CTA band', () => {
     answerSignup({ role: 'player', email: 'luka@mail.hr' })
 
     expect(
-      await within(band).findByText("We'll write to luka@mail.hr to finish your player profile."),
+      await within(band).findByText(
+        "We'll write to luka@mail.hr to finish the profile clubs see when they search your position.",
+      ),
     ).toBeVisible()
   })
 
@@ -214,17 +216,17 @@ describe('CTA band', () => {
 
     await user.click(submit)
     expect(await within(band).findByRole('alert')).toHaveTextContent(
-      'Upiši e-mail adresu, npr. ime@klub.hr',
+      'Upiši e-mail adresu u obliku ime@klub.hr',
     )
 
     await user.type(email, 'ivan@nk-kustosija.hr')
     await user.click(submit)
-    expect(await within(band).findByRole('button', { name: 'Šaljem…' })).toBeDisabled()
+    expect(await within(band).findByRole('button', { name: 'Slanje…' })).toBeDisabled()
 
     answerSignup({ role: 'club', email: 'ivan@nk-kustosija.hr' })
     expect(await within(band).findByRole('heading', { name: 'Na popisu si.' })).toBeVisible()
     expect(
-      within(band).getByText('Pisat ćemo na ivan@nk-kustosija.hr da dovršiš račun kluba.'),
+      within(band).getByText('Javit ćemo ti se na ivan@nk-kustosija.hr da dovršiš račun kluba.'),
     ).toBeVisible()
   })
 })
