@@ -16,7 +16,7 @@ export function LandingNav() {
     <header className="relative">
       <nav
         aria-label={strings.nav.label}
-        className="flex h-15 items-center justify-between px-5 md:h-18 md:px-10 xl:px-16"
+        className="mx-auto flex h-15 max-w-page items-center justify-between px-5 md:h-18 md:px-10 xl:px-16"
       >
         <BrandLink />
         <ul className="hidden items-center gap-8 md:flex">

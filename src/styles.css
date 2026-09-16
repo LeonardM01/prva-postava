@@ -61,6 +61,10 @@
 
   --shadow-chip: 0 6px 16px -4px rgb(8 31 18 / 0.3);
 
+  /* The frame the design is drawn in. Wider screens centre it rather than spreading the
+     content apart; full-bleed bands still paint edge to edge around it. */
+  --container-page: 90rem;
+
   --color-signal: var(--signal);
   --color-signal-deep: var(--signal-deep);
   --color-mist: var(--mist);

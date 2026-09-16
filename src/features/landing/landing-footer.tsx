@@ -12,7 +12,7 @@ export function LandingFooter() {
   const { strings } = useLandingLanguage()
 
   return (
-    <footer className="flex flex-col gap-1 px-5 pt-5 pb-8 md:flex-row md:items-center md:justify-between md:px-10 md:pt-7 xl:px-16">
+    <footer className="mx-auto flex max-w-page flex-col gap-1 px-5 pt-5 pb-8 md:flex-row md:items-center md:justify-between md:px-10 md:pt-7 xl:px-16">
       <p className="flex items-center gap-2 font-display text-base font-extrabold tracking-[-0.02em] text-ink md:gap-2.5">
         <LineupMark placement="footer" />
         {strings.brand}
