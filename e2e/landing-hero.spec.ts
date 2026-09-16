@@ -47,14 +47,29 @@ test('the role switch works from the keyboard with a visible focus ring', async 
   await expect(page.getByRole('heading', { level: 1 })).toHaveText(CLUB_HEADLINE)
 })
 
-test('Tab reaches the role switch before the hero button', async ({ page }) => {
+test('Tab from the top of the page reaches the role switch before the hero button', async ({
+  page,
+}) => {
   await page.goto('/')
+  const clubButton = getRoleSwitch(page).getByRole('button', { name: 'I scout for a club' })
   const heroButton = page.getByRole('link', { name: 'Search players by position' })
 
-  await heroButton.focus()
-  await page.keyboard.press('Shift+Tab')
+  // The nav has more tab stops on desktop than on mobile, so keep pressing Tab until focus lands.
+  await expect
+    .poll(
+      async () => {
+        await page.keyboard.press('Tab')
+        return clubButton.evaluate((element) => element === document.activeElement)
+      },
+      { intervals: [0] },
+    )
+    .toBe(true)
 
+  await expect(clubButton).toBeFocused()
+  await page.keyboard.press('Tab')
   await expect(getRoleSwitch(page).getByRole('button', { name: "I'm a player" })).toBeFocused()
+  await page.keyboard.press('Tab')
+  await expect(heroButton).toBeFocused()
 })
 
 test('the role switch still swaps the copy with reduced motion', async ({ page }) => {
