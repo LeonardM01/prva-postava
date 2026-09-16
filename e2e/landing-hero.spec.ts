@@ -3,8 +3,13 @@ import { expect, type Page, test } from '@playwright/test'
 const CLUB_HEADLINE = 'Find your next signing in one evening.'
 const PLAYER_HEADLINE = "Get in front of every club that's searching."
 
-function getRoleSwitch(page: Page) {
-  return page.getByRole('main').getByRole('group', { name: 'Pick a side' })
+// The CTA band has a role switch of its own; these tests drive the one beside the headline.
+function getHero(page: Page) {
+  return page.getByRole('region').filter({ has: page.getByRole('heading', { level: 1 }) })
+}
+
+function getRoleSwitch(page: Page, label = 'Pick a side') {
+  return getHero(page).getByRole('group', { name: label })
 }
 
 test('the role switch changes the headline, button and pressed state', async ({ page }) => {
@@ -76,15 +81,15 @@ test('the role switch still swaps the copy with reduced motion', async ({ page }
   await page.emulateMedia({ reducedMotion: 'reduce' })
   await page.goto('/?lang=hr')
 
-  await page.getByRole('button', { name: 'Ja sam igrač' }).click()
+  const playerButton = getRoleSwitch(page, 'Odaberi stranu').getByRole('button', {
+    name: 'Ja sam igrač',
+  })
+  await playerButton.click()
 
   await expect(page.getByRole('heading', { level: 1 })).toHaveText(
     'Pokaži se svakom klubu koji traži.',
   )
-  await expect(page.getByRole('button', { name: 'Ja sam igrač' })).toHaveAttribute(
-    'aria-pressed',
-    'true',
-  )
+  await expect(playerButton).toHaveAttribute('aria-pressed', 'true')
 })
 
 test('the hero button points at the CTA band and the page does not scroll sideways', async ({
@@ -96,7 +101,7 @@ test('the hero button points at the CTA band and the page does not scroll sidewa
     'href',
     /#get-in-the-lineup$/,
   )
-  await page.getByRole('button', { name: 'Ja sam igrač' }).click()
+  await getRoleSwitch(page, 'Odaberi stranu').getByRole('button', { name: 'Ja sam igrač' }).click()
   await expect(page.getByRole('link', { name: 'Oglasi se besplatno' })).toBeVisible()
   const overflow = await page.evaluate(
     () => document.documentElement.scrollWidth - document.documentElement.clientWidth,

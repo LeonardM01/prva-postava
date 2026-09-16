@@ -117,6 +117,23 @@ const en = {
     seenByClubs: 'Seen by clubs this week',
     promote: 'Promote me to the top of LW',
   },
+  cta: {
+    headline: 'Get in the lineup.',
+    body: 'Pick a side and leave an email. Players list for free; clubs get the pool once their membership is active.',
+    emailLabel: 'Email',
+    emailPlaceholder: 'name@club.hr',
+    emailError: 'Enter an email address like name@club.hr',
+    sending: 'Sending…',
+    // Not in the copy deck: shown when the server cannot be reached. Needs Leonard's review.
+    submitFailed: "That didn't go through. Try again in a moment.",
+    successTitle: "You're on the list.",
+    // `{email}` is replaced with the address the visitor left. The player line is not in the
+    // copy deck. Needs Leonard's review before launch.
+    successBody: {
+      club: "We'll write to {email} to finish your club account.",
+      player: "We'll write to {email} to finish your player profile.",
+    },
+  },
   footer: {
     label: 'Footer',
     privacy: 'Privacy',
@@ -248,6 +265,22 @@ const hr: LandingStrings = {
     },
     seenByClubs: 'Klubovi su pogledali ovaj tjedan',
     promote: 'Promoviraj me na vrh liste LK',
+  },
+  cta: {
+    headline: 'Uđi u prvu postavu.',
+    body: 'Odaberi stranu i ostavi e-mail. Igrači se oglašavaju besplatno; klubovi dobivaju bazu kad im članarina bude aktivna.',
+    emailLabel: 'E-mail',
+    emailPlaceholder: 'ime@klub.hr',
+    // Only the heading, body, label and placeholder are in the copy deck. The form states are
+    // translated in code for this build. Needs Leonard's review before launch.
+    emailError: 'Upiši e-mail adresu, npr. ime@klub.hr',
+    sending: 'Šaljem…',
+    submitFailed: 'Slanje nije uspjelo. Pokušaj ponovno za trenutak.',
+    successTitle: 'Na popisu si.',
+    successBody: {
+      club: 'Pisat ćemo na {email} da dovršiš račun kluba.',
+      player: 'Pisat ćemo na {email} da dovršiš profil igrača.',
+    },
   },
   footer: {
     label: 'Podnožje',
