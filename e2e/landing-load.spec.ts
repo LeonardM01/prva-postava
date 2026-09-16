@@ -90,6 +90,9 @@ test('the load cascade plays once and settles within about a second', async ({ p
 test('after the cascade the hero rests exactly where the page without animations puts it', async ({
   page,
 }) => {
+  // Optional fonts apply only when they beat first paint, which two loads under test load do
+  // not agree on. Both loads use the fallback fonts, so only the motion can move the hero.
+  await page.route('**/*.woff2', (route) => route.abort())
   await recordLoadMotion(page)
   await page.goto('/')
   await waitForLoadMotionToSettle(page)
