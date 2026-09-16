@@ -40,15 +40,12 @@ const en = {
     promotedIn: 'Promoted in',
     promoted: 'promoted',
     age: 'age',
-    tour: {
-      pause: 'Pause tour',
-      resume: 'Resume tour',
-      lines: {
-        GK: 'Goalkeepers',
-        DEF: 'Defenders',
-        MID: 'Midfielders',
-        FWD: 'Forwards',
-      },
+    // The captions the position tour shows for each line.
+    lines: {
+      GK: 'Goalkeepers',
+      DEF: 'Defenders',
+      MID: 'Midfielders',
+      FWD: 'Forwards',
     },
     units: {
       goals: 'goals',
@@ -119,17 +116,13 @@ const hr: LandingStrings = {
     promotedIn: 'Promoviran u',
     promoted: 'promoviran',
     age: 'dob',
-    // Only "Zaustavi prikaz" is in the Figma copy deck. The resume label and the line names are
-    // translated in code for this build. Needs Leonard's review before launch.
-    tour: {
-      pause: 'Zaustavi prikaz',
-      resume: 'Nastavi prikaz',
-      lines: {
-        GK: 'Vratari',
-        DEF: 'Braniči',
-        MID: 'Vezni igrači',
-        FWD: 'Napadači',
-      },
+    // Not in the Figma copy deck: the line names are translated in code for this build. Needs
+    // Leonard's review before launch.
+    lines: {
+      GK: 'Vratari',
+      DEF: 'Braniči',
+      MID: 'Vezni igrači',
+      FWD: 'Napadači',
     },
     units: {
       goals: 'golovi',

@@ -1,4 +1,4 @@
-import { type RefObject, useEffect, useState, useSyncExternalStore } from 'react'
+import { useEffect, useState, useSyncExternalStore } from 'react'
 
 import { type PlayerLine } from './sample-players'
 
@@ -9,12 +9,9 @@ export const TOUR_LOOP = ['GK', 'DEF', 'MID', 'FWD', 'all'] as const satisfies r
 // The board opens on every position, then runs the loop twice and rests on the last stop.
 const TOUR_STOPS: readonly TourStop[] = ['all', ...TOUR_LOOP, ...TOUR_LOOP]
 const LAST_STOP_INDEX = TOUR_STOPS.length - 1
-// Going again skips the opening stop: the board already shows every position.
-const REPLAY_STOP_INDEX = 1
 
-// The load cascade ends when the promoted tag lands (600 ms delay plus 320 ms, see styles.css).
-const LOAD_CASCADE_MS = 920
-const OPENING_DWELL_MS = LOAD_CASCADE_MS + 1800
+// Every stop shows for the same time, the opening one included, so the first line lights up
+// shortly after the load cascade (about 0.9 s) has landed the chips.
 const STOP_DWELL_MS = 1400
 
 const REDUCED_MOTION_QUERY = '(prefers-reduced-motion: reduce)'
@@ -35,7 +32,7 @@ function useCanTour(): boolean {
   return useSyncExternalStore(
     subscribeToReducedMotion,
     () => !window.matchMedia(REDUCED_MOTION_QUERY).matches,
-    // The server cannot know the preference, so the tour and its control wait for the client.
+    // The server cannot know the preference, so the tour waits for the client.
     () => false,
   )
 }
@@ -48,26 +45,6 @@ function isPageInteraction(event: Event): boolean {
   return event.target.closest(selector) !== null
 }
 
-interface TourOff {
-  readonly highlight: 'all'
-  readonly status: 'off'
-}
-
-interface TourPlaying {
-  readonly highlight: TourStop
-  readonly pause: () => void
-  readonly status: 'playing'
-}
-
-// Paused mid-tour, or finished and resting on every position. Resuming a finished tour replays it.
-interface TourStopped {
-  readonly highlight: TourStop
-  readonly resume: () => void
-  readonly status: 'finished' | 'paused'
-}
-
-export type PositionTour = TourOff | TourPlaying | TourStopped
-
 function stopAt(index: number): TourStop {
   const stop = TOUR_STOPS[index]
   if (stop === undefined) {
@@ -76,45 +53,41 @@ function stopAt(index: number): TourStop {
   return stop
 }
 
+interface PositionTour {
+  readonly highlight: TourStop
+  readonly pause: () => void
+}
+
 /**
- * The board's position tour. It waits for the load cascade, highlights one line after another
- * for two loops and rests on every position. Pausing is sticky: pointer-over the board, the
- * control, or any click or form focus elsewhere on the page stops it until it is resumed.
- * Resuming once it has finished plays it again. With reduced motion it is `off` and stays on
- * every position. `controlRef` is the tour
- * control, whose own clicks do not count as interacting with the page.
+ * The board's position tour. It highlights one line after another for two loops and rests on
+ * every position. Pointer-over the board, or any click or form focus on the page, stops it for
+ * good. With reduced motion it never runs and the board stays on every position.
  */
-export function usePositionTour(controlRef: RefObject<HTMLElement | null>): PositionTour {
+export function usePositionTour(): PositionTour {
   const canTour = useCanTour()
   const [stopIndex, setStopIndex] = useState(0)
   const [isPaused, setIsPaused] = useState(false)
 
-  const status = resolveStatus({ canTour, isPaused, stopIndex })
-  const highlight = stopAt(stopIndex)
+  const isPlaying = canTour && !isPaused && stopIndex < LAST_STOP_INDEX
 
   useEffect(() => {
-    if (status !== 'playing') {
+    if (!isPlaying) {
       return
     }
-    const timeout = window.setTimeout(
-      () => {
-        setStopIndex((index) => index + 1)
-      },
-      stopIndex === 0 ? OPENING_DWELL_MS : STOP_DWELL_MS,
-    )
+    const timeout = window.setTimeout(() => {
+      setStopIndex((index) => index + 1)
+    }, STOP_DWELL_MS)
     return () => {
       window.clearTimeout(timeout)
     }
-  }, [status, stopIndex])
+  }, [isPlaying, stopIndex])
 
   useEffect(() => {
-    if (status !== 'playing') {
+    if (!isPlaying) {
       return
     }
     const pauseOnInteraction = (event: Event) => {
-      const isOnControl =
-        event.target instanceof Node && controlRef.current?.contains(event.target) === true
-      if (!isOnControl && isPageInteraction(event)) {
+      if (isPageInteraction(event)) {
         setIsPaused(true)
       }
     }
@@ -126,49 +99,12 @@ export function usePositionTour(controlRef: RefObject<HTMLElement | null>): Posi
       document.removeEventListener('click', pauseOnInteraction, options)
       document.removeEventListener('focusin', pauseOnInteraction, options)
     }
-  }, [controlRef, status])
+  }, [isPlaying])
 
-  switch (status) {
-    case 'off': {
-      return { status, highlight: 'all' }
-    }
-    case 'playing': {
-      return {
-        status,
-        highlight,
-        pause: () => {
-          setIsPaused(true)
-        },
-      }
-    }
-    case 'finished':
-    case 'paused': {
-      return {
-        status,
-        highlight,
-        resume: () => {
-          setIsPaused(false)
-          if (status === 'finished') {
-            setStopIndex(REPLAY_STOP_INDEX)
-          }
-        },
-      }
-    }
+  return {
+    highlight: canTour ? stopAt(stopIndex) : 'all',
+    pause: () => {
+      setIsPaused(true)
+    },
   }
-}
-
-interface TourState {
-  readonly canTour: boolean
-  readonly isPaused: boolean
-  readonly stopIndex: number
-}
-
-function resolveStatus({ canTour, isPaused, stopIndex }: TourState): PositionTour['status'] {
-  if (!canTour) {
-    return 'off'
-  }
-  if (stopIndex === LAST_STOP_INDEX) {
-    return 'finished'
-  }
-  return isPaused ? 'paused' : 'playing'
 }
