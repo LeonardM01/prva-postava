@@ -32,6 +32,12 @@ coverage
 .DS_Store
 todos.json
 
+# mattpocock agent skills installed with `npx skills` (symlinked into .claude/skills); local only
+.agents/
+skills-lock.json
+.claude/skills/*
+!.claude/skills/impeccable/
+
 # impeccable local state, never committed
 .impeccable/
 # impeccable engine binary (16 MB, per-platform; the launcher re-downloads it on first run)

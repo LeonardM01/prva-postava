@@ -13,5 +13,7 @@ coverage
 
 # vendored agent skills (installed by `npx impeccable install`)
 .claude/skills
+.agents
+skills-lock.json
 .claude/agents
 .impeccable
