@@ -102,6 +102,23 @@ describe('CTA band', () => {
     expect(joinLineupMock).not.toHaveBeenCalled()
   })
 
+  it('keeps the error when the visitor tabs away from the invalid address', async () => {
+    const user = userEvent.setup()
+    await renderLandingPage()
+
+    const band = getBand()
+    const email = within(band).getByRole('textbox', { name: 'Email' })
+    await user.type(email, 'ivan.horvat')
+    await user.click(within(band).getByRole('button', { name: 'Search players by position' }))
+    await within(band).findByRole('alert')
+    await user.tab()
+
+    expect(within(band).getByRole('alert')).toHaveTextContent(
+      'Enter an email address like name@club.hr',
+    )
+    expect(email).toHaveAttribute('aria-invalid', 'true')
+  })
+
   it('treats an empty field as an invalid address', async () => {
     const user = userEvent.setup()
     await renderLandingPage()

@@ -79,6 +79,7 @@ export function CtaForm({ onJoined }: CtaFormProps) {
               >
                 {strings.cta.emailLabel}
               </label>
+              {/* No blur handler: TanStack Form would re-validate on blur and clear the submit error. */}
               <input
                 ref={emailRef}
                 id={emailId}
@@ -91,7 +92,6 @@ export function CtaForm({ onJoined }: CtaFormProps) {
                 aria-invalid={isInvalid}
                 aria-describedby={message === null ? undefined : messageId}
                 className="h-11.5 w-full rounded-[10px] border border-card/28 bg-card/12 px-4 text-[15px] text-card caret-card placeholder:text-card focus-visible:outline-card aria-invalid:border-2 aria-invalid:border-band-error"
-                onBlur={field.handleBlur}
                 onChange={(event) => {
                   field.handleChange(event.target.value)
                 }}
