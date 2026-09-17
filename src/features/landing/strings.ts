@@ -2,6 +2,13 @@ import { type Language } from '#/lib/language'
 
 const en = {
   brand: 'Prva postava',
+  // What search results show. Titles stay within 70 characters and descriptions within 155 so
+  // the snippet is not cut.
+  meta: {
+    title: 'Free agent footballers and clubs looking for players | Prva postava',
+    description:
+      'Free agent and lower-league footballers list a profile and season stats for free. Clubs filter them by position and league, then make contact.',
+  },
   nav: {
     label: 'Main',
     forClubs: 'For clubs',
@@ -150,6 +157,12 @@ export type LandingStrings = typeof en
 
 const hr: LandingStrings = {
   brand: 'Prva postava',
+  // Needs Leonard's review before launch.
+  meta: {
+    title: 'Slobodni nogometaši i klubovi koji traže igrače | Prva postava',
+    description:
+      'Slobodni nogometaši i igrači nižih liga besplatno objave profil i statistiku sezone. Klubovi ih filtriraju po poziciji i ligi te im se javljaju.',
+  },
   nav: {
     label: 'Glavna navigacija',
     forClubs: 'Za klubove',

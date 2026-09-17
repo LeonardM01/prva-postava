@@ -39,6 +39,15 @@ describe('landing string table', () => {
     }
   })
 
+  it.each(LANGUAGES)(
+    'keeps the %s search title and description within snippet length',
+    (language) => {
+      const { title, description } = LANDING_STRINGS[language].meta
+      expect(title.length).toBeLessThanOrEqual(70)
+      expect(description.length).toBeLessThanOrEqual(155)
+    },
+  )
+
   it('carries the designed Croatian nav copy', () => {
     expect(LANDING_STRINGS.hr.nav.forClubs).toBe('Za klubove')
     expect(LANDING_STRINGS.hr.nav.searchPlayers).toBe('Pretraži igrače')

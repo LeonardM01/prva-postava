@@ -1,7 +1,11 @@
 import { notFound, redirect } from '@tanstack/react-router'
 import { z } from 'zod'
 
-import { DEFAULT_LANGUAGE, isLanguage } from '#/lib/language'
+import { indexablePageHead } from '#/lib/indexable-page-head'
+import { HOME_PAGE } from '#/lib/indexable-pages'
+import { DEFAULT_LANGUAGE, isLanguage, parseLanguage } from '#/lib/language'
+
+import { LANDING_STRINGS } from './strings'
 
 /**
  * The landing page reads no search params of its own. Unknown ones (for example `utm_*`)
@@ -36,6 +40,16 @@ function guardLandingLanguage({ params, search }: LandingGuardOptions) {
   }
 }
 
+interface LandingHeadOptions {
+  readonly params: LandingPathParams
+}
+
+function landingHead({ params }: LandingHeadOptions) {
+  const language = parseLanguage(params.lang)
+  const { title, description } = LANDING_STRINGS[language].meta
+  return indexablePageHead({ page: HOME_PAGE, language, title, description })
+}
+
 /**
  * Shared by the file route and the unit-test router so tests exercise the real search
  * validation and language guard.
@@ -43,4 +57,5 @@ function guardLandingLanguage({ params, search }: LandingGuardOptions) {
 export const LANDING_ROUTE_OPTIONS = {
   validateSearch: landingSearchSchema,
   beforeLoad: guardLandingLanguage,
+  head: landingHead,
 }
