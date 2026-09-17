@@ -20,7 +20,7 @@ function getStat(factSheet: HTMLElement, label: string) {
 
 describe('players section', () => {
   it('is the section the "For players" nav link lands on', async () => {
-    await renderLandingPage()
+    await renderLandingPage('/en')
 
     const section = screen.getByRole('region', {
       name: "Players publish their season, then pay to sit first on their position's list.",
@@ -31,14 +31,14 @@ describe('players section', () => {
   })
 
   it('links to the player profile demo', async () => {
-    await renderLandingPage()
+    await renderLandingPage('/en')
 
     const demo = screen.getByRole('figure', { name: 'Sample player profile, not a real listing' })
     expect(getLinkTarget(screen.getByRole('link', { name: 'See a player profile' }))).toBe(demo)
   })
 
   it('shows the fact sheet of the promoted left wing', async () => {
-    await renderLandingPage()
+    await renderLandingPage('/en')
 
     const demo = screen.getByRole('figure', { name: 'Sample player profile, not a real listing' })
     expect(within(demo).getByText('Ivan Horvat')).toBeVisible()
@@ -54,7 +54,7 @@ describe('players section', () => {
 
   it('keeps the promote control out of the tab order and away from buttons', async () => {
     const user = userEvent.setup()
-    await renderLandingPage()
+    await renderLandingPage('/en')
 
     const demo = screen.getByRole('figure', { name: 'Sample player profile, not a real listing' })
     expect(within(demo).queryAllByRole('button')).toEqual([])
@@ -68,7 +68,7 @@ describe('players section', () => {
   })
 
   it('carries the section in Croatian', async () => {
-    await renderLandingPage('/?lang=hr')
+    await renderLandingPage('/')
 
     const section = screen.getByRole('region', {
       name: 'Igrači objave sezonu, pa plate mjesto na vrhu liste za svoju poziciju.',

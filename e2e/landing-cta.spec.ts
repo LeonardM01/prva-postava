@@ -25,7 +25,7 @@ async function holdSignups(page: Page) {
 
 test('an invalid address shows the designed error under the field', async ({ page }) => {
   const signups = await holdSignups(page)
-  await page.goto('/')
+  await page.goto('/en')
   const band = getBand(page)
   const email = band.getByRole('textbox', { name: 'Email' })
 
@@ -42,7 +42,7 @@ test('an invalid address shows the designed error under the field', async ({ pag
 
 test('a valid address is sent once and confirmed', async ({ page }) => {
   const signups = await holdSignups(page)
-  await page.goto('/')
+  await page.goto('/en')
   const band = getBand(page)
   const email = band.getByRole('textbox', { name: 'Email' })
   const submit = band.getByRole('button', { name: 'Search players by position' })
@@ -70,7 +70,7 @@ test('a valid address is sent once and confirmed', async ({ page }) => {
 })
 
 test('the band and the hero switch sides together', async ({ page }) => {
-  await page.goto('/')
+  await page.goto('/en')
   const band = getBand(page)
   const hero = page.getByRole('region').filter({ has: page.getByRole('heading', { level: 1 }) })
 
@@ -91,7 +91,7 @@ test('the band and the hero switch sides together', async ({ page }) => {
 })
 
 test('the hero button lands on the band', async ({ page }) => {
-  await page.goto('/')
+  await page.goto('/en')
 
   await page.getByRole('link', { name: 'Search players by position' }).click()
 

@@ -1,7 +1,7 @@
 import { Link } from '@tanstack/react-router'
 import { type ReactNode } from 'react'
 
-import { type Language } from '#/lib/language'
+import { type Language, languagePathSegment } from '#/lib/language'
 
 interface LanguageLinkProps {
   readonly 'aria-label'?: string
@@ -12,13 +12,14 @@ interface LanguageLinkProps {
 }
 
 /**
- * Links to the landing page in `language`, keeping every other search param and the hash.
+ * Links to the landing page in `language`, keeping every search param and the hash.
  */
 export function LanguageLink({ children, language, ...props }: LanguageLinkProps) {
   return (
     <Link
-      to="/"
-      search={(previous) => ({ ...previous, lang: language })}
+      to="/{-$lang}"
+      params={{ lang: languagePathSegment(language) }}
+      search={true}
       hash={true}
       hrefLang={language}
       {...props}

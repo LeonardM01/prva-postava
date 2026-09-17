@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test'
 
 test('the menu links land on the clubs and players sections', async ({ page }) => {
-  await page.goto('/')
+  await page.goto('/en')
   const nav = page.getByRole('navigation', { name: 'Main' })
   const menuButton = nav.getByRole('button', { name: 'Open menu' })
 
@@ -27,7 +27,7 @@ test('the menu links land on the clubs and players sections', async ({ page }) =
 })
 
 test('the club search reduces to three filters and three columns', async ({ page }) => {
-  await page.goto('/')
+  await page.goto('/en')
 
   const demo = page.getByRole('figure', { name: 'Sample club search, not real listings' })
   await expect(demo.getByRole('list', { name: 'Filters' }).getByRole('listitem')).toHaveText([
@@ -57,7 +57,7 @@ test('the club search reduces to three filters and three columns', async ({ page
 })
 
 test('the fact sheet drops the league and shortens minutes', async ({ page }) => {
-  await page.goto('/')
+  await page.goto('/en')
 
   const demo = page.getByRole('figure', { name: 'Sample player profile, not a real listing' })
   await expect(demo.getByText(/^Left wing · 22/)).toHaveText('Left wing · 22 · NK Kustošija', {

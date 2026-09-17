@@ -5,14 +5,14 @@ import { renderLandingPage } from './render-landing-page'
 
 describe('tactics board', () => {
   it('is a figure captioned with the board caption and the sample note', async () => {
-    await renderLandingPage()
+    await renderLandingPage('/en')
 
     const board = screen.getByRole('figure', { name: 'Every position on one board' })
     expect(within(board).getByText('Sample players, not real listings')).toBeVisible()
   })
 
   it('lists the eleven sample players with position and club', async () => {
-    await renderLandingPage()
+    await renderLandingPage('/en')
 
     const board = screen.getByRole('figure', { name: 'Every position on one board' })
     const players = within(board).getAllByRole('listitem')
@@ -28,14 +28,14 @@ describe('tactics board', () => {
   })
 
   it('shows the Promoted tag on the left-wing slot', async () => {
-    await renderLandingPage()
+    await renderLandingPage('/en')
 
     const board = screen.getByRole('figure', { name: 'Every position on one board' })
     expect(within(board).getByText('Promoted in LW')).toBeInTheDocument()
   })
 
   it('carries the board copy in Croatian', async () => {
-    await renderLandingPage('/?lang=hr')
+    await renderLandingPage('/')
 
     const board = screen.getByRole('figure', { name: 'Svaka pozicija na jednoj ploči' })
     expect(within(board).getByText('Primjeri igrača, nisu pravi oglasi')).toBeVisible()

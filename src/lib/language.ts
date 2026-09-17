@@ -1,8 +1,8 @@
 import { z } from 'zod'
 
-export const LANGUAGES = ['en', 'hr'] as const
+export const LANGUAGES = ['hr', 'en'] as const
 
-const DEFAULT_LANGUAGE = 'en'
+export const DEFAULT_LANGUAGE = 'hr'
 
 const languageSchema = z.enum(LANGUAGES)
 
@@ -11,20 +11,23 @@ export type Language = z.infer<typeof languageSchema>
 const languageOrDefaultSchema = languageSchema.default(DEFAULT_LANGUAGE).catch(DEFAULT_LANGUAGE)
 
 /**
- * Reads a language from untrusted input, falling back to English when absent or unsupported.
+ * Reads a language from untrusted input, falling back to Croatian when absent or unsupported.
  */
 export function parseLanguage(value: unknown): Language {
   return languageOrDefaultSchema.parse(value)
 }
 
+export function isLanguage(value: unknown): value is Language {
+  return languageSchema.safeParse(value).success
+}
+
 /**
- * Search params for pages that come in both languages. Unknown params (for example
- * `utm_*`) pass through so switching language does not drop them from the URL, and an
- * unsupported `lang` falls back to English instead of failing the route.
+ * The path segment that selects `language`. The default language lives at the root, so it has
+ * none.
  */
-export const languageSearchSchema = z.looseObject({
-  lang: languageOrDefaultSchema,
-})
+export function languagePathSegment(language: Language): Language | undefined {
+  return language === DEFAULT_LANGUAGE ? undefined : language
+}
 
 export function otherLanguage(language: Language): Language {
   switch (language) {

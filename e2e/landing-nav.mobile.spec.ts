@@ -8,7 +8,7 @@ async function shortestSide(locator: Locator) {
 }
 
 test('the mobile nav collapses to brand, language pill and a menu button', async ({ page }) => {
-  await page.goto('/')
+  await page.goto('/en')
 
   const nav = page.getByRole('navigation', { name: 'Main' })
   await expect(nav.getByRole('link', { name: 'Prva postava' })).toBeVisible()
@@ -21,7 +21,7 @@ test('the mobile nav collapses to brand, language pill and a menu button', async
 })
 
 test('the menu button opens and closes the panel', async ({ page }) => {
-  await page.goto('/')
+  await page.goto('/en')
 
   const nav = page.getByRole('navigation', { name: 'Main' })
   const menuButton = nav.getByRole('button', { name: 'Open menu' })
@@ -41,7 +41,7 @@ test('the menu button opens and closes the panel', async ({ page }) => {
 })
 
 test('Escape closes the panel and returns focus to the menu button', async ({ page }) => {
-  await page.goto('/')
+  await page.goto('/en')
 
   const nav = page.getByRole('navigation', { name: 'Main' })
   const menuButton = nav.getByRole('button', { name: 'Open menu' })
@@ -56,17 +56,30 @@ test('Escape closes the panel and returns focus to the menu button', async ({ pa
 })
 
 test('the language pill switches to Croatian', async ({ page }) => {
-  await page.goto('/')
+  await page.goto('/en')
 
   await page.getByRole('link', { name: 'EN: Switch to Croatian' }).click()
 
   await expect(page.locator('html')).toHaveAttribute('lang', 'hr')
   await expect(page.getByRole('link', { name: 'HR: Prebaci na engleski' })).toBeVisible()
   await expect(page.getByRole('button', { name: 'Otvori izbornik' })).toBeVisible()
+  expect(new URL(page.url()).pathname).toBe('/')
+})
+
+test('the language pill keeps the query and hash', async ({ page }) => {
+  await page.goto('/?utm_source=x#for-clubs')
+
+  await page.getByRole('link', { name: 'HR: Prebaci na engleski' }).click()
+
+  await expect(page.locator('html')).toHaveAttribute('lang', 'en')
+  const url = new URL(page.url())
+  expect(url.pathname).toBe('/en')
+  expect(url.search).toBe('?utm_source=x')
+  expect(url.hash).toBe('#for-clubs')
 })
 
 test('nav and footer links meet the 44 px tap target', async ({ page }) => {
-  await page.goto('/')
+  await page.goto('/en')
 
   const nav = page.getByRole('navigation', { name: 'Main' })
   const menuButton = nav.getByRole('button', { name: 'Open menu' })

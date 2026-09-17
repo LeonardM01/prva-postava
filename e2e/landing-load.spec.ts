@@ -80,7 +80,7 @@ async function measureHero(page: Page) {
 
 test('the load cascade plays once and settles within about a second', async ({ page }) => {
   await recordLoadMotion(page)
-  await page.goto('/')
+  await page.goto('/en')
   await waitForLoadMotionToSettle(page)
 
   const { starts, ends } = await readLoadMotion(page)
@@ -97,11 +97,11 @@ test('after the cascade the hero rests exactly where the page without animations
   // lifted or dimmed while the hero is measured.
   await page.emulateMedia({ reducedMotion: 'reduce' })
   await recordLoadMotion(page)
-  await page.goto('/')
+  await page.goto('/en')
   await waitForLoadMotionToSettle(page)
   const animated = await measureHero(page)
 
-  await page.goto('/')
+  await page.goto('/en')
   await page.addStyleTag({ content: '*, ::before, ::after { animation: none !important; }' })
   const resting = await measureHero(page)
 
@@ -111,7 +111,7 @@ test('after the cascade the hero rests exactly where the page without animations
 test('the cascade plays even when the visitor prefers reduced motion', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' })
   await recordLoadMotion(page)
-  await page.goto('/')
+  await page.goto('/en')
 
   await waitForLoadMotionToSettle(page)
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
@@ -119,7 +119,7 @@ test('the cascade plays even when the visitor prefers reduced motion', async ({ 
 
 test('neither the cascade nor the web fonts shift the layout', async ({ page }) => {
   await recordLoadMotion(page)
-  await page.goto('/')
+  await page.goto('/en')
   await waitForLoadMotionToSettle(page)
 
   const shift = await page.evaluate(() => {
@@ -137,7 +137,7 @@ test.describe('without JavaScript', () => {
   test.use({ javaScriptEnabled: false })
 
   test('the copy and the full board still show', async ({ page }) => {
-    await page.goto('/')
+    await page.goto('/en')
 
     const board = getBoard(page)
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible()

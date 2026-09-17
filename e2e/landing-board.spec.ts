@@ -3,7 +3,7 @@ import { expect, test } from '@playwright/test'
 test('the tactics board is a captioned figure listing the eleven sample players', async ({
   page,
 }) => {
-  await page.goto('/')
+  await page.goto('/en')
 
   const board = page.getByRole('figure', { name: 'Every position on one board' })
   await expect(board).toBeVisible()
@@ -15,7 +15,7 @@ test('the tactics board is a captioned figure listing the eleven sample players'
 })
 
 test('the tactics board caption follows the language', async ({ page }) => {
-  await page.goto('/?lang=hr')
+  await page.goto('/')
 
   const board = page.getByRole('figure', { name: 'Svaka pozicija na jednoj ploči' })
   await expect(board).toBeVisible()

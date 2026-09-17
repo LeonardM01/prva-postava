@@ -24,9 +24,14 @@ async function findViolations(page: Page) {
   }))
 }
 
-for (const lang of ['en', 'hr'] as const) {
+const LANDING_PAGES = [
+  { lang: 'hr', path: '/' },
+  { lang: 'en', path: '/en' },
+] as const
+
+for (const { lang, path } of LANDING_PAGES) {
   test(`the landing page has no WCAG A or AA violations in ${lang}`, async ({ page }) => {
-    await page.goto(`/?lang=${lang}`)
+    await page.goto(path)
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
 
     expect(await findViolations(page)).toEqual([])
@@ -34,7 +39,7 @@ for (const lang of ['en', 'hr'] as const) {
 }
 
 test('the player side of the page has no WCAG A or AA violations', async ({ page }) => {
-  await page.goto('/')
+  await page.goto('/en')
   const hero = page.getByRole('region').filter({ has: page.getByRole('heading', { level: 1 }) })
   await hero.getByRole('button', { name: "I'm a player" }).click()
   await expect(hero.getByRole('link', { name: 'List yourself, free' })).toBeVisible()
@@ -43,7 +48,7 @@ test('the player side of the page has no WCAG A or AA violations', async ({ page
 })
 
 test('the CTA form error has no WCAG A or AA violations', async ({ page }) => {
-  await page.goto('/')
+  await page.goto('/en')
   const band = page.getByRole('region', { name: 'Get in the lineup.' })
   await band.getByRole('textbox', { name: 'Email' }).fill('ivan.horvat')
   await band.getByRole('button', { name: 'Search players by position' }).click()

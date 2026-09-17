@@ -11,11 +11,19 @@ interface SectionLinkProps {
 }
 
 /**
- * Scrolls to a section of the landing page, keeping the current search params (language).
+ * Scrolls to a section of the landing page, keeping the current path (language) and search
+ * params.
  */
 export function SectionLink({ children, className, onClick, section }: SectionLinkProps) {
   return (
-    <Link to="/" search={true} hash={section} className={className} onClick={onClick}>
+    <Link
+      to="/{-$lang}"
+      params={true}
+      search={true}
+      hash={section}
+      className={className}
+      onClick={onClick}
+    >
       {children}
     </Link>
   )

@@ -21,16 +21,16 @@ async function measureSidewaysOverflow(page: Page) {
 }
 
 const ROLE_SWITCH_LABELS = [
-  { lang: 'en', playerButton: "I'm a player", playerCta: 'List yourself, free' },
-  { lang: 'hr', playerButton: 'Ja sam igrač', playerCta: 'Oglasi se besplatno' },
+  { lang: 'en', path: '/en', playerButton: "I'm a player", playerCta: 'List yourself, free' },
+  { lang: 'hr', path: '/', playerButton: 'Ja sam igrač', playerCta: 'Oglasi se besplatno' },
 ] as const
 
-for (const { lang, playerButton, playerCta } of ROLE_SWITCH_LABELS) {
+for (const { lang, path, playerButton, playerCta } of ROLE_SWITCH_LABELS) {
   test(`the page never scrolls sideways or logs an error in ${lang}, on either side of the role switch`, async ({
     page,
   }) => {
     const errors = collectErrors(page)
-    await page.goto(`/?lang=${lang}`)
+    await page.goto(path)
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
     await expect.poll(() => measureSidewaysOverflow(page)).toBe(0)
 

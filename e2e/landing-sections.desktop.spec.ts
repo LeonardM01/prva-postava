@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test'
 
 test('the nav links land on the clubs and players sections', async ({ page }) => {
-  await page.goto('/')
+  await page.goto('/en')
   const nav = page.getByRole('navigation', { name: 'Main' })
 
   await nav.getByRole('link', { name: 'For clubs' }).click()
@@ -26,7 +26,7 @@ test('the nav links land on the clubs and players sections', async ({ page }) =>
 test('the club search shows five filters, seven columns, Save and the actions', async ({
   page,
 }) => {
-  await page.goto('/')
+  await page.goto('/en')
 
   const demo = page.getByRole('figure', { name: 'Sample club search, not real listings' })
   await expect(demo.getByRole('list', { name: 'Filters' }).getByRole('listitem')).toHaveText([
@@ -65,7 +65,7 @@ test('the club search shows five filters, seven columns, Save and the actions', 
 })
 
 test('the fact sheet names the league and spells out minutes', async ({ page }) => {
-  await page.goto('/')
+  await page.goto('/en')
 
   const demo = page.getByRole('figure', { name: 'Sample player profile, not a real listing' })
   // Text the layout hides for phones stays in the markup, so these read what is drawn.

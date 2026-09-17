@@ -3,7 +3,7 @@ import { expect, test } from '@playwright/test'
 test('the desktop nav shows the brand, section links, language control and actions', async ({
   page,
 }) => {
-  await page.goto('/')
+  await page.goto('/en')
 
   const nav = page.getByRole('navigation', { name: 'Main' })
   await expect(nav.getByRole('link', { name: 'Prva postava' })).toBeVisible()
@@ -19,7 +19,7 @@ test('the desktop nav shows the brand, section links, language control and actio
 })
 
 test('the desktop nav is translated in Croatian', async ({ page }) => {
-  await page.goto('/?lang=hr')
+  await page.goto('/')
 
   const nav = page.getByRole('navigation', { name: 'Glavna navigacija' })
   await expect(nav.getByRole('link', { name: 'Za klubove' })).toBeVisible()
@@ -32,25 +32,34 @@ test('the desktop nav is translated in Croatian', async ({ page }) => {
 })
 
 test('the HR | EN control switches language and keeps the rest of the URL', async ({ page }) => {
-  await page.goto('/?utm_source=newsletter#for-clubs')
+  await page.goto('/?utm_source=x#for-clubs')
 
-  const language = page.getByRole('group', { name: 'Language' })
-  await language.getByRole('link', { name: 'HR' }).click()
+  const language = page.getByRole('group', { name: 'Jezik' })
+  await language.getByRole('link', { name: 'EN' }).click()
+
+  await expect(page.locator('html')).toHaveAttribute('lang', 'en')
+  await expect(page.getByRole('link', { name: 'For clubs' })).toBeVisible()
+  const englishUrl = new URL(page.url())
+  expect(englishUrl.pathname).toBe('/en')
+  expect(englishUrl.search).toBe('?utm_source=x')
+  expect(englishUrl.hash).toBe('#for-clubs')
+
+  await page.getByRole('group', { name: 'Language' }).getByRole('link', { name: 'HR' }).click()
 
   await expect(page.locator('html')).toHaveAttribute('lang', 'hr')
   await expect(page.getByRole('link', { name: 'Za klubove' })).toBeVisible()
   const croatianUrl = new URL(page.url())
   expect(croatianUrl.pathname).toBe('/')
-  expect(croatianUrl.searchParams.get('lang')).toBe('hr')
-  expect(croatianUrl.searchParams.get('utm_source')).toBe('newsletter')
+  expect(croatianUrl.search).toBe('?utm_source=x')
   expect(croatianUrl.hash).toBe('#for-clubs')
+})
 
-  await page.getByRole('group', { name: 'Jezik' }).getByRole('link', { name: 'EN' }).click()
+test('section links keep the current language', async ({ page }) => {
+  await page.goto('/en')
 
-  await expect(page.locator('html')).toHaveAttribute('lang', 'en')
-  await expect(page.getByRole('link', { name: 'For clubs' })).toBeVisible()
-  const englishUrl = new URL(page.url())
-  expect(englishUrl.searchParams.get('lang')).toBe('en')
-  expect(englishUrl.searchParams.get('utm_source')).toBe('newsletter')
-  expect(englishUrl.hash).toBe('#for-clubs')
+  const nav = page.getByRole('navigation', { name: 'Main' })
+  await expect(nav.getByRole('link', { name: 'For clubs' })).toHaveAttribute(
+    'href',
+    '/en#for-clubs',
+  )
 })

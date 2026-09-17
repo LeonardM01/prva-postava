@@ -40,7 +40,7 @@ beforeEach(() => {
 
 describe('CTA band', () => {
   it('is where the nav and the hero button send visitors', async () => {
-    await renderLandingPage()
+    await renderLandingPage('/en')
 
     const band = getBand()
     expect(
@@ -58,7 +58,7 @@ describe('CTA band', () => {
   })
 
   it('offers the role switch, a labelled email field and the club button', async () => {
-    await renderLandingPage()
+    await renderLandingPage('/en')
 
     const band = getBand()
     const roleSwitch = within(band).getByRole('group', { name: 'Pick a side' })
@@ -74,7 +74,7 @@ describe('CTA band', () => {
 
   it('shows no error while the visitor is still typing', async () => {
     const user = userEvent.setup()
-    await renderLandingPage()
+    await renderLandingPage('/en')
 
     const email = within(getBand()).getByRole('textbox', { name: 'Email' })
     await user.type(email, 'ivan.horvat')
@@ -86,7 +86,7 @@ describe('CTA band', () => {
 
   it('names the fix under the field when an invalid address is submitted', async () => {
     const user = userEvent.setup()
-    await renderLandingPage()
+    await renderLandingPage('/en')
 
     const band = getBand()
     const email = within(band).getByRole('textbox', { name: 'Email' })
@@ -104,7 +104,7 @@ describe('CTA band', () => {
 
   it('keeps the error when the visitor tabs away from the invalid address', async () => {
     const user = userEvent.setup()
-    await renderLandingPage()
+    await renderLandingPage('/en')
 
     const band = getBand()
     const email = within(band).getByRole('textbox', { name: 'Email' })
@@ -121,7 +121,7 @@ describe('CTA band', () => {
 
   it('treats an empty field as an invalid address', async () => {
     const user = userEvent.setup()
-    await renderLandingPage()
+    await renderLandingPage('/en')
 
     const band = getBand()
     await user.click(within(band).getByRole('button', { name: 'Search players by position' }))
@@ -135,7 +135,7 @@ describe('CTA band', () => {
   it('sends a valid address, holds the button while sending, then confirms', async () => {
     const user = userEvent.setup()
     const answerSignup = holdSignup()
-    await renderLandingPage()
+    await renderLandingPage('/en')
 
     const band = getBand()
     await user.type(within(band).getByRole('textbox', { name: 'Email' }), 'ivan@nk-kustosija.hr')
@@ -161,7 +161,7 @@ describe('CTA band', () => {
     const user = userEvent.setup()
     const consoleError = vi.spyOn(console, 'error').mockImplementation(() => undefined)
     joinLineupMock.mockRejectedValue(new Error('Network down'))
-    await renderLandingPage()
+    await renderLandingPage('/en')
 
     const band = getBand()
     await user.type(within(band).getByRole('textbox', { name: 'Email' }), 'ivan@nk-kustosija.hr')
@@ -177,7 +177,7 @@ describe('CTA band', () => {
 
   it('keeps its role switch in step with the hero', async () => {
     const user = userEvent.setup()
-    await renderLandingPage()
+    await renderLandingPage('/en')
 
     const band = getBand()
     await user.click(within(band).getByRole('button', { name: "I'm a player" }))
@@ -202,7 +202,7 @@ describe('CTA band', () => {
   it('confirms a player signup with the player wording', async () => {
     const user = userEvent.setup()
     const answerSignup = holdSignup()
-    await renderLandingPage()
+    await renderLandingPage('/en')
 
     const band = getBand()
     await user.click(within(band).getByRole('button', { name: "I'm a player" }))
@@ -224,7 +224,7 @@ describe('CTA band', () => {
   it('carries the band and its form states in Croatian', async () => {
     const user = userEvent.setup()
     const answerSignup = holdSignup()
-    await renderLandingPage('/?lang=hr')
+    await renderLandingPage('/')
 
     const band = getBand('Uđi u prvu postavu.')
     const email = within(band).getByRole('textbox', { name: 'E-mail' })

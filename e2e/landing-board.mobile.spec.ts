@@ -4,7 +4,7 @@ import { expect, test } from '@playwright/test'
 test.use({ javaScriptEnabled: false })
 
 test('the board shows compact chips with surname and number', async ({ page }) => {
-  await page.goto('/')
+  await page.goto('/en')
 
   const board = page.getByRole('figure', { name: 'Every position on one board' })
   await expect(board.getByText('Horvat', { exact: true })).toBeVisible()
