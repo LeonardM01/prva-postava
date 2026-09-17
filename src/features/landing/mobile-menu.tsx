@@ -6,7 +6,8 @@ import { SECTION_IDS } from './section-ids'
 import { SectionLink } from './section-link'
 import { useLandingLanguage } from './use-landing-language'
 
-const PANEL_LINK_CLASS = 'flex min-h-11 items-center text-[15px] font-medium text-ink'
+const PANEL_LINK_CLASS =
+  'flex min-h-11 items-center text-[15px] font-medium text-ink underline-offset-4 hover:underline'
 
 /**
  * The menu button and the panel it opens. The panel is positioned against the nearest
@@ -100,7 +101,7 @@ export function MobileMenu() {
           <li className="pt-2">
             <SectionLink
               section={SECTION_IDS.cta}
-              className="flex h-12 items-center justify-center rounded-lg bg-signal text-[15px] font-semibold text-card transition-colors duration-150 hover:bg-signal-deep"
+              className="flex h-12 items-center justify-center rounded-lg bg-signal text-[15px] font-semibold text-card transition-colors duration-150 hover:bg-signal-deep active:bg-signal-deep active:inset-shadow-pressed"
               onClick={() => {
                 setIsOpen(false)
               }}

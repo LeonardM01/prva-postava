@@ -38,7 +38,7 @@ export function LandingNav() {
           </SectionLink>
           <SectionLink
             section={SECTION_IDS.cta}
-            className="rounded-lg bg-signal px-4.5 py-2.75 text-[15px] leading-5 font-semibold text-card transition-colors duration-150 hover:bg-signal-deep active:brightness-90"
+            className="rounded-lg bg-signal px-4.5 py-2.75 text-[15px] leading-5 font-semibold text-card transition-colors duration-150 hover:bg-signal-deep active:bg-signal-deep active:inset-shadow-pressed"
           >
             {strings.nav.searchPlayers}
           </SectionLink>

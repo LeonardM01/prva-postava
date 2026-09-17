@@ -61,6 +61,9 @@
   --breakpoint-board: 53rem;
 
   --shadow-chip: 0 6px 16px -4px rgb(8 31 18 / 0.3);
+  --shadow-chip-lifted: 0 10px 20px -4px rgb(8 31 18 / 0.38);
+  /* Pressed buttons keep their hover fill and sink under this. */
+  --inset-shadow-pressed: inset 0 2px 4px rgb(0 0 0 / 0.18);
 
   /* The frame the design is drawn in. Wider screens centre it rather than spreading the
      content apart; full-bleed bands still paint edge to edge around it. */
@@ -182,6 +185,10 @@
   body,
   #app {
     min-height: 100%;
+  }
+
+  html {
+    scrollbar-color: var(--line) var(--mist);
   }
 
   body {

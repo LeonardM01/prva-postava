@@ -36,7 +36,7 @@ export function HeroCopy({ headingId }: HeroCopyProps) {
         <ViewTransition default="role-shape">
           <SectionLink
             section={SECTION_IDS.cta}
-            className="group flex h-13 items-center justify-center rounded-[12px] bg-signal px-6 text-[17px] font-semibold text-card transition-colors duration-150 hover:bg-signal-deep active:brightness-90"
+            className="group flex h-13 items-center justify-center rounded-[12px] bg-signal px-6 text-[17px] font-semibold text-card transition-colors duration-150 hover:bg-signal-deep active:bg-signal-deep active:inset-shadow-pressed"
           >
             <ViewTransition default="role-copy">
               <span className="flex items-center gap-2.5">

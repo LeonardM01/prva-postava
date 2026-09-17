@@ -4,12 +4,12 @@ import { useLandingLanguage } from './use-landing-language'
 
 // Phones get taller chips and only the first two filters, with a shorter add chip.
 const filterVariants = cva(
-  'rounded-full border p-3.5 text-[13px] leading-[normal] font-medium whitespace-nowrap board:px-3 board:py-1.75',
+  'rounded-full border p-3.5 text-[13px] leading-[normal] font-medium whitespace-nowrap transition-colors duration-150 board:px-3 board:py-1.75',
   {
     variants: {
       isApplied: {
         true: 'border-signal bg-tint text-signal',
-        false: 'border-line bg-card text-ink',
+        false: 'border-line bg-card text-ink hover:border-signal',
       },
       shownOn: {
         all: '',
