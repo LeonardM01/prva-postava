@@ -5,7 +5,7 @@ import { type Language, otherLanguage } from '#/lib/language'
  * The image a link preview shows. Every preview is a static 1200 by 630 PNG exported from
  * Figma, so only its path and description vary.
  */
-export interface SocialImage {
+interface SocialImage {
   readonly path: string
   readonly alt: string
 }

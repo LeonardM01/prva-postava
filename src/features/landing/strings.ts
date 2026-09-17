@@ -2,13 +2,13 @@ import { type Language } from '#/lib/language'
 
 const en = {
   brand: 'Prva postava',
-  // What search results show. Titles stay within 70 characters and descriptions within 155 so
-  // the snippet is not cut.
+  // What search results and link previews show. Titles stay within 70 characters and
+  // descriptions within 155 so the snippet is not cut.
   meta: {
     title: 'Free agent footballers and clubs looking for players | Prva postava',
     description:
       'Free agent and lower-league footballers list a profile and season stats for free. Clubs filter them by position and league, then make contact.',
-    // Describes the social preview image (`public/og-en.png`) where a link is shared.
+    // Alt text for `public/og-en.png`; re-export that image from Figma if its line changes.
     imageAlt: 'Prva postava logo with the line Get in the lineup.',
   },
   nav: {
