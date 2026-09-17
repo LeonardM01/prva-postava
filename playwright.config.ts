@@ -37,7 +37,10 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: `bun run preview --port ${PORT} --strictPort`,
+    // The built Nitro server, not `vite preview`: preview serves `public/` through its own static
+    // layer, which gets some content types wrong (`.webmanifest` comes back as octet-stream).
+    command: 'node .output/server/index.mjs',
+    env: { PORT: String(PORT) },
     url: baseURL,
     reuseExistingServer: !isCI,
     timeout: 120_000,
