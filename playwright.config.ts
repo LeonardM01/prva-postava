@@ -19,10 +19,16 @@ export default defineConfig({
   },
   projects: [
     // `*.desktop.spec.ts` and `*.mobile.spec.ts` cover layouts that only exist at one width.
+    // The tablet frame is 1024 wide and keeps the desktop nav, chips and demos, stacked.
     {
       name: 'chromium',
       testIgnore: /\.mobile\.spec\.ts$/,
       use: { ...devices['Desktop Chrome'] },
+    },
+    {
+      name: 'tablet',
+      testIgnore: /\.mobile\.spec\.ts$/,
+      use: { ...devices['Desktop Chrome'], viewport: { width: 1024, height: 768 } },
     },
     {
       name: 'mobile-chrome',

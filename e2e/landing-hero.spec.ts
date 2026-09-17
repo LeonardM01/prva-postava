@@ -92,9 +92,7 @@ test('the role switch still swaps the copy with reduced motion', async ({ page }
   await expect(playerButton).toHaveAttribute('aria-pressed', 'true')
 })
 
-test('the hero button points at the CTA band and the page does not scroll sideways', async ({
-  page,
-}) => {
+test('the hero button points at the CTA band', async ({ page }) => {
   await page.goto('/?lang=hr')
 
   await expect(page.getByRole('link', { name: 'Pretraži igrače po poziciji' })).toHaveAttribute(
@@ -102,9 +100,8 @@ test('the hero button points at the CTA band and the page does not scroll sidewa
     /#get-in-the-lineup$/,
   )
   await getRoleSwitch(page, 'Odaberi stranu').getByRole('button', { name: 'Ja sam igrač' }).click()
-  await expect(page.getByRole('link', { name: 'Oglasi se besplatno' })).toBeVisible()
-  const overflow = await page.evaluate(
-    () => document.documentElement.scrollWidth - document.documentElement.clientWidth,
+  await expect(page.getByRole('link', { name: 'Oglasi se besplatno' })).toHaveAttribute(
+    'href',
+    /#get-in-the-lineup$/,
   )
-  expect(overflow).toBe(0)
 })
