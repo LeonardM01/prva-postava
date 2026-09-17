@@ -8,8 +8,8 @@ import { NotFound } from '#/components/not-found'
 import { RouteError } from '#/components/route-error'
 import { PostHogProvider } from '#/integrations/posthog/provider'
 import { tanstackQueryDevtoolsPlugin } from '#/integrations/tanstack-query/devtools'
-import { FAVICON_LINKS } from '#/lib/favicon-links'
 import { FONT_PRELOAD_LINKS } from '#/lib/font-preloads'
+import { ICON_LINKS, THEME_COLOR_META } from '#/lib/icon-links'
 import { parseLanguage } from '#/lib/language'
 import appCss from '#/styles.css?url'
 
@@ -23,9 +23,10 @@ export const Route = createRootRouteWithContext<RouterContext>()({
     meta: [
       { charSet: 'utf-8' },
       { content: 'width=device-width, initial-scale=1', name: 'viewport' },
+      THEME_COLOR_META,
       { title: 'Prva postava' },
     ],
-    links: [...FONT_PRELOAD_LINKS, ...FAVICON_LINKS, { href: appCss, rel: 'stylesheet' }],
+    links: [...FONT_PRELOAD_LINKS, ...ICON_LINKS, { href: appCss, rel: 'stylesheet' }],
   }),
   notFoundComponent: NotFound,
   shellComponent: RootDocument,

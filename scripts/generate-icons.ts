@@ -52,3 +52,11 @@ await writeFile(
     { size: 48, png: await rasterise('favicon.svg', 48) },
   ]),
 )
+
+// The app icon is full bleed, so iOS and Android launchers apply their own mask. Its 71% scale
+// keeps every dot inside the maskable safe zone, so the maskable file is the same artwork.
+await writeFile(new URL('apple-touch-icon.png', PUBLIC_DIR), await rasterise('app-icon.svg', 180))
+await writeFile(new URL('icon-192.png', PUBLIC_DIR), await rasterise('app-icon.svg', 192))
+const appIcon512 = await rasterise('app-icon.svg', 512)
+await writeFile(new URL('icon-512.png', PUBLIC_DIR), appIcon512)
+await writeFile(new URL('icon-maskable-512.png', PUBLIC_DIR), appIcon512)
