@@ -4,6 +4,7 @@ import { z } from 'zod'
 import { indexablePageHead } from '#/lib/indexable-page-head'
 import { HOME_PAGE } from '#/lib/indexable-pages'
 import { DEFAULT_LANGUAGE, isLanguage, parseLanguage } from '#/lib/language'
+import { siteStructuredDataScript } from '#/lib/site-structured-data'
 
 import { LANDING_STRINGS } from './strings'
 
@@ -46,7 +47,8 @@ interface LandingHeadOptions {
 
 function landingHead({ params }: LandingHeadOptions) {
   const language = parseLanguage(params.lang)
-  return indexablePageHead({ page: HOME_PAGE, language, ...LANDING_STRINGS[language].meta })
+  const head = indexablePageHead({ page: HOME_PAGE, language, ...LANDING_STRINGS[language].meta })
+  return { ...head, scripts: [siteStructuredDataScript(language)] }
 }
 
 /**
