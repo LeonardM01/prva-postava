@@ -11,7 +11,8 @@ const LOGO_SIZE = 512
 
 /**
  * Deliberately without `legalName`, `email` or `sameAs`: no registered company, public email or
- * social profile is confirmed yet. Add each field here once the fact is real.
+ * social profile is confirmed yet. Add each field here once the fact is real. The logo is the
+ * 512 px icon that `bun run generate-icons` writes to `public/`; keep its path and size in step.
  */
 const ORGANIZATION = {
   '@type': 'Organization',
@@ -24,7 +25,7 @@ const ORGANIZATION = {
     width: LOGO_SIZE,
     height: LOGO_SIZE,
   },
-}
+} as const
 
 /**
  * Deliberately without a `SearchAction`: Google retired the sitelinks search box it fed.
@@ -37,7 +38,7 @@ function website(language: Language) {
     url: SITE_ORIGIN,
     inLanguage: language,
     publisher: { '@id': ORGANIZATION_ID },
-  }
+  } as const
 }
 
 /**

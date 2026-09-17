@@ -13,7 +13,7 @@ const ORGANIZATION = {
   },
 }
 
-function websiteIn(language: string) {
+function expectedWebsite(language: string) {
   return {
     '@type': 'WebSite',
     '@id': 'https://prvapostava.co/#website',
@@ -30,9 +30,6 @@ async function readStructuredData(page: Page): Promise<unknown> {
   await expect(page.locator('head script[type="application/ld+json"]')).toHaveCount(1)
   const source = await scripts.textContent()
   expect(source).not.toBeNull()
-  // Fields added only once the fact is real: no company, public email or social profile yet,
-  // and Google retired the sitelinks search box that `SearchAction` fed.
-  expect(source).not.toMatch(/legalName|email|sameAs|SearchAction/)
   return JSON.parse(source ?? '')
 }
 
@@ -47,22 +44,12 @@ test.describe('in the served HTML', () => {
     test(`${path} names the organisation and the website in ${language}`, async ({ page }) => {
       await page.goto(path)
 
+      // An exact match, so no `legalName`, `email`, `sameAs` or `SearchAction` slips in either.
+      // `home-screen-icons.spec.ts` checks the logo URL's path is served as a 512 by 512 PNG.
       expect(await readStructuredData(page)).toEqual({
         '@context': 'https://schema.org',
-        '@graph': [ORGANIZATION, websiteIn(language)],
+        '@graph': [ORGANIZATION, expectedWebsite(language)],
       })
     })
   }
-})
-
-test('the structured data logo is served as a 512 by 512 PNG', async ({ request }) => {
-  // The logo points at production, so the same path is fetched from the server under test.
-  const response = await request.get(new URL(ORGANIZATION.logo.url).pathname)
-
-  expect(response.status()).toBe(200)
-  expect(response.headers()['content-type']).toBe('image/png')
-  // The IHDR chunk always comes first: width and height are big-endian at bytes 16 and 20.
-  const png = await response.body()
-  expect(png.subarray(1, 4).toString('ascii')).toBe('PNG')
-  expect([png.readUInt32BE(16), png.readUInt32BE(20)]).toEqual([512, 512])
 })
