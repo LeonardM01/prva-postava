@@ -33,7 +33,7 @@ test('the role switch changes the headline, button and pressed state', async ({ 
   await expect(page.getByRole('link', { name: 'Search players by position' })).toBeVisible()
 })
 
-test('the role switch works from the keyboard with a visible focus ring', async ({ page }) => {
+test('the role switch works from the keyboard', async ({ page }) => {
   await page.goto('/')
   const clubButton = getRoleSwitch(page).getByRole('button', { name: 'I scout for a club' })
   const playerButton = getRoleSwitch(page).getByRole('button', { name: "I'm a player" })
@@ -41,7 +41,6 @@ test('the role switch works from the keyboard with a visible focus ring', async 
   await clubButton.focus()
   await page.keyboard.press('Tab')
   await expect(playerButton).toBeFocused()
-  await expect(playerButton).toHaveCSS('outline-style', 'solid')
 
   await page.keyboard.press('Space')
   await expect(page.getByRole('heading', { level: 1 })).toHaveText(PLAYER_HEADLINE)

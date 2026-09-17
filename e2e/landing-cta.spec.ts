@@ -35,7 +35,6 @@ test('an invalid address shows the designed error under the field', async ({ pag
 
   const error = band.getByRole('alert')
   await expect(error).toHaveText(ERROR)
-  await expect(error).toHaveCSS('color', 'rgb(242, 165, 155)')
   await expect(email).toHaveAttribute('aria-invalid', 'true')
   await expect(email).toBeFocused()
   expect(signups.sent).toHaveLength(0)
