@@ -11,8 +11,12 @@ const landingSearchSchema = z.looseObject({})
 
 type LandingSearch = z.infer<typeof landingSearchSchema>
 
+interface LandingPathParams {
+  readonly lang?: string
+}
+
 interface LandingGuardOptions {
-  readonly params: { readonly lang?: string }
+  readonly params: LandingPathParams
   readonly search: LandingSearch
 }
 

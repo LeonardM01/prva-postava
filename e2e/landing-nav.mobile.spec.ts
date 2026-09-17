@@ -66,6 +66,18 @@ test('the language pill switches to Croatian', async ({ page }) => {
   expect(new URL(page.url()).pathname).toBe('/')
 })
 
+test('the language pill keeps the query and hash', async ({ page }) => {
+  await page.goto('/?utm_source=x#for-clubs')
+
+  await page.getByRole('link', { name: 'HR: Prebaci na engleski' }).click()
+
+  await expect(page.locator('html')).toHaveAttribute('lang', 'en')
+  const url = new URL(page.url())
+  expect(url.pathname).toBe('/en')
+  expect(url.search).toBe('?utm_source=x')
+  expect(url.hash).toBe('#for-clubs')
+})
+
 test('nav and footer links meet the 44 px tap target', async ({ page }) => {
   await page.goto('/en')
 
