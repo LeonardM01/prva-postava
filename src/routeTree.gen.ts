@@ -9,8 +9,20 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as Char123LangChar125IndexRouteImport } from './routes/{-$lang}/index'
 
+const RobotsDottxtRoute = RobotsDottxtRouteImport.update({
+  id: '/robots.txt',
+  path: '/robots.txt',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const Char123LangChar125IndexRoute = Char123LangChar125IndexRouteImport.update({
   id: '/{-$lang}/',
   path: '/{-$lang}/',
@@ -18,29 +30,51 @@ const Char123LangChar125IndexRoute = Char123LangChar125IndexRouteImport.update({
 } as any)
 
 export interface FileRoutesByFullPath {
+  '/robots.txt': typeof RobotsDottxtRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/{-$lang}/': typeof Char123LangChar125IndexRoute
 }
 export interface FileRoutesByTo {
+  '/robots.txt': typeof RobotsDottxtRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/{-$lang}': typeof Char123LangChar125IndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
+  '/robots.txt': typeof RobotsDottxtRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/{-$lang}/': typeof Char123LangChar125IndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/{-$lang}/'
+  fullPaths: '/robots.txt' | '/sitemap.xml' | '/{-$lang}/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/{-$lang}'
-  id: '__root__' | '/{-$lang}/'
+  to: '/robots.txt' | '/sitemap.xml' | '/{-$lang}'
+  id: '__root__' | '/robots.txt' | '/sitemap.xml' | '/{-$lang}/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
+  RobotsDottxtRoute: typeof RobotsDottxtRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   Char123LangChar125IndexRoute: typeof Char123LangChar125IndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/robots.txt': {
+      id: '/robots.txt'
+      path: '/robots.txt'
+      fullPath: '/robots.txt'
+      preLoaderRoute: typeof RobotsDottxtRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/{-$lang}/': {
       id: '/{-$lang}/'
       path: '/{-$lang}'
@@ -52,6 +86,8 @@ declare module '@tanstack/react-router' {
 }
 
 const rootRouteChildren: RootRouteChildren = {
+  RobotsDottxtRoute: RobotsDottxtRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   Char123LangChar125IndexRoute: Char123LangChar125IndexRoute,
 }
 export const routeTree = rootRouteImport
