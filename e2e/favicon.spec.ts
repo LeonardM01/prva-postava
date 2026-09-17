@@ -1,12 +1,17 @@
 import { expect, test } from '@playwright/test'
 
-test('the home page head links every favicon', async ({ page }) => {
-  await page.goto('/')
+test.describe('in the served HTML', () => {
+  // Without JavaScript the page is exactly what the server sent, which is what crawlers read.
+  test.use({ javaScriptEnabled: false })
 
-  const icon = (href: string) => page.locator(`head link[rel="icon"][href="${href}"]`)
-  await expect(icon('/favicon.ico')).toHaveAttribute('sizes', '16x16 32x32 48x48')
-  await expect(icon('/favicon.svg')).toHaveAttribute('type', 'image/svg+xml')
-  await expect(icon('/favicon-96.png')).toHaveAttribute('sizes', '96x96')
+  test('the home page head links every favicon', async ({ page }) => {
+    await page.goto('/')
+
+    const icon = (href: string) => page.locator(`head link[rel="icon"][href="${href}"]`)
+    await expect(icon('/favicon.ico')).toHaveAttribute('sizes', '16x16 32x32 48x48')
+    await expect(icon('/favicon.svg')).toHaveAttribute('type', 'image/svg+xml')
+    await expect(icon('/favicon-96.png')).toHaveAttribute('sizes', '96x96')
+  })
 })
 
 test('the SVG favicon is served with a square viewBox', async ({ page, request }) => {
