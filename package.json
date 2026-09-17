@@ -20,7 +20,8 @@
     "test:e2e": "bun run build && playwright test",
     "test:e2e:ui": "bun run build && playwright test --ui",
     "prepare": "lefthook install",
-    "check": "bun run typecheck && bun run lint && bun run format:check && bun run test"
+    "check": "bun run typecheck && bun run lint && bun run format:check && bun run test",
+    "generate-icons": "bun scripts/generate-icons.ts"
   },
   "dependencies": {
     "@fontsource-variable/ibm-plex-sans": "^5.3.0",
@@ -54,6 +55,7 @@
     "@eslint-react/eslint-plugin": "^5.19.0",
     "@eslint/js": "^10.0.1",
     "@playwright/test": "^1.63.0",
+    "@resvg/resvg-js": "^2.6.2",
     "@rolldown/plugin-babel": "^0.2.3",
     "@tailwindcss/typography": "^0.5.16",
     "@tanstack/devtools-vite": "^0.8.5",

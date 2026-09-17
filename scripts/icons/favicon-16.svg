@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+  <rect width="16" height="16" rx="3" fill="#FFFFFF"/>
+  <g shape-rendering="crispEdges">
+    <g fill="#D0342C">
+      <circle cx="4" cy="2" r="1"/>
+      <circle cx="8" cy="2" r="1"/>
+      <circle cx="12" cy="2" r="1"/>
+    </g>
+    <g fill="#1F8A4C">
+      <circle cx="4" cy="6" r="1"/>
+      <circle cx="8" cy="6" r="1"/>
+      <circle cx="12" cy="6" r="1"/>
+    </g>
+    <g fill="#2E56D6">
+      <circle cx="2" cy="10" r="1"/>
+      <circle cx="6" cy="10" r="1"/>
+      <circle cx="10" cy="10" r="1"/>
+      <circle cx="14" cy="10" r="1"/>
+    </g>
+    <circle cx="8" cy="14" r="1" fill="#E0A22E"/>
+  </g>
+</svg>
