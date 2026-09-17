@@ -2,12 +2,14 @@ import { type Language } from '#/lib/language'
 
 const en = {
   brand: 'Prva postava',
-  // What search results show. Titles stay within 70 characters and descriptions within 155 so
-  // the snippet is not cut.
+  // What search results and link previews show. Titles stay within 70 characters and
+  // descriptions within 155 so the snippet is not cut.
   meta: {
     title: 'Free agent footballers and clubs looking for players | Prva postava',
     description:
       'Free agent and lower-league footballers list a profile and season stats for free. Clubs filter them by position and league, then make contact.',
+    // Alt text for `public/og-en.png`; re-export that image from Figma if its line changes.
+    imageAlt: 'Prva postava logo with the line Get in the lineup.',
   },
   nav: {
     label: 'Main',
@@ -163,6 +165,7 @@ const hr: LandingStrings = {
     title: 'Slobodni nogometaši i klubovi koji traže igrače | Prva postava',
     description:
       'Slobodni nogometaši i igrači nižih liga besplatno objave profil i statistiku sezone. Klubovi ih filtriraju po poziciji i ligi te im se javljaju.',
+    imageAlt: 'Logo Prva postava i poruka Uđi u prvu postavu.',
   },
   nav: {
     label: 'Glavna navigacija',
