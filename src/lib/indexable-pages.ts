@@ -27,13 +27,17 @@ export function absoluteUrl(path: string): string {
   return `${SITE_ORIGIN}${path}`
 }
 
+export function pageUrl(page: IndexablePage, language: Language): string {
+  return absoluteUrl(page[language])
+}
+
 /**
  * The absolute address of `page` in every language, plus `x-default` for searchers whose
  * language the site does not speak. Head tags and the sitemap both list exactly these.
  */
 export function pageAlternates(page: IndexablePage): readonly PageAlternate[] {
   return [
-    ...LANGUAGES.map((language) => ({ hreflang: language, href: absoluteUrl(page[language]) })),
-    { hreflang: 'x-default', href: absoluteUrl(page[DEFAULT_LANGUAGE]) },
+    ...LANGUAGES.map((language) => ({ hreflang: language, href: pageUrl(page, language) })),
+    { hreflang: 'x-default', href: pageUrl(page, DEFAULT_LANGUAGE) },
   ]
 }

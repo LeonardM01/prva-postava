@@ -46,13 +46,12 @@ interface LandingHeadOptions {
 
 function landingHead({ params }: LandingHeadOptions) {
   const language = parseLanguage(params.lang)
-  const { title, description } = LANDING_STRINGS[language].meta
-  return indexablePageHead({ page: HOME_PAGE, language, title, description })
+  return indexablePageHead({ page: HOME_PAGE, language, ...LANDING_STRINGS[language].meta })
 }
 
 /**
  * Shared by the file route and the unit-test router so tests exercise the real search
- * validation and language guard.
+ * validation, language guard and head tags.
  */
 export const LANDING_ROUTE_OPTIONS = {
   validateSearch: landingSearchSchema,

@@ -1,4 +1,4 @@
-import { absoluteUrl, type IndexablePage, pageAlternates } from '#/lib/indexable-pages'
+import { type IndexablePage, pageAlternates, pageUrl } from '#/lib/indexable-pages'
 import { type Language } from '#/lib/language'
 
 interface IndexablePageHeadOptions {
@@ -21,7 +21,7 @@ export function indexablePageHead({
   return {
     meta: [{ title }, { content: description, name: 'description' }],
     links: [
-      { href: absoluteUrl(page[language]), rel: 'canonical' },
+      { href: pageUrl(page, language), rel: 'canonical' },
       ...pageAlternates(page).map(({ hreflang, href }) => ({
         href,
         hrefLang: hreflang,

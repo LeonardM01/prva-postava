@@ -1,4 +1,4 @@
-import { absoluteUrl, INDEXABLE_PAGES, pageAlternates } from '#/lib/indexable-pages'
+import { INDEXABLE_PAGES, pageAlternates, pageUrl } from '#/lib/indexable-pages'
 import { LANGUAGES } from '#/lib/language'
 
 /**
@@ -15,8 +15,7 @@ export function renderSitemap(): string {
       )
       .join('\n')
     return LANGUAGES.map(
-      (language) =>
-        `  <url>\n    <loc>${absoluteUrl(page[language])}</loc>\n${alternates}\n  </url>`,
+      (language) => `  <url>\n    <loc>${pageUrl(page, language)}</loc>\n${alternates}\n  </url>`,
     )
   })
 
