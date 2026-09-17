@@ -8,6 +8,8 @@ const en = {
     title: 'Free agent footballers and clubs looking for players | Prva postava',
     description:
       'Free agent and lower-league footballers list a profile and season stats for free. Clubs filter them by position and league, then make contact.',
+    // Describes the social preview image (`public/og-en.png`) where a link is shared.
+    imageAlt: 'Prva postava logo with the line Get in the lineup.',
   },
   nav: {
     label: 'Main',
@@ -163,6 +165,7 @@ const hr: LandingStrings = {
     title: 'Slobodni nogometaši i klubovi koji traže igrače | Prva postava',
     description:
       'Slobodni nogometaši i igrači nižih liga besplatno objave profil i statistiku sezone. Klubovi ih filtriraju po poziciji i ligi te im se javljaju.',
+    imageAlt: 'Logo Prva postava i poruka Uđi u prvu postavu.',
   },
   nav: {
     label: 'Glavna navigacija',

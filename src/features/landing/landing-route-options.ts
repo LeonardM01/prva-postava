@@ -47,7 +47,15 @@ interface LandingHeadOptions {
 
 function landingHead({ params }: LandingHeadOptions) {
   const language = parseLanguage(params.lang)
-  const head = indexablePageHead({ page: HOME_PAGE, language, ...LANDING_STRINGS[language].meta })
+  const { title, description, imageAlt } = LANDING_STRINGS[language].meta
+  const head = indexablePageHead({
+    page: HOME_PAGE,
+    language,
+    title,
+    description,
+    // Re-export from Figma when the copy or domain in the image changes.
+    image: { path: `/og-${language}.png`, alt: imageAlt },
+  })
   return { ...head, scripts: [siteStructuredDataScript(language)] }
 }
 
