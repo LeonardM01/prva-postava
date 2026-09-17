@@ -14,7 +14,7 @@ function getHeroSwitch(label = 'Pick a side') {
 
 describe('landing hero', () => {
   it('opens on the club copy with the club side pressed', async () => {
-    await renderLandingPage()
+    await renderLandingPage('/en')
 
     const roleSwitch = getHeroSwitch()
     expect(roleSwitch).toBeVisible()
@@ -39,7 +39,7 @@ describe('landing hero', () => {
 
   it('swaps the copy to the player deck and back', async () => {
     const user = userEvent.setup()
-    await renderLandingPage()
+    await renderLandingPage('/en')
     const roleSwitch = getHeroSwitch()
 
     await user.click(within(roleSwitch).getByRole('button', { name: "I'm a player" }))
@@ -80,7 +80,7 @@ describe('landing hero', () => {
 
   it('selects a side from the keyboard with Space and Enter', async () => {
     const user = userEvent.setup()
-    await renderLandingPage()
+    await renderLandingPage('/en')
     const roleSwitch = getHeroSwitch()
     const clubButton = within(roleSwitch).getByRole('button', { name: 'I scout for a club' })
     const playerButton = within(roleSwitch).getByRole('button', { name: "I'm a player" })
@@ -96,7 +96,7 @@ describe('landing hero', () => {
 
   it('carries both decks in Croatian', async () => {
     const user = userEvent.setup()
-    await renderLandingPage('/?lang=hr')
+    await renderLandingPage('/')
 
     const roleSwitch = getHeroSwitch('Odaberi stranu')
     expect(roleSwitch).toBeVisible()

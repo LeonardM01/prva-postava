@@ -1,5 +1,7 @@
 import { Link } from '@tanstack/react-router'
 
+import { languagePathSegment } from '#/lib/language'
+
 import { LineupMark } from './lineup-mark'
 import { useLandingLanguage } from './use-landing-language'
 
@@ -8,8 +10,8 @@ export function BrandLink() {
 
   return (
     <Link
-      to="/"
-      search={{ lang: language }}
+      to="/{-$lang}"
+      params={{ lang: languagePathSegment(language) }}
       className="flex min-h-11 items-center gap-2.5 font-display text-xl font-extrabold tracking-[-0.02em] text-ink"
     >
       <LineupMark placement="nav" />

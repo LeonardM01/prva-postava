@@ -11,7 +11,7 @@ function getLinkTarget(link: HTMLElement) {
 
 describe('clubs section', () => {
   it('is the section the "For clubs" nav link lands on', async () => {
-    await renderLandingPage()
+    await renderLandingPage('/en')
 
     const section = screen.getByRole('region', {
       name: 'Clubs filter the whole pool, not the one match they could drive to.',
@@ -26,14 +26,14 @@ describe('clubs section', () => {
   })
 
   it('links to the club search demo', async () => {
-    await renderLandingPage()
+    await renderLandingPage('/en')
 
     const demo = screen.getByRole('figure', { name: 'Sample club search, not real listings' })
     expect(getLinkTarget(screen.getByRole('link', { name: 'See how a club searches' }))).toBe(demo)
   })
 
   it('shows the search results as a table with a header row', async () => {
-    await renderLandingPage()
+    await renderLandingPage('/en')
 
     const demo = screen.getByRole('figure', { name: 'Sample club search, not real listings' })
     const table = within(demo).getByRole('table')
@@ -57,7 +57,7 @@ describe('clubs section', () => {
   })
 
   it('announces the promoted row with its tag', async () => {
-    await renderLandingPage()
+    await renderLandingPage('/en')
 
     const table = screen.getByRole('table')
     expect(within(table).getByRole('rowheader', { name: /^Ivan Horvat Promoted\b/ })).toBeVisible()
@@ -73,7 +73,7 @@ describe('clubs section', () => {
   })
 
   it('shows the filters and the actions a club takes', async () => {
-    await renderLandingPage()
+    await renderLandingPage('/en')
 
     const demo = screen.getByRole('figure', { name: 'Sample club search, not real listings' })
     const filters = within(within(demo).getByRole('list', { name: 'Filters' })).getAllByRole(
@@ -95,7 +95,7 @@ describe('clubs section', () => {
 
   it('keeps the demo controls out of the tab order and away from buttons', async () => {
     const user = userEvent.setup()
-    await renderLandingPage()
+    await renderLandingPage('/en')
 
     const demo = screen.getByRole('figure', { name: 'Sample club search, not real listings' })
     expect(within(demo).queryAllByRole('button')).toEqual([])
@@ -109,7 +109,7 @@ describe('clubs section', () => {
   })
 
   it('carries the section in Croatian', async () => {
-    await renderLandingPage('/?lang=hr')
+    await renderLandingPage('/')
 
     expect(
       screen.getByRole('region', {

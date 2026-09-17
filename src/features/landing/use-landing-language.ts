@@ -1,6 +1,6 @@
-import { useSearch } from '@tanstack/react-router'
+import { useParams } from '@tanstack/react-router'
 
-import { type Language } from '#/lib/language'
+import { type Language, parseLanguage } from '#/lib/language'
 
 import { LANDING_STRINGS, type LandingStrings } from './strings'
 
@@ -10,6 +10,6 @@ interface LandingLanguage {
 }
 
 export function useLandingLanguage(): LandingLanguage {
-  const language = useSearch({ from: '/', select: (search) => search.lang })
+  const language = useParams({ from: '/{-$lang}/', select: (params) => parseLanguage(params.lang) })
   return { language, strings: LANDING_STRINGS[language] }
 }

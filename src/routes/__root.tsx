@@ -1,6 +1,6 @@
 import { TanStackDevtools } from '@tanstack/react-devtools'
 import { type QueryClient } from '@tanstack/react-query'
-import { createRootRouteWithContext, HeadContent, Scripts, useSearch } from '@tanstack/react-router'
+import { createRootRouteWithContext, HeadContent, Scripts, useParams } from '@tanstack/react-router'
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 import { type ReactNode } from 'react'
 
@@ -37,8 +37,8 @@ interface RootDocumentProps {
 }
 
 function RootDocument({ children }: RootDocumentProps) {
-  // Not every route declares `lang` (not-found does not), so read it loosely and parse it.
-  const language = useSearch({ strict: false, select: (search) => parseLanguage(search.lang) })
+  // Not every route has the language segment (not-found does not), so read it loosely and parse it.
+  const language = useParams({ strict: false, select: (params) => parseLanguage(params.lang) })
 
   return (
     <html lang={language}>

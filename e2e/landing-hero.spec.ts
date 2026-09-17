@@ -13,7 +13,7 @@ function getRoleSwitch(page: Page, label = 'Pick a side') {
 }
 
 test('the role switch changes the headline, button and pressed state', async ({ page }) => {
-  await page.goto('/')
+  await page.goto('/en')
   const clubButton = getRoleSwitch(page).getByRole('button', { name: 'I scout for a club' })
   const playerButton = getRoleSwitch(page).getByRole('button', { name: "I'm a player" })
 
@@ -34,7 +34,7 @@ test('the role switch changes the headline, button and pressed state', async ({ 
 })
 
 test('the role switch works from the keyboard', async ({ page }) => {
-  await page.goto('/')
+  await page.goto('/en')
   const clubButton = getRoleSwitch(page).getByRole('button', { name: 'I scout for a club' })
   const playerButton = getRoleSwitch(page).getByRole('button', { name: "I'm a player" })
 
@@ -54,7 +54,7 @@ test('the role switch works from the keyboard', async ({ page }) => {
 test('Tab from the top of the page reaches the role switch before the hero button', async ({
   page,
 }) => {
-  await page.goto('/')
+  await page.goto('/en')
   const clubButton = getRoleSwitch(page).getByRole('button', { name: 'I scout for a club' })
   const heroButton = page.getByRole('link', { name: 'Search players by position' })
 
@@ -78,7 +78,7 @@ test('Tab from the top of the page reaches the role switch before the hero butto
 
 test('the role switch still swaps the copy with reduced motion', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' })
-  await page.goto('/?lang=hr')
+  await page.goto('/')
 
   const playerButton = getRoleSwitch(page, 'Odaberi stranu').getByRole('button', {
     name: 'Ja sam igrač',
@@ -92,7 +92,7 @@ test('the role switch still swaps the copy with reduced motion', async ({ page }
 })
 
 test('the hero button points at the CTA band', async ({ page }) => {
-  await page.goto('/?lang=hr')
+  await page.goto('/')
 
   await expect(page.getByRole('link', { name: 'Pretraži igrače po poziciji' })).toHaveAttribute(
     'href',
