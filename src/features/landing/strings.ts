@@ -29,16 +29,16 @@ const en = {
     club: {
       headline: 'Find your next signing in one evening.',
       subheading:
-        "Not one away match at a time. Every lower-league player who wants a transfer is on one board with his season's numbers: filter by the position you're missing, save the ones who fit, and make contact from your desk.",
+        "Players list themselves here because they want a transfer, each with a position and this season's numbers. Filter for the position you're missing, save the ones who fit, and contact them from your desk. Then drive only to the matches worth watching.",
       cta: 'Search players by position',
-      note: 'Free for players. Clubs pay a membership.',
+      note: 'Start with your email. Players list for free, clubs pay a membership.',
     },
     player: {
-      headline: "Get in front of every club that's searching.",
+      headline: 'Stop waiting for a scout to come to your match.',
       subheading:
-        "Free. Your profile and your season's numbers, listed under your position, where clubs filter and make contact. Want to be first in your list? Promote yourself.",
+        "List your position and this season's numbers for free. Clubs filter the list by position, age and league, then contact the players who fit.",
       cta: 'List yourself, free',
-      note: 'Publish your profile and statistics at no cost.',
+      note: 'All you need is an email. No agent, no fee to list.',
     },
   },
   board: {
@@ -72,8 +72,9 @@ const en = {
     RW: { short: 'RW', name: 'Right wing' },
   },
   clubs: {
-    headline: 'Clubs filter the whole pool, not the one match they could drive to.',
-    body: "Filter by position, age and league, then by the season's numbers. Save who fits and make contact. One membership: monthly, quarterly or yearly.",
+    // The headline reads out the filters the demo beside it has set.
+    headline: "A left winger under 25 with at least 15 matches this season? That's one search.",
+    body: "Filter by position, age and league, then by the season's numbers. Players who paid for the top spot are marked as promoted, so you always know why a name comes first. One membership: monthly, quarterly or yearly.",
     demoLink: 'See how a club searches',
     // Not in the copy deck: the demo's sample-data caption. Needs Leonard's review before launch.
     demoCaption: 'Sample club search, not real listings',
@@ -108,8 +109,8 @@ const en = {
     saveSearch: 'Save this search',
   },
   players: {
-    headline: "Players publish their season, then pay to sit first on their position's list.",
-    body: 'A profile and your statistics, free. When you want to be seen first, pay to sit at the top of the list for your position, and watch how many clubs have looked.',
+    headline: 'See how many clubs looked at your profile this week.',
+    body: "Listing your profile and your season's numbers costs nothing, and your profile shows how many clubs saw it each week. When you want to be the first name they see, pay to sit at the top of the list for your position.",
     demoLink: 'See a player profile',
     // Not in the copy deck: the demo's sample-data caption. Needs Leonard's review before launch.
     demoCaption: 'Sample player profile, not a real listing',
@@ -126,7 +127,7 @@ const en = {
   },
   cta: {
     headline: 'Get in the lineup.',
-    body: 'Pick a side and leave an email. Players list for free; clubs get the pool once their membership is active.',
+    body: "Pick your side and leave your email. We'll write to you to finish your player profile or your club account. Players list for free. Clubs pay a membership to see them.",
     emailLabel: 'Email',
     emailPlaceholder: 'name@club.hr',
     emailError: 'Enter an email address like name@club.hr',
@@ -179,20 +180,22 @@ const hr: LandingStrings = {
       club: 'Tražim igrače za klub',
       player: 'Ja sam igrač',
     },
+    // The sub-heading and note are not in Figma: rewritten in code. Needs Leonard's review
+    // before launch.
     club: {
       headline: 'Nađi sljedeće pojačanje u jednoj večeri.',
       subheading:
-        'A ne utakmicu po utakmicu. Svaki igrač niže lige koji želi transfer je na jednoj ploči sa svojim brojkama iz sezone: filtriraj po poziciji koja ti nedostaje, spremi one koji odgovaraju i javi se od stola.',
+        'Igrači se ovdje oglašavaju sami jer žele transfer, svaki sa svojom pozicijom i brojkama iz ove sezone. Filtriraj po poziciji koja ti nedostaje, spremi one koji odgovaraju i javi im se od stola. Putuj samo na one utakmice koje vrijedi gledati.',
       cta: 'Pretraži igrače po poziciji',
-      note: 'Besplatno za igrače. Klubovi plaćaju članarinu.',
+      note: 'Dovoljan je e-mail. Igrači se oglašavaju besplatno, klubovi plaćaju članarinu.',
     },
     // Not in Figma: translated in code for this build. Needs Leonard's review before launch.
     player: {
-      headline: 'Pokaži se svakom klubu koji traži.',
+      headline: 'Ne čekaj da skaut dođe na tvoju utakmicu.',
       subheading:
-        'Besplatno. Tvoj profil i tvoje brojke iz sezone, na listi tvoje pozicije, gdje klubovi filtriraju i javljaju se. Želiš biti prvi na svojoj listi? Promoviraj se.',
+        'Besplatno objavi svoju poziciju i brojke iz ove sezone. Klubovi filtriraju listu po poziciji, dobi i ligi pa se javljaju igračima koji im odgovaraju.',
       cta: 'Oglasi se besplatno',
-      note: 'Profil i statistiku objavljuješ bez naknade.',
+      note: 'Treba ti samo e-mail. Bez menadžera i bez naknade za oglas.',
     },
   },
   board: {
@@ -229,11 +232,11 @@ const hr: LandingStrings = {
     RW: { short: 'DK', name: 'Desno krilo' },
   },
   clubs: {
-    headline: 'Klubovi filtriraju cijelu bazu, a ne samo utakmicu do koje su mogli doći.',
-    body: 'Filtriraj po poziciji, dobi i ligi, pa po brojkama iz sezone. Spremi one koji odgovaraju i javi im se. Jedna članarina: mjesečna, tromjesečna ili godišnja.',
+    headline: 'Lijevo krilo mlađe od 25 s barem 15 nastupa ove sezone? To je jedna pretraga.',
+    body: 'Filtriraj po poziciji, dobi i ligi, pa po brojkama iz sezone. Igrači koji su platili vrh liste označeni su kao promovirani, pa uvijek znaš zašto je netko prvi. Jedna članarina: mjesečna, tromjesečna ili godišnja.',
     demoLink: 'Pogledaj kako klub pretražuje',
-    // Not in the copy deck, nor are the filter label, the short filter chip and the hidden
-    // headers below. Needs Leonard's review before launch.
+    // Not in the copy deck, nor are the headline and body above, the filter label, the short
+    // filter chip and the hidden headers below. Needs Leonard's review before launch.
     demoCaption: 'Primjer pretrage kluba, nisu pravi oglasi',
     filters: {
       label: 'Filteri',
@@ -265,8 +268,10 @@ const hr: LandingStrings = {
     saveSearch: 'Spremi pretragu',
   },
   players: {
-    headline: 'Igrači objave sezonu, pa plate mjesto na vrhu liste za svoju poziciju.',
-    body: 'Profil i tvoja statistika, besplatno. Kad želiš da te prvo vide, plati mjesto na vrhu liste za svoju poziciju i prati koliko te klubova pogledalo.',
+    // Not in the copy deck: the headline and body are rewritten in code. Needs Leonard's review
+    // before launch.
+    headline: 'Vidi koliko je klubova ovaj tjedan pogledalo tvoj profil.',
+    body: 'Objava profila i brojki iz sezone ne košta ništa, a na profilu vidiš koliko ga je klubova pogledalo svaki tjedan. Kad želiš biti prvo ime koje vide, plati mjesto na vrhu liste za svoju poziciju.',
     demoLink: 'Pogledaj profil igrača',
     // Not in the copy deck. Needs Leonard's review before launch.
     demoCaption: 'Primjer profila igrača, nije pravi oglas',
@@ -283,11 +288,11 @@ const hr: LandingStrings = {
   },
   cta: {
     headline: 'Uđi u prvu postavu.',
-    body: 'Odaberi stranu i ostavi e-mail. Igrači se oglašavaju besplatno; klubovi dobivaju bazu kad im članarina bude aktivna.',
+    body: 'Odaberi stranu i ostavi e-mail. Javit ćemo ti se da dovršiš profil igrača ili račun kluba. Igrači se oglašavaju besplatno. Klubovi plaćaju članarinu da bi ih vidjeli.',
     emailLabel: 'E-mail',
     emailPlaceholder: 'ime@klub.hr',
-    // Only the heading, body, label and placeholder are in the copy deck. The form states are
-    // translated in code for this build. Needs Leonard's review before launch.
+    // Only the heading, label and placeholder are in the copy deck. The body and the form states
+    // are written in code for this build. Needs Leonard's review before launch.
     emailError: 'Upiši e-mail adresu u obliku ime@klub.hr',
     sending: 'Slanje…',
     submitFailed: 'Tvoj e-mail nije stigao do nas. Pokušaj ponovno.',

@@ -9,7 +9,7 @@ test('the nav links land on the clubs and players sections', async ({ page }) =>
   await expect(
     page.getByRole('heading', {
       level: 2,
-      name: 'Clubs filter the whole pool, not the one match they could drive to.',
+      name: "A left winger under 25 with at least 15 matches this season? That's one search.",
     }),
   ).toBeInViewport()
 
@@ -18,7 +18,7 @@ test('the nav links land on the clubs and players sections', async ({ page }) =>
   await expect(
     page.getByRole('heading', {
       level: 2,
-      name: "Players publish their season, then pay to sit first on their position's list.",
+      name: 'See how many clubs looked at your profile this week.',
     }),
   ).toBeInViewport()
 })
