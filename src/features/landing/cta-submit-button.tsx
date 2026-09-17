@@ -23,7 +23,7 @@ export function CtaSubmitButton({ isSubmitting }: CtaSubmitButtonProps) {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="group grid h-12.5 place-items-center rounded-[10px] bg-card px-5.5 text-[15px] leading-5 font-semibold text-signal transition-colors duration-150 focus-visible:outline-card enabled:hover:bg-tint enabled:active:brightness-95 disabled:opacity-85 lg:h-11.5 lg:shrink-0"
+        className="group grid h-12.5 place-items-center rounded-[10px] bg-card px-5.5 text-[15px] leading-5 font-semibold text-signal transition-colors duration-150 focus-visible:outline-card enabled:hover:bg-tint enabled:active:bg-tint enabled:active:inset-shadow-pressed disabled:opacity-85 lg:h-11.5 lg:shrink-0"
       >
         <ViewTransition default="role-copy">
           <span aria-hidden={isSubmitting} className={cn(LABEL_CLASS, isSubmitting && 'invisible')}>
