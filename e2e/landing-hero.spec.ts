@@ -1,7 +1,7 @@
 import { expect, type Page, test } from '@playwright/test'
 
 const CLUB_HEADLINE = 'Find your next signing in one evening.'
-const PLAYER_HEADLINE = "Get in front of every club that's searching."
+const PLAYER_HEADLINE = 'Stop waiting for a scout to come to your match.'
 
 // The CTA band has a role switch of its own; these tests drive the one beside the headline.
 function getHero(page: Page) {
@@ -86,7 +86,7 @@ test('the role switch still swaps the copy with reduced motion', async ({ page }
   await playerButton.click()
 
   await expect(page.getByRole('heading', { level: 1 })).toHaveText(
-    'Pokaži se svakom klubu koji traži.',
+    'Ne čekaj da skaut dođe na tvoju utakmicu.',
   )
   await expect(playerButton).toHaveAttribute('aria-pressed', 'true')
 })

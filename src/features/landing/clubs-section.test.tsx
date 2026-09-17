@@ -14,7 +14,7 @@ describe('clubs section', () => {
     await renderLandingPage('/en')
 
     const section = screen.getByRole('region', {
-      name: 'Clubs filter the whole pool, not the one match they could drive to.',
+      name: "A left winger under 25 with at least 15 matches this season? That's one search.",
     })
     expect(
       within(section).getByText(
@@ -113,7 +113,7 @@ describe('clubs section', () => {
 
     expect(
       screen.getByRole('region', {
-        name: 'Klubovi filtriraju cijelu bazu, a ne samo utakmicu do koje su mogli doći.',
+        name: 'Lijevo krilo mlađe od 25 s barem 15 nastupa ove sezone? To je jedna pretraga.',
       }),
     ).toBeVisible()
     expect(screen.getByRole('link', { name: 'Pogledaj kako klub pretražuje' })).toBeVisible()

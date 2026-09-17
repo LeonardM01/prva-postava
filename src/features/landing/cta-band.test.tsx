@@ -12,7 +12,7 @@ vi.mock('./join-lineup.functions', () => ({ joinLineup: vi.fn() }))
 const joinLineupMock = vi.mocked(joinLineup)
 
 const CLUB_HEADLINE = 'Find your next signing in one evening.'
-const PLAYER_HEADLINE = "Get in front of every club that's searching."
+const PLAYER_HEADLINE = 'Stop waiting for a scout to come to your match.'
 
 // A signup the test answers when it chooses, so the pending state can be observed.
 function holdSignup() {
@@ -45,7 +45,7 @@ describe('CTA band', () => {
     const band = getBand()
     expect(
       within(band).getByText(
-        'Pick a side and leave an email. Players list for free; clubs get the pool once their membership is active.',
+        "Pick your side and leave your email. We'll write to you to finish your player profile or your club account. Players list for free. Clubs pay a membership to see them.",
       ),
     ).toBeVisible()
     const nav = screen.getByRole('navigation', { name: 'Main' })

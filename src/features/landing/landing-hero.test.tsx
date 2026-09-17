@@ -29,12 +29,16 @@ describe('landing hero', () => {
     expect(
       screen.getByRole('heading', { level: 1, name: 'Find your next signing in one evening.' }),
     ).toBeVisible()
-    expect(screen.getByText(/^Not one away match at a time\./)).toBeVisible()
+    expect(
+      screen.getByText(/^Players list themselves here because they want a transfer/),
+    ).toBeVisible()
     expect(screen.getByRole('link', { name: 'Search players by position' })).toHaveAttribute(
       'href',
       expect.stringMatching(/#get-in-the-lineup$/),
     )
-    expect(screen.getByText('Free for players. Clubs pay a membership.')).toBeVisible()
+    expect(
+      screen.getByText('Start with your email. Players list for free, clubs pay a membership.'),
+    ).toBeVisible()
   })
 
   it('swaps the copy to the player deck and back', async () => {
@@ -47,7 +51,7 @@ describe('landing hero', () => {
     expect(
       await screen.findByRole('heading', {
         level: 1,
-        name: "Get in front of every club that's searching.",
+        name: 'Stop waiting for a scout to come to your match.',
       }),
     ).toBeVisible()
     expect(within(roleSwitch).getByRole('button', { name: "I'm a player" })).toHaveAttribute(
@@ -58,13 +62,17 @@ describe('landing hero', () => {
       'aria-pressed',
       'false',
     )
-    expect(screen.getByText(/^Free\. Your profile and your season's numbers/)).toBeVisible()
+    expect(
+      screen.getByText(/^List your position and this season's numbers for free\./),
+    ).toBeVisible()
     expect(screen.getByRole('link', { name: 'List yourself, free' })).toHaveAttribute(
       'href',
       expect.stringMatching(/#get-in-the-lineup$/),
     )
-    expect(screen.getByText('Publish your profile and statistics at no cost.')).toBeVisible()
-    expect(screen.queryByText('Free for players. Clubs pay a membership.')).not.toBeInTheDocument()
+    expect(screen.getByText('All you need is an email. No agent, no fee to list.')).toBeVisible()
+    expect(
+      screen.queryByText('Start with your email. Players list for free, clubs pay a membership.'),
+    ).not.toBeInTheDocument()
 
     await user.click(within(roleSwitch).getByRole('button', { name: 'I scout for a club' }))
 
@@ -75,7 +83,9 @@ describe('landing hero', () => {
       }),
     ).toBeVisible()
     expect(screen.getByRole('link', { name: 'Search players by position' })).toBeVisible()
-    expect(screen.getByText('Free for players. Clubs pay a membership.')).toBeVisible()
+    expect(
+      screen.getByText('Start with your email. Players list for free, clubs pay a membership.'),
+    ).toBeVisible()
   })
 
   it('selects a side from the keyboard with Space and Enter', async () => {
@@ -87,7 +97,7 @@ describe('landing hero', () => {
 
     playerButton.focus()
     await user.keyboard(' ')
-    expect(await screen.findByRole('heading', { level: 1, name: /^Get in front/ })).toBeVisible()
+    expect(await screen.findByRole('heading', { level: 1, name: /^Stop waiting/ })).toBeVisible()
 
     clubButton.focus()
     await user.keyboard('{Enter}')
@@ -104,12 +114,19 @@ describe('landing hero', () => {
       screen.getByRole('heading', { level: 1, name: 'Nađi sljedeće pojačanje u jednoj večeri.' }),
     ).toBeVisible()
     expect(screen.getByRole('link', { name: 'Pretraži igrače po poziciji' })).toBeVisible()
-    expect(screen.getByText('Besplatno za igrače. Klubovi plaćaju članarinu.')).toBeVisible()
+    expect(
+      screen.getByText(
+        'Dovoljan je e-mail. Igrači se oglašavaju besplatno, klubovi plaćaju članarinu.',
+      ),
+    ).toBeVisible()
 
     await user.click(within(roleSwitch).getByRole('button', { name: 'Ja sam igrač' }))
 
     expect(
-      await screen.findByRole('heading', { level: 1, name: 'Pokaži se svakom klubu koji traži.' }),
+      await screen.findByRole('heading', {
+        level: 1,
+        name: 'Ne čekaj da skaut dođe na tvoju utakmicu.',
+      }),
     ).toBeVisible()
     expect(within(roleSwitch).getByRole('button', { name: 'Ja sam igrač' })).toHaveAttribute(
       'aria-pressed',

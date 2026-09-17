@@ -77,7 +77,7 @@ test('the band and the hero switch sides together', async ({ page }) => {
   await band.getByRole('button', { name: "I'm a player" }).click()
 
   await expect(page.getByRole('heading', { level: 1 })).toHaveText(
-    "Get in front of every club that's searching.",
+    'Stop waiting for a scout to come to your match.',
   )
   await expect(band.getByRole('button', { name: 'List yourself, free' })).toBeVisible()
 

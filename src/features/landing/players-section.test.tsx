@@ -23,9 +23,11 @@ describe('players section', () => {
     await renderLandingPage('/en')
 
     const section = screen.getByRole('region', {
-      name: "Players publish their season, then pay to sit first on their position's list.",
+      name: 'See how many clubs looked at your profile this week.',
     })
-    expect(within(section).getByText(/^A profile and your statistics, free\./)).toBeVisible()
+    expect(
+      within(section).getByText(/^Listing your profile and your season's numbers costs nothing/),
+    ).toBeVisible()
     const nav = screen.getByRole('navigation', { name: 'Main' })
     expect(getLinkTarget(within(nav).getByRole('link', { name: 'For players' }))).toBe(section)
   })
@@ -71,7 +73,7 @@ describe('players section', () => {
     await renderLandingPage('/')
 
     const section = screen.getByRole('region', {
-      name: 'Igrači objave sezonu, pa plate mjesto na vrhu liste za svoju poziciju.',
+      name: 'Vidi koliko je klubova ovaj tjedan pogledalo tvoj profil.',
     })
     expect(within(section).getByRole('link', { name: 'Pogledaj profil igrača' })).toBeVisible()
     const demo = within(section).getByRole('figure', {
