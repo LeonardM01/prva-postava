@@ -7,7 +7,9 @@ interface RoleProviderProps {
 }
 
 export function RoleProvider({ children }: RoleProviderProps) {
-  const [role, setRole] = useState<Role>('club')
+  // Players first: the page's search and shared-link audience is footballers, so the server
+  // renders the player deck and the H1 a crawler reads is the player's promise.
+  const [role, setRole] = useState<Role>('player')
 
   // A transition lets the <ViewTransition> boundaries slide the pill and cross-fade the copy.
   const selectRole = (nextRole: Role) => {

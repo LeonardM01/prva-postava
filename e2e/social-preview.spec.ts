@@ -18,15 +18,16 @@ test.describe('in the served HTML', () => {
     await expectOpenGraph(page, {
       'og:type': 'website',
       'og:site_name': 'Prva postava',
-      'og:title': 'Slobodni nogometaši i klubovi koji traže igrače | Prva postava',
+      'og:title': 'Neka te nađe klub koji traži tvoju poziciju. Besplatno | Prva postava',
       'og:description':
-        'Slobodni nogometaši i igrači nižih liga besplatno objave profil i statistiku sezone. Klubovi ih filtriraju po poziciji i ligi te im se javljaju.',
+        'Besplatno objavi poziciju i brojke iz sezone. Klubovi filtriraju po poziciji, dobi i ligi pa se javljaju igračima koji im odgovaraju. Bez menadžera.',
       'og:url': 'https://prvapostava.co/',
       'og:image': 'https://prvapostava.co/og-hr.png',
       'og:image:width': '1200',
       'og:image:height': '630',
       'og:image:type': 'image/png',
-      'og:image:alt': 'Logo Prva postava i poruka Uđi u prvu postavu.',
+      'og:image:alt':
+        'Logo Prva postava i poruka Oglasi se besplatno. Neka te nađe klub koji traži tvoju poziciju.',
       'og:locale': 'hr_HR',
       'og:locale:alternate': 'en_US',
     })
@@ -42,15 +43,16 @@ test.describe('in the served HTML', () => {
     await expectOpenGraph(page, {
       'og:type': 'website',
       'og:site_name': 'Prva postava',
-      'og:title': 'Free agent footballers and clubs looking for players | Prva postava',
+      'og:title': 'Get found by clubs looking for players. List free | Prva postava',
       'og:description':
-        'Free agent and lower-league footballers list a profile and season stats for free. Clubs filter them by position and league, then make contact.',
+        "List your position and this season's numbers for free. Clubs filter by position, age and league, then contact the players who fit. No agent, no fee.",
       'og:url': 'https://prvapostava.co/en',
       'og:image': 'https://prvapostava.co/og-en.png',
       'og:image:width': '1200',
       'og:image:height': '630',
       'og:image:type': 'image/png',
-      'og:image:alt': 'Prva postava logo with the line Get in the lineup.',
+      'og:image:alt':
+        'Prva postava logo with the line List free. Get found by clubs that need your position.',
       'og:locale': 'en_US',
       'og:locale:alternate': 'hr_HR',
     })

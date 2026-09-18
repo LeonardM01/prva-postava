@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test'
 
-const CROATIAN_HEADLINE = 'Nađi sljedeće pojačanje u jednoj večeri.'
+const CROATIAN_HEADLINE = 'Ne čekaj da skaut dođe na tvoju utakmicu.'
 
 test('the landing page is Croatian at /', async ({ page }) => {
   await page.goto('/')
@@ -18,7 +18,10 @@ test('the landing page is English at /en', async ({ page }) => {
 
   await expect(page.locator('html')).toHaveAttribute('lang', 'en')
   await expect(
-    page.getByRole('heading', { level: 1, name: 'Find your next signing in one evening.' }),
+    page.getByRole('heading', {
+      level: 1,
+      name: 'Stop waiting for a scout to come to your match.',
+    }),
   ).toBeVisible()
   const footer = page.getByRole('contentinfo')
   await expect(footer.getByRole('link', { name: 'Privacy' })).toBeVisible()

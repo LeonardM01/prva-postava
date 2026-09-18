@@ -31,7 +31,7 @@ test('an invalid address shows the designed error under the field', async ({ pag
 
   await email.fill('ivan.horvat')
   await expect(band.getByText(ERROR)).toBeHidden()
-  await band.getByRole('button', { name: 'Search players by position' }).click()
+  await band.getByRole('button', { name: 'List yourself, free' }).click()
 
   const error = band.getByRole('alert')
   await expect(error).toHaveText(ERROR)
@@ -45,10 +45,10 @@ test('a valid address is sent once and confirmed', async ({ page }) => {
   await page.goto('/en')
   const band = getBand(page)
   const email = band.getByRole('textbox', { name: 'Email' })
-  const submit = band.getByRole('button', { name: 'Search players by position' })
+  const submit = band.getByRole('button', { name: 'List yourself, free' })
   const idleBox = await submit.boundingBox()
 
-  await email.fill('ivan@nk-kustosija.hr')
+  await email.fill('luka@mail.hr')
   await submit.click()
 
   const sending = band.getByRole('button', { name: 'Sending…' })
@@ -62,7 +62,9 @@ test('a valid address is sent once and confirmed', async ({ page }) => {
 
   await expect(band.getByRole('heading', { name: "You're on the list." })).toBeFocused()
   await expect(
-    band.getByText("We'll write to ivan@nk-kustosija.hr to finish your club account."),
+    band.getByText(
+      "We'll write to luka@mail.hr to finish the profile clubs see when they search your position.",
+    ),
   ).toBeVisible()
   await expect(band.getByRole('textbox')).toHaveCount(0)
   await expect(band.getByRole('button')).toHaveCount(0)
@@ -74,26 +76,26 @@ test('the band and the hero switch sides together', async ({ page }) => {
   const band = getBand(page)
   const hero = page.getByRole('region').filter({ has: page.getByRole('heading', { level: 1 }) })
 
-  await band.getByRole('button', { name: "I'm a player" }).click()
+  await band.getByRole('button', { name: 'I scout for a club' }).click()
 
   await expect(page.getByRole('heading', { level: 1 })).toHaveText(
-    'Stop waiting for a scout to come to your match.',
+    'Find your next signing in one evening.',
   )
-  await expect(band.getByRole('button', { name: 'List yourself, free' })).toBeVisible()
+  await expect(band.getByRole('button', { name: 'Search players by position' })).toBeVisible()
 
-  await hero.getByRole('button', { name: 'I scout for a club' }).click()
+  await hero.getByRole('button', { name: "I'm a player" }).click()
 
-  await expect(band.getByRole('button', { name: 'I scout for a club' })).toHaveAttribute(
+  await expect(band.getByRole('button', { name: "I'm a player" })).toHaveAttribute(
     'aria-pressed',
     'true',
   )
-  await expect(band.getByRole('button', { name: 'Search players by position' })).toBeVisible()
+  await expect(band.getByRole('button', { name: 'List yourself, free' })).toBeVisible()
 })
 
 test('the hero button lands on the band', async ({ page }) => {
   await page.goto('/en')
 
-  await page.getByRole('link', { name: 'Search players by position' }).click()
+  await page.getByRole('link', { name: 'List yourself, free' }).click()
 
   await expect(page).toHaveURL(/#get-in-the-lineup$/)
   await expect(getBand(page).getByRole('textbox', { name: 'Email' })).toBeInViewport()

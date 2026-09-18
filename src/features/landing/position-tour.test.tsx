@@ -106,8 +106,10 @@ describe('position tour', () => {
   it('stops when the visitor switches role', async () => {
     const user = await renderTouringBoard('/en')
 
-    const hero = screen.getByRole('region', { name: 'Find your next signing in one evening.' })
-    await user.click(within(hero).getByRole('button', { name: "I'm a player" }))
+    const hero = screen.getByRole('region', {
+      name: 'Stop waiting for a scout to come to your match.',
+    })
+    await user.click(within(hero).getByRole('button', { name: 'I scout for a club' }))
     advanceBy(WHOLE_TOUR_MS)
 
     expect(getBoard('Goalkeepers')).toBeVisible()

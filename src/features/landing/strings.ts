@@ -2,14 +2,17 @@ import { type Language } from '#/lib/language'
 
 const en = {
   brand: 'Prva postava',
-  // What search results and link previews show. Titles stay within 70 characters and
-  // descriptions within 155 so the snippet is not cut.
+  // What search results and link previews show, written to the footballer first: the payoff,
+  // then the cost. "Clubs looking for players" is the phrase a player searches, so it stays
+  // verbatim. Titles stay within 70 characters and descriptions within 155 so the snippet is
+  // not cut.
   meta: {
-    title: 'Free agent footballers and clubs looking for players | Prva postava',
+    title: 'Get found by clubs looking for players. List free | Prva postava',
     description:
-      'Free agent and lower-league footballers list a profile and season stats for free. Clubs filter them by position and league, then make contact.',
+      "List your position and this season's numbers for free. Clubs filter by position, age and league, then contact the players who fit. No agent, no fee.",
     // Alt text for `public/og-en.png`; re-export that image from Figma if its line changes.
-    imageAlt: 'Prva postava logo with the line Get in the lineup.',
+    imageAlt:
+      'Prva postava logo with the line List free. Get found by clubs that need your position.',
   },
   nav: {
     label: 'Main',
@@ -162,10 +165,11 @@ const hr: LandingStrings = {
   brand: 'Prva postava',
   // Needs Leonard's review before launch.
   meta: {
-    title: 'Slobodni nogometaši i klubovi koji traže igrače | Prva postava',
+    title: 'Neka te nađe klub koji traži tvoju poziciju. Besplatno | Prva postava',
     description:
-      'Slobodni nogometaši i igrači nižih liga besplatno objave profil i statistiku sezone. Klubovi ih filtriraju po poziciji i ligi te im se javljaju.',
-    imageAlt: 'Logo Prva postava i poruka Uđi u prvu postavu.',
+      'Besplatno objavi poziciju i brojke iz sezone. Klubovi filtriraju po poziciji, dobi i ligi pa se javljaju igračima koji im odgovaraju. Bez menadžera.',
+    imageAlt:
+      'Logo Prva postava i poruka Oglasi se besplatno. Neka te nađe klub koji traži tvoju poziciju.',
   },
   nav: {
     label: 'Glavna navigacija',

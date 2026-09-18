@@ -13,11 +13,48 @@ function getHeroSwitch(label = 'Pick a side') {
 }
 
 describe('landing hero', () => {
-  it('opens on the club copy with the club side pressed', async () => {
+  it('opens on the player copy with the player side pressed', async () => {
     await renderLandingPage('/en')
 
     const roleSwitch = getHeroSwitch()
     expect(roleSwitch).toBeVisible()
+    expect(within(roleSwitch).getByRole('button', { name: "I'm a player" })).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    )
+    expect(within(roleSwitch).getByRole('button', { name: 'I scout for a club' })).toHaveAttribute(
+      'aria-pressed',
+      'false',
+    )
+    expect(
+      screen.getByRole('heading', {
+        level: 1,
+        name: 'Stop waiting for a scout to come to your match.',
+      }),
+    ).toBeVisible()
+    expect(
+      screen.getByText(/^List your position and this season's numbers for free\./),
+    ).toBeVisible()
+    expect(screen.getByRole('link', { name: 'List yourself, free' })).toHaveAttribute(
+      'href',
+      expect.stringMatching(/#get-in-the-lineup$/),
+    )
+    expect(screen.getByText('All you need is an email. No agent, no fee to list.')).toBeVisible()
+  })
+
+  it('swaps the copy to the club deck and back', async () => {
+    const user = userEvent.setup()
+    await renderLandingPage('/en')
+    const roleSwitch = getHeroSwitch()
+
+    await user.click(within(roleSwitch).getByRole('button', { name: 'I scout for a club' }))
+
+    expect(
+      await screen.findByRole('heading', {
+        level: 1,
+        name: 'Find your next signing in one evening.',
+      }),
+    ).toBeVisible()
     expect(within(roleSwitch).getByRole('button', { name: 'I scout for a club' })).toHaveAttribute(
       'aria-pressed',
       'true',
@@ -26,9 +63,6 @@ describe('landing hero', () => {
       'aria-pressed',
       'false',
     )
-    expect(
-      screen.getByRole('heading', { level: 1, name: 'Find your next signing in one evening.' }),
-    ).toBeVisible()
     expect(
       screen.getByText(/^Players list themselves here because they want a transfer/),
     ).toBeVisible()
@@ -39,12 +73,9 @@ describe('landing hero', () => {
     expect(
       screen.getByText('Start with your email. Players list for free, clubs pay a membership.'),
     ).toBeVisible()
-  })
-
-  it('swaps the copy to the player deck and back', async () => {
-    const user = userEvent.setup()
-    await renderLandingPage('/en')
-    const roleSwitch = getHeroSwitch()
+    expect(
+      screen.queryByText('All you need is an email. No agent, no fee to list.'),
+    ).not.toBeInTheDocument()
 
     await user.click(within(roleSwitch).getByRole('button', { name: "I'm a player" }))
 
@@ -54,38 +85,8 @@ describe('landing hero', () => {
         name: 'Stop waiting for a scout to come to your match.',
       }),
     ).toBeVisible()
-    expect(within(roleSwitch).getByRole('button', { name: "I'm a player" })).toHaveAttribute(
-      'aria-pressed',
-      'true',
-    )
-    expect(within(roleSwitch).getByRole('button', { name: 'I scout for a club' })).toHaveAttribute(
-      'aria-pressed',
-      'false',
-    )
-    expect(
-      screen.getByText(/^List your position and this season's numbers for free\./),
-    ).toBeVisible()
-    expect(screen.getByRole('link', { name: 'List yourself, free' })).toHaveAttribute(
-      'href',
-      expect.stringMatching(/#get-in-the-lineup$/),
-    )
+    expect(screen.getByRole('link', { name: 'List yourself, free' })).toBeVisible()
     expect(screen.getByText('All you need is an email. No agent, no fee to list.')).toBeVisible()
-    expect(
-      screen.queryByText('Start with your email. Players list for free, clubs pay a membership.'),
-    ).not.toBeInTheDocument()
-
-    await user.click(within(roleSwitch).getByRole('button', { name: 'I scout for a club' }))
-
-    expect(
-      await screen.findByRole('heading', {
-        level: 1,
-        name: 'Find your next signing in one evening.',
-      }),
-    ).toBeVisible()
-    expect(screen.getByRole('link', { name: 'Search players by position' })).toBeVisible()
-    expect(
-      screen.getByText('Start with your email. Players list for free, clubs pay a membership.'),
-    ).toBeVisible()
   })
 
   it('selects a side from the keyboard with Space and Enter', async () => {
@@ -95,13 +96,13 @@ describe('landing hero', () => {
     const clubButton = within(roleSwitch).getByRole('button', { name: 'I scout for a club' })
     const playerButton = within(roleSwitch).getByRole('button', { name: "I'm a player" })
 
-    playerButton.focus()
-    await user.keyboard(' ')
-    expect(await screen.findByRole('heading', { level: 1, name: /^Stop waiting/ })).toBeVisible()
-
     clubButton.focus()
-    await user.keyboard('{Enter}')
+    await user.keyboard(' ')
     expect(await screen.findByRole('heading', { level: 1, name: /^Find your next/ })).toBeVisible()
+
+    playerButton.focus()
+    await user.keyboard('{Enter}')
+    expect(await screen.findByRole('heading', { level: 1, name: /^Stop waiting/ })).toBeVisible()
   })
 
   it('carries both decks in Croatian', async () => {
@@ -111,27 +112,24 @@ describe('landing hero', () => {
     const roleSwitch = getHeroSwitch('Odaberi stranu')
     expect(roleSwitch).toBeVisible()
     expect(
-      screen.getByRole('heading', { level: 1, name: 'Nađi sljedeće pojačanje u jednoj večeri.' }),
+      screen.getByRole('heading', { level: 1, name: 'Ne čekaj da skaut dođe na tvoju utakmicu.' }),
     ).toBeVisible()
-    expect(screen.getByRole('link', { name: 'Pretraži igrače po poziciji' })).toBeVisible()
+    expect(screen.getByRole('link', { name: 'Oglasi se besplatno' })).toBeVisible()
     expect(
-      screen.getByText(
-        'Dovoljan je e-mail. Igrači se oglašavaju besplatno, klubovi plaćaju članarinu.',
-      ),
+      screen.getByText('Treba ti samo e-mail. Bez menadžera i bez naknade za oglas.'),
     ).toBeVisible()
 
-    await user.click(within(roleSwitch).getByRole('button', { name: 'Ja sam igrač' }))
+    await user.click(within(roleSwitch).getByRole('button', { name: 'Tražim igrače za klub' }))
 
     expect(
       await screen.findByRole('heading', {
         level: 1,
-        name: 'Ne čekaj da skaut dođe na tvoju utakmicu.',
+        name: 'Nađi sljedeće pojačanje u jednoj večeri.',
       }),
     ).toBeVisible()
-    expect(within(roleSwitch).getByRole('button', { name: 'Ja sam igrač' })).toHaveAttribute(
-      'aria-pressed',
-      'true',
-    )
-    expect(screen.getByRole('link', { name: 'Oglasi se besplatno' })).toBeVisible()
+    expect(
+      within(roleSwitch).getByRole('button', { name: 'Tražim igrače za klub' }),
+    ).toHaveAttribute('aria-pressed', 'true')
+    expect(screen.getByRole('link', { name: 'Pretraži igrače po poziciji' })).toBeVisible()
   })
 })

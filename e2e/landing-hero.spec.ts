@@ -17,20 +17,20 @@ test('the role switch changes the headline, button and pressed state', async ({ 
   const clubButton = getRoleSwitch(page).getByRole('button', { name: 'I scout for a club' })
   const playerButton = getRoleSwitch(page).getByRole('button', { name: "I'm a player" })
 
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText(CLUB_HEADLINE)
-  await expect(clubButton).toHaveAttribute('aria-pressed', 'true')
-
-  await playerButton.click()
-
   await expect(page.getByRole('heading', { level: 1 })).toHaveText(PLAYER_HEADLINE)
   await expect(playerButton).toHaveAttribute('aria-pressed', 'true')
-  await expect(clubButton).toHaveAttribute('aria-pressed', 'false')
-  await expect(page.getByRole('link', { name: 'List yourself, free' })).toBeVisible()
 
   await clubButton.click()
 
   await expect(page.getByRole('heading', { level: 1 })).toHaveText(CLUB_HEADLINE)
+  await expect(clubButton).toHaveAttribute('aria-pressed', 'true')
+  await expect(playerButton).toHaveAttribute('aria-pressed', 'false')
   await expect(page.getByRole('link', { name: 'Search players by position' })).toBeVisible()
+
+  await playerButton.click()
+
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText(PLAYER_HEADLINE)
+  await expect(page.getByRole('link', { name: 'List yourself, free' })).toBeVisible()
 })
 
 test('the role switch works from the keyboard', async ({ page }) => {
@@ -39,16 +39,16 @@ test('the role switch works from the keyboard', async ({ page }) => {
   const playerButton = getRoleSwitch(page).getByRole('button', { name: "I'm a player" })
 
   await clubButton.focus()
+  await page.keyboard.press('Space')
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText(CLUB_HEADLINE)
+
   await page.keyboard.press('Tab')
   await expect(playerButton).toBeFocused()
-
-  await page.keyboard.press('Space')
+  await page.keyboard.press('Enter')
   await expect(page.getByRole('heading', { level: 1 })).toHaveText(PLAYER_HEADLINE)
 
   await page.keyboard.press('Shift+Tab')
   await expect(clubButton).toBeFocused()
-  await page.keyboard.press('Enter')
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText(CLUB_HEADLINE)
 })
 
 test('Tab from the top of the page reaches the role switch before the hero button', async ({
@@ -56,7 +56,7 @@ test('Tab from the top of the page reaches the role switch before the hero butto
 }) => {
   await page.goto('/en')
   const clubButton = getRoleSwitch(page).getByRole('button', { name: 'I scout for a club' })
-  const heroButton = page.getByRole('link', { name: 'Search players by position' })
+  const heroButton = page.getByRole('link', { name: 'List yourself, free' })
 
   // The nav has more tab stops on desktop than on mobile, so keep pressing Tab until focus lands.
   await expect
@@ -80,26 +80,28 @@ test('the role switch still swaps the copy with reduced motion', async ({ page }
   await page.emulateMedia({ reducedMotion: 'reduce' })
   await page.goto('/')
 
-  const playerButton = getRoleSwitch(page, 'Odaberi stranu').getByRole('button', {
-    name: 'Ja sam igrač',
+  const clubButton = getRoleSwitch(page, 'Odaberi stranu').getByRole('button', {
+    name: 'Tražim igrače za klub',
   })
-  await playerButton.click()
+  await clubButton.click()
 
   await expect(page.getByRole('heading', { level: 1 })).toHaveText(
-    'Ne čekaj da skaut dođe na tvoju utakmicu.',
+    'Nađi sljedeće pojačanje u jednoj večeri.',
   )
-  await expect(playerButton).toHaveAttribute('aria-pressed', 'true')
+  await expect(clubButton).toHaveAttribute('aria-pressed', 'true')
 })
 
 test('the hero button points at the CTA band', async ({ page }) => {
   await page.goto('/')
 
-  await expect(page.getByRole('link', { name: 'Pretraži igrače po poziciji' })).toHaveAttribute(
+  await expect(page.getByRole('link', { name: 'Oglasi se besplatno' })).toHaveAttribute(
     'href',
     /#get-in-the-lineup$/,
   )
-  await getRoleSwitch(page, 'Odaberi stranu').getByRole('button', { name: 'Ja sam igrač' }).click()
-  await expect(page.getByRole('link', { name: 'Oglasi se besplatno' })).toHaveAttribute(
+  await getRoleSwitch(page, 'Odaberi stranu')
+    .getByRole('button', { name: 'Tražim igrače za klub' })
+    .click()
+  await expect(page.getByRole('link', { name: 'Pretraži igrače po poziciji' })).toHaveAttribute(
     'href',
     /#get-in-the-lineup$/,
   )

@@ -51,25 +51,25 @@ describe('CTA band', () => {
     const nav = screen.getByRole('navigation', { name: 'Main' })
     expect(getLinkTarget(within(nav).getByRole('link', { name: 'Log in' }))).toBe(band)
     expect(getLinkTarget(within(nav).getByRole('link', { name: 'Search players' }))).toBe(band)
-    const heroButton = within(getHero(CLUB_HEADLINE)).getByRole('link', {
-      name: 'Search players by position',
+    const heroButton = within(getHero(PLAYER_HEADLINE)).getByRole('link', {
+      name: 'List yourself, free',
     })
     expect(getLinkTarget(heroButton)).toBe(band)
   })
 
-  it('offers the role switch, a labelled email field and the club button', async () => {
+  it('offers the role switch, a labelled email field and the player button', async () => {
     await renderLandingPage('/en')
 
     const band = getBand()
     const roleSwitch = within(band).getByRole('group', { name: 'Pick a side' })
-    expect(within(roleSwitch).getByRole('button', { name: 'I scout for a club' })).toHaveAttribute(
+    expect(within(roleSwitch).getByRole('button', { name: "I'm a player" })).toHaveAttribute(
       'aria-pressed',
       'true',
     )
     const email = within(band).getByRole('textbox', { name: 'Email' })
     expect(email).toHaveAttribute('placeholder', 'name@club.hr')
     expect(email).toHaveValue('')
-    expect(within(band).getByRole('button', { name: 'Search players by position' })).toBeEnabled()
+    expect(within(band).getByRole('button', { name: 'List yourself, free' })).toBeEnabled()
   })
 
   it('shows no error while the visitor is still typing', async () => {
@@ -91,7 +91,7 @@ describe('CTA band', () => {
     const band = getBand()
     const email = within(band).getByRole('textbox', { name: 'Email' })
     await user.type(email, 'ivan.horvat')
-    await user.click(within(band).getByRole('button', { name: 'Search players by position' }))
+    await user.click(within(band).getByRole('button', { name: 'List yourself, free' }))
 
     expect(await within(band).findByRole('alert')).toHaveTextContent(
       'Enter an email address like name@club.hr',
@@ -109,7 +109,7 @@ describe('CTA band', () => {
     const band = getBand()
     const email = within(band).getByRole('textbox', { name: 'Email' })
     await user.type(email, 'ivan.horvat')
-    await user.click(within(band).getByRole('button', { name: 'Search players by position' }))
+    await user.click(within(band).getByRole('button', { name: 'List yourself, free' }))
     await within(band).findByRole('alert')
     await user.tab()
 
@@ -124,7 +124,7 @@ describe('CTA band', () => {
     await renderLandingPage('/en')
 
     const band = getBand()
-    await user.click(within(band).getByRole('button', { name: 'Search players by position' }))
+    await user.click(within(band).getByRole('button', { name: 'List yourself, free' }))
 
     expect(await within(band).findByRole('alert')).toHaveTextContent(
       'Enter an email address like name@club.hr',
@@ -138,20 +138,22 @@ describe('CTA band', () => {
     await renderLandingPage('/en')
 
     const band = getBand()
-    await user.type(within(band).getByRole('textbox', { name: 'Email' }), 'ivan@nk-kustosija.hr')
-    await user.click(within(band).getByRole('button', { name: 'Search players by position' }))
+    await user.type(within(band).getByRole('textbox', { name: 'Email' }), 'luka@mail.hr')
+    await user.click(within(band).getByRole('button', { name: 'List yourself, free' }))
 
     const sendingButton = await within(band).findByRole('button', { name: 'Sending…' })
     expect(sendingButton).toBeDisabled()
     expect(joinLineupMock).toHaveBeenCalledExactlyOnceWith({
-      data: { role: 'club', email: 'ivan@nk-kustosija.hr' },
+      data: { role: 'player', email: 'luka@mail.hr' },
     })
 
-    answerSignup({ role: 'club', email: 'ivan@nk-kustosija.hr' })
+    answerSignup({ role: 'player', email: 'luka@mail.hr' })
 
     expect(await within(band).findByRole('heading', { name: "You're on the list." })).toHaveFocus()
     expect(
-      within(band).getByText("We'll write to ivan@nk-kustosija.hr to finish your club account."),
+      within(band).getByText(
+        "We'll write to luka@mail.hr to finish the profile clubs see when they search your position.",
+      ),
     ).toBeVisible()
     expect(within(band).queryByRole('textbox')).not.toBeInTheDocument()
     expect(within(band).queryByRole('button')).not.toBeInTheDocument()
@@ -164,14 +166,14 @@ describe('CTA band', () => {
     await renderLandingPage('/en')
 
     const band = getBand()
-    await user.type(within(band).getByRole('textbox', { name: 'Email' }), 'ivan@nk-kustosija.hr')
-    await user.click(within(band).getByRole('button', { name: 'Search players by position' }))
+    await user.type(within(band).getByRole('textbox', { name: 'Email' }), 'luka@mail.hr')
+    await user.click(within(band).getByRole('button', { name: 'List yourself, free' }))
 
     expect(await within(band).findByRole('alert')).toHaveTextContent(
       "Your email didn't reach us. Try again.",
     )
-    expect(within(band).getByRole('button', { name: 'Search players by position' })).toBeEnabled()
-    expect(within(band).getByRole('textbox', { name: 'Email' })).toHaveValue('ivan@nk-kustosija.hr')
+    expect(within(band).getByRole('button', { name: 'List yourself, free' })).toBeEnabled()
+    expect(within(band).getByRole('textbox', { name: 'Email' })).toHaveValue('luka@mail.hr')
     expect(consoleError).toHaveBeenCalled()
   })
 
@@ -180,43 +182,45 @@ describe('CTA band', () => {
     await renderLandingPage('/en')
 
     const band = getBand()
-    await user.click(within(band).getByRole('button', { name: "I'm a player" }))
+    await user.click(within(band).getByRole('button', { name: 'I scout for a club' }))
 
-    const playerHero = await screen.findByRole('region', { name: PLAYER_HEADLINE })
-    expect(within(playerHero).getByRole('button', { name: "I'm a player" })).toHaveAttribute(
-      'aria-pressed',
-      'true',
-    )
-    expect(within(band).getByRole('button', { name: 'List yourself, free' })).toBeVisible()
-
-    await user.click(within(playerHero).getByRole('button', { name: 'I scout for a club' }))
-
-    expect(await screen.findByRole('region', { name: CLUB_HEADLINE })).toBeVisible()
-    expect(within(band).getByRole('button', { name: 'I scout for a club' })).toHaveAttribute(
+    const clubHero = await screen.findByRole('region', { name: CLUB_HEADLINE })
+    expect(within(clubHero).getByRole('button', { name: 'I scout for a club' })).toHaveAttribute(
       'aria-pressed',
       'true',
     )
     expect(within(band).getByRole('button', { name: 'Search players by position' })).toBeVisible()
+
+    await user.click(within(clubHero).getByRole('button', { name: "I'm a player" }))
+
+    expect(await screen.findByRole('region', { name: PLAYER_HEADLINE })).toBeVisible()
+    expect(within(band).getByRole('button', { name: "I'm a player" })).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    )
+    expect(within(band).getByRole('button', { name: 'List yourself, free' })).toBeVisible()
   })
 
-  it('confirms a player signup with the player wording', async () => {
+  it('confirms a club signup with the club wording', async () => {
     const user = userEvent.setup()
     const answerSignup = holdSignup()
     await renderLandingPage('/en')
 
     const band = getBand()
-    await user.click(within(band).getByRole('button', { name: "I'm a player" }))
-    await user.type(within(band).getByRole('textbox', { name: 'Email' }), 'luka@mail.hr')
-    await user.click(await within(band).findByRole('button', { name: 'List yourself, free' }))
+    await user.click(within(band).getByRole('button', { name: 'I scout for a club' }))
+    await user.type(within(band).getByRole('textbox', { name: 'Email' }), 'ivan@nk-kustosija.hr')
+    await user.click(
+      await within(band).findByRole('button', { name: 'Search players by position' }),
+    )
 
     expect(joinLineupMock).toHaveBeenCalledExactlyOnceWith({
-      data: { role: 'player', email: 'luka@mail.hr' },
+      data: { role: 'club', email: 'ivan@nk-kustosija.hr' },
     })
-    answerSignup({ role: 'player', email: 'luka@mail.hr' })
+    answerSignup({ role: 'club', email: 'ivan@nk-kustosija.hr' })
 
     expect(
       await within(band).findByText(
-        "We'll write to luka@mail.hr to finish the profile clubs see when they search your position.",
+        "We'll write to ivan@nk-kustosija.hr to finish your club account.",
       ),
     ).toBeVisible()
   })
@@ -229,21 +233,23 @@ describe('CTA band', () => {
     const band = getBand('Uđi u prvu postavu.')
     const email = within(band).getByRole('textbox', { name: 'E-mail' })
     expect(email).toHaveAttribute('placeholder', 'ime@klub.hr')
-    const submit = within(band).getByRole('button', { name: 'Pretraži igrače po poziciji' })
+    const submit = within(band).getByRole('button', { name: 'Oglasi se besplatno' })
 
     await user.click(submit)
     expect(await within(band).findByRole('alert')).toHaveTextContent(
       'Upiši e-mail adresu u obliku ime@klub.hr',
     )
 
-    await user.type(email, 'ivan@nk-kustosija.hr')
+    await user.type(email, 'luka@mail.hr')
     await user.click(submit)
     expect(await within(band).findByRole('button', { name: 'Slanje…' })).toBeDisabled()
 
-    answerSignup({ role: 'club', email: 'ivan@nk-kustosija.hr' })
+    answerSignup({ role: 'player', email: 'luka@mail.hr' })
     expect(await within(band).findByRole('heading', { name: 'Na popisu si.' })).toBeVisible()
     expect(
-      within(band).getByText('Javit ćemo ti se na ivan@nk-kustosija.hr da dovršiš račun kluba.'),
+      within(band).getByText(
+        'Javit ćemo ti se na luka@mail.hr da dovršiš profil koji klubovi vide kad traže tvoju poziciju.',
+      ),
     ).toBeVisible()
   })
 })

@@ -23,10 +23,12 @@ test.describe('in the served HTML', () => {
   test('the Croatian home page describes itself and names its translation', async ({ page }) => {
     await page.goto('/')
 
-    await expect(page).toHaveTitle('Slobodni nogometaši i klubovi koji traže igrače | Prva postava')
+    await expect(page).toHaveTitle(
+      'Neka te nađe klub koji traži tvoju poziciju. Besplatno | Prva postava',
+    )
     await expect(page.locator('head meta[name="description"]')).toHaveAttribute(
       'content',
-      'Slobodni nogometaši i igrači nižih liga besplatno objave profil i statistiku sezone. Klubovi ih filtriraju po poziciji i ligi te im se javljaju.',
+      'Besplatno objavi poziciju i brojke iz sezone. Klubovi filtriraju po poziciji, dobi i ligi pa se javljaju igračima koji im odgovaraju. Bez menadžera.',
     )
     await expect(page.locator('head link[rel="canonical"]')).toHaveAttribute(
       'href',
@@ -39,11 +41,11 @@ test.describe('in the served HTML', () => {
     await page.goto('/en')
 
     await expect(page).toHaveTitle(
-      'Free agent footballers and clubs looking for players | Prva postava',
+      'Get found by clubs looking for players. List free | Prva postava',
     )
     await expect(page.locator('head meta[name="description"]')).toHaveAttribute(
       'content',
-      'Free agent and lower-league footballers list a profile and season stats for free. Clubs filter them by position and league, then make contact.',
+      "List your position and this season's numbers for free. Clubs filter by position, age and league, then contact the players who fit. No agent, no fee.",
     )
     await expect(page.locator('head link[rel="canonical"]')).toHaveAttribute(
       'href',

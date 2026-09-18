@@ -38,11 +38,11 @@ for (const { lang, path } of LANDING_PAGES) {
   })
 }
 
-test('the player side of the page has no WCAG A or AA violations', async ({ page }) => {
+test('the club side of the page has no WCAG A or AA violations', async ({ page }) => {
   await page.goto('/en')
   const hero = page.getByRole('region').filter({ has: page.getByRole('heading', { level: 1 }) })
-  await hero.getByRole('button', { name: "I'm a player" }).click()
-  await expect(hero.getByRole('link', { name: 'List yourself, free' })).toBeVisible()
+  await hero.getByRole('button', { name: 'I scout for a club' }).click()
+  await expect(hero.getByRole('link', { name: 'Search players by position' })).toBeVisible()
 
   expect(await findViolations(page)).toEqual([])
 })
@@ -51,7 +51,7 @@ test('the CTA form error has no WCAG A or AA violations', async ({ page }) => {
   await page.goto('/en')
   const band = page.getByRole('region', { name: 'Get in the lineup.' })
   await band.getByRole('textbox', { name: 'Email' }).fill('ivan.horvat')
-  await band.getByRole('button', { name: 'Search players by position' }).click()
+  await band.getByRole('button', { name: 'List yourself, free' }).click()
   await expect(band.getByRole('alert')).toBeVisible()
 
   expect(await findViolations(page)).toEqual([])

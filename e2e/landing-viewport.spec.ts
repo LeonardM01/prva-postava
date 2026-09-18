@@ -20,12 +20,23 @@ async function measureSidewaysOverflow(page: Page) {
   )
 }
 
+// The page opens on the player side, so the switch under test flips it to the club side.
 const ROLE_SWITCH_LABELS = [
-  { lang: 'en', path: '/en', playerButton: "I'm a player", playerCta: 'List yourself, free' },
-  { lang: 'hr', path: '/', playerButton: 'Ja sam igrač', playerCta: 'Oglasi se besplatno' },
+  {
+    lang: 'en',
+    path: '/en',
+    clubButton: 'I scout for a club',
+    clubCta: 'Search players by position',
+  },
+  {
+    lang: 'hr',
+    path: '/',
+    clubButton: 'Tražim igrače za klub',
+    clubCta: 'Pretraži igrače po poziciji',
+  },
 ] as const
 
-for (const { lang, path, playerButton, playerCta } of ROLE_SWITCH_LABELS) {
+for (const { lang, path, clubButton, clubCta } of ROLE_SWITCH_LABELS) {
   test(`the page never scrolls sideways or logs an error in ${lang}, on either side of the role switch`, async ({
     page,
   }) => {
@@ -35,8 +46,8 @@ for (const { lang, path, playerButton, playerCta } of ROLE_SWITCH_LABELS) {
     await expect.poll(() => measureSidewaysOverflow(page)).toBe(0)
 
     const hero = page.getByRole('region').filter({ has: page.getByRole('heading', { level: 1 }) })
-    await hero.getByRole('button', { name: playerButton }).click()
-    await expect(hero.getByRole('link', { name: playerCta })).toBeVisible()
+    await hero.getByRole('button', { name: clubButton }).click()
+    await expect(hero.getByRole('link', { name: clubCta })).toBeVisible()
     await expect.poll(() => measureSidewaysOverflow(page)).toBe(0)
     expect(errors).toEqual([])
   })
