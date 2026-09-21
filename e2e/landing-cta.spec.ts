@@ -6,14 +6,25 @@ function getBand(page: Page) {
   return page.getByRole('region', { name: 'Get in the lineup.' })
 }
 
-// Counts the signups the page sends and holds each one until the returned release is called.
-async function holdSignups(page: Page) {
+// The signup the answered request echoes back, the way the server function echoes the signup it
+// wrote. The band reads the address from it for the confirmation.
+const SIGNUP = { role: 'player', email: 'luka@mail.hr', language: 'en' }
+
+// Counts the signups the page sends and holds each one until the returned release is called, then
+// answers it in the browser. Deliberately never reaches the server function: behind it is the real
+// Loops audience, and a suite that runs on every push must not write contacts into it.
+async function holdSignups(page: Page, answer: object = SIGNUP) {
   const sent: string[] = []
   const release = Promise.withResolvers<undefined>()
   await page.route('**/_serverFn/**', async (route) => {
     sent.push(route.request().url())
     await release.promise
-    await route.continue()
+    // The envelope a server function answers in: the client reads the signup out of `result`.
+    await route.fulfill({
+      status: 200,
+      contentType: 'application/json',
+      body: JSON.stringify({ result: answer }),
+    })
   })
   return {
     sent,

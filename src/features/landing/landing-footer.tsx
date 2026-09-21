@@ -1,3 +1,5 @@
+import { GENERAL_MAILTO } from '#/lib/site-contacts'
+
 import { LineupMark } from './lineup-mark'
 import { SECTION_IDS } from './section-ids'
 import { SectionLink } from './section-link'
@@ -25,9 +27,9 @@ export function LandingFooter() {
             </SectionLink>
           </li>
           <li>
-            <SectionLink section={SECTION_IDS.cta} className={FOOTER_LINK_CLASS}>
+            <a href={GENERAL_MAILTO} className={FOOTER_LINK_CLASS}>
               {strings.footer.contact}
-            </SectionLink>
+            </a>
           </li>
         </ul>
       </nav>

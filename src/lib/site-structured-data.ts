@@ -1,5 +1,6 @@
 import { absoluteUrl, SITE_ORIGIN } from '#/lib/indexable-pages'
-import { type Language } from '#/lib/language'
+import { type Language, LANGUAGES } from '#/lib/language'
+import { GENERAL_EMAIL, SUPPORT_EMAIL } from '#/lib/site-contacts'
 
 const SITE_NAME = 'Prva postava'
 
@@ -10,15 +11,25 @@ const WEBSITE_ID = `${SITE_ORIGIN}/#website`
 const LOGO_SIZE = 512
 
 /**
- * Deliberately without `legalName`, `email` or `sameAs`: no registered company, public email or
- * social profile is confirmed yet. Add each field here once the fact is real. The logo is the
- * 512 px icon that `bun run generate-icons` writes to `public/`; keep its path and size in step.
+ * Deliberately without `legalName` or `sameAs`: no registered company or social profile is
+ * confirmed yet. Add each field here once the fact is real. `email` is the address the footer
+ * opens, so the page and the graph always name the same inbox; the support mailbox is a separate
+ * contact point rather than a second `email`, which schema.org allows only one of. The logo is
+ * the 512 px icon that `bun run generate-icons` writes to `public/`; keep its path and size in
+ * step.
  */
 const ORGANIZATION = {
   '@type': 'Organization',
   '@id': ORGANIZATION_ID,
   name: SITE_NAME,
   url: SITE_ORIGIN,
+  email: GENERAL_EMAIL,
+  contactPoint: {
+    '@type': 'ContactPoint',
+    contactType: 'technical support',
+    email: SUPPORT_EMAIL,
+    availableLanguage: LANGUAGES,
+  },
   logo: {
     '@type': 'ImageObject',
     url: absoluteUrl('/icon-512.png'),
