@@ -31,7 +31,7 @@ interface CtaFormProps {
  */
 export function CtaForm({ onJoined }: CtaFormProps) {
   const { role } = useRole()
-  const { strings } = useLandingLanguage()
+  const { language, strings } = useLandingLanguage()
   const [hasSubmitFailed, setHasSubmitFailed] = useState(false)
   const emailRef = useRef<HTMLInputElement>(null)
   const emailId = useId()
@@ -43,7 +43,7 @@ export function CtaForm({ onJoined }: CtaFormProps) {
       setHasSubmitFailed(false)
       let signup: LineupSignup
       try {
-        signup = await joinLineup({ data: { role, email: value.email } })
+        signup = await joinLineup({ data: { role, email: value.email, language } })
       } catch (error) {
         console.error('The lineup signup did not go through', error)
         setHasSubmitFailed(true)

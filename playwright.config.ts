@@ -40,7 +40,14 @@ export default defineConfig({
     // The built Nitro server, not `vite preview`: preview serves `public/` through its own static
     // layer, which gets some content types wrong (`.webmanifest` comes back as octet-stream).
     command: 'node .output/server/index.mjs',
-    env: { PORT: String(PORT) },
+    // Stand-ins for the Loops credentials: the server validates them at boot, and the specs
+    // answer the signup request in the browser, so nothing here is ever sent to Loops.
+    env: {
+      LOOPS_API_KEY: 'test-key-not-a-real-one',
+      LOOPS_CLUBS_LIST_ID: 'list-for-clubs',
+      LOOPS_PLAYERS_LIST_ID: 'list-for-players',
+      PORT: String(PORT),
+    },
     url: baseURL,
     reuseExistingServer: !isCI,
     timeout: 120_000,

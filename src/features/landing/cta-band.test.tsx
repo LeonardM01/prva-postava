@@ -144,10 +144,10 @@ describe('CTA band', () => {
     const sendingButton = await within(band).findByRole('button', { name: 'Sending…' })
     expect(sendingButton).toBeDisabled()
     expect(joinLineupMock).toHaveBeenCalledExactlyOnceWith({
-      data: { role: 'player', email: 'luka@mail.hr' },
+      data: { role: 'player', email: 'luka@mail.hr', language: 'en' },
     })
 
-    answerSignup({ role: 'player', email: 'luka@mail.hr' })
+    answerSignup({ role: 'player', email: 'luka@mail.hr', language: 'en' })
 
     expect(await within(band).findByRole('heading', { name: "You're on the list." })).toHaveFocus()
     expect(
@@ -214,9 +214,9 @@ describe('CTA band', () => {
     )
 
     expect(joinLineupMock).toHaveBeenCalledExactlyOnceWith({
-      data: { role: 'club', email: 'ivan@nk-kustosija.hr' },
+      data: { role: 'club', email: 'ivan@nk-kustosija.hr', language: 'en' },
     })
-    answerSignup({ role: 'club', email: 'ivan@nk-kustosija.hr' })
+    answerSignup({ role: 'club', email: 'ivan@nk-kustosija.hr', language: 'en' })
 
     expect(
       await within(band).findByText(
@@ -244,7 +244,7 @@ describe('CTA band', () => {
     await user.click(submit)
     expect(await within(band).findByRole('button', { name: 'Slanje…' })).toBeDisabled()
 
-    answerSignup({ role: 'player', email: 'luka@mail.hr' })
+    answerSignup({ role: 'player', email: 'luka@mail.hr', language: 'hr' })
     expect(await within(band).findByRole('heading', { name: 'Na popisu si.' })).toBeVisible()
     expect(
       within(band).getByText(
