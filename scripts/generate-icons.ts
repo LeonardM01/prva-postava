@@ -42,6 +42,9 @@ function packIco(frames: readonly IcoFrame[]) {
 
 await mkdir(PUBLIC_DIR, { recursive: true })
 await copyFile(new URL('favicon.svg', ICON_SOURCES_DIR), new URL('favicon.svg', PUBLIC_DIR))
+// The BIMI logo is the app icon drawn in the SVG Tiny PS profile that mail clients accept. It is
+// copied as-is because BIMI needs the vector, never a raster.
+await copyFile(new URL('bimi-logo.svg', ICON_SOURCES_DIR), new URL('bimi-logo.svg', PUBLIC_DIR))
 await writeFile(new URL('favicon-96.png', PUBLIC_DIR), await rasterise('favicon.svg', 96))
 await writeFile(
   new URL('favicon.ico', PUBLIC_DIR),
