@@ -1,3 +1,5 @@
+import { PositionBadge } from '#/components/position-badge'
+import { PromotedTag } from '#/components/promoted-tag'
 import { cn } from '#/lib/utils'
 
 import { type SampleListing } from './sample-listings'
@@ -39,9 +41,7 @@ export function SearchResultRow({ listing }: SearchResultRowProps) {
           player.isPromoted && 'rounded-l-lg',
         )}
       >
-        <span className="flex h-6 w-7 items-center justify-center rounded-[6px] bg-signal text-[11px] leading-[normal] font-semibold text-card board:h-6.5 board:w-7.5">
-          {strings.positions[listing.position].short}
-        </span>
+        <PositionBadge size="row" label={strings.positions[listing.position].short} />
       </td>
       <th scope="row" className={cn(CELL_CLASS, 'px-1.25 text-left font-normal board:px-1')}>
         <span className="flex flex-col gap-px leading-[normal] whitespace-nowrap board:gap-0.5">
@@ -49,11 +49,7 @@ export function SearchResultRow({ listing }: SearchResultRowProps) {
             <span className="text-sm font-semibold text-ink">
               {player.firstName} {player.lastName}
             </span>{' '}
-            {player.isPromoted && (
-              <span className="rounded-[4px] bg-amber px-1.25 py-0.5 text-[10px] font-semibold tracking-[0.06em] text-ink uppercase board:px-1.5">
-                {tableCopy.promoted}
-              </span>
-            )}
+            {player.isPromoted && <PromotedTag shape="label" label={tableCopy.promoted} />}
           </span>{' '}
           <span className="text-xs text-muted">
             {player.club} · <span className="board:hidden">{player.age}</span>

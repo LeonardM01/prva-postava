@@ -1,11 +1,11 @@
 import { type CSSProperties } from 'react'
 
+import { PromotedTag } from '#/components/promoted-tag'
 import { cn } from '#/lib/utils'
 
 import { BOARD_LAYOUT_VISIBILITY, BOARD_SIZE, type BoardLayout } from './board-layout'
 import { CompactPlayerChip } from './compact-player-chip'
 import { PlayerChip } from './player-chip'
-import { PromotedTag } from './promoted-tag'
 import { LINE_BY_POSITION, type SamplePlayer } from './sample-players'
 import { useLandingLanguage } from './use-landing-language'
 
@@ -62,6 +62,7 @@ export function PlayerSlot({ cascadeIndex, player }: PlayerSlotProps) {
         {player.isPromoted ? (
           <span className="absolute -top-2.75 right-px animate-tag-land">
             <PromotedTag
+              shape="pill"
               label={`${strings.board.promotedIn} ${strings.positions[player.position].short}`}
             />
           </span>

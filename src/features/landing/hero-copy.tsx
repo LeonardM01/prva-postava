@@ -1,6 +1,8 @@
 import { ViewTransition } from 'react'
 
-import { ArrowRightIcon } from './arrow-right-icon'
+import { actionButtonVariants } from '#/components/action-button-variants'
+import { ArrowRightIcon } from '#/components/arrow-right-icon'
+
 import { useRole } from './role-context'
 import { RoleSwitch } from './role-switch'
 import { SECTION_IDS } from './section-ids'
@@ -36,7 +38,7 @@ export function HeroCopy({ headingId }: HeroCopyProps) {
         <ViewTransition default="role-shape">
           <SectionLink
             section={SECTION_IDS.cta}
-            className="group flex h-13 items-center justify-center rounded-[12px] bg-signal px-6 text-[17px] font-semibold text-card transition-colors duration-150 hover:bg-signal-deep active:bg-signal-deep active:inset-shadow-pressed"
+            className={actionButtonVariants({ tone: 'primary', size: 'hero' })}
           >
             <ViewTransition default="role-copy">
               <span className="flex items-center gap-2.5">
