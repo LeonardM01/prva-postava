@@ -8,7 +8,7 @@ test('the board shows full chips and the promoted tag', async ({ page }) => {
 
   const board = page.getByRole('figure', { name: 'Every position on one board' })
   await expect(board.getByText('Ivan Horvat', { exact: true })).toBeVisible()
-  await expect(board.getByText('NK Kustošija · 22', { exact: true })).toBeVisible()
+  await expect(board.getByText('NK Borova Glava · 22', { exact: true })).toBeVisible()
   await expect(board.getByText('clean sheets', { exact: true })).toBeVisible()
   await expect(board.getByText('Promoted in LW', { exact: true })).toBeVisible()
   await expect(board.getByText('Horvat', { exact: true })).toBeHidden()

@@ -1,3 +1,5 @@
+import { getListing } from '#/features/sample-listings/sample-listings'
+
 import { type Position, SAMPLE_PLAYERS, type SamplePlayer } from './sample-players'
 
 export interface SampleListing {
@@ -19,41 +21,29 @@ function findSamplePlayer(id: string): SamplePlayer {
   return player
 }
 
-// Synthetic season lines for players on the board, not listings. The design files all three
-// under left wing, the position the search filters by.
-const IVAN_HORVAT: SampleListing = {
-  player: findSamplePlayer('ivan-horvat'),
-  position: 'LW',
-  league: '3. NL Zagreb',
-  matches: 24,
-  goals: 9,
-  assists: 6,
-  minutes: 1980,
+// The three are filed under left wing in the sample data, the position the search filters by.
+function leftWingListing(id: string): SampleListing {
+  const { league, thisSeason } = getListing(id)
+  return {
+    player: findSamplePlayer(id),
+    position: 'LW',
+    league,
+    matches: thisSeason.matches,
+    goals: thisSeason.goals,
+    assists: thisSeason.assists,
+    minutes: thisSeason.minutes,
+  }
 }
+
+const IVAN_HORVAT = leftWingListing('ivan-horvat')
 
 /**
  * The club search demo's results, promoted listing first.
  */
 export const SAMPLE_SEARCH_RESULTS: readonly SampleListing[] = [
   IVAN_HORVAT,
-  {
-    player: findSamplePlayer('marko-kovacevic'),
-    position: 'LW',
-    league: '3. NL Zagreb',
-    matches: 19,
-    goals: 5,
-    assists: 8,
-    minutes: 1540,
-  },
-  {
-    player: findSamplePlayer('luka-babic'),
-    position: 'LW',
-    league: '2. NL',
-    matches: 26,
-    goals: 11,
-    assists: 4,
-    minutes: 2210,
-  },
+  leftWingListing('marko-kovacevic'),
+  leftWingListing('luka-babic'),
 ]
 
 interface SampleProfile {
@@ -66,5 +56,5 @@ interface SampleProfile {
  */
 export const SAMPLE_PROFILE: SampleProfile = {
   listing: IVAN_HORVAT,
-  seenByClubsThisWeek: 7,
+  seenByClubsThisWeek: getListing('ivan-horvat').seenByClubs.thisWeek,
 }

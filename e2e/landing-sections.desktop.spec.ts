@@ -57,7 +57,7 @@ test('the club search shows five filters, seven columns, Save and the actions', 
     'Save',
   ])
   await expect(promotedRow.getByRole('rowheader')).toHaveText(
-    /^Ivan Horvat\s+Promoted\s+NK Kustošija · 3\. NL Zagreb$/i,
+    /^Ivan Horvat\s+Promoted\s+NK Borova Glava · Treća NL Centar$/i,
     { useInnerText: true },
   )
   await expect(demo.getByText('Contact player')).toBeVisible()
@@ -70,7 +70,7 @@ test('the fact sheet names the league and spells out minutes', async ({ page }) 
   const demo = page.getByRole('figure', { name: 'Sample player profile, not a real listing' })
   // Text the layout hides for phones stays in the markup, so these read what is drawn.
   await expect(demo.getByText(/^Left wing · 22/)).toHaveText(
-    'Left wing · 22 · NK Kustošija · 3. NL Zagreb',
+    'Left wing · 22 · NK Borova Glava · Treća NL Centar',
     { useInnerText: true },
   )
   await expect(demo.getByRole('term')).toHaveText(

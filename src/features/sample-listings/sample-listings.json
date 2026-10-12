@@ -1,0 +1,2744 @@
+[
+  {
+    "id": "ivan-horvat",
+    "firstName": "Ivan",
+    "lastName": "Horvat",
+    "age": 22,
+    "nationality": "HR",
+    "preferredFoot": "left",
+    "heightCm": 176,
+    "club": "NK Borova Glava",
+    "league": "Treća NL Centar",
+    "position": "LW",
+    "contractStatus": "expiringThisSeason",
+    "thisSeason": {
+      "matches": 24,
+      "minutes": 1980,
+      "goals": 9,
+      "assists": 6
+    },
+    "lastSeason": {
+      "matches": 28,
+      "minutes": 2420,
+      "goals": 10,
+      "assists": 13,
+      "league": "Treća NL Centar"
+    },
+    "isPromoted": true,
+    "seenByClubs": {
+      "thisWeek": 7,
+      "lastWeek": 5
+    }
+  },
+  {
+    "id": "marko-kovacevic",
+    "firstName": "Marko",
+    "lastName": "Kovačević",
+    "age": 20,
+    "nationality": "HR",
+    "preferredFoot": "left",
+    "heightCm": 174,
+    "club": "NK Stari Mlin",
+    "league": "Treća NL Centar",
+    "position": "LW",
+    "contractStatus": "underContract",
+    "thisSeason": {
+      "matches": 19,
+      "minutes": 1540,
+      "goals": 5,
+      "assists": 8
+    },
+    "lastSeason": {
+      "matches": 21,
+      "minutes": 1756,
+      "goals": 13,
+      "assists": 5,
+      "league": "Treća NL Centar"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 7,
+      "lastWeek": 4
+    }
+  },
+  {
+    "id": "luka-babic",
+    "firstName": "Luka",
+    "lastName": "Babić",
+    "age": 24,
+    "nationality": "HR",
+    "preferredFoot": "right",
+    "heightCm": 181,
+    "club": "NK Modra Luka",
+    "league": "Druga NL",
+    "position": "LW",
+    "contractStatus": "expiringThisSeason",
+    "thisSeason": {
+      "matches": 26,
+      "minutes": 2210,
+      "goals": 11,
+      "assists": 4
+    },
+    "lastSeason": {
+      "matches": 24,
+      "minutes": 2056,
+      "goals": 16,
+      "assists": 5,
+      "league": "Treća NL Centar"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 5,
+      "lastWeek": 3
+    }
+  },
+  {
+    "id": "vito-vukovic",
+    "firstName": "Vito",
+    "lastName": "Vuković",
+    "age": 28,
+    "nationality": "HR",
+    "preferredFoot": "right",
+    "heightCm": 176,
+    "club": "NK Kestenov Breg",
+    "league": "1. ŽNL Zagrebačka",
+    "position": "ST",
+    "contractStatus": "underContract",
+    "thisSeason": {
+      "matches": 23,
+      "minutes": 1777,
+      "goals": 9,
+      "assists": 2
+    },
+    "lastSeason": {
+      "matches": 22,
+      "minutes": 1753,
+      "goals": 7,
+      "assists": 3,
+      "league": "1. ŽNL Zagrebačka"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 11,
+      "lastWeek": 14
+    }
+  },
+  {
+    "id": "karlo-filipovic",
+    "firstName": "Karlo",
+    "lastName": "Filipović",
+    "age": 23,
+    "nationality": "HR",
+    "preferredFoot": "right",
+    "heightCm": 177,
+    "club": "NK Lisičji Jarak",
+    "league": "Četvrta NL Središte Zagreb",
+    "position": "RW",
+    "contractStatus": "freeAgent",
+    "thisSeason": {
+      "matches": 28,
+      "minutes": 2479,
+      "goals": 20,
+      "assists": 7
+    },
+    "lastSeason": {
+      "matches": 29,
+      "minutes": 2705,
+      "goals": 20,
+      "assists": 11,
+      "league": "Četvrta NL Središte Zagreb"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 11,
+      "lastWeek": 14
+    }
+  },
+  {
+    "id": "amar-hadzic",
+    "firstName": "Amar",
+    "lastName": "Hadžić",
+    "age": 19,
+    "nationality": "BA",
+    "preferredFoot": "right",
+    "heightCm": 178,
+    "club": "NK Gornji Prelaz",
+    "league": "Četvrta NL Središte Zagreb",
+    "position": "RB",
+    "contractStatus": "expiringThisSeason",
+    "thisSeason": {
+      "matches": 19,
+      "minutes": 1351,
+      "goals": 1,
+      "assists": 3
+    },
+    "lastSeason": {
+      "matches": 18,
+      "minutes": 1321,
+      "goals": 1,
+      "assists": 2,
+      "league": "Četvrta NL Središte Zagreb"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 11,
+      "lastWeek": 10
+    }
+  },
+  {
+    "id": "david-basic",
+    "firstName": "David",
+    "lastName": "Bašić",
+    "age": 19,
+    "nationality": "HR",
+    "preferredFoot": "left",
+    "heightCm": 185,
+    "club": "NK Medvjeđi Dol",
+    "league": "Treća NL Sjever",
+    "position": "LB",
+    "contractStatus": "freeAgent",
+    "thisSeason": {
+      "matches": 29,
+      "minutes": 2506,
+      "goals": 5,
+      "assists": 8
+    },
+    "lastSeason": {
+      "matches": 21,
+      "minutes": 1811,
+      "goals": 4,
+      "assists": 3,
+      "league": "Treća NL Centar"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 12,
+      "lastWeek": 13
+    }
+  },
+  {
+    "id": "karlo-knezevic",
+    "firstName": "Karlo",
+    "lastName": "Knežević",
+    "age": 31,
+    "nationality": "HR",
+    "preferredFoot": "right",
+    "heightCm": 185,
+    "club": "HNK Južni Greben",
+    "league": "Treća NL Jug",
+    "position": "GK",
+    "contractStatus": "freeAgent",
+    "thisSeason": {
+      "matches": 24,
+      "minutes": 2107,
+      "goals": 0,
+      "assists": 0,
+      "cleanSheets": 13
+    },
+    "lastSeason": {
+      "matches": 28,
+      "minutes": 2414,
+      "goals": 0,
+      "assists": 0,
+      "cleanSheets": 14,
+      "league": "Treća NL Jug"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 11,
+      "lastWeek": 10
+    }
+  },
+  {
+    "id": "josip-horvat",
+    "firstName": "Josip",
+    "lastName": "Horvat",
+    "age": 21,
+    "nationality": "HR",
+    "preferredFoot": "both",
+    "heightCm": 188,
+    "club": "NK Stari Mlin",
+    "league": "Treća NL Centar",
+    "position": "GK",
+    "contractStatus": "underContract",
+    "thisSeason": {
+      "matches": 23,
+      "minutes": 1827,
+      "goals": 0,
+      "assists": 0,
+      "cleanSheets": 9
+    },
+    "lastSeason": {
+      "matches": 23,
+      "minutes": 1901,
+      "goals": 0,
+      "assists": 0,
+      "cleanSheets": 10,
+      "league": "Druga NL"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 0,
+      "lastWeek": 1
+    }
+  },
+  {
+    "id": "petar-vidovic",
+    "firstName": "Petar",
+    "lastName": "Vidović",
+    "age": 25,
+    "nationality": "HR",
+    "preferredFoot": "left",
+    "heightCm": 177,
+    "club": "NK Maslinov Rt",
+    "league": "Treća NL Jug",
+    "position": "LB",
+    "contractStatus": "expiringThisSeason",
+    "thisSeason": {
+      "matches": 14,
+      "minutes": 894,
+      "goals": 0,
+      "assists": 1
+    },
+    "lastSeason": {
+      "matches": 18,
+      "minutes": 1204,
+      "goals": 1,
+      "assists": 1,
+      "league": "Treća NL Jug"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 5,
+      "lastWeek": 3
+    }
+  },
+  {
+    "id": "dominik-matic",
+    "firstName": "Dominik",
+    "lastName": "Matić",
+    "age": 23,
+    "nationality": "HR",
+    "preferredFoot": "left",
+    "heightCm": 170,
+    "club": "NK Sunčev Dol",
+    "league": "Druga NL",
+    "position": "RM",
+    "contractStatus": "expiringThisSeason",
+    "thisSeason": {
+      "matches": 12,
+      "minutes": 794,
+      "goals": 2,
+      "assists": 1
+    },
+    "lastSeason": {
+      "matches": 15,
+      "minutes": 1007,
+      "goals": 2,
+      "assists": 2,
+      "league": "Druga NL"
+    },
+    "isPromoted": true,
+    "seenByClubs": {
+      "thisWeek": 14,
+      "lastWeek": 13
+    }
+  },
+  {
+    "id": "zvonimir-vukovic",
+    "firstName": "Zvonimir",
+    "lastName": "Vuković",
+    "age": 30,
+    "nationality": "HR",
+    "preferredFoot": "right",
+    "heightCm": 179,
+    "club": "NK Trnov Gaj",
+    "league": "Treća NL Istok",
+    "position": "DM",
+    "contractStatus": "underContract",
+    "thisSeason": {
+      "matches": 20,
+      "minutes": 1330,
+      "goals": 2,
+      "assists": 4
+    },
+    "lastSeason": {
+      "matches": 17,
+      "minutes": 1203,
+      "goals": 3,
+      "assists": 3,
+      "league": "Treća NL Istok"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 11,
+      "lastWeek": 11
+    }
+  },
+  {
+    "id": "niko-blazevic",
+    "firstName": "Niko",
+    "lastName": "Blažević",
+    "age": 29,
+    "nationality": "HR",
+    "preferredFoot": "right",
+    "heightCm": 178,
+    "club": "NK Vinski Vrh",
+    "league": "Treća NL Sjever",
+    "position": "RB",
+    "contractStatus": "underContract",
+    "thisSeason": {
+      "matches": 21,
+      "minutes": 1612,
+      "goals": 1,
+      "assists": 0
+    },
+    "lastSeason": {
+      "matches": 23,
+      "minutes": 1783,
+      "goals": 1,
+      "assists": 1,
+      "league": "Treća NL Sjever"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 2,
+      "lastWeek": 2
+    }
+  },
+  {
+    "id": "edin-begovic",
+    "firstName": "Edin",
+    "lastName": "Begović",
+    "age": 28,
+    "nationality": "BA",
+    "preferredFoot": "left",
+    "heightCm": 188,
+    "club": "NK Gornji Prelaz",
+    "league": "Četvrta NL Središte Zagreb",
+    "position": "LW",
+    "contractStatus": "underContract",
+    "thisSeason": {
+      "matches": 24,
+      "minutes": 1943,
+      "goals": 11,
+      "assists": 9
+    },
+    "lastSeason": {
+      "matches": 24,
+      "minutes": 2101,
+      "goals": 12,
+      "assists": 5,
+      "league": "Četvrta NL Središte Zagreb"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 1,
+      "lastWeek": 2
+    }
+  },
+  {
+    "id": "domagoj-pavlovic",
+    "firstName": "Domagoj",
+    "lastName": "Pavlović",
+    "age": 28,
+    "nationality": "HR",
+    "preferredFoot": "right",
+    "heightCm": 175,
+    "club": "NK Jasenov Gaj",
+    "league": "Treća NL Centar",
+    "position": "LW",
+    "contractStatus": "expiringThisSeason",
+    "thisSeason": {
+      "matches": 26,
+      "minutes": 2222,
+      "goals": 13,
+      "assists": 5
+    },
+    "lastSeason": {
+      "matches": 28,
+      "minutes": 2223,
+      "goals": 10,
+      "assists": 8,
+      "league": "Treća NL Centar"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 8,
+      "lastWeek": 8
+    }
+  },
+  {
+    "id": "josip-rukavina",
+    "firstName": "Josip",
+    "lastName": "Rukavina",
+    "age": 29,
+    "nationality": "HR",
+    "preferredFoot": "right",
+    "heightCm": 180,
+    "club": "NK Dravska Obala",
+    "league": "MŽNL Osijek–Vinkovci",
+    "position": "AM",
+    "contractStatus": "expiringThisSeason",
+    "thisSeason": {
+      "matches": 23,
+      "minutes": 2002,
+      "goals": 9,
+      "assists": 7
+    },
+    "lastSeason": {
+      "matches": 29,
+      "minutes": 2530,
+      "goals": 10,
+      "assists": 12,
+      "league": "Druga NL"
+    },
+    "isPromoted": true,
+    "seenByClubs": {
+      "thisWeek": 13,
+      "lastWeek": 12
+    }
+  },
+  {
+    "id": "leon-jukic",
+    "firstName": "Leon",
+    "lastName": "Jukić",
+    "age": 23,
+    "nationality": "HR",
+    "preferredFoot": "both",
+    "heightCm": 195,
+    "club": "NK Jasenov Gaj",
+    "league": "Treća NL Centar",
+    "position": "GK",
+    "contractStatus": "expiringThisSeason",
+    "thisSeason": {
+      "matches": 19,
+      "minutes": 1515,
+      "goals": 0,
+      "assists": 0,
+      "cleanSheets": 8
+    },
+    "lastSeason": {
+      "matches": 20,
+      "minutes": 1523,
+      "goals": 0,
+      "assists": 0,
+      "cleanSheets": 7,
+      "league": "Treća NL Centar"
+    },
+    "isPromoted": true,
+    "seenByClubs": {
+      "thisWeek": 11,
+      "lastWeek": 13
+    }
+  },
+  {
+    "id": "dario-mandic",
+    "firstName": "Dario",
+    "lastName": "Mandić",
+    "age": 23,
+    "nationality": "HR",
+    "preferredFoot": "right",
+    "heightCm": 176,
+    "club": "NK Borova Glava",
+    "league": "Treća NL Centar",
+    "position": "AM",
+    "contractStatus": "freeAgent",
+    "thisSeason": {
+      "matches": 16,
+      "minutes": 1161,
+      "goals": 2,
+      "assists": 1
+    },
+    "lastSeason": {
+      "matches": 16,
+      "minutes": 1022,
+      "goals": 1,
+      "assists": 1,
+      "league": "Treća NL Centar"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 11,
+      "lastWeek": 13
+    }
+  },
+  {
+    "id": "domagoj-knezevic",
+    "firstName": "Domagoj",
+    "lastName": "Knežević",
+    "age": 31,
+    "nationality": "HR",
+    "preferredFoot": "left",
+    "heightCm": 188,
+    "club": "NK Lisičji Jarak",
+    "league": "Četvrta NL Središte Zagreb",
+    "position": "CB",
+    "contractStatus": "expiringThisSeason",
+    "thisSeason": {
+      "matches": 20,
+      "minutes": 1491,
+      "goals": 1,
+      "assists": 1
+    },
+    "lastSeason": {
+      "matches": 18,
+      "minutes": 1286,
+      "goals": 1,
+      "assists": 2,
+      "league": "Četvrta NL Središte Zagreb"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 8,
+      "lastWeek": 8
+    }
+  },
+  {
+    "id": "zvonimir-radic",
+    "firstName": "Zvonimir",
+    "lastName": "Radić",
+    "age": 31,
+    "nationality": "HR",
+    "preferredFoot": "right",
+    "heightCm": 185,
+    "club": "NK Medvjeđi Dol",
+    "league": "Treća NL Sjever",
+    "position": "RW",
+    "contractStatus": "underContract",
+    "thisSeason": {
+      "matches": 19,
+      "minutes": 1570,
+      "goals": 6,
+      "assists": 4
+    },
+    "lastSeason": {
+      "matches": 28,
+      "minutes": 2285,
+      "goals": 15,
+      "assists": 7,
+      "league": "Treća NL Centar"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 0,
+      "lastWeek": 0
+    }
+  },
+  {
+    "id": "petar-filipovic",
+    "firstName": "Petar",
+    "lastName": "Filipović",
+    "age": 19,
+    "nationality": "HR",
+    "preferredFoot": "left",
+    "heightCm": 168,
+    "club": "NK Zelena Livada",
+    "league": "1. ŽNL Zagrebačka",
+    "position": "LW",
+    "contractStatus": "expiringThisSeason",
+    "thisSeason": {
+      "matches": 21,
+      "minutes": 1647,
+      "goals": 13,
+      "assists": 7
+    },
+    "lastSeason": {
+      "matches": 24,
+      "minutes": 1950,
+      "goals": 8,
+      "assists": 6,
+      "league": "1. ŽNL Zagrebačka"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 11,
+      "lastWeek": 12
+    }
+  },
+  {
+    "id": "nemanja-stankovic",
+    "firstName": "Nemanja",
+    "lastName": "Stanković",
+    "age": 21,
+    "nationality": "RS",
+    "preferredFoot": "left",
+    "heightCm": 169,
+    "club": "NK Tri Lipe",
+    "league": "Treća NL Centar",
+    "position": "LW",
+    "contractStatus": "freeAgent",
+    "thisSeason": {
+      "matches": 21,
+      "minutes": 1630,
+      "goals": 8,
+      "assists": 6
+    },
+    "lastSeason": {
+      "matches": 25,
+      "minutes": 1950,
+      "goals": 15,
+      "assists": 7,
+      "league": "Prva NL"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 1,
+      "lastWeek": 1
+    }
+  },
+  {
+    "id": "niko-galic",
+    "firstName": "Niko",
+    "lastName": "Galić",
+    "age": 19,
+    "nationality": "HR",
+    "preferredFoot": "left",
+    "heightCm": 179,
+    "club": "NK Bijela Ravan",
+    "league": "Treća NL Istok",
+    "position": "LW",
+    "contractStatus": "underContract",
+    "thisSeason": {
+      "matches": 23,
+      "minutes": 1801,
+      "goals": 9,
+      "assists": 5
+    },
+    "lastSeason": {
+      "matches": 19,
+      "minutes": 1482,
+      "goals": 4,
+      "assists": 3,
+      "league": "Treća NL Istok"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 4,
+      "lastWeek": 1
+    }
+  },
+  {
+    "id": "ivan-basic",
+    "firstName": "Ivan",
+    "lastName": "Bašić",
+    "age": 21,
+    "nationality": "HR",
+    "preferredFoot": "right",
+    "heightCm": 188,
+    "club": "NK Trnov Gaj",
+    "league": "Treća NL Istok",
+    "position": "DM",
+    "contractStatus": "underContract",
+    "thisSeason": {
+      "matches": 15,
+      "minutes": 1109,
+      "goals": 3,
+      "assists": 3
+    },
+    "lastSeason": {
+      "matches": 17,
+      "minutes": 1143,
+      "goals": 2,
+      "assists": 4,
+      "league": "Treća NL Istok"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 2,
+      "lastWeek": 0
+    }
+  },
+  {
+    "id": "leon-knezevic",
+    "firstName": "Leon",
+    "lastName": "Knežević",
+    "age": 19,
+    "nationality": "HR",
+    "preferredFoot": "left",
+    "heightCm": 185,
+    "club": "NK Zlatni Klas",
+    "league": "Druga NL",
+    "position": "GK",
+    "contractStatus": "underContract",
+    "thisSeason": {
+      "matches": 17,
+      "minutes": 1127,
+      "goals": 0,
+      "assists": 0,
+      "cleanSheets": 4
+    },
+    "lastSeason": {
+      "matches": 14,
+      "minutes": 822,
+      "goals": 0,
+      "assists": 0,
+      "cleanSheets": 3,
+      "league": "Treća NL Centar"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 14,
+      "lastWeek": 13
+    }
+  },
+  {
+    "id": "dario-juric",
+    "firstName": "Dario",
+    "lastName": "Jurić",
+    "age": 20,
+    "nationality": "HR",
+    "preferredFoot": "left",
+    "heightCm": 171,
+    "club": "NK Tri Lipe",
+    "league": "Treća NL Centar",
+    "position": "RW",
+    "contractStatus": "underContract",
+    "thisSeason": {
+      "matches": 27,
+      "minutes": 2311,
+      "goals": 17,
+      "assists": 8
+    },
+    "lastSeason": {
+      "matches": 25,
+      "minutes": 2314,
+      "goals": 27,
+      "assists": 7,
+      "league": "Treća NL Centar"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 10,
+      "lastWeek": 10
+    }
+  },
+  {
+    "id": "mihael-jukic",
+    "firstName": "Mihael",
+    "lastName": "Jukić",
+    "age": 20,
+    "nationality": "HR",
+    "preferredFoot": "right",
+    "heightCm": 176,
+    "club": "NK Zlatna Dolina",
+    "league": "MŽNL Osijek–Vinkovci",
+    "position": "CM",
+    "contractStatus": "expiringThisSeason",
+    "thisSeason": {
+      "matches": 14,
+      "minutes": 976,
+      "goals": 2,
+      "assists": 1
+    },
+    "lastSeason": {
+      "matches": 22,
+      "minutes": 1559,
+      "goals": 2,
+      "assists": 2,
+      "league": "Prva NL"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 13,
+      "lastWeek": 14
+    }
+  },
+  {
+    "id": "marin-novak",
+    "firstName": "Marin",
+    "lastName": "Novak",
+    "age": 27,
+    "nationality": "HR",
+    "preferredFoot": "both",
+    "heightCm": 184,
+    "club": "NŠK Ravnica",
+    "league": "Druga NL",
+    "position": "RB",
+    "contractStatus": "expiringThisSeason",
+    "thisSeason": {
+      "matches": 24,
+      "minutes": 2007,
+      "goals": 3,
+      "assists": 3
+    },
+    "lastSeason": {
+      "matches": 29,
+      "minutes": 2462,
+      "goals": 2,
+      "assists": 8,
+      "league": "Druga NL"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 14,
+      "lastWeek": 17
+    }
+  },
+  {
+    "id": "zvonimir-tomic",
+    "firstName": "Zvonimir",
+    "lastName": "Tomić",
+    "age": 26,
+    "nationality": "HR",
+    "preferredFoot": "both",
+    "heightCm": 187,
+    "club": "NK Hrastova Kosa",
+    "league": "Treća NL Zapad",
+    "position": "CB",
+    "contractStatus": "underContract",
+    "thisSeason": {
+      "matches": 20,
+      "minutes": 1456,
+      "goals": 0,
+      "assists": 2
+    },
+    "lastSeason": {
+      "matches": 22,
+      "minutes": 1641,
+      "goals": 2,
+      "assists": 1,
+      "league": "Treća NL Zapad"
+    },
+    "isPromoted": true,
+    "seenByClubs": {
+      "thisWeek": 14,
+      "lastWeek": 12
+    }
+  },
+  {
+    "id": "zan-zupancic",
+    "firstName": "Žan",
+    "lastName": "Zupančič",
+    "age": 30,
+    "nationality": "SI",
+    "preferredFoot": "right",
+    "heightCm": 187,
+    "club": "NK Crvena Zemlja",
+    "league": "1. ŽNL Istarska",
+    "position": "RM",
+    "contractStatus": "freeAgent",
+    "thisSeason": {
+      "matches": 24,
+      "minutes": 2055,
+      "goals": 12,
+      "assists": 5
+    },
+    "lastSeason": {
+      "matches": 30,
+      "minutes": 2675,
+      "goals": 19,
+      "assists": 8,
+      "league": "1. ŽNL Istarska"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 8,
+      "lastWeek": 9
+    }
+  },
+  {
+    "id": "david-filipovic",
+    "firstName": "David",
+    "lastName": "Filipović",
+    "age": 24,
+    "nationality": "HR",
+    "preferredFoot": "both",
+    "heightCm": 177,
+    "club": "NK Modra Luka",
+    "league": "Druga NL",
+    "position": "RW",
+    "contractStatus": "expiringThisSeason",
+    "thisSeason": {
+      "matches": 16,
+      "minutes": 1088,
+      "goals": 3,
+      "assists": 2
+    },
+    "lastSeason": {
+      "matches": 22,
+      "minutes": 1616,
+      "goals": 5,
+      "assists": 4,
+      "league": "Druga NL"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 10,
+      "lastWeek": 13
+    }
+  },
+  {
+    "id": "niko-petrovic",
+    "firstName": "Niko",
+    "lastName": "Petrović",
+    "age": 27,
+    "nationality": "HR",
+    "preferredFoot": "right",
+    "heightCm": 178,
+    "club": "NK Vinski Vrh",
+    "league": "Treća NL Sjever",
+    "position": "RM",
+    "contractStatus": "freeAgent",
+    "thisSeason": {
+      "matches": 21,
+      "minutes": 1615,
+      "goals": 9,
+      "assists": 4
+    },
+    "lastSeason": {
+      "matches": 21,
+      "minutes": 1569,
+      "goals": 9,
+      "assists": 5,
+      "league": "Treća NL Sjever"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 6,
+      "lastWeek": 6
+    }
+  },
+  {
+    "id": "karlo-bozic",
+    "firstName": "Karlo",
+    "lastName": "Božić",
+    "age": 20,
+    "nationality": "HR",
+    "preferredFoot": "right",
+    "heightCm": 186,
+    "club": "NK Sokolov Kamen",
+    "league": "Treća NL Sjever",
+    "position": "ST",
+    "contractStatus": "freeAgent",
+    "thisSeason": {
+      "matches": 26,
+      "minutes": 2018,
+      "goals": 15,
+      "assists": 5
+    },
+    "lastSeason": {
+      "matches": 24,
+      "minutes": 1832,
+      "goals": 7,
+      "assists": 6,
+      "league": "Treća NL Sjever"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 9,
+      "lastWeek": 9
+    }
+  },
+  {
+    "id": "niko-jukic",
+    "firstName": "Niko",
+    "lastName": "Jukić",
+    "age": 20,
+    "nationality": "HR",
+    "preferredFoot": "right",
+    "heightCm": 183,
+    "club": "NK Tri Lipe",
+    "league": "Treća NL Centar",
+    "position": "CB",
+    "contractStatus": "underContract",
+    "thisSeason": {
+      "matches": 17,
+      "minutes": 1084,
+      "goals": 0,
+      "assists": 1
+    },
+    "lastSeason": {
+      "matches": 14,
+      "minutes": 855,
+      "goals": 0,
+      "assists": 0,
+      "league": "Treća NL Centar"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 9,
+      "lastWeek": 9
+    }
+  },
+  {
+    "id": "fran-kovacevic",
+    "firstName": "Fran",
+    "lastName": "Kovačević",
+    "age": 29,
+    "nationality": "HR",
+    "preferredFoot": "right",
+    "heightCm": 181,
+    "club": "NK Medvjeđi Dol",
+    "league": "Treća NL Sjever",
+    "position": "CM",
+    "contractStatus": "expiringThisSeason",
+    "thisSeason": {
+      "matches": 13,
+      "minutes": 855,
+      "goals": 1,
+      "assists": 1
+    },
+    "lastSeason": {
+      "matches": 18,
+      "minutes": 1096,
+      "goals": 1,
+      "assists": 2,
+      "league": "Treća NL Sjever"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 12,
+      "lastWeek": 11
+    }
+  },
+  {
+    "id": "filip-grgic",
+    "firstName": "Filip",
+    "lastName": "Grgić",
+    "age": 23,
+    "nationality": "HR",
+    "preferredFoot": "right",
+    "heightCm": 187,
+    "club": "NK Zlatni Klas",
+    "league": "Druga NL",
+    "position": "CB",
+    "contractStatus": "expiringThisSeason",
+    "thisSeason": {
+      "matches": 21,
+      "minutes": 1550,
+      "goals": 2,
+      "assists": 0
+    },
+    "lastSeason": {
+      "matches": 23,
+      "minutes": 1715,
+      "goals": 1,
+      "assists": 3,
+      "league": "Treća NL Istok"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 8,
+      "lastWeek": 8
+    }
+  },
+  {
+    "id": "zvonimir-petrovic",
+    "firstName": "Zvonimir",
+    "lastName": "Petrović",
+    "age": 19,
+    "nationality": "HR",
+    "preferredFoot": "right",
+    "heightCm": 176,
+    "club": "NK Kamena Uvala",
+    "league": "Treća NL Jug",
+    "position": "LW",
+    "contractStatus": "expiringThisSeason",
+    "thisSeason": {
+      "matches": 25,
+      "minutes": 2016,
+      "goals": 9,
+      "assists": 8
+    },
+    "lastSeason": {
+      "matches": 21,
+      "minutes": 1698,
+      "goals": 10,
+      "assists": 5,
+      "league": "Treća NL Jug"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 3,
+      "lastWeek": 6
+    }
+  },
+  {
+    "id": "arber-krasniqi",
+    "firstName": "Arbër",
+    "lastName": "Krasniqi",
+    "age": 28,
+    "nationality": "XK",
+    "preferredFoot": "right",
+    "heightCm": 168,
+    "club": "NK Maslinov Rt",
+    "league": "Treća NL Jug",
+    "position": "RM",
+    "contractStatus": "expiringThisSeason",
+    "thisSeason": {
+      "matches": 17,
+      "minutes": 1161,
+      "goals": 3,
+      "assists": 1
+    },
+    "lastSeason": {
+      "matches": 20,
+      "minutes": 1365,
+      "goals": 3,
+      "assists": 2,
+      "league": "Treća NL Sjever"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 3,
+      "lastWeek": 2
+    }
+  },
+  {
+    "id": "damir-grgic",
+    "firstName": "Damir",
+    "lastName": "Grgić",
+    "age": 30,
+    "nationality": "HR",
+    "preferredFoot": "right",
+    "heightCm": 182,
+    "club": "NK Kamena Uvala",
+    "league": "Treća NL Jug",
+    "position": "CM",
+    "contractStatus": "expiringThisSeason",
+    "thisSeason": {
+      "matches": 16,
+      "minutes": 1143,
+      "goals": 3,
+      "assists": 2
+    },
+    "lastSeason": {
+      "matches": 21,
+      "minutes": 1574,
+      "goals": 2,
+      "assists": 3,
+      "league": "Treća NL Sjever"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 4,
+      "lastWeek": 6
+    }
+  },
+  {
+    "id": "andrija-brkic",
+    "firstName": "Andrija",
+    "lastName": "Brkić",
+    "age": 23,
+    "nationality": "HR",
+    "preferredFoot": "right",
+    "heightCm": 192,
+    "club": "NK Gornji Prelaz",
+    "league": "Četvrta NL Središte Zagreb",
+    "position": "CB",
+    "contractStatus": "underContract",
+    "thisSeason": {
+      "matches": 22,
+      "minutes": 1517,
+      "goals": 1,
+      "assists": 3
+    },
+    "lastSeason": {
+      "matches": 22,
+      "minutes": 1636,
+      "goals": 1,
+      "assists": 3,
+      "league": "Četvrta NL Središte Zagreb"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 8,
+      "lastWeek": 7
+    }
+  },
+  {
+    "id": "bruno-brkic",
+    "firstName": "Bruno",
+    "lastName": "Brkić",
+    "age": 24,
+    "nationality": "HR",
+    "preferredFoot": "both",
+    "heightCm": 184,
+    "club": "NK Gornji Prelaz",
+    "league": "Četvrta NL Središte Zagreb",
+    "position": "ST",
+    "contractStatus": "underContract",
+    "thisSeason": {
+      "matches": 28,
+      "minutes": 2546,
+      "goals": 25,
+      "assists": 15
+    },
+    "lastSeason": {
+      "matches": 27,
+      "minutes": 2363,
+      "goals": 15,
+      "assists": 13,
+      "league": "Četvrta NL Središte Zagreb"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 11,
+      "lastWeek": 11
+    }
+  },
+  {
+    "id": "toni-brkic",
+    "firstName": "Toni",
+    "lastName": "Brkić",
+    "age": 21,
+    "nationality": "HR",
+    "preferredFoot": "left",
+    "heightCm": 186,
+    "club": "NK Hrastova Kosa",
+    "league": "Treća NL Zapad",
+    "position": "LW",
+    "contractStatus": "underContract",
+    "thisSeason": {
+      "matches": 17,
+      "minutes": 1162,
+      "goals": 5,
+      "assists": 2
+    },
+    "lastSeason": {
+      "matches": 19,
+      "minutes": 1359,
+      "goals": 5,
+      "assists": 4,
+      "league": "Treća NL Zapad"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 14,
+      "lastWeek": 13
+    }
+  },
+  {
+    "id": "mateo-grgic",
+    "firstName": "Mateo",
+    "lastName": "Grgić",
+    "age": 23,
+    "nationality": "HR",
+    "preferredFoot": "right",
+    "heightCm": 181,
+    "club": "NŠK Ravnica",
+    "league": "Druga NL",
+    "position": "AM",
+    "contractStatus": "underContract",
+    "thisSeason": {
+      "matches": 25,
+      "minutes": 2035,
+      "goals": 5,
+      "assists": 6
+    },
+    "lastSeason": {
+      "matches": 22,
+      "minutes": 1761,
+      "goals": 4,
+      "assists": 8,
+      "league": "Druga NL"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 11,
+      "lastWeek": 12
+    }
+  },
+  {
+    "id": "ante-basic",
+    "firstName": "Ante",
+    "lastName": "Bašić",
+    "age": 20,
+    "nationality": "HR",
+    "preferredFoot": "right",
+    "heightCm": 168,
+    "club": "NK Medvjeđi Dol",
+    "league": "Treća NL Sjever",
+    "position": "RW",
+    "contractStatus": "underContract",
+    "thisSeason": {
+      "matches": 15,
+      "minutes": 1009,
+      "goals": 4,
+      "assists": 2
+    },
+    "lastSeason": {
+      "matches": 18,
+      "minutes": 1288,
+      "goals": 6,
+      "assists": 4,
+      "league": "Treća NL Jug"
+    },
+    "isPromoted": true,
+    "seenByClubs": {
+      "thisWeek": 4,
+      "lastWeek": 6
+    }
+  },
+  {
+    "id": "luka-lovric",
+    "firstName": "Luka",
+    "lastName": "Lovrić",
+    "age": 22,
+    "nationality": "HR",
+    "preferredFoot": "left",
+    "heightCm": 184,
+    "club": "NK Lisičji Jarak",
+    "league": "Četvrta NL Središte Zagreb",
+    "position": "LW",
+    "contractStatus": "underContract",
+    "thisSeason": {
+      "matches": 27,
+      "minutes": 2248,
+      "goals": 19,
+      "assists": 9
+    },
+    "lastSeason": {
+      "matches": 22,
+      "minutes": 1778,
+      "goals": 11,
+      "assists": 6,
+      "league": "Četvrta NL Središte Zagreb"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 4,
+      "lastWeek": 4
+    }
+  },
+  {
+    "id": "chidi-okafor",
+    "firstName": "Chidi",
+    "lastName": "Okafor",
+    "age": 24,
+    "nationality": "NG",
+    "preferredFoot": "left",
+    "heightCm": 177,
+    "club": "HNK Južni Greben",
+    "league": "Treća NL Jug",
+    "position": "ST",
+    "contractStatus": "expiringThisSeason",
+    "thisSeason": {
+      "matches": 17,
+      "minutes": 1050,
+      "goals": 2,
+      "assists": 2
+    },
+    "lastSeason": {
+      "matches": 17,
+      "minutes": 1153,
+      "goals": 3,
+      "assists": 2,
+      "league": "Druga NL"
+    },
+    "isPromoted": true,
+    "seenByClubs": {
+      "thisWeek": 11,
+      "lastWeek": 8
+    }
+  },
+  {
+    "id": "tomislav-vlahovic",
+    "firstName": "Tomislav",
+    "lastName": "Vlahović",
+    "age": 20,
+    "nationality": "HR",
+    "preferredFoot": "left",
+    "heightCm": 170,
+    "club": "NK Kvarnerski Zaljev",
+    "league": "Četvrta NL Rijeka",
+    "position": "RW",
+    "contractStatus": "underContract",
+    "thisSeason": {
+      "matches": 30,
+      "minutes": 2638,
+      "goals": 19,
+      "assists": 10
+    },
+    "lastSeason": {
+      "matches": 30,
+      "minutes": 2661,
+      "goals": 18,
+      "assists": 7,
+      "league": "Četvrta NL Rijeka"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 11,
+      "lastWeek": 10
+    }
+  },
+  {
+    "id": "dominik-bozic",
+    "firstName": "Dominik",
+    "lastName": "Božić",
+    "age": 21,
+    "nationality": "HR",
+    "preferredFoot": "right",
+    "heightCm": 182,
+    "club": "NK Lisičji Jarak",
+    "league": "Četvrta NL Središte Zagreb",
+    "position": "CB",
+    "contractStatus": "expiringThisSeason",
+    "thisSeason": {
+      "matches": 25,
+      "minutes": 2158,
+      "goals": 1,
+      "assists": 4
+    },
+    "lastSeason": {
+      "matches": 24,
+      "minutes": 2098,
+      "goals": 4,
+      "assists": 4,
+      "league": "Četvrta NL Središte Zagreb"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 5,
+      "lastWeek": 4
+    }
+  },
+  {
+    "id": "damir-rukavina",
+    "firstName": "Damir",
+    "lastName": "Rukavina",
+    "age": 28,
+    "nationality": "HR",
+    "preferredFoot": "right",
+    "heightCm": 169,
+    "club": "NK Crvena Zemlja",
+    "league": "1. ŽNL Istarska",
+    "position": "ST",
+    "contractStatus": "expiringThisSeason",
+    "thisSeason": {
+      "matches": 24,
+      "minutes": 1961,
+      "goals": 13,
+      "assists": 5
+    },
+    "lastSeason": {
+      "matches": 20,
+      "minutes": 1560,
+      "goals": 4,
+      "assists": 5,
+      "league": "1. ŽNL Istarska"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 8,
+      "lastWeek": 6
+    }
+  },
+  {
+    "id": "roko-peric",
+    "firstName": "Roko",
+    "lastName": "Perić",
+    "age": 23,
+    "nationality": "HR",
+    "preferredFoot": "right",
+    "heightCm": 177,
+    "club": "NK Vrh Učke",
+    "league": "Četvrta NL Rijeka",
+    "position": "CM",
+    "contractStatus": "freeAgent",
+    "thisSeason": {
+      "matches": 11,
+      "minutes": 683,
+      "goals": 1,
+      "assists": 1
+    },
+    "lastSeason": {
+      "matches": 18,
+      "minutes": 1060,
+      "goals": 1,
+      "assists": 1,
+      "league": "Četvrta NL Rijeka"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 9,
+      "lastWeek": 6
+    }
+  },
+  {
+    "id": "roko-novak",
+    "firstName": "Roko",
+    "lastName": "Novak",
+    "age": 32,
+    "nationality": "HR",
+    "preferredFoot": "left",
+    "heightCm": 173,
+    "club": "HNK Južni Greben",
+    "league": "Treća NL Jug",
+    "position": "DM",
+    "contractStatus": "freeAgent",
+    "thisSeason": {
+      "matches": 24,
+      "minutes": 1830,
+      "goals": 6,
+      "assists": 7
+    },
+    "lastSeason": {
+      "matches": 19,
+      "minutes": 1465,
+      "goals": 5,
+      "assists": 3,
+      "league": "Prva NL"
+    },
+    "isPromoted": true,
+    "seenByClubs": {
+      "thisWeek": 10,
+      "lastWeek": 13
+    }
+  },
+  {
+    "id": "antonio-kovacic",
+    "firstName": "Antonio",
+    "lastName": "Kovačić",
+    "age": 19,
+    "nationality": "HR",
+    "preferredFoot": "right",
+    "heightCm": 180,
+    "club": "NK Zelena Livada",
+    "league": "1. ŽNL Zagrebačka",
+    "position": "CB",
+    "contractStatus": "freeAgent",
+    "thisSeason": {
+      "matches": 19,
+      "minutes": 1378,
+      "goals": 1,
+      "assists": 2
+    },
+    "lastSeason": {
+      "matches": 21,
+      "minutes": 1587,
+      "goals": 2,
+      "assists": 3,
+      "league": "1. ŽNL Zagrebačka"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 3,
+      "lastWeek": 6
+    }
+  },
+  {
+    "id": "borna-mandic",
+    "firstName": "Borna",
+    "lastName": "Mandić",
+    "age": 19,
+    "nationality": "HR",
+    "preferredFoot": "both",
+    "heightCm": 187,
+    "club": "NK Posavski Gaj",
+    "league": "MŽNL Brod–Požega",
+    "position": "RW",
+    "contractStatus": "expiringThisSeason",
+    "thisSeason": {
+      "matches": 23,
+      "minutes": 1833,
+      "goals": 13,
+      "assists": 3
+    },
+    "lastSeason": {
+      "matches": 24,
+      "minutes": 1954,
+      "goals": 15,
+      "assists": 9,
+      "league": "MŽNL Brod–Požega"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 5,
+      "lastWeek": 8
+    }
+  },
+  {
+    "id": "rafael-nascimento",
+    "firstName": "Rafael",
+    "lastName": "Nascimento",
+    "age": 21,
+    "nationality": "BR",
+    "preferredFoot": "both",
+    "heightCm": 168,
+    "club": "NK Tri Lipe",
+    "league": "Treća NL Centar",
+    "position": "DM",
+    "contractStatus": "expiringThisSeason",
+    "thisSeason": {
+      "matches": 17,
+      "minutes": 1147,
+      "goals": 1,
+      "assists": 2
+    },
+    "lastSeason": {
+      "matches": 17,
+      "minutes": 1062,
+      "goals": 1,
+      "assists": 1,
+      "league": "Treća NL Centar"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 6,
+      "lastWeek": 4
+    }
+  },
+  {
+    "id": "lovro-katic",
+    "firstName": "Lovro",
+    "lastName": "Katić",
+    "age": 29,
+    "nationality": "HR",
+    "preferredFoot": "right",
+    "heightCm": 168,
+    "club": "NK Zelena Livada",
+    "league": "1. ŽNL Zagrebačka",
+    "position": "RW",
+    "contractStatus": "underContract",
+    "thisSeason": {
+      "matches": 24,
+      "minutes": 1881,
+      "goals": 12,
+      "assists": 4
+    },
+    "lastSeason": {
+      "matches": 24,
+      "minutes": 1894,
+      "goals": 7,
+      "assists": 8,
+      "league": "1. ŽNL Zagrebačka"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 0,
+      "lastWeek": 0
+    }
+  },
+  {
+    "id": "jakov-petrovic",
+    "firstName": "Jakov",
+    "lastName": "Petrović",
+    "age": 23,
+    "nationality": "HR",
+    "preferredFoot": "right",
+    "heightCm": 189,
+    "club": "NK Vrh Učke",
+    "league": "Četvrta NL Rijeka",
+    "position": "CB",
+    "contractStatus": "expiringThisSeason",
+    "thisSeason": {
+      "matches": 28,
+      "minutes": 2318,
+      "goals": 1,
+      "assists": 3
+    },
+    "lastSeason": {
+      "matches": 29,
+      "minutes": 2588,
+      "goals": 3,
+      "assists": 9,
+      "league": "Četvrta NL Rijeka"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 2,
+      "lastWeek": 3
+    }
+  },
+  {
+    "id": "toni-saric",
+    "firstName": "Toni",
+    "lastName": "Šarić",
+    "age": 18,
+    "nationality": "HR",
+    "preferredFoot": "right",
+    "heightCm": 177,
+    "club": "NK Sunčev Dol",
+    "league": "Druga NL",
+    "position": "CM",
+    "contractStatus": "expiringThisSeason",
+    "thisSeason": {
+      "matches": 19,
+      "minutes": 1480,
+      "goals": 4,
+      "assists": 5
+    },
+    "lastSeason": {
+      "matches": 25,
+      "minutes": 2035,
+      "goals": 9,
+      "assists": 11,
+      "league": "Druga NL"
+    },
+    "isPromoted": true,
+    "seenByClubs": {
+      "thisWeek": 0,
+      "lastWeek": 0
+    }
+  },
+  {
+    "id": "roko-galic",
+    "firstName": "Roko",
+    "lastName": "Galić",
+    "age": 24,
+    "nationality": "HR",
+    "preferredFoot": "right",
+    "heightCm": 173,
+    "club": "NK Tri Lipe",
+    "league": "Treća NL Centar",
+    "position": "CM",
+    "contractStatus": "underContract",
+    "thisSeason": {
+      "matches": 14,
+      "minutes": 882,
+      "goals": 1,
+      "assists": 1
+    },
+    "lastSeason": {
+      "matches": 11,
+      "minutes": 691,
+      "goals": 0,
+      "assists": 1,
+      "league": "Treća NL Centar"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 14,
+      "lastWeek": 14
+    }
+  },
+  {
+    "id": "bruno-matic",
+    "firstName": "Bruno",
+    "lastName": "Matić",
+    "age": 27,
+    "nationality": "HR",
+    "preferredFoot": "right",
+    "heightCm": 180,
+    "club": "NK Sokolov Kamen",
+    "league": "Treća NL Sjever",
+    "position": "DM",
+    "contractStatus": "expiringThisSeason",
+    "thisSeason": {
+      "matches": 25,
+      "minutes": 2079,
+      "goals": 4,
+      "assists": 11
+    },
+    "lastSeason": {
+      "matches": 20,
+      "minutes": 1515,
+      "goals": 4,
+      "assists": 4,
+      "league": "Treća NL Sjever"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 7,
+      "lastWeek": 8
+    }
+  },
+  {
+    "id": "zvonimir-grgic",
+    "firstName": "Zvonimir",
+    "lastName": "Grgić",
+    "age": 19,
+    "nationality": "HR",
+    "preferredFoot": "left",
+    "heightCm": 174,
+    "club": "NK Tri Lipe",
+    "league": "Treća NL Centar",
+    "position": "LB",
+    "contractStatus": "underContract",
+    "thisSeason": {
+      "matches": 17,
+      "minutes": 1166,
+      "goals": 1,
+      "assists": 0
+    },
+    "lastSeason": {
+      "matches": 14,
+      "minutes": 959,
+      "goals": 1,
+      "assists": 0,
+      "league": "Treća NL Zapad"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 12,
+      "lastWeek": 13
+    }
+  },
+  {
+    "id": "toni-mandic",
+    "firstName": "Toni",
+    "lastName": "Mandić",
+    "age": 32,
+    "nationality": "HR",
+    "preferredFoot": "left",
+    "heightCm": 172,
+    "club": "NK Srebrna Draga",
+    "league": "Treća NL Zapad",
+    "position": "LW",
+    "contractStatus": "underContract",
+    "thisSeason": {
+      "matches": 20,
+      "minutes": 1452,
+      "goals": 9,
+      "assists": 5
+    },
+    "lastSeason": {
+      "matches": 17,
+      "minutes": 1188,
+      "goals": 5,
+      "assists": 2,
+      "league": "Četvrta NL Rijeka"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 14,
+      "lastWeek": 16
+    }
+  },
+  {
+    "id": "dejan-trajkovski",
+    "firstName": "Dejan",
+    "lastName": "Trajkovski",
+    "age": 24,
+    "nationality": "MK",
+    "preferredFoot": "left",
+    "heightCm": 178,
+    "club": "NK Srebrna Draga",
+    "league": "Treća NL Zapad",
+    "position": "DM",
+    "contractStatus": "underContract",
+    "thisSeason": {
+      "matches": 24,
+      "minutes": 2033,
+      "goals": 10,
+      "assists": 10
+    },
+    "lastSeason": {
+      "matches": 29,
+      "minutes": 2617,
+      "goals": 9,
+      "assists": 16,
+      "league": "Druga NL"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 8,
+      "lastWeek": 11
+    }
+  },
+  {
+    "id": "david-petrovic",
+    "firstName": "David",
+    "lastName": "Petrović",
+    "age": 22,
+    "nationality": "HR",
+    "preferredFoot": "right",
+    "heightCm": 178,
+    "club": "NK Srebrna Draga",
+    "league": "Treća NL Zapad",
+    "position": "CM",
+    "contractStatus": "underContract",
+    "thisSeason": {
+      "matches": 20,
+      "minutes": 1357,
+      "goals": 3,
+      "assists": 5
+    },
+    "lastSeason": {
+      "matches": 19,
+      "minutes": 1387,
+      "goals": 1,
+      "assists": 4,
+      "league": "Treća NL Zapad"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 11,
+      "lastWeek": 14
+    }
+  },
+  {
+    "id": "noa-filipovic",
+    "firstName": "Noa",
+    "lastName": "Filipović",
+    "age": 34,
+    "nationality": "HR",
+    "preferredFoot": "right",
+    "heightCm": 176,
+    "club": "NK Gornji Prelaz",
+    "league": "Četvrta NL Središte Zagreb",
+    "position": "CM",
+    "contractStatus": "underContract",
+    "thisSeason": {
+      "matches": 15,
+      "minutes": 1029,
+      "goals": 2,
+      "assists": 2
+    },
+    "lastSeason": {
+      "matches": 21,
+      "minutes": 1559,
+      "goals": 2,
+      "assists": 7,
+      "league": "Četvrta NL Središte Zagreb"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 3,
+      "lastWeek": 0
+    }
+  },
+  {
+    "id": "roko-grgic",
+    "firstName": "Roko",
+    "lastName": "Grgić",
+    "age": 20,
+    "nationality": "HR",
+    "preferredFoot": "left",
+    "heightCm": 180,
+    "club": "NK Zlatni Klas",
+    "league": "Druga NL",
+    "position": "CB",
+    "contractStatus": "expiringThisSeason",
+    "thisSeason": {
+      "matches": 18,
+      "minutes": 1115,
+      "goals": 1,
+      "assists": 1
+    },
+    "lastSeason": {
+      "matches": 16,
+      "minutes": 1038,
+      "goals": 1,
+      "assists": 1,
+      "league": "Druga NL"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 14,
+      "lastWeek": 16
+    }
+  },
+  {
+    "id": "luka-filipovic",
+    "firstName": "Luka",
+    "lastName": "Filipović",
+    "age": 20,
+    "nationality": "HR",
+    "preferredFoot": "right",
+    "heightCm": 174,
+    "club": "NK Sunčev Dol",
+    "league": "Druga NL",
+    "position": "CM",
+    "contractStatus": "expiringThisSeason",
+    "thisSeason": {
+      "matches": 22,
+      "minutes": 1936,
+      "goals": 9,
+      "assists": 6
+    },
+    "lastSeason": {
+      "matches": 21,
+      "minutes": 1794,
+      "goals": 7,
+      "assists": 5,
+      "league": "Druga NL"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 9,
+      "lastWeek": 11
+    }
+  },
+  {
+    "id": "antonio-rukavina",
+    "firstName": "Antonio",
+    "lastName": "Rukavina",
+    "age": 32,
+    "nationality": "HR",
+    "preferredFoot": "right",
+    "heightCm": 183,
+    "club": "NK Srebrna Draga",
+    "league": "Treća NL Zapad",
+    "position": "ST",
+    "contractStatus": "expiringThisSeason",
+    "thisSeason": {
+      "matches": 27,
+      "minutes": 2297,
+      "goals": 21,
+      "assists": 5
+    },
+    "lastSeason": {
+      "matches": 23,
+      "minutes": 1871,
+      "goals": 10,
+      "assists": 6,
+      "league": "Treća NL Zapad"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 8,
+      "lastWeek": 7
+    }
+  },
+  {
+    "id": "marko-horvat",
+    "firstName": "Marko",
+    "lastName": "Horvat",
+    "age": 22,
+    "nationality": "HR",
+    "preferredFoot": "left",
+    "heightCm": 172,
+    "club": "HNK Žitno Polje",
+    "league": "Treća NL Istok",
+    "position": "AM",
+    "contractStatus": "underContract",
+    "thisSeason": {
+      "matches": 12,
+      "minutes": 768,
+      "goals": 1,
+      "assists": 2
+    },
+    "lastSeason": {
+      "matches": 12,
+      "minutes": 805,
+      "goals": 1,
+      "assists": 2,
+      "league": "Treća NL Istok"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 13,
+      "lastWeek": 11
+    }
+  },
+  {
+    "id": "dario-novak",
+    "firstName": "Dario",
+    "lastName": "Novak",
+    "age": 25,
+    "nationality": "HR",
+    "preferredFoot": "right",
+    "heightCm": 183,
+    "club": "NK Sunčev Dol",
+    "league": "Druga NL",
+    "position": "LM",
+    "contractStatus": "freeAgent",
+    "thisSeason": {
+      "matches": 28,
+      "minutes": 2476,
+      "goals": 22,
+      "assists": 9
+    },
+    "lastSeason": {
+      "matches": 21,
+      "minutes": 1803,
+      "goals": 11,
+      "assists": 9,
+      "league": "Druga NL"
+    },
+    "isPromoted": true,
+    "seenByClubs": {
+      "thisWeek": 10,
+      "lastWeek": 9
+    }
+  },
+  {
+    "id": "blendi-hoxha",
+    "firstName": "Blendi",
+    "lastName": "Hoxha",
+    "age": 19,
+    "nationality": "AL",
+    "preferredFoot": "right",
+    "heightCm": 170,
+    "club": "HNK Vjetrenik",
+    "league": "Treća NL Zapad",
+    "position": "ST",
+    "contractStatus": "expiringThisSeason",
+    "thisSeason": {
+      "matches": 27,
+      "minutes": 2467,
+      "goals": 15,
+      "assists": 9
+    },
+    "lastSeason": {
+      "matches": 23,
+      "minutes": 1982,
+      "goals": 12,
+      "assists": 8,
+      "league": "Druga NL"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 4,
+      "lastWeek": 5
+    }
+  },
+  {
+    "id": "bruno-juric",
+    "firstName": "Bruno",
+    "lastName": "Jurić",
+    "age": 28,
+    "nationality": "HR",
+    "preferredFoot": "left",
+    "heightCm": 169,
+    "club": "NK Gornji Prelaz",
+    "league": "Četvrta NL Središte Zagreb",
+    "position": "DM",
+    "contractStatus": "expiringThisSeason",
+    "thisSeason": {
+      "matches": 28,
+      "minutes": 2336,
+      "goals": 11,
+      "assists": 6
+    },
+    "lastSeason": {
+      "matches": 29,
+      "minutes": 2465,
+      "goals": 10,
+      "assists": 14,
+      "league": "Četvrta NL Središte Zagreb"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 3,
+      "lastWeek": 3
+    }
+  },
+  {
+    "id": "stjepan-petrovic",
+    "firstName": "Stjepan",
+    "lastName": "Petrović",
+    "age": 34,
+    "nationality": "HR",
+    "preferredFoot": "right",
+    "heightCm": 178,
+    "club": "NK Tri Lipe",
+    "league": "Treća NL Centar",
+    "position": "LB",
+    "contractStatus": "underContract",
+    "thisSeason": {
+      "matches": 27,
+      "minutes": 2249,
+      "goals": 2,
+      "assists": 4
+    },
+    "lastSeason": {
+      "matches": 27,
+      "minutes": 2245,
+      "goals": 5,
+      "assists": 2,
+      "league": "Treća NL Centar"
+    },
+    "isPromoted": true,
+    "seenByClubs": {
+      "thisWeek": 12,
+      "lastWeek": 15
+    }
+  },
+  {
+    "id": "david-vukovic",
+    "firstName": "David",
+    "lastName": "Vuković",
+    "age": 26,
+    "nationality": "HR",
+    "preferredFoot": "left",
+    "heightCm": 181,
+    "club": "NŠK Ravnica",
+    "league": "Druga NL",
+    "position": "LW",
+    "contractStatus": "underContract",
+    "thisSeason": {
+      "matches": 30,
+      "minutes": 2615,
+      "goals": 21,
+      "assists": 11
+    },
+    "lastSeason": {
+      "matches": 29,
+      "minutes": 2534,
+      "goals": 17,
+      "assists": 11,
+      "league": "Druga NL"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 4,
+      "lastWeek": 1
+    }
+  },
+  {
+    "id": "josip-kovacic",
+    "firstName": "Josip",
+    "lastName": "Kovačić",
+    "age": 19,
+    "nationality": "HR",
+    "preferredFoot": "right",
+    "heightCm": 179,
+    "club": "HNK Južni Greben",
+    "league": "Treća NL Jug",
+    "position": "RM",
+    "contractStatus": "expiringThisSeason",
+    "thisSeason": {
+      "matches": 23,
+      "minutes": 2079,
+      "goals": 22,
+      "assists": 9
+    },
+    "lastSeason": {
+      "matches": 27,
+      "minutes": 2329,
+      "goals": 24,
+      "assists": 8,
+      "league": "1. ŽNL Zagrebačka"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 7,
+      "lastWeek": 9
+    }
+  },
+  {
+    "id": "marin-vidovic",
+    "firstName": "Marin",
+    "lastName": "Vidović",
+    "age": 34,
+    "nationality": "HR",
+    "preferredFoot": "right",
+    "heightCm": 172,
+    "club": "NK Dravska Obala",
+    "league": "MŽNL Osijek–Vinkovci",
+    "position": "CM",
+    "contractStatus": "expiringThisSeason",
+    "thisSeason": {
+      "matches": 18,
+      "minutes": 1232,
+      "goals": 2,
+      "assists": 2
+    },
+    "lastSeason": {
+      "matches": 20,
+      "minutes": 1437,
+      "goals": 3,
+      "assists": 3,
+      "league": "Treća NL Zapad"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 9,
+      "lastWeek": 11
+    }
+  },
+  {
+    "id": "leon-pavlovic",
+    "firstName": "Leon",
+    "lastName": "Pavlović",
+    "age": 33,
+    "nationality": "HR",
+    "preferredFoot": "right",
+    "heightCm": 170,
+    "club": "NK Dravska Obala",
+    "league": "MŽNL Osijek–Vinkovci",
+    "position": "LW",
+    "contractStatus": "underContract",
+    "thisSeason": {
+      "matches": 29,
+      "minutes": 2508,
+      "goals": 24,
+      "assists": 9
+    },
+    "lastSeason": {
+      "matches": 26,
+      "minutes": 2154,
+      "goals": 11,
+      "assists": 8,
+      "league": "MŽNL Osijek–Vinkovci"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 4,
+      "lastWeek": 7
+    }
+  },
+  {
+    "id": "noa-bozic",
+    "firstName": "Noa",
+    "lastName": "Božić",
+    "age": 22,
+    "nationality": "HR",
+    "preferredFoot": "right",
+    "heightCm": 196,
+    "club": "NK Sunčev Dol",
+    "league": "Druga NL",
+    "position": "GK",
+    "contractStatus": "underContract",
+    "thisSeason": {
+      "matches": 24,
+      "minutes": 1893,
+      "goals": 0,
+      "assists": 0,
+      "cleanSheets": 8
+    },
+    "lastSeason": {
+      "matches": 20,
+      "minutes": 1451,
+      "goals": 0,
+      "assists": 0,
+      "cleanSheets": 7,
+      "league": "Druga NL"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 2,
+      "lastWeek": 0
+    }
+  },
+  {
+    "id": "mirza-delic",
+    "firstName": "Mirza",
+    "lastName": "Delić",
+    "age": 29,
+    "nationality": "BA",
+    "preferredFoot": "both",
+    "heightCm": 174,
+    "club": "HNK Žitno Polje",
+    "league": "Treća NL Istok",
+    "position": "CM",
+    "contractStatus": "freeAgent",
+    "thisSeason": {
+      "matches": 24,
+      "minutes": 1948,
+      "goals": 5,
+      "assists": 6
+    },
+    "lastSeason": {
+      "matches": 28,
+      "minutes": 2472,
+      "goals": 12,
+      "assists": 9,
+      "league": "Treća NL Istok"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 4,
+      "lastWeek": 3
+    }
+  },
+  {
+    "id": "marin-lovric",
+    "firstName": "Marin",
+    "lastName": "Lovrić",
+    "age": 27,
+    "nationality": "HR",
+    "preferredFoot": "right",
+    "heightCm": 191,
+    "club": "NK Lisičji Jarak",
+    "league": "Četvrta NL Središte Zagreb",
+    "position": "GK",
+    "contractStatus": "expiringThisSeason",
+    "thisSeason": {
+      "matches": 16,
+      "minutes": 1103,
+      "goals": 0,
+      "assists": 0,
+      "cleanSheets": 5
+    },
+    "lastSeason": {
+      "matches": 20,
+      "minutes": 1345,
+      "goals": 0,
+      "assists": 0,
+      "cleanSheets": 5,
+      "league": "Treća NL Istok"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 9,
+      "lastWeek": 7
+    }
+  },
+  {
+    "id": "leon-babic",
+    "firstName": "Leon",
+    "lastName": "Babić",
+    "age": 30,
+    "nationality": "HR",
+    "preferredFoot": "right",
+    "heightCm": 191,
+    "club": "NK Vrh Učke",
+    "league": "Četvrta NL Rijeka",
+    "position": "CB",
+    "contractStatus": "underContract",
+    "thisSeason": {
+      "matches": 26,
+      "minutes": 2096,
+      "goals": 1,
+      "assists": 5
+    },
+    "lastSeason": {
+      "matches": 20,
+      "minutes": 1500,
+      "goals": 2,
+      "assists": 1,
+      "league": "1. ŽNL Istarska"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 4,
+      "lastWeek": 5
+    }
+  },
+  {
+    "id": "karlo-basic",
+    "firstName": "Karlo",
+    "lastName": "Bašić",
+    "age": 28,
+    "nationality": "HR",
+    "preferredFoot": "right",
+    "heightCm": 191,
+    "club": "NK Tri Lipe",
+    "league": "Treća NL Centar",
+    "position": "GK",
+    "contractStatus": "underContract",
+    "thisSeason": {
+      "matches": 24,
+      "minutes": 2160,
+      "goals": 0,
+      "assists": 0,
+      "cleanSheets": 9
+    },
+    "lastSeason": {
+      "matches": 25,
+      "minutes": 1969,
+      "goals": 0,
+      "assists": 0,
+      "cleanSheets": 10,
+      "league": "Treća NL Centar"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 3,
+      "lastWeek": 2
+    }
+  },
+  {
+    "id": "josip-matic",
+    "firstName": "Josip",
+    "lastName": "Matić",
+    "age": 25,
+    "nationality": "HR",
+    "preferredFoot": "left",
+    "heightCm": 178,
+    "club": "NK Trnov Gaj",
+    "league": "Treća NL Istok",
+    "position": "LB",
+    "contractStatus": "expiringThisSeason",
+    "thisSeason": {
+      "matches": 24,
+      "minutes": 2050,
+      "goals": 1,
+      "assists": 4
+    },
+    "lastSeason": {
+      "matches": 24,
+      "minutes": 1933,
+      "goals": 1,
+      "assists": 6,
+      "league": "Treća NL Centar"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 4,
+      "lastWeek": 4
+    }
+  },
+  {
+    "id": "tomislav-vukovic",
+    "firstName": "Tomislav",
+    "lastName": "Vuković",
+    "age": 27,
+    "nationality": "HR",
+    "preferredFoot": "right",
+    "heightCm": 188,
+    "club": "NK Vinski Vrh",
+    "league": "Treća NL Sjever",
+    "position": "CB",
+    "contractStatus": "underContract",
+    "thisSeason": {
+      "matches": 26,
+      "minutes": 2310,
+      "goals": 2,
+      "assists": 1
+    },
+    "lastSeason": {
+      "matches": 18,
+      "minutes": 1374,
+      "goals": 2,
+      "assists": 3,
+      "league": "1. ŽNL Zagrebačka"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 2,
+      "lastWeek": 3
+    }
+  },
+  {
+    "id": "dario-knezevic",
+    "firstName": "Dario",
+    "lastName": "Knežević",
+    "age": 24,
+    "nationality": "HR",
+    "preferredFoot": "left",
+    "heightCm": 186,
+    "club": "NŠK Ravnica",
+    "league": "Druga NL",
+    "position": "CB",
+    "contractStatus": "freeAgent",
+    "thisSeason": {
+      "matches": 21,
+      "minutes": 1840,
+      "goals": 1,
+      "assists": 0
+    },
+    "lastSeason": {
+      "matches": 24,
+      "minutes": 1874,
+      "goals": 1,
+      "assists": 4,
+      "league": "Druga NL"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 6,
+      "lastWeek": 2
+    }
+  },
+  {
+    "id": "niko-grgic",
+    "firstName": "Niko",
+    "lastName": "Grgić",
+    "age": 22,
+    "nationality": "HR",
+    "preferredFoot": "right",
+    "heightCm": 177,
+    "club": "NK Zelengrad",
+    "league": "Prva NL",
+    "position": "RB",
+    "contractStatus": "underContract",
+    "thisSeason": {
+      "matches": 19,
+      "minutes": 1590,
+      "goals": 0,
+      "assists": 3
+    },
+    "lastSeason": {
+      "matches": 26,
+      "minutes": 1999,
+      "goals": 3,
+      "assists": 2,
+      "league": "Prva NL"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 1,
+      "lastWeek": 2
+    }
+  },
+  {
+    "id": "petar-juric",
+    "firstName": "Petar",
+    "lastName": "Jurić",
+    "age": 23,
+    "nationality": "HR",
+    "preferredFoot": "right",
+    "heightCm": 180,
+    "club": "NK Tri Lipe",
+    "league": "Treća NL Centar",
+    "position": "CM",
+    "contractStatus": "expiringThisSeason",
+    "thisSeason": {
+      "matches": 22,
+      "minutes": 1810,
+      "goals": 3,
+      "assists": 4
+    },
+    "lastSeason": {
+      "matches": 20,
+      "minutes": 1607,
+      "goals": 2,
+      "assists": 8,
+      "league": "Treća NL Centar"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 5,
+      "lastWeek": 6
+    }
+  },
+  {
+    "id": "ante-peric",
+    "firstName": "Ante",
+    "lastName": "Perić",
+    "age": 26,
+    "nationality": "HR",
+    "preferredFoot": "both",
+    "heightCm": 182,
+    "club": "NK Sinjski Vrh",
+    "league": "1. ŽNL Splitsko-dalmatinska",
+    "position": "CM",
+    "contractStatus": "underContract",
+    "thisSeason": {
+      "matches": 25,
+      "minutes": 2140,
+      "goals": 2,
+      "assists": 6
+    },
+    "lastSeason": {
+      "matches": 19,
+      "minutes": 1525,
+      "goals": 3,
+      "assists": 4,
+      "league": "1. ŽNL Splitsko-dalmatinska"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 2,
+      "lastWeek": 1
+    }
+  },
+  {
+    "id": "filip-saric",
+    "firstName": "Filip",
+    "lastName": "Šarić",
+    "age": 21,
+    "nationality": "HR",
+    "preferredFoot": "right",
+    "heightCm": 175,
+    "club": "NK Trnov Gaj",
+    "league": "Treća NL Istok",
+    "position": "CM",
+    "contractStatus": "freeAgent",
+    "thisSeason": {
+      "matches": 18,
+      "minutes": 1290,
+      "goals": 1,
+      "assists": 3
+    },
+    "lastSeason": {
+      "matches": 25,
+      "minutes": 1900,
+      "goals": 6,
+      "assists": 8,
+      "league": "Treća NL Istok"
+    },
+    "isPromoted": false,
+    "seenByClubs": {
+      "thisWeek": 8,
+      "lastWeek": 5
+    }
+  }
+]
