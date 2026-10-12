@@ -41,7 +41,7 @@ export function ShortlistPage() {
   }
 
   return (
-    <div className="lg:grid lg:grid-cols-[22.5rem_minmax(0,1fr)] lg:items-start lg:gap-10">
+    <div className="lg:grid lg:grid-cols-[24.5rem_minmax(0,1fr)] lg:items-start lg:gap-10">
       <div className={cn(isProfileChosen && 'max-lg:hidden')}>
         <ShortlistColumn
           saved={shortlist.ids === undefined ? undefined : saved}

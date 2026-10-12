@@ -34,7 +34,7 @@ export function Dossier({ actions, listing, scoreNote }: DossierProps) {
       aria-labelledby={nameId}
       className="flex animate-dossier-swap flex-col divide-y divide-line motion-reduce:animate-none"
     >
-      <div className="flex flex-col gap-5 pb-6 lg:flex-row lg:items-start lg:gap-6">
+      <div className="flex flex-col gap-5 pb-6 xl:flex-row xl:items-start xl:gap-6">
         <div className="flex min-w-0 flex-1 items-start gap-4 lg:gap-6">
           <InitialsMark size="dossier" firstName={listing.firstName} lastName={listing.lastName} />
           <div className="flex min-w-0 flex-1 flex-col gap-2">

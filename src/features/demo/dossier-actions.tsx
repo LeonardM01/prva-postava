@@ -27,7 +27,7 @@ export function DossierActions({ listing, onRemoved }: DossierActionsProps) {
   const isSaved = shortlist.ids?.includes(listing.id) ?? false
 
   return (
-    <div className="flex shrink-0 flex-col gap-3 lg:w-auto lg:items-end">
+    <div className="flex shrink-0 flex-col gap-3 xl:items-end">
       <div className="flex flex-col-reverse gap-2.5 lg:flex-row">
         <button
           type="button"

@@ -28,7 +28,7 @@ export function FactsRow({ listing }: FactsRowProps) {
       {facts.map(({ label, value }) => (
         <div
           key={label}
-          className="flex min-w-0 flex-col-reverse gap-1 leading-[1.3] lg:not-first:border-l lg:not-first:border-line lg:not-first:pl-6 lg:not-last:pr-6"
+          className="flex min-w-0 flex-col gap-1 leading-[1.3] lg:not-first:border-l lg:not-first:border-line lg:not-first:pl-6 lg:not-last:pr-6"
         >
           <dt className="text-[13px] text-muted">{label}</dt>
           <dd className="text-[15px] font-medium text-ink lg:text-[17px]">{value}</dd>

@@ -21,7 +21,7 @@ export function PlayerSeatPage() {
   const copy = strings.seat
 
   return (
-    <div className="grid gap-8 lg:grid-cols-[22.5rem_minmax(0,1fr)] lg:grid-rows-[auto_1fr] lg:gap-x-10 lg:gap-y-0">
+    <div className="grid gap-8 lg:grid-cols-[24.5rem_minmax(0,1fr)] lg:grid-rows-[auto_1fr] lg:gap-x-10 lg:gap-y-0">
       <YourListing listing={listing} />
       <section
         aria-labelledby={captionId}

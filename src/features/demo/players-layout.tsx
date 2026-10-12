@@ -24,7 +24,7 @@ export function PlayersLayout() {
   }
   const isProfileOpen = openedId !== undefined
   return (
-    <div className="lg:grid lg:grid-cols-[22.5rem_minmax(0,1fr)] lg:items-start lg:gap-10">
+    <div className="lg:grid lg:grid-cols-[24.5rem_minmax(0,1fr)] lg:items-start lg:gap-10">
       <div className={cn(isProfileOpen && 'max-lg:hidden')}>
         <PlayersListColumn position={position} />
       </div>

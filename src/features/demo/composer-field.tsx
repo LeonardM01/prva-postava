@@ -13,6 +13,8 @@ interface ComposerFieldProps {
   readonly isPlaceholder?: boolean
   readonly label: string
   readonly note?: string
+  // Wide screens size the panel to its control.
+  readonly panelWidth: 'regular' | 'wide'
   readonly value: string
 }
 
@@ -26,6 +28,7 @@ export function ComposerField({
   isPlaceholder = false,
   label,
   note,
+  panelWidth,
   value,
 }: ComposerFieldProps) {
   const popover = usePopover()
@@ -56,7 +59,7 @@ export function ComposerField({
         title={label}
         note={note}
         closeLabel={closeLabel}
-        className="lg:w-100"
+        className={panelWidth === 'wide' ? 'lg:w-120' : 'lg:w-90'}
         onClose={popover.close}
       >
         <div className="pt-4">{children(popover.close)}</div>

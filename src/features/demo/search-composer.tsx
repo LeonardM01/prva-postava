@@ -77,6 +77,7 @@ export function SearchComposer() {
                   isPlaceholder={field.state.value === undefined}
                   note={strings.chooser.note}
                   closeLabel={strings.chooser.close}
+                  panelWidth="wide"
                 >
                   {(close) => (
                     <PositionChooser
@@ -93,6 +94,7 @@ export function SearchComposer() {
                   label={copy.ageLabel}
                   value={summary.age}
                   closeLabel={strings.filters.close}
+                  panelWidth="regular"
                 >
                   {() => (
                     <AgeRangeControl
@@ -108,6 +110,7 @@ export function SearchComposer() {
                   label={copy.leagueLabel}
                   value={summary.league}
                   closeLabel={strings.filters.close}
+                  panelWidth="regular"
                 >
                   {() => (
                     <LeagueChecklist
@@ -122,6 +125,7 @@ export function SearchComposer() {
                   label={copy.scoreLabel}
                   value={summary.score}
                   closeLabel={strings.filters.close}
+                  panelWidth="regular"
                 >
                   {() => (
                     <ScoreControl
@@ -136,6 +140,7 @@ export function SearchComposer() {
                   label={copy.contractLabel}
                   value={summary.contract}
                   closeLabel={strings.filters.close}
+                  panelWidth="regular"
                 >
                   {() => (
                     <ContractChips

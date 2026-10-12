@@ -30,7 +30,7 @@ export function RowSaveButton({ listing, onRemoved }: RowSaveButtonProps) {
         name,
       })}
       className={cn(
-        'relative z-10 -mr-2 flex size-11 shrink-0 items-center justify-center rounded-md transition-colors duration-150 lg:size-9',
+        'relative z-10 -mr-1.5 flex h-11 w-8 shrink-0 items-center justify-center rounded-md transition-colors duration-150 lg:h-9',
         isSaved ? 'text-signal' : 'text-muted hover:text-ink',
       )}
       onClick={() => {
