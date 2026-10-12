@@ -52,33 +52,30 @@ function parseAgeRange(search: Readonly<Record<string, unknown>>) {
   const ageMin = ageSchema.parse(search.ageMin)
   const ageMax = ageSchema.parse(search.ageMax)
   if (ageMin !== undefined && ageMax !== undefined && ageMin > ageMax) {
-    return {}
+    return { ageMin: undefined, ageMax: undefined }
   }
   return {
-    ...(!(ageMin === undefined || ageMin === AGE_RANGE.min) && { ageMin }),
-    ...(!(ageMax === undefined || ageMax === AGE_RANGE.max) && { ageMax }),
+    ageMin: ageMin === AGE_RANGE.min ? undefined : ageMin,
+    ageMax: ageMax === AGE_RANGE.max ? undefined : ageMax,
   }
 }
 
 /**
  * Reads a search from the address. Any missing or invalid value falls back to its default
- * rather than failing, so a mistyped shared link still opens.
+ * rather than failing, so a mistyped shared link still opens. Every key is returned, undefined
+ * when it is the default: the router lays this over the raw params, so a key left out would
+ * keep its unvalidated value.
  */
 export function parsePlayersSearch(search: Readonly<Record<string, unknown>>): PlayersSearch {
-  const position = positionSchema.parse(search.position)
   const scoreMin = scoreSchema.parse(search.scoreMin)
-  const sort = sortSchema.parse(search.sort)
-  const page = pageSchema.parse(search.page)
-  const league = parseList(search.league, LEAGUES_PRESENT)
-  const contract = parseList(search.contract, CONTRACT_STATUSES)
   return {
-    ...(position !== undefined && { position }),
+    position: positionSchema.parse(search.position),
     ...parseAgeRange(search),
-    ...(league !== undefined && { league }),
-    ...(!(scoreMin === undefined || scoreMin === 0) && { scoreMin }),
-    ...(contract !== undefined && { contract }),
-    ...(sort !== undefined && { sort }),
-    ...(page !== undefined && { page }),
+    league: parseList(search.league, LEAGUES_PRESENT),
+    scoreMin: scoreMin === 0 ? undefined : scoreMin,
+    contract: parseList(search.contract, CONTRACT_STATUSES),
+    sort: sortSchema.parse(search.sort),
+    page: pageSchema.parse(search.page),
   }
 }
 

@@ -14,8 +14,8 @@ export interface DemoSearch {
 }
 
 function validateDemoSearch(search: Readonly<Record<string, unknown>>): DemoSearch {
-  const lang = languageParameterSchema.parse(search.lang)
-  return lang === undefined ? {} : { lang }
+  // Every key, even when undefined: the router lays this over the raw params.
+  return { lang: languageParameterSchema.parse(search.lang) }
 }
 
 interface DemoLocation {

@@ -12,8 +12,8 @@ export interface ShortlistSearch {
 }
 
 function validateShortlistSearch(search: Readonly<Record<string, unknown>>): ShortlistSearch {
-  const listing = openedSchema.parse(search.listing)
-  return listing === undefined ? {} : { listing }
+  // Every key, even when undefined: the router lays this over the raw params.
+  return { listing: openedSchema.parse(search.listing) }
 }
 
 export const SHORTLIST_ROUTE_OPTIONS = {

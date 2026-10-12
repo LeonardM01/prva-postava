@@ -120,6 +120,23 @@
   --animate-tag-land: tag-land 320ms var(--ease-settle) 600ms backwards;
   --animate-copy-rise: copy-rise 320ms var(--ease-settle) 120ms backwards;
 
+  /* Demo. A new search settles the rows in place and an opened profile cross-fades in; nothing
+     travels. Callers drop both under reduced motion, keeping colour and state changes only. */
+  --animate-rows-settle: rows-settle 160ms var(--ease-settle);
+  --animate-dossier-swap: dossier-swap 200ms var(--ease-settle);
+
+  @keyframes rows-settle {
+    from {
+      opacity: 0.35;
+    }
+  }
+
+  @keyframes dossier-swap {
+    from {
+      opacity: 0;
+    }
+  }
+
   /* Chalk shapes carry `pathLength="1"`; the dash only exists while the line draws. */
   @keyframes chalk-draw {
     from {
