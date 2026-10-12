@@ -1,7 +1,8 @@
 import { useEffect, useId, useRef, useState } from 'react'
 
+import { MenuIcon } from '#/components/menu-icon'
+
 import { LanguageSwitch } from './language-switch'
-import { MenuIcon } from './menu-icon'
 import { SECTION_IDS } from './section-ids'
 import { SectionLink } from './section-link'
 import { useLandingLanguage } from './use-landing-language'

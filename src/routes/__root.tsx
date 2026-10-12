@@ -1,6 +1,12 @@
 import { TanStackDevtools } from '@tanstack/react-devtools'
 import { type QueryClient } from '@tanstack/react-query'
-import { createRootRouteWithContext, HeadContent, Scripts, useParams } from '@tanstack/react-router'
+import {
+  createRootRouteWithContext,
+  HeadContent,
+  Scripts,
+  useMatch,
+  useParams,
+} from '@tanstack/react-router'
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 import { type ReactNode } from 'react'
 
@@ -38,7 +44,14 @@ interface RootDocumentProps {
 
 function RootDocument({ children }: RootDocumentProps) {
   // Not every route has the language segment (not-found does not), so read it loosely and parse it.
-  const language = useParams({ strict: false, select: (params) => parseLanguage(params.lang) })
+  const pathLanguage = useParams({ strict: false, select: (params) => parseLanguage(params.lang) })
+  // The demo sits outside the segment and takes its language from a cookie instead.
+  const demoLanguage = useMatch({
+    from: '/app',
+    shouldThrow: false,
+    select: (match) => match.context.language,
+  })
+  const language = demoLanguage ?? pathLanguage
 
   return (
     <html lang={language}>
