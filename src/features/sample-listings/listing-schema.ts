@@ -52,8 +52,9 @@ export const generatedListingSchema = z.object({
   isPromoted: z.boolean(),
   // Shown only to the player, in the player seat.
   seenByClubs: z.object({ thisWeek: z.int().nonnegative(), lastWeek: z.int().nonnegative() }),
-  // A clip address once one exists; without one the profile shows the placeholder plate.
-  highlightsUrl: z.string().min(1).optional(),
+  // The clip and its WebVTT captions once they exist; without them the profile shows the
+  // placeholder plate.
+  highlights: z.object({ videoUrl: z.string().min(1), captionsUrl: z.string().min(1) }).optional(),
 })
 
 export type GeneratedListing = z.infer<typeof generatedListingSchema>
