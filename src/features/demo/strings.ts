@@ -249,15 +249,14 @@ const en = {
     seenBody:
       '{thisWeek} opened your profile this week, {lastWeek} the week before. Only clubs with an active membership can see it.',
     clubsCount: { one: 'One club', few: '{count} clubs', other: '{count} clubs' },
-    clubsCountLower: { one: 'one', few: '{count}', other: '{count}' },
     promoteTitle: 'The top of the {short} list is for sale, and it says so.',
     promoteBody:
-      'Pay to sit first in the {listName} list. The row is marked Promoted, so clubs trust the order and you still get seen. Your score does not change.',
+      'Pay to sit first in the {short} list. The row is marked Promoted, so clubs trust the order and you still get seen. Your score does not change.',
     promote: 'Promote me to the top of {short}',
     free: 'Listing is free. Your numbers are the ones you published; edit them in the live product.',
     freeShort: 'Listing is free. Only clubs with an active membership see it.',
     clubSees: 'What a club sees',
-    clubSeesNote: 'Your dossier, as it opens from the {listName} list',
+    clubSeesNote: 'Your dossier, as it opens from the {short} list',
     scoreNote:
       "Computed from your season's numbers, against every player on the list. Promotion moves your row to the top; it never moves this number.",
   },
@@ -500,7 +499,6 @@ const hr: DemoStrings = {
     seenBody:
       'Ovaj tjedan profil je otvorilo klubova: {thisWeek}, prošli tjedan: {lastWeek}. Vide ga samo klubovi s aktivnom članarinom.',
     clubsCount: { one: '{count}', few: '{count}', other: '{count}' },
-    clubsCountLower: { one: '{count}', few: '{count}', other: '{count}' },
     promoteTitle: 'Vrh liste {short} je na prodaju, i to piše.',
     promoteBody:
       'Plati da budeš prvi na listi {short}. Red je označen kao promoviran, pa klubovi vjeruju poretku, a tebe i dalje vide. Ocjena ti se ne mijenja.',
