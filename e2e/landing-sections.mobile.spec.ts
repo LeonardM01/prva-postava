@@ -43,7 +43,7 @@ test('the club search reduces to three filters and three columns', async ({ page
   await expect(promotedRow.getByText('9 g · 6 a')).toBeVisible()
   // Text the layout hides for phones stays in the markup, so these read what is drawn.
   await expect(promotedRow.getByRole('rowheader')).toHaveText(
-    /^Ivan Horvat\s+Promoted\s+NK Kustošija · 22$/i,
+    /^Ivan Horvat\s+Promoted\s+NK Borova Glava · 22$/i,
     { useInnerText: true },
   )
   const saveControls = demo.getByText('Save', { exact: true })
@@ -60,7 +60,7 @@ test('the fact sheet drops the league and shortens minutes', async ({ page }) =>
   await page.goto('/en')
 
   const demo = page.getByRole('figure', { name: 'Sample player profile, not a real listing' })
-  await expect(demo.getByText(/^Left wing · 22/)).toHaveText('Left wing · 22 · NK Kustošija', {
+  await expect(demo.getByText(/^Left wing · 22/)).toHaveText('Left wing · 22 · NK Borova Glava', {
     useInnerText: true,
   })
   await expect(demo.getByRole('term')).toHaveText(

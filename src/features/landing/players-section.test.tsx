@@ -44,7 +44,7 @@ describe('players section', () => {
 
     const demo = screen.getByRole('figure', { name: 'Sample player profile, not a real listing' })
     expect(within(demo).getByText('Ivan Horvat')).toBeVisible()
-    expect(within(demo).getByText(/^Left wing · 22 · NK Kustošija/)).toBeVisible()
+    expect(within(demo).getByText(/^Left wing · 22 · NK Borova Glava/)).toBeVisible()
     expect(within(demo).getByText('Promoted in the LW list until 30 Sep')).toBeVisible()
     expect(getStat(demo, 'Matches')).toBe('24')
     expect(getStat(demo, 'Goals')).toBe('9')
@@ -79,7 +79,7 @@ describe('players section', () => {
     const demo = within(section).getByRole('figure', {
       name: 'Primjer profila igrača, nije pravi oglas',
     })
-    expect(within(demo).getByText(/^Lijevo krilo · 22 · NK Kustošija/)).toBeVisible()
+    expect(within(demo).getByText(/^Lijevo krilo · 22 · NK Borova Glava/)).toBeVisible()
     expect(within(demo).getByText('Promoviran na listi LK do 30. rujna')).toBeVisible()
     expect(getStat(demo, 'Utakmice')).toBe('24')
     expect(getStat(demo, 'Klubovi su pogledali ovaj tjedan')).toBe('7')

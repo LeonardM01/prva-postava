@@ -1,5 +1,6 @@
+import { PositionBadge } from '#/components/position-badge'
+
 import { playerChipVariants } from './player-chip-variants'
-import { PositionBadge } from './position-badge'
 import { type SamplePlayer } from './sample-players'
 import { useLandingLanguage } from './use-landing-language'
 
@@ -13,7 +14,7 @@ export function CompactPlayerChip({ player }: CompactPlayerChipProps) {
   return (
     <div className={playerChipVariants({ layout: 'compact', isPromoted: player.isPromoted })}>
       <PositionBadge
-        layout="compact"
+        size="boardCompact"
         isPromoted={player.isPromoted}
         label={strings.positions[player.position].short}
       />

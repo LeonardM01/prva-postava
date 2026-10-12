@@ -1,9 +1,11 @@
 import { useId } from 'react'
 
+import { InitialsMark } from '#/components/initials-mark'
+import { StarIcon } from '#/components/star-icon'
+
 import { ProfileStats } from './profile-stats'
 import { SAMPLE_PROFILE } from './sample-listings'
 import { SECTION_IDS } from './section-ids'
-import { StarIcon } from './star-icon'
 import { useLandingLanguage } from './use-landing-language'
 
 /**
@@ -24,13 +26,7 @@ export function PlayerFactSheet() {
       className="flex w-full flex-col gap-4 md:max-w-160 board:gap-5 xl:max-w-none xl:min-w-0 xl:flex-1"
     >
       <div className="flex items-center gap-3 leading-[normal] board:gap-4">
-        <span
-          aria-hidden="true"
-          className="flex size-13 shrink-0 items-center justify-center rounded-full bg-tint font-display text-lg font-bold text-signal board:size-16 board:text-[22px]"
-        >
-          {player.firstName.charAt(0)}
-          {player.lastName.charAt(0)}
-        </span>
+        <InitialsMark size="factSheet" firstName={player.firstName} lastName={player.lastName} />
         <div className="flex min-w-0 flex-col gap-0.5 board:gap-0.75">
           <p className="font-display text-[22px] font-extrabold tracking-[-0.02em] text-ink board:text-[28px]">
             {player.firstName} {player.lastName}

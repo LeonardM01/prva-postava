@@ -44,7 +44,7 @@ When a rule here and the linter disagree, the linter wins and this document must
 
 - **Routing:** file-based routes in `src/routes`. Route files export `Route` only, plus the components they render. Keep route files thin; put real UI in `src/features/<feature>/`.
 - **Data loading:** use route `loader`s (with `context.queryClient.ensureQueryData`) for data a page needs on first render. Do not fetch in `useEffect`.
-- **Mutations and server-only code:** use `createServerFn`. Validate input with Zod via `.inputValidator`. Never import server-only modules (db, secrets) from client code. Nothing enforces this yet; when `src/features/` exists, add an `import-x/no-restricted-paths` rule.
+- **Mutations and server-only code:** use `createServerFn`. Validate input with Zod via `.validator` (`.inputValidator` is its deprecated name). Never import server-only modules (db, secrets) from client code. Nothing enforces this yet; when `src/features/` exists, add an `import-x/no-restricted-paths` rule.
 - **Search params:** always declare `validateSearch` with a Zod schema. Read them with `Route.useSearch()`.
 - **Redirects and not-found:** `throw redirect(...)` and `throw notFound()` are the only allowed non-Error throws.
 - **TanStack Query:** query keys come from a key factory per feature (`userKeys.detail(id)`), never inline arrays. Query options live in `queryOptions()` helpers so loaders and components share them.

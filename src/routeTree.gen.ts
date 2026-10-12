@@ -9,10 +9,21 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as AppRouteRouteImport } from './routes/app/route'
 import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as AppSearchRouteImport } from './routes/app/_search'
+import { Route as AppMeRouteImport } from './routes/app/me'
+import { Route as AppShortlistRouteImport } from './routes/app/shortlist'
 import { Route as Char123LangChar125IndexRouteImport } from './routes/{-$lang}/index'
+import { Route as AppSearchIndexRouteImport } from './routes/app/_search/index'
+import { Route as AppSearchPlayersListingIdRouteImport } from './routes/app/_search/players.$listingId'
 
+const AppRouteRoute = AppRouteRouteImport.update({
+  id: '/app',
+  path: '/app',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RobotsDottxtRoute = RobotsDottxtRouteImport.update({
   id: '/robots.txt',
   path: '/robots.txt',
@@ -23,37 +34,103 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AppSearchRoute = AppSearchRouteImport.update({
+  id: '/_search',
+  getParentRoute: () => AppRouteRoute,
+} as any)
+const AppMeRoute = AppMeRouteImport.update({
+  id: '/me',
+  path: '/me',
+  getParentRoute: () => AppRouteRoute,
+} as any)
+const AppShortlistRoute = AppShortlistRouteImport.update({
+  id: '/shortlist',
+  path: '/shortlist',
+  getParentRoute: () => AppRouteRoute,
+} as any)
 const Char123LangChar125IndexRoute = Char123LangChar125IndexRouteImport.update({
   id: '/{-$lang}/',
   path: '/{-$lang}/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AppSearchIndexRoute = AppSearchIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AppSearchRoute,
+} as any)
+const AppSearchPlayersListingIdRoute =
+  AppSearchPlayersListingIdRouteImport.update({
+    id: '/players/$listingId',
+    path: '/players/$listingId',
+    getParentRoute: () => AppSearchRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
+  '/app': typeof AppRouteRouteWithChildren
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/app/me': typeof AppMeRoute
+  '/app/shortlist': typeof AppShortlistRoute
   '/{-$lang}/': typeof Char123LangChar125IndexRoute
+  '/app/': typeof AppSearchIndexRoute
+  '/app/players/$listingId': typeof AppSearchPlayersListingIdRoute
 }
 export interface FileRoutesByTo {
+  '/app': typeof AppSearchIndexRoute
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/app/me': typeof AppMeRoute
+  '/app/shortlist': typeof AppShortlistRoute
   '/{-$lang}': typeof Char123LangChar125IndexRoute
+  '/app/players/$listingId': typeof AppSearchPlayersListingIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
+  '/app': typeof AppRouteRouteWithChildren
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/app/_search': typeof AppSearchRouteWithChildren
+  '/app/me': typeof AppMeRoute
+  '/app/shortlist': typeof AppShortlistRoute
   '/{-$lang}/': typeof Char123LangChar125IndexRoute
+  '/app/_search/': typeof AppSearchIndexRoute
+  '/app/_search/players/$listingId': typeof AppSearchPlayersListingIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/robots.txt' | '/sitemap.xml' | '/{-$lang}/'
+  fullPaths:
+    | '/app'
+    | '/robots.txt'
+    | '/sitemap.xml'
+    | '/app/me'
+    | '/app/shortlist'
+    | '/{-$lang}/'
+    | '/app/'
+    | '/app/players/$listingId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/robots.txt' | '/sitemap.xml' | '/{-$lang}'
-  id: '__root__' | '/robots.txt' | '/sitemap.xml' | '/{-$lang}/'
+  to:
+    | '/app'
+    | '/robots.txt'
+    | '/sitemap.xml'
+    | '/app/me'
+    | '/app/shortlist'
+    | '/{-$lang}'
+    | '/app/players/$listingId'
+  id:
+    | '__root__'
+    | '/app'
+    | '/robots.txt'
+    | '/sitemap.xml'
+    | '/app/_search'
+    | '/app/me'
+    | '/app/shortlist'
+    | '/{-$lang}/'
+    | '/app/_search/'
+    | '/app/_search/players/$listingId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
+  AppRouteRoute: typeof AppRouteRouteWithChildren
   RobotsDottxtRoute: typeof RobotsDottxtRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   Char123LangChar125IndexRoute: typeof Char123LangChar125IndexRoute
@@ -61,6 +138,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/app': {
+      id: '/app'
+      path: '/app'
+      fullPath: '/app'
+      preLoaderRoute: typeof AppRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/robots.txt': {
       id: '/robots.txt'
       path: '/robots.txt'
@@ -75,6 +159,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/app/_search': {
+      id: '/app/_search'
+      path: ''
+      fullPath: '/app'
+      preLoaderRoute: typeof AppSearchRouteImport
+      parentRoute: typeof AppRouteRoute
+    }
+    '/app/me': {
+      id: '/app/me'
+      path: '/me'
+      fullPath: '/app/me'
+      preLoaderRoute: typeof AppMeRouteImport
+      parentRoute: typeof AppRouteRoute
+    }
+    '/app/shortlist': {
+      id: '/app/shortlist'
+      path: '/shortlist'
+      fullPath: '/app/shortlist'
+      preLoaderRoute: typeof AppShortlistRouteImport
+      parentRoute: typeof AppRouteRoute
+    }
     '/{-$lang}/': {
       id: '/{-$lang}/'
       path: '/{-$lang}'
@@ -82,10 +187,55 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Char123LangChar125IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/app/_search/': {
+      id: '/app/_search/'
+      path: '/'
+      fullPath: '/app/'
+      preLoaderRoute: typeof AppSearchIndexRouteImport
+      parentRoute: typeof AppSearchRoute
+    }
+    '/app/_search/players/$listingId': {
+      id: '/app/_search/players/$listingId'
+      path: '/players/$listingId'
+      fullPath: '/app/players/$listingId'
+      preLoaderRoute: typeof AppSearchPlayersListingIdRouteImport
+      parentRoute: typeof AppSearchRoute
+    }
   }
 }
 
+interface AppSearchRouteChildren {
+  AppSearchIndexRoute: typeof AppSearchIndexRoute
+  AppSearchPlayersListingIdRoute: typeof AppSearchPlayersListingIdRoute
+}
+
+const AppSearchRouteChildren: AppSearchRouteChildren = {
+  AppSearchIndexRoute: AppSearchIndexRoute,
+  AppSearchPlayersListingIdRoute: AppSearchPlayersListingIdRoute,
+}
+
+const AppSearchRouteWithChildren = AppSearchRoute._addFileChildren(
+  AppSearchRouteChildren,
+)
+
+interface AppRouteRouteChildren {
+  AppSearchRoute: typeof AppSearchRouteWithChildren
+  AppMeRoute: typeof AppMeRoute
+  AppShortlistRoute: typeof AppShortlistRoute
+}
+
+const AppRouteRouteChildren: AppRouteRouteChildren = {
+  AppSearchRoute: AppSearchRouteWithChildren,
+  AppMeRoute: AppMeRoute,
+  AppShortlistRoute: AppShortlistRoute,
+}
+
+const AppRouteRouteWithChildren = AppRouteRoute._addFileChildren(
+  AppRouteRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
+  AppRouteRoute: AppRouteRouteWithChildren,
   RobotsDottxtRoute: RobotsDottxtRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   Char123LangChar125IndexRoute: Char123LangChar125IndexRoute,

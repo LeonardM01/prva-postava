@@ -1,8 +1,8 @@
 import { Link } from '@tanstack/react-router'
 
+import { LineupMark } from '#/components/lineup-mark'
 import { languagePathSegment } from '#/lib/language'
 
-import { LineupMark } from './lineup-mark'
 import { useLandingLanguage } from './use-landing-language'
 
 export function BrandLink() {

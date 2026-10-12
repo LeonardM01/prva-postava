@@ -20,9 +20,9 @@ describe('tactics board', () => {
     expect(players).toHaveLength(11)
     expect(players.map((player) => player.textContent)).toEqual(
       expect.arrayContaining([
-        'Karlo Bašić, Goalkeeper, NK Lučko, age 28, 9 clean sheets',
-        'Ivan Horvat, Left wing, NK Kustošija, age 22, 9 goals, promoted',
-        'Luka Babić, Striker, NK Sesvete, age 24, 11 goals',
+        'Karlo Bašić, Goalkeeper, NK Tri Lipe, age 28, 9 clean sheets',
+        'Ivan Horvat, Left wing, NK Borova Glava, age 22, 9 goals, promoted',
+        'Luka Babić, Striker, NK Modra Luka, age 24, 11 goals',
       ]),
     )
   })

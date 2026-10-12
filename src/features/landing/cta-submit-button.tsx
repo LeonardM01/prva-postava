@@ -1,8 +1,8 @@
 import { ViewTransition } from 'react'
 
+import { ArrowRightIcon } from '#/components/arrow-right-icon'
 import { cn } from '#/lib/utils'
 
-import { ArrowRightIcon } from './arrow-right-icon'
 import { useRole } from './role-context'
 import { SpinnerIcon } from './spinner-icon'
 import { useLandingLanguage } from './use-landing-language'

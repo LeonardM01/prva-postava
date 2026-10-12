@@ -5,6 +5,8 @@ import { absoluteUrl } from '#/lib/indexable-pages'
 const ROBOTS = [
   'User-agent: *',
   'Allow: /',
+  // The demo is invented players at invented clubs; it must never rank.
+  'Disallow: /app',
   '',
   `Sitemap: ${absoluteUrl('/sitemap.xml')}`,
   '',

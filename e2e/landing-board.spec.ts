@@ -10,7 +10,7 @@ test('the tactics board is a captioned figure listing the eleven sample players'
   await expect(board.getByText('Sample players, not real listings')).toBeVisible()
   await expect(board.getByRole('listitem')).toHaveCount(11)
   await expect(board.getByRole('listitem').filter({ hasText: /^Ivan Horvat, / })).toHaveText(
-    'Ivan Horvat, Left wing, NK Kustošija, age 22, 9 goals, promoted',
+    'Ivan Horvat, Left wing, NK Borova Glava, age 22, 9 goals, promoted',
   )
 })
 

@@ -1,4 +1,5 @@
-import { ArrowRightIcon } from './arrow-right-icon'
+import { ArrowRightIcon } from '#/components/arrow-right-icon'
+
 import { type SectionId } from './section-ids'
 import { SectionLink } from './section-link'
 

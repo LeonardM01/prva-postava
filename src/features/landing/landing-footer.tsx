@@ -1,6 +1,6 @@
+import { LineupMark } from '#/components/lineup-mark'
 import { GENERAL_MAILTO } from '#/lib/site-contacts'
 
-import { LineupMark } from './lineup-mark'
 import { SECTION_IDS } from './section-ids'
 import { SectionLink } from './section-link'
 import { useLandingLanguage } from './use-landing-language'
