@@ -1,0 +1,169 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-12T00:00:00Z",
+  "title": "Design System: Prva postava",
+  "extensions": {
+    "colorMeta": {
+      "signal": { "role": "primary", "displayName": "Signal Green", "canonical": "oklch(42.7% 0.080 159)", "tonalRamp": ["oklch(15% 0.080 159)", "oklch(25% 0.080 159)", "oklch(35% 0.080 159)", "oklch(45% 0.080 159)", "oklch(58% 0.080 159)", "oklch(72% 0.080 159)", "oklch(85% 0.080 159)", "oklch(95% 0.080 159)"] },
+      "signal-deep": { "role": "primary", "displayName": "Deep Signal", "canonical": "oklch(36.8% 0.069 160)", "tonalRamp": ["oklch(15% 0.069 160)", "oklch(25% 0.069 160)", "oklch(35% 0.069 160)", "oklch(45% 0.069 160)", "oklch(58% 0.069 160)", "oklch(72% 0.069 160)", "oklch(85% 0.069 160)", "oklch(95% 0.069 160)"] },
+      "amber": { "role": "secondary", "displayName": "Promoted Amber", "canonical": "oklch(75.3% 0.143 78)", "tonalRamp": ["oklch(15% 0.143 78)", "oklch(25% 0.143 78)", "oklch(35% 0.143 78)", "oklch(45% 0.143 78)", "oklch(58% 0.143 78)", "oklch(72% 0.143 78)", "oklch(85% 0.143 78)", "oklch(95% 0.143 78)"] },
+      "amber-wash": { "role": "secondary", "displayName": "Amber Wash", "canonical": "oklch(96.1% 0.047 88)", "tonalRamp": ["oklch(15% 0.047 88)", "oklch(25% 0.047 88)", "oklch(35% 0.047 88)", "oklch(45% 0.047 88)", "oklch(58% 0.047 88)", "oklch(72% 0.047 88)", "oklch(85% 0.047 88)", "oklch(95% 0.047 88)"] },
+      "mist": { "role": "neutral", "displayName": "Mist", "canonical": "oklch(97.3% 0.007 97)", "tonalRamp": ["oklch(15% 0.007 97)", "oklch(25% 0.007 97)", "oklch(35% 0.007 97)", "oklch(45% 0.007 97)", "oklch(58% 0.007 97)", "oklch(72% 0.007 97)", "oklch(85% 0.007 97)", "oklch(95% 0.007 97)"] },
+      "card": { "role": "neutral", "displayName": "Card White", "canonical": "oklch(100% 0 0)", "tonalRamp": ["oklch(15% 0 0)", "oklch(25% 0 0)", "oklch(35% 0 0)", "oklch(45% 0 0)", "oklch(58% 0 0)", "oklch(72% 0 0)", "oklch(85% 0 0)", "oklch(95% 0 0)"] },
+      "line": { "role": "neutral", "displayName": "Hairline", "canonical": "oklch(90.9% 0.012 96)", "tonalRamp": ["oklch(15% 0.012 96)", "oklch(25% 0.012 96)", "oklch(35% 0.012 96)", "oklch(45% 0.012 96)", "oklch(58% 0.012 96)", "oklch(72% 0.012 96)", "oklch(85% 0.012 96)", "oklch(95% 0.012 96)"] },
+      "ink": { "role": "neutral", "displayName": "Ink", "canonical": "oklch(21.0% 0.012 156)", "tonalRamp": ["oklch(15% 0.012 156)", "oklch(25% 0.012 156)", "oklch(35% 0.012 156)", "oklch(45% 0.012 156)", "oklch(58% 0.012 156)", "oklch(72% 0.012 156)", "oklch(85% 0.012 156)", "oklch(95% 0.012 156)"] },
+      "muted": { "role": "neutral", "displayName": "Muted", "canonical": "oklch(49.9% 0.013 150)", "tonalRamp": ["oklch(15% 0.013 150)", "oklch(25% 0.013 150)", "oklch(35% 0.013 150)", "oklch(45% 0.013 150)", "oklch(58% 0.013 150)", "oklch(72% 0.013 150)", "oklch(85% 0.013 150)", "oklch(95% 0.013 150)"] },
+      "tint": { "role": "neutral", "displayName": "Tint", "canonical": "oklch(94.4% 0.012 157)", "tonalRamp": ["oklch(15% 0.012 157)", "oklch(25% 0.012 157)", "oklch(35% 0.012 157)", "oklch(45% 0.012 157)", "oklch(58% 0.012 157)", "oklch(72% 0.012 157)", "oklch(85% 0.012 157)", "oklch(95% 0.012 157)"] },
+      "red": { "role": "neutral", "displayName": "Error Red", "canonical": "oklch(54.3% 0.158 34)", "tonalRamp": ["oklch(15% 0.158 34)", "oklch(25% 0.158 34)", "oklch(35% 0.158 34)", "oklch(45% 0.158 34)", "oklch(58% 0.158 34)", "oklch(72% 0.158 34)", "oklch(85% 0.158 34)", "oklch(95% 0.158 34)"] },
+      "board-glow": { "role": "neutral", "displayName": "Board Glow", "canonical": "oklch(49.9% 0.094 159)", "tonalRamp": ["oklch(15% 0.094 159)", "oklch(25% 0.094 159)", "oklch(35% 0.094 159)", "oklch(45% 0.094 159)", "oklch(58% 0.094 159)", "oklch(72% 0.094 159)", "oklch(85% 0.094 159)", "oklch(95% 0.094 159)"] },
+      "band-error": { "role": "neutral", "displayName": "Band Error", "canonical": "oklch(79.4% 0.093 28)", "tonalRamp": ["oklch(15% 0.093 28)", "oklch(25% 0.093 28)", "oklch(35% 0.093 28)", "oklch(45% 0.093 28)", "oklch(58% 0.093 28)", "oklch(72% 0.093 28)", "oklch(85% 0.093 28)", "oklch(95% 0.093 28)"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Landing hero headline only." },
+      "headline": { "displayName": "Headline", "purpose": "Dossier name; CTA band headline." },
+      "score": { "displayName": "Score", "purpose": "The dossier score beside its rank sentence and range rule." },
+      "title": { "displayName": "Title", "purpose": "Demo page titles: Players, the position title, Shortlist, the player seat." },
+      "stat": { "displayName": "Stat", "purpose": "This season's numbers; last season steps back to 20 px muted." },
+      "row-score": { "displayName": "Row score", "purpose": "The sorted value in a ranked row; brand wordmark." },
+      "body-large": { "displayName": "Body large", "purpose": "Dossier identity line and fact values." },
+      "body": { "displayName": "Body", "purpose": "Row names, panel titles, section heads." },
+      "meta": { "displayName": "Meta", "purpose": "Club and league lines, labels, captions, the sample strip." },
+      "label": { "displayName": "Label", "purpose": "Promoted tag in rows (uppercase); landing table column heads." }
+    },
+    "shadows": [
+      { "name": "popover", "value": "0 12px 32px -8px rgb(20 26 22 / 0.16)", "purpose": "Popover panels and phone sheets in the top layer." },
+      { "name": "switch-thumb", "value": "0 1px 2px rgb(20 26 22 / 0.12)", "purpose": "Current option in the seat and language switches." },
+      { "name": "chip", "value": "0 6px 16px -4px rgb(8 31 18 / 0.3)", "purpose": "Player chips on the landing tactics board." },
+      { "name": "chip-lifted", "value": "0 10px 20px -4px rgb(8 31 18 / 0.38)", "purpose": "Board chip on hover." },
+      { "name": "pressed", "value": "inset 0 2px 4px rgb(0 0 0 / 0.18)", "purpose": "Buttons while pressed, keeping the hover fill." }
+    ],
+    "motion": [
+      { "name": "ease-settle", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "The one easing curve for every authored motion." },
+      { "name": "colour-transition", "value": "150ms", "purpose": "Button, chip, switch and list-row colour changes." },
+      { "name": "dossier-swap", "value": "200ms opacity 0 to 1, ease-settle", "purpose": "Opening another player cross-fades the dossier. Removed under reduced motion." },
+      { "name": "rows-settle", "value": "160ms opacity 0.35 to 1, ease-settle", "purpose": "A new search or filter settles the rows in place. Removed under reduced motion." },
+      { "name": "role-switch", "value": "280ms view transition (outgoing copy 120ms)", "purpose": "Landing role switch; under reduced motion shapes do not move and copy only cross-fades." },
+      { "name": "landing-cascade", "value": "about 0.9s: chalk-draw 420ms, chip-travel 480ms staggered 40ms, tag-land 320ms at 600ms, copy-rise 320ms at 120ms", "purpose": "Landing load moment only; fills backwards, plays once, runs under reduced motion by product decision. The demo has no load choreography." }
+    ],
+    "breakpoints": [
+      { "name": "md", "value": "48rem" },
+      { "name": "board", "value": "53rem" },
+      { "name": "lg", "value": "64rem" },
+      { "name": "xl", "value": "80rem" },
+      { "name": "page", "value": "90rem (max content frame)" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The committed action on a screen (Contact player, Search).",
+      "html": "<button class=\"ds-btn-primary\">Contact player</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 40px; padding: 0 18px; border: none; border-radius: 12px; background: var(--signal, #1f5c3f); color: var(--card, #fff); font: 600 14px/1.29 'IBM Plex Sans Variable', system-ui, sans-serif; transition: background-color 150ms; cursor: pointer; } .ds-btn-primary:hover { background: var(--signal-deep, #174a32); } .ds-btn-primary:active { background: var(--signal-deep, #174a32); box-shadow: inset 0 2px 4px rgb(0 0 0 / 0.18); } .ds-btn-primary:focus-visible { outline: 2px solid var(--signal, #1f5c3f); outline-offset: 2px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "The quieter action beside the primary (Save to shortlist).",
+      "html": "<button class=\"ds-btn-secondary\">Save to shortlist</button>",
+      "css": ".ds-btn-secondary { display: inline-flex; align-items: center; justify-content: center; min-height: 40px; padding: 0 18px; border: 1px solid var(--line, #e3e1d8); border-radius: 12px; background: var(--card, #fff); color: var(--ink, #141a16); font: 600 14px/1.29 'IBM Plex Sans Variable', system-ui, sans-serif; transition: border-color 150ms, background-color 150ms; cursor: pointer; } .ds-btn-secondary:hover { border-color: var(--signal, #1f5c3f); } .ds-btn-secondary:active { background: var(--tint, #e6efe9); box-shadow: inset 0 2px 4px rgb(0 0 0 / 0.18); } .ds-btn-secondary:focus-visible { outline: 2px solid var(--signal, #1f5c3f); outline-offset: 2px; }"
+    },
+    {
+      "name": "Filter Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Pill chips for filters, sort and positions; applied is tinted with a signal stroke.",
+      "html": "<div class=\"ds-chip-row\"><button class=\"ds-chip\">Sort · Score</button><button class=\"ds-chip ds-chip-applied\">Age 18 to 24</button></div>",
+      "css": ".ds-chip-row { display: flex; gap: 8px; } .ds-chip { display: inline-flex; align-items: center; gap: 6px; min-height: 32px; padding: 0 12px; border: 1px solid var(--line, #e3e1d8); border-radius: 9999px; background: var(--card, #fff); color: var(--ink, #141a16); font: 500 13px/1.29 'IBM Plex Sans Variable', system-ui, sans-serif; white-space: nowrap; transition: border-color 150ms, background-color 150ms; cursor: pointer; } .ds-chip:hover { border-color: var(--signal, #1f5c3f); } .ds-chip-applied { border-color: var(--signal, #1f5c3f); background: var(--tint, #e6efe9); color: var(--signal, #1f5c3f); } .ds-chip:focus-visible { outline: 2px solid var(--signal, #1f5c3f); outline-offset: 2px; }"
+    },
+    {
+      "name": "Ranked List Row",
+      "kind": "custom",
+      "refersTo": "list-row",
+      "description": "Ruled 64 px rows: badge, name and age, club and league, score with season numbers. Promoted on amber wash with its worded tag; opened row ringed in signal on tint.",
+      "html": "<ol class=\"ds-list\"><li class=\"ds-row ds-row-promoted\"><span class=\"ds-badge\">LW</span><div class=\"ds-row-main\"><p class=\"ds-row-name\">Ivan Horvat <span class=\"ds-age\">22</span> <span class=\"ds-tag\">Promoted</span></p><p class=\"ds-row-meta\">NK Borova Glava · Treća NL Centar</p></div><div class=\"ds-row-end\"><p class=\"ds-row-score\">75</p><p class=\"ds-row-season\">24 m · 9 g · 6 a</p></div></li><li class=\"ds-row ds-row-opened\"><span class=\"ds-badge\">LW</span><div class=\"ds-row-main\"><p class=\"ds-row-name\">David Vuković <span class=\"ds-age\">26</span></p><p class=\"ds-row-meta\">NŠK Ravnica · Druga NL</p></div><div class=\"ds-row-end\"><p class=\"ds-row-score\">99</p><p class=\"ds-row-season\">30 m · 21 g · 11 a</p></div></li><li class=\"ds-row\"><span class=\"ds-badge\">LW</span><div class=\"ds-row-main\"><p class=\"ds-row-name\">Leon Pavlović <span class=\"ds-age\">33</span></p><p class=\"ds-row-meta\">NK Dravska Obala · MŽNL Osijek</p></div><div class=\"ds-row-end\"><p class=\"ds-row-score\">97</p><p class=\"ds-row-season\">29 m · 24 g · 9 a</p></div></li></ol>",
+      "css": ".ds-list { list-style: none; margin: 0; padding: 0; max-width: 392px; border-top: 1px solid var(--line, #e3e1d8); font-family: 'IBM Plex Sans Variable', system-ui, sans-serif; font-variant-numeric: tabular-nums; color: var(--ink, #141a16); } .ds-row { display: flex; align-items: center; gap: 12px; min-height: 64px; padding: 8px 12px; border-bottom: 1px solid var(--line, #e3e1d8); transition: background-color 150ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-row:hover { background: var(--card, #fff); } .ds-row-promoted, .ds-row-promoted:hover { background: var(--amber-wash, #fff1cf); } .ds-row-opened, .ds-row-opened:hover { background: var(--tint, #e6efe9); box-shadow: inset 0 0 0 1px var(--signal, #1f5c3f); } .ds-badge { display: flex; align-items: center; justify-content: center; width: 28px; height: 24px; border-radius: 6px; background: var(--signal, #1f5c3f); color: var(--card, #fff); font-size: 11px; font-weight: 600; flex-shrink: 0; } .ds-row-main { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; } .ds-row-main p, .ds-row-end p { margin: 0; } .ds-row-name { font-size: 15px; font-weight: 600; line-height: 1.2; } .ds-age { font-size: 13px; font-weight: 400; color: var(--muted, #5e655f); } .ds-tag { display: inline-block; border-radius: 4px; background: var(--amber, #e0a22e); color: var(--ink, #141a16); padding: 2px 5px; font-size: 10px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; vertical-align: 1px; } .ds-row-meta { font-size: 13px; line-height: 1.25; color: var(--muted, #5e655f); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } .ds-row-end { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; white-space: nowrap; } .ds-row-score { font: 800 20px/1.1 'Manrope Variable', system-ui, sans-serif; letter-spacing: -0.02em; } .ds-row-season { font-size: 12px; line-height: 1.2; color: var(--muted, #5e655f); }"
+    },
+    {
+      "name": "Score Block with Range Rule",
+      "kind": "custom",
+      "refersTo": "score",
+      "description": "The dossier score beside its rank sentence, with the position's range drawn as a hairline and a signal dot.",
+      "html": "<div class=\"ds-score\"><p class=\"ds-score-num\">75<span>Score</span></p><div class=\"ds-score-side\"><p class=\"ds-rank\">10th of 14 left wings on the list</p><div class=\"ds-range\"><span>53</span><span class=\"ds-rule\"><span class=\"ds-dot\" style=\"left:47.8%\"></span></span><span>99</span></div><p class=\"ds-caption\">Left wings on the list, lowest to highest</p></div></div>",
+      "css": ".ds-score { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 40px; font-family: 'IBM Plex Sans Variable', system-ui, sans-serif; font-variant-numeric: tabular-nums; color: var(--ink, #141a16); } .ds-score p { margin: 0; } .ds-score-num { display: flex; flex-direction: column; font: 800 72px/1 'Manrope Variable', system-ui, sans-serif; letter-spacing: -0.03em; } .ds-score-num span { font: 400 13px/1.3 'IBM Plex Sans Variable', system-ui, sans-serif; letter-spacing: 0.06em; color: var(--muted, #5e655f); } .ds-score-side { display: flex; flex-direction: column; gap: 12px; padding-top: 8px; } .ds-rank { font-size: 19px; font-weight: 600; line-height: 1.3; } .ds-range { display: flex; align-items: center; gap: 12px; font-size: 13px; font-weight: 500; color: var(--muted, #5e655f); } .ds-rule { position: relative; flex: 1; max-width: 400px; height: 12px; } .ds-rule::before { content: ''; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: var(--line, #e3e1d8); } .ds-dot { position: absolute; top: 50%; width: 12px; height: 12px; border-radius: 9999px; background: var(--signal, #1f5c3f); transform: translate(-50%, -50%); } .ds-caption { font-size: 13px; line-height: 1.3; color: var(--muted, #5e655f); }"
+    },
+    {
+      "name": "Promoted Honesty Bar",
+      "kind": "custom",
+      "refersTo": "amber-wash",
+      "description": "Worded notice on a promoted dossier; amber reserved for paid placement.",
+      "html": "<p class=\"ds-honesty\"><svg viewBox=\"-0.22 0 9 9\" aria-hidden=\"true\"><path fill=\"currentColor\" d=\"M4.28 0 5.29 3.11h3.27L5.91 5.03l1.01 3.11-2.64-1.92-2.65 1.92 1.01-3.11L0 3.11h3.27L4.28 0Z\"/></svg>Promoted in the LW list. Paid placement, marked so the order stays honest.</p>",
+      "css": ".ds-honesty { display: flex; width: fit-content; align-items: center; gap: 8px; margin: 0; padding: 8px 12px; border-radius: 10px; background: var(--amber-wash, #fff1cf); color: var(--ink, #141a16); font: 500 13px/1.3 'IBM Plex Sans Variable', system-ui, sans-serif; } .ds-honesty svg { width: 12px; height: 12px; flex-shrink: 0; color: var(--amber, #e0a22e); }"
+    },
+    {
+      "name": "Seat Switch",
+      "kind": "nav",
+      "refersTo": "switch",
+      "description": "Two-option shell switch (seat, language): tint track, current option on a white pill. Order never changes.",
+      "html": "<div class=\"ds-switch-wrap\"><span class=\"ds-switch-label\">Viewing as</span><div class=\"ds-switch\" role=\"group\"><a class=\"ds-opt ds-opt-current\" href=\"#\">Club</a><a class=\"ds-opt\" href=\"#\">Player</a></div></div>",
+      "css": ".ds-switch-wrap { display: flex; align-items: center; gap: 10px; font-family: 'IBM Plex Sans Variable', system-ui, sans-serif; } .ds-switch-label { font-size: 13px; line-height: 1.3; color: var(--muted, #5e655f); } .ds-switch { display: flex; width: fit-content; padding: 2px; border-radius: 9999px; background: var(--tint, #e6efe9); } .ds-opt { display: flex; align-items: center; padding: 6px 10px; border-radius: 9999px; font-size: 13px; line-height: 1.3; font-weight: 500; color: var(--muted, #5e655f); text-decoration: none; transition: color 150ms, background-color 150ms; } .ds-opt:hover { color: var(--ink, #141a16); } .ds-opt-current { background: var(--card, #fff); color: var(--ink, #141a16); font-weight: 600; box-shadow: 0 1px 2px rgb(20 26 22 / 0.12); } .ds-opt:focus-visible { outline: 2px solid var(--signal, #1f5c3f); outline-offset: 2px; }"
+    },
+    {
+      "name": "Sample Strip",
+      "kind": "custom",
+      "refersTo": "sample-strip",
+      "description": "The worded sample label under the top bar on every demo screen.",
+      "html": "<p class=\"ds-sample\">Demo with sample players, not real listings. Nothing here is a real person or a real club.</p>",
+      "css": ".ds-sample { margin: 0; padding: 8px 20px; background: var(--tint, #e6efe9); color: var(--muted, #5e655f); font: 400 13px/1.3 'IBM Plex Sans Variable', system-ui, sans-serif; text-align: center; }"
+    },
+    {
+      "name": "Composer Field",
+      "kind": "input",
+      "refersTo": "search-composer",
+      "description": "One field of the ruled search bar: a label over a value, opening a popover; the required placeholder in signal.",
+      "html": "<div class=\"ds-composer\"><button class=\"ds-field\"><span class=\"ds-field-label\">Position</span><span class=\"ds-field-value ds-field-placeholder\">Choose a position</span></button><button class=\"ds-field\"><span class=\"ds-field-label\">Age</span><span class=\"ds-field-value\">Any age</span></button></div>",
+      "css": ".ds-composer { display: flex; align-items: center; padding: 12px 8px; border: 1px solid var(--line, #e3e1d8); border-radius: 14px; background: var(--card, #fff); font-family: 'IBM Plex Sans Variable', system-ui, sans-serif; } .ds-field + .ds-field { border-left: 1px solid var(--line, #e3e1d8); border-radius: 0 10px 10px 0; } .ds-field { flex: 1; display: flex; flex-direction: column; gap: 2px; min-height: 62px; justify-content: center; padding: 6px 16px; border: none; border-radius: 10px; background: transparent; text-align: left; line-height: 1.3; cursor: pointer; transition: background-color 150ms; } .ds-field:hover { background: var(--mist, #f7f6f1); } .ds-field:focus-visible { outline: 2px solid var(--signal, #1f5c3f); outline-offset: 2px; } .ds-field-label { font-size: 12px; color: var(--muted, #5e655f); } .ds-field-value { font-size: 15px; font-weight: 500; color: var(--ink, #141a16); } .ds-field-placeholder { font-weight: 600; color: var(--signal, #1f5c3f); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Ruled Team Sheet",
+    "overview": "Turf is a pale, pitch-green world on warm paper. A player is read the way a team sheet is read: names and numbers in a heavy display face, everything else in a quiet working sans, separated by hairline rules rather than boxed into cards. Colour carries meaning, not decoration: green is the product's voice and the position, amber is money, and nothing else competes.\n\nDensity is that of a working tool. The demo at `/app` is \"Dossier first\": a narrow ranked list beside one wide dossier, rather than a data grid or a dashboard of tiles. The landing page carries the same tokens with one heavier set piece, the tactics board, a dark green pitch with chalk lines and player chips. The site is light only (`color-scheme: light`; shadcn `dark:` variants are pinned inert).\n\nHonesty is visual, not only verbal: every demo screen carries the sample label, a paid position is always worded, and no state relies on colour alone.",
+    "keyCharacteristics": [
+      "Warm mist page, white card surfaces, hairline `line` rules between rows and sections.",
+      "Manrope ExtraBold for names, titles and numbers; IBM Plex Sans for all other text; tabular numerals site-wide.",
+      "Signal green for action, position and selection; amber only for Promoted.",
+      "Ruled rows, never boxed content; framing is reserved for a few named objects.",
+      "Pills for chips and switches, 12 px corners for buttons.",
+      "Motion is short opacity and colour; nothing travels in the demo."
+    ],
+    "rules": [
+      { "name": "The Amber Is Money Rule", "body": "Amber and amber wash mean Promoted (paid placement) and nothing else. Never use them for warnings, highlights or decoration.", "section": "colors" },
+      { "name": "The Never Colour Alone Rule", "body": "Every coloured state also carries a word, a shape or a ring: the Promoted tag spells \"Promoted\", the promoted row also carries the tag, the opened row is ringed in signal as well as tinted, and the applied chip changes its stroke as well as its fill.", "section": "colors" },
+      { "name": "The Names And Numbers Rule", "body": "Manrope ExtraBold is for player names, page titles, scores and stats. Everything else is IBM Plex Sans.", "section": "typography" },
+      { "name": "The Tabular Rule", "body": "Numerals are tabular everywhere (set on `body`), so columns of scores and season numbers align.", "section": "typography" },
+      { "name": "The 44 Pixel Rule", "body": "Every interactive target is at least 44 px tall below lg: buttons, chips, switch options, close buttons, the brand link. From lg they return to the designed sizes (40 px buttons, 32 px chips).", "section": "layout" },
+      { "name": "The Float Only Rule", "body": "A shadow means the object sits above the page (a popover, a chip on the board, a switch thumb). Content in the flow never casts one.", "section": "elevation" },
+      { "name": "The Ruled Rows Rule", "body": "Content is ruled, not boxed. List rows, dossier sections, facts and stat cells are separated by 1 px `line` rules. Within the list and the dossier the only framed objects are the highlights plate and the initials mark. Controls and overlays (the composer bar, the contact note, popovers, buttons, chips) are framed because they are controls, not content.", "section": "shapes" }
+    ],
+    "dos": [
+      "**Do** put the sample label on every demo screen, in words.",
+      "**Do** word every paid placement: the Promoted tag in rows, the Promoted pill on the board, the honesty bar on the dossier.",
+      "**Do** separate content with 1 px `line` rules and keep surfaces flat.",
+      "**Do** give every target 44 px below lg.",
+      "**Do** give a score its context: the rank sentence and the position's range sit beside it.",
+      "**Do** drop animations under reduced motion in the demo, keeping colour and state changes (row settle and dossier swap are opacity only, 160 ms and 200 ms, ease `cubic-bezier(0.16, 1, 0.3, 1)`).",
+      "**Do** use `bg-tint` where a newly added shadcn primitive paints `bg-muted`; `muted` here is a text colour."
+    ],
+    "donts": [
+      "**Don't** use amber or amber wash for anything but Promoted.",
+      "**Don't** signal a state by colour alone.",
+      "**Don't** box list rows, facts or stats into cards; the highlights plate and the initials mark are the only framed content objects.",
+      "**Don't** put shadows on content in the flow.",
+      "**Don't** use text glyphs as icons; icons are drawn SVG.",
+      "**Don't** make anything travel in the demo; motion is opacity and colour only.",
+      "**Don't** set display type in Plex or body text in Manrope."
+    ]
+  }
+}

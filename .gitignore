@@ -38,8 +38,10 @@ skills-lock.json
 .claude/skills/*
 !.claude/skills/impeccable/
 
-# impeccable local state, never committed
-.impeccable/
+# impeccable local state, never committed, except the design system sidecar that pairs with
+# DESIGN.md
+.impeccable/*
+!.impeccable/design.json
 # impeccable engine binary (16 MB, per-platform; the launcher re-downloads it on first run)
 .claude/skills/impeccable/scripts/bin/
 
