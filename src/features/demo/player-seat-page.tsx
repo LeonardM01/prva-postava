@@ -36,7 +36,11 @@ export function PlayerSeatPage() {
             {fillTemplate(copy.clubSeesNote, { short: listing.position })}
           </span>
         </h2>
-        <Dossier listing={listing} scoreNote={copy.scoreNote} />
+        <Dossier
+          listing={listing}
+          scoreNote={copy.scoreNote}
+          scoreNoteShort={copy.scoreNoteShort}
+        />
       </section>
       <p className="border-t border-line pt-5 text-[13px] leading-normal text-muted lg:col-start-1 lg:row-start-2 lg:self-start">
         <span className="lg:hidden">{copy.freeShort}</span>

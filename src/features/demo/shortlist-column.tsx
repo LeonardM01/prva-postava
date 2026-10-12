@@ -4,6 +4,7 @@ import { chipVariants } from '#/components/chip-variants'
 import { type Listing } from '#/features/sample-listings/sample-listings'
 
 import { fillTemplate } from './format'
+import { ArrowDownIcon } from './icons/arrow-down-icon'
 import { SlidersIcon } from './icons/sliders-icon'
 import { RankedList } from './ranked-list'
 import { useDemoLanguage } from './use-demo-language'
@@ -41,7 +42,10 @@ export function ShortlistColumn({ openedId, saved }: ShortlistColumnProps) {
           <SlidersIcon className="size-4" />
           {strings.filters.button}
         </li>
-        <li className={chipVariants({ isApplied: false, size: 'regular' })}>{copy.sortNewest}</li>
+        <li className={chipVariants({ isApplied: false, size: 'regular' })}>
+          {copy.sortNewest}
+          <ArrowDownIcon className="size-3.5" />
+        </li>
       </ul>
       {saved?.length === 0 && (
         <p className="border-t border-line py-6 text-[15px] leading-normal text-muted">

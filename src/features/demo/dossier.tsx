@@ -17,6 +17,7 @@ interface DossierProps {
   readonly actions?: ReactNode
   readonly listing: Listing
   readonly scoreNote: string
+  readonly scoreNoteShort: string
 }
 
 /**
@@ -24,7 +25,7 @@ interface DossierProps {
  * position's range, facts, two seasons and the highlights. A region headed by the name.
  * Opening another player cross-fades it in.
  */
-export function Dossier({ actions, listing, scoreNote }: DossierProps) {
+export function Dossier({ actions, listing, scoreNote, scoreNoteShort }: DossierProps) {
   const { strings } = useDemoLanguage()
   const nameId = useId()
   const copy = strings.dossier
@@ -64,7 +65,7 @@ export function Dossier({ actions, listing, scoreNote }: DossierProps) {
         </div>
         {actions}
       </div>
-      <ScoreBlock listing={listing} note={scoreNote} />
+      <ScoreBlock listing={listing} note={scoreNote} noteShort={scoreNoteShort} />
       <FactsRow listing={listing} />
       <SeasonStrips listing={listing} />
       <HighlightsPlate listing={listing} />

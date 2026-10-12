@@ -207,6 +207,8 @@ const en = {
     rank: '{rank} of {count} {listNoun} on the list',
     scoreNote:
       "Computed from this season's numbers, per position. A promoted row keeps its tag and its score; the top spot is bought, the number is not.",
+    scoreNoteShort:
+      "From this season's numbers, per position. The top spot is bought; the number is not.",
     rangeLabel: '{plural} on the list, lowest to highest',
     rangeSpoken: 'Scores on the list run from {lowest} to {highest}; this player has {score}.',
     factsLabel: 'Facts',
@@ -258,6 +260,7 @@ const en = {
     clubSeesNote: 'Your dossier, as it opens from the {short} list',
     scoreNote:
       "Computed from your season's numbers, against every player on the list. Promotion moves your row to the top; it never moves this number.",
+    scoreNoteShort: "From your season's numbers. Promotion moves your row, never this number.",
   },
 }
 
@@ -456,6 +459,7 @@ const hr: DemoStrings = {
     rank: '{rank} od {count} igrača na listi {short}',
     scoreNote:
       'Izračunato iz brojki ove sezone, po poziciji. Promovirani red zadržava oznaku i ocjenu; vrh liste se kupuje, broj ne.',
+    scoreNoteShort: 'Iz brojki ove sezone, po poziciji. Vrh liste se kupuje; broj ne.',
     rangeLabel: '{plural} na listi, od najniže do najviše ocjene',
     rangeSpoken: 'Ocjene na listi idu od {lowest} do {highest}; ovaj igrač ima {score}.',
     factsLabel: 'Podaci',
@@ -507,6 +511,7 @@ const hr: DemoStrings = {
     clubSeesNote: 'Tvoj dosje, kako se otvara s liste {short}',
     scoreNote:
       'Izračunato iz brojki tvoje sezone, u odnosu na sve igrače na listi. Promocija diže tvoj red na vrh; ovaj broj nikad ne mijenja.',
+    scoreNoteShort: 'Iz brojki tvoje sezone. Promocija diže tvoj red, nikad ovaj broj.',
   },
 }
 

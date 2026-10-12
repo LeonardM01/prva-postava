@@ -63,6 +63,7 @@ export function ShortlistPage() {
               key={opened.id}
               listing={opened}
               scoreNote={strings.dossier.scoreNote}
+              scoreNoteShort={strings.dossier.scoreNoteShort}
               actions={<DossierActions listing={opened} />}
             />
           </div>

@@ -63,6 +63,38 @@ export function FilterPanel({ position }: FilterPanelProps) {
         closeLabel={copy.close}
         className="lg:w-90"
         onClose={popover.close}
+        headerAction={
+          <button
+            type="button"
+            className="flex min-h-11 items-center text-[13px] font-medium text-signal underline-offset-4 hover:underline lg:min-h-8"
+            onClick={() => {
+              setDraft(DEFAULT_FILTERS)
+            }}
+          >
+            {copy.reset}
+          </button>
+        }
+        footer={
+          <div className="flex flex-wrap items-center gap-3">
+            <button
+              type="button"
+              className={actionButtonVariants({ tone: 'primary', size: 'regular' })}
+              onClick={() => {
+                popover.close()
+                void updateSearch({ position, sort: search.sort, ...withoutDefaults(draft) })
+              }}
+            >
+              {formatCount(language, strings.counts.showPlayers, draftTotal)}
+            </button>
+            <p className="text-[13px] leading-[1.3] text-muted">
+              {fillTemplate(copy.ofPosition, {
+                count: positionSummary(position).count,
+                listNoun: strings.positions[position].listNoun,
+                short: position,
+              })}
+            </p>
+          </div>
+        }
       >
         <div className="flex flex-col divide-y divide-line">
           <div className="py-4">
@@ -97,34 +129,6 @@ export function FilterPanel({ position }: FilterPanelProps) {
                 change({ contract })
               }}
             />
-          </div>
-          <div className="flex flex-wrap items-center gap-3 pt-4">
-            <button
-              type="button"
-              className={actionButtonVariants({ tone: 'primary', size: 'regular' })}
-              onClick={() => {
-                popover.close()
-                void updateSearch({ position, sort: search.sort, ...withoutDefaults(draft) })
-              }}
-            >
-              {formatCount(language, strings.counts.showPlayers, draftTotal)}
-            </button>
-            <p className="text-[13px] leading-[1.3] text-muted">
-              {fillTemplate(copy.ofPosition, {
-                count: positionSummary(position).count,
-                listNoun: strings.positions[position].listNoun,
-                short: position,
-              })}
-            </p>
-            <button
-              type="button"
-              className="ml-auto flex min-h-11 items-center text-[13px] font-medium text-signal underline-offset-4 hover:underline"
-              onClick={() => {
-                setDraft(DEFAULT_FILTERS)
-              }}
-            >
-              {copy.reset}
-            </button>
           </div>
         </div>
       </PopoverPanel>

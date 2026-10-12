@@ -35,7 +35,7 @@ export function SortMenu() {
         {...popover.panelProps}
         title={copy.menuLabel}
         closeLabel={strings.filters.close}
-        className="lg:w-60 lg:p-2"
+        className="lg:w-64"
         onClose={popover.close}
       >
         <ul className="flex flex-col pt-2">

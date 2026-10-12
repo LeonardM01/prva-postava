@@ -22,6 +22,7 @@ export function ProfilePage() {
         key={listing.id}
         listing={listing}
         scoreNote={strings.dossier.scoreNote}
+        scoreNoteShort={strings.dossier.scoreNoteShort}
         actions={<DossierActions listing={listing} />}
       />
     </div>
