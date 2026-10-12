@@ -1,6 +1,7 @@
 import { fillTemplate } from './format'
 import { ChevronLeftIcon } from './icons/chevron-left-icon'
 import { ChevronRightIcon } from './icons/chevron-right-icon'
+import { sortOrderOf } from './players-search'
 import { PlayersSearchLink } from './players-search-link'
 import { PAGE_SIZE, type SearchResult } from './search-listings'
 import { useDemoLanguage } from './use-demo-language'
@@ -31,7 +32,7 @@ export function ListFoot({ result }: ListFootProps) {
           from,
           to: from + result.rows.length - 1,
           total: result.total,
-          order: strings.sort.footOrder[search.sort ?? 'score'],
+          order: strings.sort.footOrder[sortOrderOf(search)],
         })}
       </p>
       {result.pageCount > 1 && (

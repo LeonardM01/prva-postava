@@ -24,10 +24,7 @@ export function EntryPage() {
         <p className="max-w-160 text-[15px] leading-normal text-muted">{copy.intro}</p>
       </div>
       <SearchComposer />
-      <p className="pt-3 text-[13px] leading-[1.4] text-muted lg:pl-6">
-        <span className="lg:hidden">{copy.hintShort}</span>
-        <span className="max-lg:hidden">{copy.hint}</span>
-      </p>
+      <p className="pt-3 text-[13px] leading-[1.4] text-muted lg:pl-6">{copy.hint}</p>
       <section aria-labelledby={quickTitleId} className="flex flex-col gap-3 pt-10 lg:pt-11">
         <h2 id={quickTitleId} className="text-[15px] leading-[1.3] font-semibold text-ink">
           {copy.quickTitle}

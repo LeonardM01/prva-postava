@@ -19,6 +19,38 @@ test('arrow keys walk the list and the address follows', async ({ page }) => {
   expect(errors).toEqual([])
 })
 
+test.describe('with reduced motion', () => {
+  test.use({ reducedMotion: 'reduce' })
+
+  test('opening a profile changes state without a cross-fade', async ({ page }) => {
+    await page.goto('/app?lang=en&position=LW')
+
+    await page.getByRole('link', { name: 'David Vuković' }).click()
+
+    await expect(page.getByRole('region', { name: 'David Vuković' })).toBeVisible()
+    // Colour transitions stay; only keyframe animations, the cross-fade and the settle, go.
+    const keyframes = await page.evaluate(() =>
+      document
+        .getAnimations()
+        .filter((animation) => animation instanceof CSSAnimation)
+        .map((animation) => animation.animationName),
+    )
+    expect(keyframes).toEqual([])
+  })
+})
+
+test('opening a profile cross-fades it in', async ({ page }) => {
+  await page.goto('/app?lang=en&position=LW')
+
+  await page.getByRole('link', { name: 'David Vuković' }).click()
+
+  await expect(page.getByRole('region', { name: 'David Vuković' })).toBeVisible()
+  const durations = await page.evaluate(() =>
+    document.getAnimations().map((animation) => animation.effect?.getComputedTiming().duration),
+  )
+  expect(durations).toContain(200)
+})
+
 test('the composer searches a position with the chosen filters', async ({ page }) => {
   await page.goto('/app?lang=en')
   const composer = page.getByRole('form', { name: 'Search players' })

@@ -19,17 +19,26 @@ interface ParsedShortlist {
 // The last stored value and its parse, so React sees the same array until the value changes.
 const parsed: ParsedShortlist = { raw: undefined, ids: SEEDED_IDS }
 
+// A stored value the demo cannot read starts the visitor over from the seed: there is nothing
+// else to recover, and a broken shortlist must not break the page. It is still reported.
 function parseStoredIds(raw: null | string): readonly string[] {
   if (raw === null) {
     return SEEDED_IDS
   }
   try {
     const result = storedIdsSchema.safeParse(JSON.parse(raw))
-    // Ids from an older data set are dropped rather than shown as blank rows.
-    return result.success ? result.data.filter((id) => findListing(id) !== undefined) : SEEDED_IDS
-  } catch {
-    return SEEDED_IDS
+    if (result.success) {
+      // Ids from an older data set are dropped rather than shown as blank rows.
+      return result.data.filter((id) => findListing(id) !== undefined)
+    }
+    console.warn(
+      'The saved shortlist is not a list of ids; starting from the sample one',
+      result.error,
+    )
+  } catch (error) {
+    console.warn('The saved shortlist is not JSON; starting from the sample one', error)
   }
+  return SEEDED_IDS
 }
 
 /**

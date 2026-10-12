@@ -8,6 +8,7 @@ import { EmptyResult } from './empty-result'
 import { FilterPanel } from './filter-panel'
 import { fillTemplate } from './format'
 import { ListFoot } from './list-foot'
+import { sortOrderOf } from './players-search'
 import { PositionTitle } from './position-title'
 import { RankedList } from './ranked-list'
 import { searchListings } from './search-listings'
@@ -30,7 +31,7 @@ export function PlayersListColumn({ position }: PlayersListColumnProps) {
   const navigate = useNavigate()
   const searchInPosition = { ...search, position }
   const result = searchListings(SAMPLE_LISTINGS, searchInPosition)
-  const sortedBy = search.sort ?? 'score'
+  const sortedBy = sortOrderOf(search)
 
   return (
     <div className="flex min-w-0 flex-col">

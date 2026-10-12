@@ -5,26 +5,23 @@ import { type Listing } from '#/features/sample-listings/sample-listings'
 import { cn } from '#/lib/utils'
 
 import { useDemoLanguage } from './use-demo-language'
-import { useShortlist } from './use-shortlist'
+import { useSavedToggle } from './use-saved-toggle'
 
 interface DossierActionsProps {
   readonly listing: Listing
-  // Runs after Remove from shortlist.
-  readonly onRemoved?: (listing: Listing) => void
 }
 
 /**
  * Save to shortlist and Contact player. Contact opens a note under the buttons, not a modal:
  * the promise is visible without inventing the method. Phones put Contact first, full width.
  */
-export function DossierActions({ listing, onRemoved }: DossierActionsProps) {
+export function DossierActions({ listing }: DossierActionsProps) {
   const { strings } = useDemoLanguage()
-  const shortlist = useShortlist()
+  const { isSaved, toggle } = useSavedToggle(listing)
   const [isNoteOpen, setIsNoteOpen] = useState(false)
   const contactRef = useRef<HTMLButtonElement>(null)
   const noteId = useId()
   const copy = strings.dossier
-  const isSaved = shortlist.ids?.includes(listing.id) ?? false
 
   return (
     <div className="flex shrink-0 flex-col gap-3 xl:items-end">
@@ -35,14 +32,7 @@ export function DossierActions({ listing, onRemoved }: DossierActionsProps) {
             actionButtonVariants({ tone: 'secondary', size: 'regular' }),
             'max-lg:h-12',
           )}
-          onClick={() => {
-            if (isSaved) {
-              shortlist.remove(listing.id)
-              onRemoved?.(listing)
-            } else {
-              shortlist.save(listing.id)
-            }
-          }}
+          onClick={toggle}
         >
           {isSaved ? copy.remove : copy.save}
         </button>

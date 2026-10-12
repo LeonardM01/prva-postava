@@ -3,17 +3,13 @@ import { useNavigate } from '@tanstack/react-router'
 import { z } from 'zod'
 
 import { actionButtonVariants } from '#/components/action-button-variants'
-import { POSITIONS } from '#/features/sample-listings/positions'
+import { type Position, POSITIONS } from '#/features/sample-listings/positions'
 import { cn } from '#/lib/utils'
 
-import { AgeRangeControl } from './age-range-control'
 import { ComposerField } from './composer-field'
-import { ContractChips } from './contract-chips'
-import { summariseFilters } from './filter-summary'
+import { ComposerFilterFields } from './composer-filter-fields'
 import { DEFAULT_FILTERS, type FilterValues, withoutDefaults } from './filter-values'
-import { LeagueChecklist } from './league-checklist'
 import { PositionChooser } from './position-chooser'
-import { ScoreControl } from './score-control'
 import { useDemoLanguage } from './use-demo-language'
 
 const positionSchema = z.enum(POSITIONS)
@@ -23,13 +19,13 @@ const positionSchema = z.enum(POSITIONS)
  * Search. Phones get the same fields as a ruled form with Search at the bottom.
  */
 export function SearchComposer() {
-  const { language, strings } = useDemoLanguage()
+  const { strings } = useDemoLanguage()
   const navigate = useNavigate()
   const copy = strings.entry
 
   const form = useForm({
     defaultValues: {
-      position: undefined as undefined | z.infer<typeof positionSchema>,
+      position: undefined as Position | undefined,
       filters: DEFAULT_FILTERS,
     },
     onSubmit: async ({ value }) => {
@@ -40,7 +36,6 @@ export function SearchComposer() {
     },
   })
   const filters = useSelector(form.store, (state) => state.values.filters)
-  const summary = summariseFilters(language, strings, filters)
 
   function setFilters(change: Partial<FilterValues>) {
     form.setFieldValue('filters', (previous) => ({ ...previous, ...change }))
@@ -90,67 +85,7 @@ export function SearchComposer() {
                     />
                   )}
                 </ComposerField>
-                <ComposerField
-                  label={copy.ageLabel}
-                  value={summary.age}
-                  closeLabel={strings.filters.close}
-                  panelWidth="regular"
-                >
-                  {() => (
-                    <AgeRangeControl
-                      min={filters.ageMin}
-                      max={filters.ageMax}
-                      onChange={(ageMin, ageMax) => {
-                        setFilters({ ageMin, ageMax })
-                      }}
-                    />
-                  )}
-                </ComposerField>
-                <ComposerField
-                  label={copy.leagueLabel}
-                  value={summary.league}
-                  closeLabel={strings.filters.close}
-                  panelWidth="regular"
-                >
-                  {() => (
-                    <LeagueChecklist
-                      value={filters.league}
-                      onChange={(league) => {
-                        setFilters({ league })
-                      }}
-                    />
-                  )}
-                </ComposerField>
-                <ComposerField
-                  label={copy.scoreLabel}
-                  value={summary.score}
-                  closeLabel={strings.filters.close}
-                  panelWidth="regular"
-                >
-                  {() => (
-                    <ScoreControl
-                      value={filters.scoreMin}
-                      onChange={(scoreMin) => {
-                        setFilters({ scoreMin })
-                      }}
-                    />
-                  )}
-                </ComposerField>
-                <ComposerField
-                  label={copy.contractLabel}
-                  value={summary.contract}
-                  closeLabel={strings.filters.close}
-                  panelWidth="regular"
-                >
-                  {() => (
-                    <ContractChips
-                      value={filters.contract}
-                      onChange={(contract) => {
-                        setFilters({ contract })
-                      }}
-                    />
-                  )}
-                </ComposerField>
+                <ComposerFilterFields filters={filters} onChange={setFilters} />
               </div>
               {isInvalid && (
                 <p role="alert" className="text-[13px] leading-[1.4] text-red lg:pl-6">

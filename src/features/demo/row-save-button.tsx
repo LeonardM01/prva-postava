@@ -5,21 +5,19 @@ import { fillTemplate } from './format'
 import { BookmarkIcon } from './icons/bookmark-icon'
 import { fullName } from './listing-text'
 import { useDemoLanguage } from './use-demo-language'
-import { useShortlist } from './use-shortlist'
+import { useSavedToggle } from './use-saved-toggle'
 
 interface RowSaveButtonProps {
   readonly listing: Listing
-  readonly onRemoved: ((listing: Listing) => void) | undefined
 }
 
 /**
  * Save on a row. The shortlist lives on this device, so the server renders the empty mark
  * and the saved state appears after hydration.
  */
-export function RowSaveButton({ listing, onRemoved }: RowSaveButtonProps) {
+export function RowSaveButton({ listing }: RowSaveButtonProps) {
   const { strings } = useDemoLanguage()
-  const shortlist = useShortlist()
-  const isSaved = shortlist.ids?.includes(listing.id) ?? false
+  const { isSaved, toggle } = useSavedToggle(listing)
   const name = fullName(listing)
 
   return (
@@ -33,14 +31,7 @@ export function RowSaveButton({ listing, onRemoved }: RowSaveButtonProps) {
         'relative z-10 -mr-1.5 flex h-11 w-8 shrink-0 items-center justify-center rounded-md transition-colors duration-150 lg:h-9',
         isSaved ? 'text-signal' : 'text-muted hover:text-ink',
       )}
-      onClick={() => {
-        if (isSaved) {
-          shortlist.remove(listing.id)
-          onRemoved?.(listing)
-        } else {
-          shortlist.save(listing.id)
-        }
-      }}
+      onClick={toggle}
     >
       <BookmarkIcon isFilled={isSaved} className="size-4.5" />
     </button>

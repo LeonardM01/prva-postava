@@ -9,7 +9,6 @@ import { RankedList } from './ranked-list'
 import { useDemoLanguage } from './use-demo-language'
 
 interface ShortlistColumnProps {
-  readonly onRemoved: (listing: Listing) => void
   readonly openedId: string | undefined
   // Undefined until the device's shortlist has been read.
   readonly saved: readonly Listing[] | undefined
@@ -19,7 +18,7 @@ interface ShortlistColumnProps {
  * The saved rows in the order they were saved. A promoted row keeps its tag but not its
  * place: the shortlist is not for sale.
  */
-export function ShortlistColumn({ onRemoved, openedId, saved }: ShortlistColumnProps) {
+export function ShortlistColumn({ openedId, saved }: ShortlistColumnProps) {
   const { strings } = useDemoLanguage()
   const navigate = useNavigate()
   const copy = strings.shortlist
@@ -65,7 +64,6 @@ export function ShortlistColumn({ onRemoved, openedId, saved }: ShortlistColumnP
             onWalk={async (listing) => {
               await navigate({ to: '/app/shortlist', search: { listing: listing.id } })
             }}
-            onRemoved={onRemoved}
           />
           <p className="py-3 pl-3 text-[13px] leading-[1.3] text-muted">{copy.foot}</p>
         </>

@@ -7,6 +7,7 @@ import { Dossier } from './dossier'
 import { DossierActions } from './dossier-actions'
 import { ChevronLeftIcon } from './icons/chevron-left-icon'
 import { ShortlistColumn } from './shortlist-column'
+import { ShortlistRemovalContext } from './shortlist-removal-context'
 import { useDemoLanguage } from './use-demo-language'
 import { useShortlist } from './use-shortlist'
 
@@ -41,31 +42,32 @@ export function ShortlistPage() {
   }
 
   return (
-    <div className="lg:grid lg:grid-cols-[24.5rem_minmax(0,1fr)] lg:items-start lg:gap-10">
-      <div className={cn(isProfileChosen && 'max-lg:hidden')}>
-        <ShortlistColumn
-          saved={shortlist.ids === undefined ? undefined : saved}
-          openedId={opened?.id}
-          onRemoved={openNextAfter}
-        />
-      </div>
-      {opened !== undefined && (
-        <div className={cn('flex min-w-0 flex-col gap-4', !isProfileChosen && 'max-lg:hidden')}>
-          <Link
-            to="/app/shortlist"
-            className="-ml-1 flex min-h-11 w-fit items-center gap-1 text-[15px] font-semibold text-signal lg:hidden"
-          >
-            <ChevronLeftIcon className="size-4.5" />
-            {strings.shortlist.title}
-          </Link>
-          <Dossier
-            key={opened.id}
-            listing={opened}
-            scoreNote={strings.dossier.scoreNote}
-            actions={<DossierActions listing={opened} onRemoved={openNextAfter} />}
+    <ShortlistRemovalContext value={openNextAfter}>
+      <div className="lg:grid lg:grid-cols-[24.5rem_minmax(0,1fr)] lg:items-start lg:gap-10">
+        <div className={cn(isProfileChosen && 'max-lg:hidden')}>
+          <ShortlistColumn
+            saved={shortlist.ids === undefined ? undefined : saved}
+            openedId={opened?.id}
           />
         </div>
-      )}
-    </div>
+        {opened !== undefined && (
+          <div className={cn('flex min-w-0 flex-col gap-4', !isProfileChosen && 'max-lg:hidden')}>
+            <Link
+              to="/app/shortlist"
+              className="-ml-1 flex min-h-11 w-fit items-center gap-1 text-[15px] font-semibold text-signal lg:hidden"
+            >
+              <ChevronLeftIcon className="size-4.5" />
+              {strings.shortlist.title}
+            </Link>
+            <Dossier
+              key={opened.id}
+              listing={opened}
+              scoreNote={strings.dossier.scoreNote}
+              actions={<DossierActions listing={opened} />}
+            />
+          </div>
+        )}
+      </div>
+    </ShortlistRemovalContext>
   )
 }

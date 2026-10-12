@@ -45,8 +45,10 @@ test.describe('in the served HTML', () => {
   test('the shortlist count is left for the browser to fill in', async ({ page }) => {
     await page.goto('/app?lang=en')
 
-    // On phones the link sits in the closed menu, so it is read from the markup.
-    await expect(page.locator('header a[href="/app/shortlist"]').first()).toHaveText('Shortlist')
+    // On phones the link sits in the closed menu, so hidden links count too.
+    await expect(
+      page.getByRole('link', { name: 'Shortlist', exact: true, includeHidden: true }).first(),
+    ).toHaveText('Shortlist')
   })
 })
 

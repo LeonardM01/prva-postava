@@ -1,5 +1,6 @@
 import { notFound } from '@tanstack/react-router'
 
+import { RouteError } from '#/components/route-error'
 import { findListing } from '#/features/sample-listings/sample-listings'
 
 interface ProfileLoaderOptions {
@@ -15,6 +16,9 @@ function loadProfile({ params }: ProfileLoaderOptions) {
   return { listing }
 }
 
+// No pendingComponent, though docs/CODING_STANDARDS.md §7 asks for one: the loader reads bundled
+// data and never waits, and a pending component renders during a slow hydration and breaks it.
 export const PROFILE_ROUTE_OPTIONS = {
   loader: loadProfile,
+  errorComponent: RouteError,
 }

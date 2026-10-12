@@ -23,8 +23,6 @@ interface RankedListProps {
   readonly listings: readonly Listing[]
   // Opens a listing when the arrow keys walk onto it.
   readonly onWalk: (listing: Listing) => Promise<void>
-  // Runs after a row's Save control removes its listing from the shortlist.
-  readonly onRemoved?: (listing: Listing) => void
   readonly openedId: string | undefined
   readonly renderNameLink: (listing: Listing, props: NameLinkProps) => ReactNode
   readonly sortedBy: SortOrder
@@ -38,7 +36,6 @@ interface RankedListProps {
 export function RankedList({
   label,
   listings,
-  onRemoved,
   onWalk,
   openedId,
   renderNameLink,
@@ -73,7 +70,6 @@ export function RankedList({
           listing={listing}
           sortedBy={sortedBy}
           isOpened={listing.id === openedId}
-          onRemoved={onRemoved}
           nameLink={renderNameLink(listing, {
             'aria-current': listing.id === openedId ? 'page' : undefined,
             children: fullName(listing),

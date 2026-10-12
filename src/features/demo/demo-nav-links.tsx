@@ -3,7 +3,8 @@ import { cva } from 'class-variance-authority'
 import { ShellLink } from './shell-link'
 import { ShortlistNavLabel } from './shortlist-nav-label'
 import { useDemoLanguage } from './use-demo-language'
-import { type DemoSection, useDemoSection, useSeat } from './use-seat'
+import { type DemoSection, useDemoSection } from './use-demo-section'
+import { useSeat } from './use-seat'
 
 const linkVariants = cva(
   'flex items-center text-sm leading-[1.43] transition-colors duration-150',

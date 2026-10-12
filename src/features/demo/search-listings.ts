@@ -1,6 +1,7 @@
 import { type Listing } from '#/features/sample-listings/sample-listings'
 
-import { AGE_RANGE, type PlayersSearch, type SortOrder } from './players-search'
+import { fullName } from './listing-text'
+import { AGE_RANGE, type PlayersSearch, type SortOrder, sortOrderOf } from './players-search'
 
 export const PAGE_SIZE = 20
 
@@ -24,10 +25,6 @@ function isMatch(listing: Listing, search: PlayersSearch): boolean {
     listing.score >= (search.scoreMin ?? 0) &&
     (search.contract === undefined || search.contract.includes(listing.contractStatus))
   )
-}
-
-function fullName(listing: Listing): string {
-  return `${listing.firstName} ${listing.lastName}`
 }
 
 function compareBySort(sort: SortOrder, first: Listing, second: Listing): number {
@@ -62,7 +59,7 @@ export function compareListings(sort: SortOrder, first: Listing, second: Listing
  * with its draft filters for the live count.
  */
 export function searchListings(listings: readonly Listing[], search: PlayersSearch): SearchResult {
-  const sort = search.sort ?? 'score'
+  const sort = sortOrderOf(search)
   const matching = listings
     .filter((listing) => isMatch(listing, search))
     .toSorted((first, second) => compareListings(sort, first, second))

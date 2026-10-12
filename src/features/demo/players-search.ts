@@ -79,6 +79,10 @@ export function parsePlayersSearch(search: Readonly<Record<string, unknown>>): P
   }
 }
 
+export function sortOrderOf(search: PlayersSearch): SortOrder {
+  return search.sort ?? 'score'
+}
+
 /**
  * How many filters differ from their defaults. Position is the list itself, not a filter.
  */

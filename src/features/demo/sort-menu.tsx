@@ -4,7 +4,7 @@ import { cn } from '#/lib/utils'
 import { fillTemplate } from './format'
 import { ArrowDownIcon } from './icons/arrow-down-icon'
 import { CheckIcon } from './icons/check-icon'
-import { SORT_ORDERS } from './players-search'
+import { SORT_ORDERS, sortOrderOf } from './players-search'
 import { PopoverPanel } from './popover-panel'
 import { useDemoLanguage } from './use-demo-language'
 import { usePlayersSearch, useUpdatePlayersSearch } from './use-players-search'
@@ -18,7 +18,7 @@ export function SortMenu() {
   const search = usePlayersSearch()
   const updateSearch = useUpdatePlayersSearch()
   const popover = usePopover()
-  const current = search.sort ?? 'score'
+  const current = sortOrderOf(search)
   const copy = strings.sort
 
   return (
