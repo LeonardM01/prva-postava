@@ -9,13 +9,15 @@ import { useShortlist } from './use-shortlist'
 
 interface DossierActionsProps {
   readonly listing: Listing
+  // Runs after Remove from shortlist.
+  readonly onRemoved?: (listing: Listing) => void
 }
 
 /**
  * Save to shortlist and Contact player. Contact opens a note under the buttons, not a modal:
  * the promise is visible without inventing the method. Phones put Contact first, full width.
  */
-export function DossierActions({ listing }: DossierActionsProps) {
+export function DossierActions({ listing, onRemoved }: DossierActionsProps) {
   const { strings } = useDemoLanguage()
   const shortlist = useShortlist()
   const [isNoteOpen, setIsNoteOpen] = useState(false)
@@ -36,6 +38,7 @@ export function DossierActions({ listing }: DossierActionsProps) {
           onClick={() => {
             if (isSaved) {
               shortlist.remove(listing.id)
+              onRemoved?.(listing)
             } else {
               shortlist.save(listing.id)
             }

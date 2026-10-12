@@ -9,13 +9,14 @@ import { useShortlist } from './use-shortlist'
 
 interface RowSaveButtonProps {
   readonly listing: Listing
+  readonly onRemoved: ((listing: Listing) => void) | undefined
 }
 
 /**
  * Save on a row. The shortlist lives on this device, so the server renders the empty mark
  * and the saved state appears after hydration.
  */
-export function RowSaveButton({ listing }: RowSaveButtonProps) {
+export function RowSaveButton({ listing, onRemoved }: RowSaveButtonProps) {
   const { strings } = useDemoLanguage()
   const shortlist = useShortlist()
   const isSaved = shortlist.ids?.includes(listing.id) ?? false
@@ -35,6 +36,7 @@ export function RowSaveButton({ listing }: RowSaveButtonProps) {
       onClick={() => {
         if (isSaved) {
           shortlist.remove(listing.id)
+          onRemoved?.(listing)
         } else {
           shortlist.save(listing.id)
         }

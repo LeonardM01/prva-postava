@@ -15,6 +15,7 @@ interface ListRowProps {
   readonly listing: Listing
   // The player's name as a link to the profile; it stretches over the whole row.
   readonly nameLink: ReactNode
+  readonly onRemoved: ((listing: Listing) => void) | undefined
   readonly sortedBy: SortOrder
 }
 
@@ -37,7 +38,7 @@ function sortedValue(listing: Listing, sortedBy: SortOrder): number {
  * value with this season's numbers under it. Promoted rows sit on the amber wash with their
  * tag; the opened row is ringed, on tint unless promoted.
  */
-export function ListRow({ isOpened, listing, nameLink, sortedBy }: ListRowProps) {
+export function ListRow({ isOpened, listing, nameLink, onRemoved, sortedBy }: ListRowProps) {
   const { strings } = useDemoLanguage()
   const season = seasonLine(listing, strings)
 
@@ -73,7 +74,7 @@ export function ListRow({ isOpened, listing, nameLink, sortedBy }: ListRowProps)
           <span className="sr-only">{season.spoken}</span>
         </p>
       </div>
-      <RowSaveButton listing={listing} />
+      <RowSaveButton listing={listing} onRemoved={onRemoved} />
     </li>
   )
 }
