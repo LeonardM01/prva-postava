@@ -55,7 +55,7 @@ describe('players entry', () => {
       .getAllByRole('button', { name: /· \d+$/ })
       .map((button) => Number(button.textContent.split('· ', 2)[1]))
     expect(counts).toHaveLength(12)
-    expect(counts.reduce((sum, count) => sum + count, 0)).toBe(88)
+    expect(counts.reduce((sum, count) => sum + count, 0)).toBe(103)
     expect(within(chooser).getByRole('button', { name: 'Left wing · 14' })).toBeVisible()
   })
 

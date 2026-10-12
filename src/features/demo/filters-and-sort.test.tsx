@@ -147,6 +147,33 @@ describe('sort', () => {
 })
 
 describe('pages and fallbacks', () => {
+  it('shows twenty rows a page and the way to the next', async () => {
+    await renderDemo('/app?position=CM', { language: 'en' })
+
+    expect(rows('Central midfielders on the list')).toHaveLength(20)
+    expect(screen.getByText('1–20 of 24 · Promoted first, then by score')).toBeVisible()
+    expect(screen.queryByRole('link', { name: 'Previous page' })).not.toBeInTheDocument()
+    expect(screen.getByRole('link', { name: 'Next page' })).toHaveAttribute(
+      'href',
+      '/app?position=CM&page=2',
+    )
+  })
+
+  it('shows the rest on the second page with the promoted row still first', async () => {
+    const { router } = await renderDemo('/app?position=CM&page=2', { language: 'en' })
+    const user = userEvent.setup()
+
+    expect(rows('Central midfielders on the list')).toHaveLength(4)
+    expect(screen.getByText('21–24 of 24 · Promoted first, then by score')).toBeVisible()
+    expect(screen.queryByRole('link', { name: 'Next page' })).not.toBeInTheDocument()
+
+    await user.click(screen.getByRole('link', { name: 'Previous page' }))
+
+    expect(router.state.location.search).toEqual({ position: 'CM' })
+    const [first] = rows('Central midfielders on the list')
+    expect(first && within(first).getByText('Promoted')).toBeVisible()
+  })
+
   it('shows the last page for a page beyond the range, with no other pages to go to', async () => {
     await renderDemo('/app?position=LW&page=3', { language: 'en' })
 

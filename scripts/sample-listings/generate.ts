@@ -24,6 +24,14 @@ const OUTPUT = new URL('../../src/features/sample-listings/sample-listings.json'
 const SEED = 20_260_925
 const GENERATED_COUNT = 80
 
+// Drawn after the pool so it stays as the Figma frames show it: enough central midfielders for
+// a second page, and more depth where the pool came out thin.
+const DEPTH_POSITIONS: readonly Position[] = [
+  ...repeat('CM', 10),
+  ...repeat('LM', 3),
+  ...repeat('RB', 2),
+]
+
 // Positions weighted the way a squad is: more centre backs, midfielders and strikers.
 const POSITION_POOL: readonly Position[] = [
   ...repeat('GK', 6),
@@ -507,9 +515,9 @@ class PoolGenerator {
     this.#random = random
   }
 
-  #generateNew(index: number): GeneratedListing {
+  #generateNew(index: number, position?: Position): GeneratedListing {
     const random = this.#random
-    const identity = this.#newIdentity(index)
+    const identity = this.#newIdentity(index, position)
     const quality = clampUnit(0.15 + random() * 0.8)
     const thisSeason = generateSeason(random, identity.position, quality)
     const lastSeason = generateLastSeason(random, identity.position, identity.league, quality)
@@ -546,9 +554,9 @@ class PoolGenerator {
     }
   }
 
-  #newIdentity(index: number): Identity & { readonly age: number } {
+  #newIdentity(index: number, forcedPosition?: Position): Identity & { readonly age: number } {
     const random = this.#random
-    const position = pick(random, POSITION_POOL)
+    const position = forcedPosition ?? pick(random, POSITION_POOL)
     const league = pick(random, LEAGUE_POOL)
     const club = pick(random, CLUBS[league])
     const age = between(random, 18, 34)
@@ -581,6 +589,17 @@ class PoolGenerator {
     const pinned = LANDING_LEFT_WINGS[index]
     return pinned === undefined ? this.#generateNew(index) : this.#generatePinned(pinned)
   }
+
+  generateIn(position: Position, index: number): GeneratedListing {
+    return this.#generateNew(index, position)
+  }
+
+  // Names drawn later must not repeat these.
+  reserveNames(pinned: readonly PinnedListing[]) {
+    for (const { firstName, lastName } of pinned) {
+      this.#usedNames.add(`${firstName} ${lastName}`)
+    }
+  }
 }
 
 function boardListing(random: Random, pinned: PinnedListing): GeneratedListing {
@@ -607,6 +626,21 @@ function withLastWeek(random: Random, listing: GeneratedListing): GeneratedListi
   }
 }
 
+// Every position's list opens on a promoted row; a position the dice left without one promotes
+// its first listing.
+function withPromotedInEveryPosition(listings: readonly GeneratedListing[]): GeneratedListing[] {
+  const positionsWithPromoted = new Set(
+    listings.filter((listing) => listing.isPromoted).map((listing) => listing.position),
+  )
+  return listings.map((listing) => {
+    if (positionsWithPromoted.has(listing.position)) {
+      return listing
+    }
+    positionsWithPromoted.add(listing.position)
+    return { ...listing, isPromoted: true }
+  })
+}
+
 function assertUniqueIds(listings: readonly GeneratedListing[]) {
   const ids = new Set(listings.map((listing) => listing.id))
   if (ids.size !== listings.length) {
@@ -617,11 +651,17 @@ function assertUniqueIds(listings: readonly GeneratedListing[]) {
 async function main() {
   const pool = new PoolGenerator(seededRandom(SEED))
   const generated = Array.from({ length: GENERATED_COUNT }, (_, index) => pool.generate(index))
+  pool.reserveNames(LANDING_BOARD_PLAYERS)
+  const depth = DEPTH_POSITIONS.map((position, offset) =>
+    pool.generateIn(position, GENERATED_COUNT + offset),
+  )
   // A second stream, so adding these never reshuffles the pool above.
   const extraRandom = seededRandom(SEED + 1)
   const board = LANDING_BOARD_PLAYERS.map((pinned) => boardListing(extraRandom, pinned))
   const listings = generatedListingsSchema.parse(
-    [...generated, ...board].map((listing) => withLastWeek(extraRandom, listing)),
+    withPromotedInEveryPosition([...generated, ...depth, ...board]).map((listing) =>
+      withLastWeek(extraRandom, listing),
+    ),
   )
   assertUniqueIds(listings)
   await writeFile(OUTPUT, `${JSON.stringify(listings, undefined, 2)}\n`)
