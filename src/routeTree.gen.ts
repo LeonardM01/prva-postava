@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as AppRouteRouteImport } from './routes/app/route'
+import { Route as BannerQrRouteImport } from './routes/banner-qr'
 import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as AppSearchRouteImport } from './routes/app/_search'
@@ -22,6 +23,11 @@ import { Route as AppSearchPlayersListingIdRouteImport } from './routes/app/_sea
 const AppRouteRoute = AppRouteRouteImport.update({
   id: '/app',
   path: '/app',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BannerQrRoute = BannerQrRouteImport.update({
+  id: '/banner-qr',
+  path: '/banner-qr',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RobotsDottxtRoute = RobotsDottxtRouteImport.update({
@@ -67,6 +73,7 @@ const AppSearchPlayersListingIdRoute =
 
 export interface FileRoutesByFullPath {
   '/app': typeof AppRouteRouteWithChildren
+  '/banner-qr': typeof BannerQrRoute
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/app/me': typeof AppMeRoute
@@ -77,6 +84,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/app': typeof AppSearchIndexRoute
+  '/banner-qr': typeof BannerQrRoute
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/app/me': typeof AppMeRoute
@@ -87,6 +95,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/app': typeof AppRouteRouteWithChildren
+  '/banner-qr': typeof BannerQrRoute
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/app/_search': typeof AppSearchRouteWithChildren
@@ -100,6 +109,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/app'
+    | '/banner-qr'
     | '/robots.txt'
     | '/sitemap.xml'
     | '/app/me'
@@ -110,6 +120,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/app'
+    | '/banner-qr'
     | '/robots.txt'
     | '/sitemap.xml'
     | '/app/me'
@@ -119,6 +130,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/app'
+    | '/banner-qr'
     | '/robots.txt'
     | '/sitemap.xml'
     | '/app/_search'
@@ -131,6 +143,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   AppRouteRoute: typeof AppRouteRouteWithChildren
+  BannerQrRoute: typeof BannerQrRoute
   RobotsDottxtRoute: typeof RobotsDottxtRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   Char123LangChar125IndexRoute: typeof Char123LangChar125IndexRoute
@@ -143,6 +156,13 @@ declare module '@tanstack/react-router' {
       path: '/app'
       fullPath: '/app'
       preLoaderRoute: typeof AppRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/banner-qr': {
+      id: '/banner-qr'
+      path: '/banner-qr'
+      fullPath: '/banner-qr'
+      preLoaderRoute: typeof BannerQrRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/robots.txt': {
@@ -236,6 +256,7 @@ const AppRouteRouteWithChildren = AppRouteRoute._addFileChildren(
 
 const rootRouteChildren: RootRouteChildren = {
   AppRouteRoute: AppRouteRouteWithChildren,
+  BannerQrRoute: BannerQrRoute,
   RobotsDottxtRoute: RobotsDottxtRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   Char123LangChar125IndexRoute: Char123LangChar125IndexRoute,
