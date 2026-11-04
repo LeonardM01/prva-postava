@@ -14,9 +14,10 @@ export type LandingPath = '/' | '/en'
 
 /**
  * Renders the landing page behind a memory router with the real route options, so tests open
- * it by path (`/` for Croatian, `/en` for English), and waits for the first paint.
+ * it by path (`/` for Croatian, `/en` for English, optionally with a query such as
+ * `?role=club`), and waits for the first paint.
  */
-export async function renderLandingPage(path: LandingPath) {
+export async function renderLandingPage(path: `${LandingPath}?${string}` | LandingPath) {
   const rootRoute = createRootRoute()
   const indexRoute = createRoute({
     getParentRoute: () => rootRoute,

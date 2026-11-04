@@ -132,4 +132,25 @@ describe('landing hero', () => {
     ).toHaveAttribute('aria-pressed', 'true')
     expect(screen.getByRole('link', { name: 'Pretraži igrače po poziciji' })).toBeVisible()
   })
+
+  it('opens on the club side when a link asks for it', async () => {
+    await renderLandingPage('/?role=club')
+
+    const roleSwitch = getHeroSwitch('Odaberi stranu')
+    expect(
+      within(roleSwitch).getByRole('button', { name: 'Tražim igrače za klub' }),
+    ).toHaveAttribute('aria-pressed', 'true')
+    expect(
+      screen.getByRole('heading', { level: 1, name: 'Nađi sljedeće pojačanje u jednoj večeri.' }),
+    ).toBeVisible()
+  })
+
+  it('falls back to the player side when the linked side is unknown', async () => {
+    await renderLandingPage('/en?role=coach')
+
+    expect(within(getHeroSwitch()).getByRole('button', { name: "I'm a player" })).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    )
+  })
 })

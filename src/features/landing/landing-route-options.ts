@@ -6,13 +6,18 @@ import { HOME_PAGE } from '#/lib/indexable-pages'
 import { DEFAULT_LANGUAGE, isLanguage, parseLanguage } from '#/lib/language'
 import { siteStructuredDataScript } from '#/lib/site-structured-data'
 
+import { ROLES } from './role-context'
 import { LANDING_STRINGS } from './strings'
 
 /**
- * The landing page reads no search params of its own. Unknown ones (for example `utm_*`)
- * pass through so moving between languages and sections does not drop them from the URL.
+ * `role` opens the page on one side, so a link (the banner QR chooser) can send a club straight
+ * to the club copy. An unknown value falls back to the default side rather than failing. Other
+ * params (for example `utm_*`) pass through so moving between languages and sections does not
+ * drop them from the URL.
  */
-const landingSearchSchema = z.looseObject({})
+const landingSearchSchema = z.looseObject({
+  role: z.enum(ROLES).optional().catch(undefined),
+})
 
 type LandingSearch = z.infer<typeof landingSearchSchema>
 
