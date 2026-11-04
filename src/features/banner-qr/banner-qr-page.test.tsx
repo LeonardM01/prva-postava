@@ -111,6 +111,7 @@ describe('banner QR chooser', () => {
       const url = new URL(door.getAttribute('href') ?? '', 'https://prvapostava.co')
       expect(url.searchParams.get('utm_source')).toBe('banner')
       expect(url.searchParams.get('utm_medium')).toBe('qr')
+      expect(url.searchParams.get('utm_campaign')).toBe('match-day')
     }
   })
 })
