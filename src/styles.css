@@ -119,6 +119,9 @@
     min(calc(var(--cascade-index, 0) * 40ms), 480ms) backwards;
   --animate-tag-land: tag-land 320ms var(--ease-settle) 600ms backwards;
   --animate-copy-rise: copy-rise 320ms var(--ease-settle) 120ms backwards;
+  /* Banner QR chooser: the doors rise onto the page 70 ms apart, after the question. */
+  --animate-door-rise: copy-rise 360ms var(--ease-settle) calc(140ms + var(--door-index, 0) * 70ms)
+    backwards;
 
   /* Demo. A new search settles the rows in place and an opened profile cross-fades in; nothing
      travels. Callers drop both under reduced motion, keeping colour and state changes only. */
